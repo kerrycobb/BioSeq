@@ -48,6 +48,16 @@ proc fastaParsing()=
       let test = ">\nACTE"
       expect(NucleotideError):
         let r: Alignment = parseFastaAlignmentString(test)
+    
+    #TODO Not allowed at the moment mut imho should be 
+    #[test "parse different length sequences":
+      let test = ">stuff\nACTG\n>\nACTGA"
+      let r: Alignment = parseFastaAlignmentString(test)
+      let first = r.seqs[0]
+      check first.id == "stuff"
+      check first.data == []
+    ]#
+
 
     test "parse emty stream":
       let test = ""
