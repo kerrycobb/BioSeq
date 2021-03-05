@@ -36,6 +36,11 @@ proc parseFastaAlignmentStream*(stream:Stream): Alignment =
   else:
     raise newException(FastaError, "Stream does not contain valid fasta data")
 
+proc parseFastaAlignmentString*(string: string): Alignment =
+  var ss = newStringStream(string)
+  result = parseFastaAlignmentStream(ss)
+  ss.close()
+
 proc parseFastaAlignmentFile*(path:string): Alignment =
   ## Parse fasta file
 # TODO catch stream parser exceptions and override with file exceptions
