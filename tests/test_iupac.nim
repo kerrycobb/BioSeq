@@ -23,6 +23,7 @@ proc testIupac()=
       check r == 0b0001_1000
       check r == 24
 
+      # Double codes
       r = 'R'.toNucleotide
       check r == ( 'A'.toNucleotide xor 'G'.toNucleotide )
 
@@ -40,6 +41,25 @@ proc testIupac()=
       
       r = 'Y'.toNucleotide
       check r == ( 'C'.toNucleotide xor 'T'.toNucleotide )
+      
+      let isNotKnown: uint8 = 0b1111_0000
+      # Triple codes
+      r = 'V'.toNucleotide
+      check r == ( ('A'.toNucleotide xor 'G'.toNucleotide xor 'C'.toNucleotide) and isNotKnown)
+
+      r = 'H'.toNucleotide
+      check r == (( 'A'.toNucleotide xor 'C'.toNucleotide xor 'T'.toNucleotide) and isNotKnown)
+
+      r = 'D'.toNucleotide
+      check r == (( 'A'.toNucleotide xor 'G'.toNucleotide xor 'T'.toNucleotide ) and isNotKnown)
+
+      r = 'B'.toNucleotide
+      check r == (( 'G'.toNucleotide xor 'C'.toNucleotide xor 'T'.toNucleotide) and isNotKnown)
+      
+      # Quadruple nucletodes
+      r = 'N'.toNucleotide
+      check r == ( 'A'.toNucleotide xor 'G'.toNucleotide xor 'C'.toNucleotide xor 'T'.toNucleotide)
+
 
 
 testIupac()
