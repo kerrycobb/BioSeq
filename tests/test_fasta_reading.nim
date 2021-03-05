@@ -4,16 +4,23 @@ import std/sequtils
 
 proc fastaParsing()=
   suite "Fasta parsing":
-    test "Parse single line fasta wit header":
+    test "Parse single line fasta with empty header":
       let test = ">\nACTG"
+      
       let r: Alignment = parseFastaAlignmentString(test)
+      check r.seqs.len == 1
+      
       let first = r.seqs[0]
+      check r.seqs.len == 1
       check first.id == ""
       check first.data == "ACTG".map(toNucleotide)
 
-    test "Parse single line fasta wit header":
+    test "Parse two line fasta with empty header":
       let test = ">\nACTG\n>\nGTCA"
+      
       let r: Alignment = parseFastaAlignmentString(test)
+      check r.seqs.len == 2
+      
       let first = r.seqs[0]
       check first.id == ""
       check first.data == "ACTG".map(toNucleotide)
@@ -22,8 +29,19 @@ proc fastaParsing()=
       check second.id == ""
       check second.data == "GTCA".map(toNucleotide)
 
+    test "Parse single line fasta with non-empty header":
+      let test = ">stuff\nACTG"
+      
+      let r: Alignment = parseFastaAlignmentString(test)
+      let first = r.seqs[0]
+      check first.id == "stuff"
+      check first.data == "ACTG".map(toNucleotide)
 
-
-
+    test "Parse single line fasta with empty sequence":
+      let test = ">stuff\n"
+      let r: Alignment = parseFastaAlignmentString(test)
+      let first = r.seqs[0]
+      check first.id == "stuff"
+      check first.data == []
 
 fastaParsing()
