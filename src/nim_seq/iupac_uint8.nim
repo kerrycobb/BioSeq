@@ -44,6 +44,9 @@ type
 # TODO: Make slice operators for alignment and sequence objects
 proc `and`*(a: Nucleotide, b: uint8): uint8 {.borrow.} 
 proc `and`*(a, b: Nucleotide): uint8 {.borrow.} 
+proc `or`*(a, b: Nucleotide): uint8 {.borrow.} 
+proc `or`*(a: Nucleotide, b: uint8): uint8 {.borrow.} 
+proc `xor`*(a, b: Nucleotide): uint8 {.borrow.} 
 proc `==`*(a: Nucleotide, b: uint8): bool {.borrow.} 
 proc `==`*(a, b: Nucleotide): bool {.borrow.}
 proc `$`*(n: Nucleotide): string {.borrow.} 
