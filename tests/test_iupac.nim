@@ -60,7 +60,13 @@ proc testIupac()=
       r = 'N'.toNucleotide
       check r == ( 'A'.toNucleotide xor 'G'.toNucleotide xor 'C'.toNucleotide xor 'T'.toNucleotide)
 
+      #Gap
+      r = '-'.toNucleotide
+      check r == 0b0000_0100
 
+      #Unknown
+      r = '?'.toNucleotide
+      check r == 0b0000_0010
 
 testIupac()
 
