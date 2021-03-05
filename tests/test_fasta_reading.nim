@@ -44,4 +44,22 @@ proc fastaParsing()=
       check first.id == "stuff"
       check first.data == []
 
+    test "parse invalid chars":
+      let test = ">\nACTE"
+      expect(NucleotideError):
+        let r: Alignment = parseFastaAlignmentString(test)
+
+    test "parse emty stream":
+      let test = ""
+      expect(FastaError):
+        let r: Alignment = parseFastaAlignmentString(test)
+
+    test "nil stream":
+      expect(FastaError):
+        let r: Alignment = parseFastaAlignmentStream(nil)
+
+proc fastaWriting()=
+  discard
+
 fastaParsing()
+fastaWriting()
