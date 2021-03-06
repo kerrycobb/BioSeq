@@ -1,4 +1,4 @@
-import nim_seq
+import bio_seq
 import std/unittest
 import std/sequtils
 
