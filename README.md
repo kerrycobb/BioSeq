@@ -1,4 +1,4 @@
-# Nim-Seq
+# bio\_seq
 A library for encoding nucletodes into IUPAC ambiguity codes and writing and reading FASTA files.
 
 8 bit unsigned integer representation of nucleotides based on http://ape-package.ird.fr/misc/BitLevelCodingScheme.html
@@ -9,7 +9,7 @@ For parsing alignments it is required that all FASTA entries have the same lengt
 
 ### Parse an alignment string 
 ```Nim
-import nim_seq
+import bio_seq
 let s = ">header1\nACTG\n>header2\n>CTUG"
 let r = parseFastaAlignmentString(s)
 ```

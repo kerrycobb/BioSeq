@@ -1,4 +1,5 @@
 version     = "0.0.1"
+name        = "bio_seq"
 author      = "Kerry A. Cobb"
 description = "A Nim library for biological sequence data."
 license     = "MIT"
