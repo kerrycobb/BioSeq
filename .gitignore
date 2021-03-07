@@ -9,3 +9,7 @@
 
 # Ignore
 nimcache/
+
+tests/test_fasta_reading
+
+tests/test_iupac

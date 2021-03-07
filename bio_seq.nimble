@@ -1,4 +1,4 @@
-version     = "0.0.2"
+version     = "0.0.3"
 author      = "Kerry A. Cobb"
 description = "A Nim library for biological sequence data."
 license     = "MIT"
