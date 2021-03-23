@@ -16,7 +16,7 @@ let r = parseFastaAlignmentString(s)
 
 ### Parse an alignment file
 ```Nim
-import nim_seq
+import bio_seq
 let f = parseFastaAlignmentFile("file.fasta")
 ```
 Writing FASTA files is not supported for the moment, but will be added in the next few weeks
@@ -25,7 +25,7 @@ Writing FASTA files is not supported for the moment, but will be added in the ne
 
 ### Convert a character to a nucleotide
 ```Nim
-import nim_seq
+import bio_seq
 let nuc = 'A'.toNucleotide
 
 ```
@@ -34,7 +34,7 @@ It is also possible to create a nucleotide with the type contrstuctor, but this 
 
 ### Convert a nucleotide to a character
 ```Nim
-import nim_seq
+import bio_seq
 let nuc = 'A'.toNucleotide
 let c = nuc.toChar
 ```
