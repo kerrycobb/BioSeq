@@ -64,7 +64,6 @@ proc `==`*(a: Nucleotide, b: uint8): bool {.borrow.}
 proc `==`*(b: uint8, a: Nucleotide): bool {.borrow.} 
 proc `==`*(a, b: Nucleotide): bool {.borrow.}
 
-proc `$`*(n: Nucleotide): string {.borrow.} 
 
 proc len*(s: Sequence): int = s.data.len 
 
@@ -226,6 +225,8 @@ proc `$`*(a: Alignment): string =
   for i in a.seqs:
     result.add($i & "\n")
 
+proc `$`*(a: Nucleotide): string =
+  result = $a.toChar
 proc knownBase*(n: Nucleotide): bool = (n and 8) == 8 
   ## Returns true if base is not ambiguous
 
