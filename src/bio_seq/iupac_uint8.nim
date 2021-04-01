@@ -37,9 +37,15 @@ type
     ntax*: int
     nchar*: int
     seqs*: seq[Sequence]
+  
+  Fasta* = ref object
+    ntax*: int
+    nchar*: int
+    seqs*: seq[Sequence]
 
   NucleotideError* = object of CatchableError
   AlignmentError* = object of CatchableError
+  FastaError* = object of CatchableError
 
 # TODO: Make slice operators for alignment and sequence objects
 proc `and`*(a, b: Nucleotide): uint8 {.borrow.} 

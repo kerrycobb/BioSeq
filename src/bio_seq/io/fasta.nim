@@ -1,9 +1,8 @@
 import ../iupac_uint8
 import streams
 import strutils
+import sequtils
 
-type
-  FastaError* = object of CatchableError
 
 # TODO: Implement functions for reading and writing a list of sequences as well
 
@@ -48,33 +47,36 @@ proc parseFastaAlignmentFile*(path:string): Alignment =
   result = parseFastaAlignmentStream(fs)
   fs.close()
 
-# proc write_fasta_string*(alignment:Alignment, multiline=true): string =
-#   ## Write fasta string
-#   var
-#     nseq = alignment.sequences.len
-#     column_cnt = 0
-#     seq_cnt = 1
-#   for sequence in alignment.sequences:
-#     result.add('>')
-#     result.add(sequence.id)
-#     result.add('\n')
-#     if multiline:
-#       for i in sequence.data:
-#         if column_cnt < 80:
-#           result.add(i)
-#           column_cnt += 1
-#         else:
-#           result.add('\n')
-#           result.add(i)
-#           column_cnt = 1
-#       column_cnt = 0
-#     else:
-#       result.add(sequence.data)
-#     if seq_cnt < nseq:
-#       result.add('\n')
-#       seq_cnt += 1
+proc write_fasta_string*(alignment:Alignment, multiline=true): string =
+  ## Write fasta string
+  var
+    nseq = alignment.seqs.len
+    column_cnt = 0
+    seq_cnt = 1
+  for sequence in alignment.seqs:
+    result.add('>')
+    result.add(sequence.id)
+    result.add('\n')
+    if multiline:
+      for i in sequence.data:
+        if column_cnt < 80:
+          result.add($i)
+          column_cnt += 1
+        else:
+          result.add('\n')
+          result.add($i)
+          column_cnt = 1
+      column_cnt = 0
+    else:
+      for n in sequence.data:
+        result.add(n.toChar())
+    if seq_cnt < nseq:
+      result.add('\n')
+      seq_cnt += 1
 
-# proc write_fasta_file*(alignment:Alignment, filename:string, multiline=true) =
-#   ## Write fasta file
-#   var str = alignment.write_fasta_string(multiline)
-#   writeFile(filename, str)
+proc write_fasta_file*(alignment:Alignment, filename:string, multiline=true) =
+  ## Write fasta file
+  var str = alignment.write_fasta_string(multiline)
+  writeFile(filename, str)
+
+
