@@ -60,11 +60,11 @@ proc write_fasta_string*(alignment:Alignment, multiline=true): string =
     if multiline:
       for i in sequence.data:
         if column_cnt < 80:
-          result.add($i)
+          result.add(i.toChar)
           column_cnt += 1
         else:
           result.add('\n')
-          result.add($i)
+          result.add(i.toChar)
           column_cnt = 1
       column_cnt = 0
     else:

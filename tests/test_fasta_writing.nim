@@ -2,14 +2,16 @@ import std/unittest
 import bio_seq
 proc fastaWriting()=
   suite "Fasta writing":
-    test "":
+    test "non-multiline, <80 charactes":
       let test = ">1\nACTG\n>2\nAAAA"
       let r: Alignment = parseFastaAlignmentString(test)
       let s: string = write_fasta_string(r, false)
-      for t in r.seqs:
-        echo t
+      check test == s
 
-      echo s
-
+    test "multiline, <80 charactes":
+      let test = ">1\nACTG\n>2\nAAAA"
+      let r: Alignment = parseFastaAlignmentString(test)
+      let s: string = write_fasta_string(r, true)
+      check test == s
 
 fastaWriting()
