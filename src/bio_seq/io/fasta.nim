@@ -112,3 +112,11 @@ proc parseFastaString*(string: string): Fasta =
   var ss = newStringStream(string)
   result = parseFastaStream(ss)
   ss.close()
+
+
+proc parseFastaFile*(path:string): Fasta =
+  ## Parse fasta file
+  # TODO catch stream parser exceptions and override with file exceptions
+  var fs = newFileStream(path, fmRead)
+  result = parseFastaStream(fs)
+  fs.close()
