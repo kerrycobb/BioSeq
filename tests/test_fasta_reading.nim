@@ -3,7 +3,7 @@ import std/unittest
 import std/sequtils
 
 proc fastaParsing()=
-  suite "Fasta parsing":
+  suite "Fasta alignment parsing":
     test "Parse single line fasta with empty header":
       let test = ">\nACTG"
       
@@ -48,16 +48,6 @@ proc fastaParsing()=
       let test = ">\nACTE"
       expect(NucleotideError):
         let r: Alignment = parseFastaAlignmentString(test)
-    
-    #TODO Not allowed at the moment mut imho should be 
-    #[test "parse different length sequences":
-      let test = ">stuff\nACTG\n>\nACTGA"
-      let r: Alignment = parseFastaAlignmentString(test)
-      let first = r.seqs[0]
-      check first.id == "stuff"
-      check first.data == []
-    ]#
-
 
     test "parse emty stream":
       let test = ""
@@ -68,8 +58,20 @@ proc fastaParsing()=
       expect(FastaError):
         let r: Alignment = parseFastaAlignmentStream(nil)
 
-proc fastaWriting()=
-  discard
+    #[test "parse different length sequences":
+      let test = ">stuff\nACTG\n>\nACTGA"
+      let r: Fasta = parseFastaString(test)
+      let first = r.seqs[0]
+      check first.id == "stuff"
+      check first.data == "ACTG".map(toNucleotide)
+    ]#
+  suite "Fasta parsing":
+    test "parse different length sequences":
+      let test = ">stuff\nACTG\n>\nACTGA"
+      let r: Fasta = parseFastaString(test)
+      let first = r.seqs[0]
+      check first.id == "stuff"
+      check first.data == "ACTG".map(toNucleotide)
+
 
 fastaParsing()
-fastaWriting()
