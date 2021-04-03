@@ -218,19 +218,33 @@ proc complement*(n: Nucleotide): Nucleotide =
     raise newException(NucleotideError, "Invalid nucleotide: " & $cast[uint8](n)) 
   result = Nucleotide(i)
 
+proc `$`*(a: Nucleotide): string =
+  result = $a.toChar
+
 proc `$`*(s: Sequence): string = 
   var seqStr = ""
   for i in s.data:
     seqStr.add(i.toChar())
   result = "id: " & s.id & ", data: " & seqStr
 
+
 proc `$`*(a: Alignment): string =
   result = "ntax: " & $a.ntax & ", nchar: " & $a.nchar & "\n"
   for i in a.seqs:
     result.add($i & "\n")
 
-proc `$`*(a: Nucleotide): string =
-  result = $a.toChar
+proc `$`*(a: Fasta): string =
+  result = "ntax: " & $a.ntax & ", nchar: " & $a.nchar & "\n"
+  for i in a.seqs:
+    result.add($i & "\n")
+
+proc sequence*(a: Sequence): string =
+  for i in a.data:
+    result.add(i.toChar)
+
+proc sequences*(a: Fasta): string =
+  for i in a.seqs:
+    result.add(i.sequence)
 
 proc knownBase*(n: Nucleotide): bool = (n and 8) == 8 
   ## Returns true if base is not ambiguous
