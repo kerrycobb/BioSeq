@@ -19,7 +19,36 @@ let r = parseFastaAlignmentString(s)
 import bio_seq
 let f = parseFastaAlignmentFile("file.fasta")
 ```
-Writing FASTA files is not supported for the moment, but will be added in the next few weeks
+
+
+### Write an alignment string 
+```Nim
+import bio_seq
+let s = ">header1\nACTG\n>header2\n>CTUG"
+let r = writeFastaAlignmentString(s)
+```
+
+### Write an alignment file
+```Nim
+import bio_seq
+let f = writeFastaAlignmentStringToFile("file.fasta")
+```
+
+## FASTA parsing
+
+### Parse an FASTA string 
+```Nim
+import bio_seq
+let s = ">header1\nACTG\n>header2\n>CTUTG"
+let r = parseFastaString(s)
+```
+
+### Parse an FASTA file
+```Nim
+import bio_seq
+let f = parseFastaFile("file.fasta")
+```
+
 
 ## Nucleotide conversion
 

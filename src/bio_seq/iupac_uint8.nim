@@ -34,12 +34,22 @@ type
     data*: seq[Nucleotide]
 
   Alignment* = ref object
+    ## Object which represents a fasta file which the added constraint that all nucleotide lines must be of the same length
     ntax*: int
+    ## Number of sequences
+    nchar*: int
+    seqs*: seq[Sequence]
+  
+  Fasta* = ref object
+    ## Object which represents a fasta file without any constrains
+    ntax*: int
+    ## Number of sequences
     nchar*: int
     seqs*: seq[Sequence]
 
   NucleotideError* = object of CatchableError
   AlignmentError* = object of CatchableError
+  FastaError* = object of CatchableError
 
 # TODO: Make slice operators for alignment and sequence objects
 proc `and`*(a, b: Nucleotide): uint8 {.borrow.} 
@@ -58,7 +68,6 @@ proc `==`*(a: Nucleotide, b: uint8): bool {.borrow.}
 proc `==`*(b: uint8, a: Nucleotide): bool {.borrow.} 
 proc `==`*(a, b: Nucleotide): bool {.borrow.}
 
-proc `$`*(n: Nucleotide): string {.borrow.} 
 
 proc len*(s: Sequence): int = s.data.len 
 
@@ -220,6 +229,9 @@ proc `$`*(a: Alignment): string =
   for i in a.seqs:
     result.add($i & "\n")
 
+proc `$`*(a: Nucleotide): string =
+  result = $a.toChar
+
 proc knownBase*(n: Nucleotide): bool = (n and 8) == 8 
   ## Returns true if base is not ambiguous
 
@@ -269,6 +281,15 @@ proc add*(alignment: var Alignment, sequences: seq[Sequence]) =
   ## Convenience proc
   for sequence in sequences:
     alignment.add(sequence)
+
+proc add*(fasta: var Fasta, sequence: Sequence) =
+  ## Add sequence object to fasta object
+  if fasta.isNil:
+    fasta = Fasta()
+  if fasta.ntax == 0:
+    fasta.nchar = sequence.len
+  fasta.seqs.add(sequence)
+  fasta.ntax += 1
 
 proc countSegregatingSites*(alignment: Alignment): int =
   for i in 0 ..< alignment.nchar: # Iter over sites in alignment 
