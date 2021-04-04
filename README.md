@@ -49,6 +49,14 @@ import bio_seq
 let f = parseFastaFile("file.fasta")
 ```
 
+## FASTQ parsing
+
+### Parse an FASTQ file
+```Nim
+import bio_seq
+let f = parseFastQFile("file.fastq")
+```
+
 
 ## Nucleotide conversion
 
