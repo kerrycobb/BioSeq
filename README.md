@@ -36,14 +36,14 @@ let f = writeFastaAlignmentStringToFile("file.fasta")
 
 ## FASTA parsing
 
-### Parse an FASTA string 
+### Parse a FASTA string 
 ```Nim
 import bio_seq
 let s = ">header1\nACTG\n>header2\n>CTUTG"
 let r = parseFastaString(s)
 ```
 
-### Parse an FASTA file
+### Parse a FASTA file
 ```Nim
 import bio_seq
 let f = parseFastaFile("file.fasta")
@@ -51,7 +51,7 @@ let f = parseFastaFile("file.fasta")
 
 ## FASTQ parsing
 
-### Parse an FASTQ file
+### Parse a FASTQ file
 ```Nim
 import bio_seq
 let f = parseFastQFile("file.fastq")
