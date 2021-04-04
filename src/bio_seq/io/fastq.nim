@@ -37,6 +37,12 @@ type
 
   FastQError* = object of CatchableError
 
+template tryExpr(onFail: string, expr: untyped, ) = 
+  {.line: instantiationInfo().}:
+    try: expr
+    except IOError:
+      raise newException(FastQError, onFail)
+
 proc `$`*(s: Record): string = 
   let h =  s.header
   var n: string = map(s.nucs, toChar).map((c: char) => $c).join
@@ -82,14 +88,22 @@ proc parseFastQFile(filepath: string): FastQ =
   var l:string
   while not gzfs.atEnd():
     # add error checks to every readline, look into monads again
-    l = gzfs.readLine()
+    tryExpr("Header expected"):
+      l = gzfs.readLine()
     let h = parseHeader(l)
-    l = gzfs.readLine()
+
+    tryExpr("Nucleotides expected"):
+      l = gzfs.readLine()
     let n = parseNucleotides(l)
-    l = gzfs.readLine()
+    
+    tryExpr("Second header expected"):
+      l = gzfs.readLine()
     let sc = parseSecHeader(l)
-    l = gzfs.readLine()
+    
+    tryExpr("Quality string expected"):
+      l = gzfs.readLine()
     let q = parseQuality(l)
+    
     if q.len != n.len:
       raise newException(FastQError, "Nucleotide sequence and quality line have different length")
     else:
