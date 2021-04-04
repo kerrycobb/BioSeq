@@ -1,6 +1,6 @@
-version     = "0.0.3"
+version     = "0.0.5"
 author      = "Kerry A. Cobb"
 description = "A Nim library for biological sequence data."
 license     = "MIT"
 srcDir      = "src"
-requires "nim >= 1.2.0"
+requires "nim >= 1.2.0", "zip"
