@@ -10,6 +10,12 @@ import sugar
 ## https://www.ncbi.nlm.nih.gov/sra/docs/submitformats/#fastq-files 
 ## For phred scores look at 
 ## http://drive5.com/usearch/manual/quality_score.html
+##
+## !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHI
+## |    |    |    |    |    |    |    |    | 
+## 0....5...10...15...20...25...30...35...40
+## |    |    |    |    |    |    |    |    |
+## worst................................best
 
 # TODO
 # Add line and colum information for errors
