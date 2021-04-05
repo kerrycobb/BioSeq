@@ -1,7 +1,5 @@
 # TODO: Figure out how to distinguish between DNA and RNA
 
-import sequtils 
-import strutils
 import algorithm
 
 # IUPAC 8 bit
@@ -24,7 +22,7 @@ import algorithm
 ##  B       01110000  112    Not A              V           
 ##  N       11110000  240    Any base           N           
 ##  -       00000100  4      Alignment gap      -           
-##  ?	      00000010  2      Unknown character  ?           
+##  ?	    00000010  2      Unknown character  ?           
 
 type
   Nucleotide* = distinct uint8

@@ -1,7 +1,5 @@
 import bio_seq
 import std/unittest
-import std/sequtils
-import bitops
 
 
 proc testIupac()=
@@ -140,5 +138,75 @@ proc testIupac()=
       c = n.toChar
       check c == '?'
 
+      #----------------------------------------------
+      # IUPAC Complement tests
+      #----------------------------------------------
+    test "Complement":
+      var comp: Nucleotide
+      var n: Nucleotide
+      n = 'A'.toNucleotide
+      comp = n.complement
+      check comp == 'T'.toNucleotide
+
+      n = 'T'.toNucleotide
+      comp = n.complement
+      check comp == 'A'.toNucleotide
+
+
+      n = 'G'.toNucleotide
+      comp = n.complement
+      check comp == 'C'.toNucleotide
+
+      n = 'C'.toNucleotide
+      comp = n.complement
+      check comp == 'G'.toNucleotide
+
+      n = 'R'.toNucleotide # R = A G
+      comp = n.complement  # Y = T C
+      check comp == 'Y'.toNucleotide
+
+      n = 'M'.toNucleotide # M = A C
+      comp = n.complement  # K = T G
+      check comp == 'K'.toNucleotide
+
+      n = 'W'.toNucleotide # W = A T
+      comp = n.complement  # W = T A
+      check comp == 'W'.toNucleotide
+      
+      n = 'S'.toNucleotide # S = G C
+      comp = n.complement  # S = C G
+      check comp == 'S'.toNucleotide
+      
+      n = 'K'.toNucleotide # K = G T
+      comp = n.complement  # M = C A
+      check comp == 'M'.toNucleotide
+
+      n = 'Y'.toNucleotide # Y = C T
+      comp = n.complement  # R = G A
+      check comp == 'R'.toNucleotide
+
+      n = 'V'.toNucleotide # V = A G C = Not T
+      comp = n.complement  # B = T C G = Not A
+      check comp == 'B'.toNucleotide
+
+      n = 'H'.toNucleotide # H = A C T = Not G
+      comp = n.complement  # D = T G A = Not C
+      check comp == 'D'.toNucleotide
+
+      n = 'D'.toNucleotide # D = A G T = Not C
+      comp = n.complement  # H = T C A = Not G
+      check comp == 'H'.toNucleotide
+
+      n = 'B'.toNucleotide # B = T G C = Not A
+      comp = n.complement  # V = A C G = Not T
+      check comp == 'V'.toNucleotide
+
+      n = '-'.toNucleotide  
+      comp = n.complement   
+      check comp == '-'.toNucleotide
+
+      n = '?'.toNucleotide  
+      comp = n.complement   
+      check comp == '?'.toNucleotide
 testIupac()
 
