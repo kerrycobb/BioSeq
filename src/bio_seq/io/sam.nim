@@ -1,5 +1,5 @@
-import strutils
-import options
+import std/strutils
+import std/options
 
 # Tag description are copied from https://samtools.github.io/hts-specs/SAMv1.pdf
 # at 7 Jan 2021
@@ -11,31 +11,30 @@ Alternate locus:  https://www.ncbi.nlm.nih.gov/grc/help/definitions/
 A sequence that provides an alternate representation of a locus found in a largely haploid assembly. These sequences don't represent a complete chromosome sequence although there is no hard limit on the size of the alternate locus; currently these are less than 1 Mb. Previously these sequences have been referred to as "partial chromosomes", "alternate alleles", and "alternate haplotypes". However, these terms are confusing because they contain terms that have biological implications. Diploid assemblies (which by definition are from a single individual) should not have alternate loci representations. Multiple scaffolds from different loci that are considered to be part of the same haplotype should be grouped into alternate locus groups (e.g. mouse 129/Sv group). Note: an alternate locus group was previously considered an alternate partial assembly.]#
 
 type
-  TagKind = enum  # the different node types
+  TagKind* = enum  # the different node types
     HD,          
     SQ,
     RG,
     PQ,
     CO
-  SOKind = enum
+  SOKind* = enum
     unknown,
     unsorted
     queryname
     coordinate
   
-  GOKind = enum
+  GOKind* = enum
     none,
     query,
     reference
 
-
-  Tag = ref object
-    case kind: TagKind
+  Tag* = ref object
+    case kind*: TagKind
       of HD: 
-        VN: string 
-        SO: Option[SOKind]
-        GO: Option[GOKind]
-        SS: Option[string] #TODO
+        VN*: string 
+        SO*: Option[SOKind]
+        GO*: Option[GOKind]
+        SS*: Option[string] #TODO
       # Reference sequence dictionary. The order of @SQ lines defines the alignment sorting order.
       of SQ: 
         #[ Reference sequence name. The SN tags and all individual AN names in all @SQ lines must be distinct. 
@@ -59,20 +58,19 @@ type
       of PQ: discard
       of CO: discard
 
-    
-
-
-  SAMHeader = object
-    discard
+  SAMHeader* = ref object
+    headers*: seq[Tag]
   
-  SAM = object
-    header: SAMHeader
+  SAM* = ref object
+    header*: SAMHeader
 
   SAMError* = object of CatchableError
 
-proc parseHD(tags: var seq[string])=
+proc parseHD(tags: var seq[string]): Tag =
   #TODO Figure /^[0-9]+\.[0-9]+$/ out
   echo tags
+  var t: Tag
+  new(t)
   while tags.len != 0:
     # get the tag and the argument we want to parse
     let tag_arg = tags[0]
@@ -80,38 +78,61 @@ proc parseHD(tags: var seq[string])=
     let tar_arg_split = tag_arg.split(":")
     let tag = tar_arg_split[0]
     let arg = tar_arg_split[1]
+    case tag:
+      of "VN":
+        #TODO Check for incorrect format
+        t.VN = arg 
+      of "SO":
+        case arg:
+          of "unknown":
+            t.SO = some(SOKind.unknown)
+          of "unsorted":
+            t.SO = some(SOKind.unsorted)
+          of "queryname":
+            t.SO = some(SOKind.queryname)
+          of "coordinate":
+            t.SO = some(SOKind.coordinate)
+          else:
+            discard #TODO ERROR
+      of "GO":
+        discard
+      of "SS":
+        discard
+      else:
+        discard #TODO ERROR
+
 
     # Get next tag
     tags = tags[1 .. ^1]
-    
+  t
 
 
-proc parseHeader*(header: string): string =
-  if header == "":
+proc parseHeader*(sam: var SAM, line: string)= 
+  new(sam.header)
+  if line == "":
+    return
     # Because the headerline is optional
-    return "" 
-  if header[0] != '@':
+  if line[0] != '@':
     raise newException(SAMError, "Header must start with an @")
 #TODO Find out if there is a specified order of the header tags
   var split_line: seq[string]
-  case header[1 .. 2]:
+  case line[1 .. 2]:
     of "HD":
-      split_line = header.split('\t')
+      split_line = line.split('\t')
       # exlude @HD in call
       split_line = split_line[1 .. ^1]
-      parseHD(split_line )
+      let ret = parseHD(split_line )
+      sam.header.headers.add(ret)
     of "SQ":
-      split_line = header.split('\t')
+      split_line = line.split('\t')
     of "RG":
-      split_line = header.split('\t')
+      split_line = line.split('\t')
     of "PQ":
-      split_line = header.split('\t')
+      split_line = line.split('\t')
     of "CO":
-      split_line = header.split('\t')
+      split_line = line.split('\t')
     else:
       #TODO Error
       discard
 
-
-  header[1 .. ^1]
 
