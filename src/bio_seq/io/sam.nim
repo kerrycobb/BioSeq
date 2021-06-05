@@ -62,7 +62,21 @@ type
         SP: Option[string]
         TP: Option[TPKind]
         UR: Option[string]
-      of RG: strVal: string
+      of RG: 
+        ID: string
+        BC: Option[string]
+        CN: Option[string]
+        DS2 : Option[string]
+        DT: Option[string]
+        FO: Option[string]
+        KS: Option[string]
+        LB: Option[string]
+        PG: Option[string]
+        PI: Option[string]
+        PL: Option[string]
+        PM: Option[string]
+        PU: Option[string]
+        SM: Option[string]
       of PQ: discard
       of CO: discard
 
@@ -176,7 +190,6 @@ proc parseSQ(tags: var seq[string]): Tag =
           of "linear":
             t.TP = some(TPKind.linear)
           else:
-            #TODO Error
             discard 
       of "UR":
         t.UR = some(arg)
@@ -189,6 +202,62 @@ proc parseSQ(tags: var seq[string]): Tag =
       # ERROR
       discard
 
+  t
+
+proc parseRG(tags: var seq[string]): Tag =
+  #TODO case statment to array[string, proc] ?
+  var t: Tag
+  new(t)
+  while tags.len != 0:
+    # get the tag and the argument we want to parse
+    let tag_arg = tags[0]
+    # TODO clearer
+    # Split tag_arg comibination at ":" to get the tag and the value
+    let tar_arg_split = tag_arg.split(":")
+    let tag = tar_arg_split[0]
+    let arg = tar_arg_split[1]
+    # Check which tag we got
+    case tag:
+      of "ID":
+        #TODO Check for distinctness
+        #TODO Check formate [:rname:∧*=][:rname:]*
+        t.ID = arg
+      of "BC":
+        t.BC = some(arg)
+      of "CN":
+        t.CN = some(arg)
+      of "DS":
+        t.DS = some(arg)
+      of "DT":
+        t.DT = some(arg)
+      of "FO":
+        t.FO = some(arg)
+      of "KS":
+        t.KS = some(arg)
+      of "LB":
+        t.LB = some(arg)
+      of "PG":
+        t.PG = some(arg)
+      of "PI":
+        t.PI = some(arg)
+      of "PL":
+        t.PL = some(arg)
+      of "PM":
+        t.PM = some(arg)
+      of "PU":
+        t.PU = some(arg)
+      of "SM":
+        t.SM = some(arg)
+      else:
+        #TODO Error
+        discard
+    tags = tags[1 .. ^1]
+    #TODO Check requiered fields
+    if t.SN == "":
+      discard
+    if t.LN == 0:
+      # ERROR
+      discard
   t
 
 proc parseHeader*(sam: var SAM, line: string)= 
