@@ -1,5 +1,6 @@
 import std/strutils
 import std/options
+import std/strutils
 
 # Tag description are copied from https://samtools.github.io/hts-specs/SAMv1.pdf
 # at 7 Jan 2021
@@ -17,10 +18,11 @@ type
     RG,
     PQ,
     CO
+  
   SOKind* = enum
     unknown,
-    unsorted
-    queryname
+    unsorted,
+    queryname,
     coordinate
   
   GOKind* = enum
@@ -28,9 +30,15 @@ type
     query,
     reference
 
+  TPKind* = enum
+    circular,
+    linear
+  
   Tag* = ref object
     case kind*: TagKind
       of HD: 
+        #TODO Is using Options usefull here, in the end
+        #all values do get their default value anyway
         VN*: string 
         SO*: Option[SOKind]
         GO*: Option[GOKind]
@@ -52,7 +60,7 @@ type
         DS: Option[string]
         M5: Option[string]
         SP: Option[string]
-        TP: Option[string]
+        TP: Option[TPKind]
         UR: Option[string]
       of RG: strVal: string
       of PQ: discard
@@ -68,18 +76,22 @@ type
 
 proc parseHD(tags: var seq[string]): Tag =
   #TODO Figure /^[0-9]+\.[0-9]+$/ out
-  echo tags
+  #TODO case statment to array[string, proc] ?
   var t: Tag
   new(t)
   while tags.len != 0:
     # get the tag and the argument we want to parse
     let tag_arg = tags[0]
     # TODO clearer
+    # Split tag_arg comibination at ":" to get the tag and the value
     let tar_arg_split = tag_arg.split(":")
     let tag = tar_arg_split[0]
     let arg = tar_arg_split[1]
+    # Check which tag we got
     case tag:
       of "VN":
+        #TODO BUG this is REQUIERED, all my test pass even though I dont 
+        #specift VN, thats a BUG
         #TODO Check for incorrect format
         t.VN = arg 
       of "SO":
@@ -95,17 +107,89 @@ proc parseHD(tags: var seq[string]): Tag =
           else:
             discard #TODO ERROR
       of "GO":
-        discard
+        case arg:
+          of "none":
+            t.GO = some(GOKind.none)
+          of "query":
+            t.GO = some(GOKind.query)
+          of "reference":
+            t.GO = some(GOKind.reference)
+          else:
+            discard #TODO ERROR
       of "SS":
         discard
       else:
         discard #TODO ERROR
-
-
     # Get next tag
     tags = tags[1 .. ^1]
+    
+  #must be specified otherwise its correct
+  if t.VN == "":
+    #TODO Error
+    discard
+  # if those values are not specified by the user, we set 
+  # the specified defaults
+  if not t.SO.isSome:
+    t.SO = some(SOKind.unknown)
+  if not t.GO.isSome:
+    t.GO = some(GOKind.none)
+
   t
 
+proc parseSQ(tags: var seq[string]): Tag =
+  #TODO case statment to array[string, proc] ?
+  var t: Tag
+  new(t)
+  while tags.len != 0:
+    # get the tag and the argument we want to parse
+    let tag_arg = tags[0]
+    # TODO clearer
+    # Split tag_arg comibination at ":" to get the tag and the value
+    let tar_arg_split = tag_arg.split(":")
+    let tag = tar_arg_split[0]
+    let arg = tar_arg_split[1]
+    # Check which tag we got
+    case tag:
+      of "SN":
+        #TODO Check for distinctness
+        #TODO Check formate [:rname:∧*=][:rname:]*
+        t.SN = arg
+      of "LN":
+        t.LN = (int32)parseInt(arg)
+      of "AH":
+        t.AH = some(arg)
+      of "AN":
+        t.AN = some(arg.split(","))
+      of "AS":
+        t.AS = some(arg)
+      of "DS":
+        t.DS = some(arg)
+      of "M5":
+        #TODO Implement
+        t.M5 = some("")
+      of "SP":
+        t.SP = some("")
+      of "TP":
+        case arg:
+          of "circular":
+            t.TP = some(TPKind.circular)
+          of "linear":
+            t.TP = some(TPKind.linear)
+          else:
+            #TODO Error
+            discard 
+      of "UR":
+        t.UR = some(arg)
+    
+    tags = tags[1 .. ^1]
+    #TODO
+    if t.SN == "":
+      discard
+    if t.LN == 0:
+      # ERROR
+      discard
+
+  t
 
 proc parseHeader*(sam: var SAM, line: string)= 
   new(sam.header)
@@ -114,7 +198,7 @@ proc parseHeader*(sam: var SAM, line: string)=
     # Because the headerline is optional
   if line[0] != '@':
     raise newException(SAMError, "Header must start with an @")
-#TODO Find out if there is a specified order of the header tags
+  #TODO Find out if there is a specified order of the header tags
   var split_line: seq[string]
   case line[1 .. 2]:
     of "HD":
@@ -125,6 +209,8 @@ proc parseHeader*(sam: var SAM, line: string)=
       sam.header.headers.add(ret)
     of "SQ":
       split_line = line.split('\t')
+      let ret = parseSQ(split_line )
+      sam.header.headers.add(ret)
     of "RG":
       split_line = line.split('\t')
     of "PQ":
