@@ -256,7 +256,9 @@ proc parseRG(tags: var seq[string]): Tag =
   t
 
 proc parseHeader*(sam: var SAM, line: string)= 
-  new(sam.header)
+  # Horrible hack
+  if sam.header == nil:
+    new(sam.header)
   if line == "":
     return
     # Because the headerline is optional
