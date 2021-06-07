@@ -16,7 +16,7 @@ type
     HD,          
     SQ,
     RG,
-    PQ,
+    PG2,
     CO
   
   SOKind* = enum
@@ -63,22 +63,29 @@ type
         TP*: Option[TPKind]
         UR*: Option[string]
       of RG: 
-        ID: string
-        BC: Option[string]
-        CN: Option[string]
-        DS2 : Option[string]
-        DT: Option[string]
-        FO: Option[string]
-        KS: Option[string]
-        LB: Option[string]
-        PG: Option[string]
-        PI: Option[string]
-        PL: Option[string]
-        PM: Option[string]
-        PU: Option[string]
-        SM: Option[string]
-      of PQ: discard
-      of CO: discard
+        ID*:   string
+        BC*:   Option[string]
+        CN*:   Option[string]
+        DS2*:  Option[string]
+        DT*:   Option[string]
+        FO*:   Option[string]
+        KS*:   Option[string]
+        LB*:   Option[string]
+        PG*:   Option[string]
+        PI*:   Option[string]
+        PL*:   Option[string]
+        PM*:   Option[string]
+        PU*:   Option[string]
+        SM*:   Option[string]
+      of PG2: 
+        ID2*:  string
+        PN*:   Option[string]
+        CL*:   Option[string]
+        PP*:   Option[string]
+        DS3*:  Option[string]
+        VN2*:  Option[string]
+      of CO: 
+        cmt*:  string
 
   SAMHeader* = ref object
     headers*: seq[Tag]
@@ -87,6 +94,10 @@ type
     header*: SAMHeader
 
   SAMError* = object of CatchableError
+
+
+proc `$`*(t: Tag): string=
+  result = $t.kind
 
 proc parseHD(tags: var seq[string]): Tag =
   #TODO Figure /^[0-9]+\.[0-9]+$/ out
@@ -150,6 +161,8 @@ proc parseHD(tags: var seq[string]): Tag =
 
   t
 
+
+
 proc parseSQ(tags: var seq[string]): Tag =
   #TODO case statment to array[string, proc] ?
   var t: Tag = Tag(kind: TagKind.SQ)
@@ -200,13 +213,11 @@ proc parseSQ(tags: var seq[string]): Tag =
     if t.LN == 0:
       # ERROR
       discard
-
   t
 
 proc parseRG(tags: var seq[string]): Tag =
   #TODO case statment to array[string, proc] ?
-  var t: Tag
-  new(t)
+  var t: Tag = Tag(kind: TagKind.RG)
   while tags.len != 0:
     # get the tag and the argument we want to parse
     let tag_arg = tags[0]
@@ -255,6 +266,52 @@ proc parseRG(tags: var seq[string]): Tag =
       # ERROR
   t
 
+
+proc parsePG(tags: var seq[string]): Tag =
+  #TODO case statment to array[string, proc] ?
+  var t: Tag = Tag(kind: TagKind.PG2)
+  while tags.len != 0:
+    # get the tag and the argument we want to parse
+    let tag_arg = tags[0]
+    # TODO clearer
+    # Split tag_arg comibination at ":" to get the tag and the value
+    let tar_arg_split = tag_arg.split(":")
+    let tag = tar_arg_split[0]
+    let arg = tar_arg_split[1]
+    # Check which tag we got
+    case tag:
+      of "ID":
+        #TODO Check for distinctness
+        #TODO Check formate [:rname:∧*=][:rname:]*
+        t.SN = arg
+      of "PN":
+        t.PN = some(arg)
+      of "CL":
+        t.CL = some(arg)
+      of "PP":
+        t.PP = some(arg)
+      of "DS":
+        t.DS = some(arg)
+      of "VN":
+        t.VN2 = some(arg)
+      else:
+        discard
+  t
+
+proc parseCO(tags: var seq[string]): Tag =
+  #TODO case statment to array[string, proc] ?
+  var t: Tag = Tag(kind: TagKind.CO)
+  while tags.len != 0:
+    # get the tag and the argument we want to parse
+    let tag_arg = tags[0]
+    # TODO clearer
+    # Split tag_arg comibination at ":" to get the tag and the value
+    let tar_arg_split = tag_arg.split(":")
+    let tag = tar_arg_split[0]
+    let arg = tar_arg_split[1]
+    # Check which tag we got
+  t
+
 proc parseHeader*(sam: var SAM, line: string)= 
   # Horrible hack
   if sam.header == nil:
@@ -281,10 +338,22 @@ proc parseHeader*(sam: var SAM, line: string)=
       sam.header.headers.add(ret)
     of "RG":
       split_line = line.split('\t')
-    of "PQ":
+      # exlude @HD in call
+      split_line = split_line[1 .. ^1]
+      let ret = parseRG(split_line )
+      sam.header.headers.add(ret)
+    of "PG":
       split_line = line.split('\t')
+      # exlude @HD in call
+      split_line = split_line[1 .. ^1]
+      let ret = parsePG(split_line )
+      sam.header.headers.add(ret)
     of "CO":
       split_line = line.split('\t')
+      # exlude @HD in call
+      split_line = split_line[1 .. ^1]
+      let ret = parseCO(split_line )
+      sam.header.headers.add(ret)
     else:
       #TODO Error
       discard
