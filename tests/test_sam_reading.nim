@@ -199,7 +199,7 @@ proc samHeaderParsing()=
 
     test "RG":
       discard
-    test "PQ":
+    test "PG2":
       discard
     test "CO":
       discard
@@ -220,6 +220,23 @@ proc samHeaderParsing()=
       check s.header.headers[1].kind == TagKind.SQ
       check s.header.headers[2].kind == TagKind.SQ
       check s.header.headers[3].kind == TagKind.SQ
+
+    test "HD & SQ & RG & PG":
+      var s: SAM
+      new(s)
+      new(s.header)
+      var file = readLines("tests/files/sam/syntax/header_2.sam", 8)
+      for line in file:
+        s.parseHeader(line)
+
+      check s.header.headers[0].kind == TagKind.HD
+      check s.header.headers[1].kind == TagKind.SQ
+      check s.header.headers[2].kind == TagKind.SQ
+      check s.header.headers[3].kind == TagKind.SQ
+      check s.header.headers[4].kind == TagKind.RG
+      check s.header.headers[5].kind == TagKind.RG
+      check s.header.headers[6].kind == TagKind.PG2
+      check s.header.headers[7].kind == TagKind.PG2
 
 
 samHeaderParsing()
