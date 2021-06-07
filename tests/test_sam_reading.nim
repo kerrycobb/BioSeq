@@ -1,6 +1,6 @@
 import bio_seq
 import std/unittest
-import std/sequtils
+import std/strutils
 import std/options
 
 proc samHeaderParsing()=
@@ -195,6 +195,7 @@ proc samHeaderParsing()=
       check s.header.headers[0].kind == TagKind.SQ
       check s.header.headers[0].UR.isSome
       check s.header.headers[0].UR.get == "arg"
+    
 
     test "RG":
       discard
@@ -204,5 +205,21 @@ proc samHeaderParsing()=
       discard
     test "invalid":
       discard
+
+
+  suite "parse sam header files":
+    test "HD & SQ":
+      var s: SAM
+      new(s)
+      new(s.header)
+      var file = readLines("tests/files/sam/syntax/header_1.sam", 4)
+      for line in file:
+        s.parseHeader(line)
+
+      check s.header.headers[0].kind == TagKind.HD
+      check s.header.headers[1].kind == TagKind.SQ
+      check s.header.headers[2].kind == TagKind.SQ
+      check s.header.headers[3].kind == TagKind.SQ
+
 
 samHeaderParsing()
