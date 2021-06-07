@@ -47,21 +47,21 @@ type
       of SQ: 
         #[ Reference sequence name. The SN tags and all individual AN names in all @SQ lines must be distinct. 
         The value of this field is used in the alignment records in RNAME and RNEXT fields.]#
-        SN: string
+        SN*: string
         # Reference sequence length. Range: [1, 2^31 − 1]
-        LN: int32
+        LN*: int32
         #[ Indicates that this sequence is an alternate locus.8 The value is the locus in the primary assembly
         for which this sequence is an alternative, in the format ‘chr:start-end’, ‘chr ’ (if known), or ‘*’ (if
         unknown), where ‘chr ’ is a sequence in the primary assembly. Must not be present on sequences
         in the primary assembly. ]#
-        AH: Option[string]
-        AN: Option[seq[string]]
-        AS: Option[string]
-        DS: Option[string]
-        M5: Option[string]
-        SP: Option[string]
-        TP: Option[TPKind]
-        UR: Option[string]
+        AH*: Option[string]
+        AN*: Option[seq[string]]
+        AS*: Option[string]
+        DS*: Option[string]
+        M5*: Option[string]
+        SP*: Option[string]
+        TP*: Option[TPKind]
+        UR*: Option[string]
       of RG: 
         ID: string
         BC: Option[string]
@@ -152,8 +152,7 @@ proc parseHD(tags: var seq[string]): Tag =
 
 proc parseSQ(tags: var seq[string]): Tag =
   #TODO case statment to array[string, proc] ?
-  var t: Tag
-  new(t)
+  var t: Tag = Tag(kind: TagKind.SQ)
   while tags.len != 0:
     # get the tag and the argument we want to parse
     let tag_arg = tags[0]
@@ -180,9 +179,9 @@ proc parseSQ(tags: var seq[string]): Tag =
         t.DS = some(arg)
       of "M5":
         #TODO Implement
-        t.M5 = some("")
+        t.M5 = some(arg)
       of "SP":
-        t.SP = some("")
+        t.SP = some(arg)
       of "TP":
         case arg:
           of "circular":
@@ -253,11 +252,7 @@ proc parseRG(tags: var seq[string]): Tag =
         discard
     tags = tags[1 .. ^1]
     #TODO Check requiered fields
-    if t.SN == "":
-      discard
-    if t.LN == 0:
       # ERROR
-      discard
   t
 
 proc parseHeader*(sam: var SAM, line: string)= 
@@ -278,6 +273,8 @@ proc parseHeader*(sam: var SAM, line: string)=
       sam.header.headers.add(ret)
     of "SQ":
       split_line = line.split('\t')
+      # exlude @SQ in call
+      split_line = split_line[1 .. ^1]
       let ret = parseSQ(split_line )
       sam.header.headers.add(ret)
     of "RG":
