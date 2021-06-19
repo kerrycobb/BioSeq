@@ -86,12 +86,29 @@ type
         VN2*:  Option[string]
       of CO: 
         cmt*:  string
+  
+  Alignment* = ref object
+    #TODO How to encode the optional tags
+    QNAME: string
+    FLAG: uint16
+    RNAME: string
+    POS: uint32
+    MAPQ: uint8
+    CIGAR: string
+    RNEXT: string
+    PNEXT: uint32
+    TLEN: int64
+    SEQ: string
+    QUAL: string
+
+
 
   SAMHeader* = ref object
     headers*: seq[Tag]
   
   SAM* = ref object
     header*: SAMHeader
+    alignments*: seq[Alignment]
 
   SAMError* = object of CatchableError
 
@@ -160,7 +177,6 @@ proc parseHD(tags: var seq[string]): Tag =
     t.GO = some(GOKind.none)
 
   t
-
 
 
 proc parseSQ(tags: var seq[string]): Tag =
@@ -358,4 +374,24 @@ proc parseHeader*(sam: var SAM, line: string)=
       #TODO Error
       discard
 
+proc parseAlignment*(sam: var SAM, line: string)=
+  var alignment: Alignment
+  new(alignment)
+  if line == "":
+    return
+  var split_line: seq[string]
+  split_line = line.split('\t')
+  echo split_line
+  alignment.QNAME = split_line[0]
+  alignment.FLAG  = (uint16)split_line[1].parseInt
+  alignment.RNAME = split_line[2]
+  alignment.POS   = (uint32)split_line[3].parseInt
+  alignment.MAPQ  = (uint8)split_line[4].parseInt
+  alignment.CIGAR = split_line[5]
+  alignment.RNEXT = split_line[6]
+  alignment.PNEXT = (uint32)split_line[7].parseInt
+  alignment.TLEN  = split_line[8].parseInt
+  alignment.SEQ   = split_line[9]
+  alignment.QUAL = split_line[10]
 
+  sam.alignments.add(alignment)
