@@ -238,5 +238,15 @@ proc samHeaderParsing()=
       check s.header.headers[6].kind == TagKind.PG2
       check s.header.headers[7].kind == TagKind.PG2
 
+  suite "parse sam alignment files":
+    test "whole example":
+      var s: SAM
+      new(s)
+      new(s.header)
+      var file = readLines("tests/files/sam/syntax/test_alignments_basic.sam", 4)
+      for line in file:
+        s.parseAlignment(line)
+
+
 
 samHeaderParsing()

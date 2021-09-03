@@ -392,6 +392,6 @@ proc parseAlignment*(sam: var SAM, line: string)=
   alignment.PNEXT = (uint32)split_line[7].parseInt
   alignment.TLEN  = split_line[8].parseInt
   alignment.SEQ   = split_line[9]
-  alignment.QUAL = split_line[10]
+  alignment.QUAL  = split_line[10]
 
   sam.alignments.add(alignment)
