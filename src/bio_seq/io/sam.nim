@@ -87,7 +87,7 @@ type
       of CO: 
         cmt*:  string
   
-  Alignment* = ref object
+  SAMAlignment* = ref object
     #TODO How to encode the optional tags
     QNAME: string
     FLAG: uint16
@@ -108,7 +108,7 @@ type
   
   SAM* = ref object
     header*: SAMHeader
-    alignments*: seq[Alignment]
+    alignments*: seq[SAMAlignment]
 
   SAMError* = object of CatchableError
 
@@ -375,7 +375,7 @@ proc parseHeader*(sam: var SAM, line: string)=
       discard
 
 proc parseAlignment*(sam: var SAM, line: string)=
-  var alignment: Alignment
+  var alignment: SAMAlignment
   new(alignment)
   if line == "":
     return
