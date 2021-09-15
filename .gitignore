@@ -12,3 +12,7 @@ nimcache/
 
 
 tests/test_fasta_writing
+tests/test_fasta_reading
+tests/test_iupac
+tests/test_sam_reading
+
