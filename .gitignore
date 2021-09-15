@@ -10,3 +10,5 @@
 # Ignore
 nimcache/
 
+
+tests/test_fasta_writing
