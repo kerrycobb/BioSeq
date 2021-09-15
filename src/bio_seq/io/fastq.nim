@@ -21,7 +21,7 @@ import sugar
 # Add line and colum information for errors
 
 type 
-  Record = ref object
+  Record* = ref object
     header: string
     ## Header line of fastq file, should start with @ and followed by a unique readname(uniqueness, is not enforced at the moment)
     nucs: seq[Nucleotide]
@@ -31,9 +31,14 @@ type
     quality: string
     ## Phred score for the respecitve nucleotides must be the same length, as `nucs`
     ## Atm. the moment on
+  PhredScore = enum
+    phred33
+    phred64
+    undecided
 
-  FastQ = ref object
+  FastQ* = ref object
     sequences: seq[Record]
+    phred: PhredScore
 
   FastQError* = object of CatchableError
 
@@ -71,15 +76,14 @@ proc parseSecHeader(header: string): string =
     raise newException(FastQError, "Second header must start with a +")
   header[1 .. ^1]
 
-proc parseQuality(qual: string): string =
+proc parseQuality(qual: string): (string) =
   for q in qual:
-    #if int(q) < 33 or int(q) > 75:
-      #raise newException(FastQError, "Unsopported phred score")
-    #else:
+    if int(q) < 33 or int(q) > 106:
+      raise newException(FastQError, "Unsopported phred score")
     result.add(q)
 
 
-proc parseFastQFile(filepath: string): FastQ =
+proc parseFastQFile*(filepath: string): FastQ =
   let gzfs = newGzFileStream(filepath)
   
   var fastQ: FastQ
