@@ -1,6 +1,7 @@
 # TODO: Figure out how to distinguish between DNA and RNA
 
 import algorithm
+import sequtils
 
 # IUPAC 8 bit
 # http://ape-package.ird.fr/misc/BitLevelCodingScheme.html 
@@ -174,6 +175,7 @@ proc toChar*(n: Nucleotide): char =
   else:
     raise newException(NucleotideError, "Invalid nucleotide: " & $cast[uint8](n)) 
 
+
 proc complement*(n: Nucleotide): Nucleotide =
   ## Return complementary base   
   var i: uint8 
@@ -216,8 +218,17 @@ proc complement*(n: Nucleotide): Nucleotide =
     raise newException(NucleotideError, "Invalid nucleotide: " & $cast[uint8](n)) 
   result = Nucleotide(i)
 
+proc complement*(n: seq[Nucleotide]) : seq[Nucleotide]=
+  n.map(complement)
+
 proc `$`*(a: Nucleotide): string =
   result = $a.toChar
+
+proc `$`*(a: seq[Nucleotide]): string =
+  var temp: string
+  for n in a:
+    temp.add(n.toChar)
+  temp
 
 proc `$`*(s: Sequence): string = 
   var seqStr = ""
