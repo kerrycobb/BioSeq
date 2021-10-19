@@ -120,3 +120,12 @@ proc parseFastaFile*(path:string): Fasta =
   var fs = newFileStream(path, fmRead)
   result = parseFastaStream(fs)
   fs.close()
+
+proc writeFastaFile*(fasta: Fasta, path: string) : void =
+  let f = open(path, fmWrite)
+  for sequence in fasta.seqs:
+    f.writeLine(">" & sequence.id)
+    f.writeline($sequence.data)
+
+  f.close()
+

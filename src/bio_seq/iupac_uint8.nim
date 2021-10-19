@@ -1,8 +1,7 @@
 # TODO: Figure out how to distinguish between DNA and RNA
 
-import sequtils 
-import strutils
 import algorithm
+import sequtils
 
 # IUPAC 8 bit
 # http://ape-package.ird.fr/misc/BitLevelCodingScheme.html 
@@ -24,7 +23,7 @@ import algorithm
 ##  B       01110000  112    Not A              V           
 ##  N       11110000  240    Any base           N           
 ##  -       00000100  4      Alignment gap      -           
-##  ?	      00000010  2      Unknown character  ?           
+##  ?	    00000010  2      Unknown character  ?           
 
 type
   Nucleotide* = distinct uint8
@@ -41,10 +40,10 @@ type
     seqs*: seq[Sequence]
   
   Fasta* = ref object
-    ## Object which represents a fasta file without any constrains
     ntax*: int
     ## Number of sequences
     nchar*: int
+    ## Object which represents a fasta file without any constrains
     seqs*: seq[Sequence]
 
   NucleotideError* = object of CatchableError
@@ -176,6 +175,7 @@ proc toChar*(n: Nucleotide): char =
   else:
     raise newException(NucleotideError, "Invalid nucleotide: " & $cast[uint8](n)) 
 
+
 proc complement*(n: Nucleotide): Nucleotide =
   ## Return complementary base   
   var i: uint8 
@@ -218,8 +218,17 @@ proc complement*(n: Nucleotide): Nucleotide =
     raise newException(NucleotideError, "Invalid nucleotide: " & $cast[uint8](n)) 
   result = Nucleotide(i)
 
+proc complement*(n: seq[Nucleotide]) : seq[Nucleotide]=
+  n.map(complement)
+
 proc `$`*(a: Nucleotide): string =
   result = $a.toChar
+
+proc `$`*(a: seq[Nucleotide]): string =
+  var temp: string
+  for n in a:
+    temp.add(n.toChar)
+  temp
 
 proc `$`*(s: Sequence): string = 
   var seqStr = ""
