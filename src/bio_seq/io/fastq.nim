@@ -24,21 +24,21 @@ type
   Record* = ref object
     header: string
     ## Header line of fastq file, should start with @ and followed by a unique readname(uniqueness, is not enforced at the moment)
-    nucs: seq[Nucleotide]
+    nucs*: seq[Nucleotide]
     ## Actual nucleotide data
     secHeader: string
     ## Second header, must start with a + but can be empty, even then the + is still required 
     quality: string
     ## Phred score for the respecitve nucleotides must be the same length, as `nucs`
     ## Atm. the moment on
-  PhredScore = enum
+  PhredScore* = enum
     phred33
     phred64
     undecided
 
   FastQ* = ref object
-    sequences: seq[Record]
-    phred: PhredScore
+    sequences*: seq[Record]
+    phred*: PhredScore
 
   FastQError* = object of CatchableError
 

@@ -40,10 +40,10 @@ type
     seqs*: seq[Sequence]
   
   Fasta* = ref object
-    ## Object which represents a fasta file without any constrains
     ntax*: int
     ## Number of sequences
     nchar*: int
+    ## Object which represents a fasta file without any constrains
     seqs*: seq[Sequence]
 
   NucleotideError* = object of CatchableError
