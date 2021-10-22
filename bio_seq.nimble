@@ -1,5 +1,5 @@
 version     = "0.0.5"
-author      = "Kerry A. Cobb"
+author      = "Kerry A. Cobb & Thomas Dost"
 description = "A Nim library for biological sequence data."
 license     = "MIT"
 srcDir      = "src"
