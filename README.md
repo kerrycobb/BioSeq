@@ -25,13 +25,16 @@ let f = parseFastaAlignmentFile("file.fasta")
 ```Nim
 import bio_seq
 let s = ">header1\nACTG\n>header2\n>CTUG"
-let r = writeFastaAlignmentString(s)
+let r: string = writeFastaAlignmentString(s)
 ```
 
 ### Write an alignment file
 ```Nim
 import bio_seq
-let f = writeFastaAlignmentStringToFile("file.fasta")
+
+let s = ">header1\nACTG\n>header2\n>CTUG"
+let r = parseFastaAlignmentString(s)
+writeFastaAlignmentStringToFile("file.fasta", r)
 ```
 
 ## FASTA parsing
@@ -74,6 +77,23 @@ It is also possible to create a nucleotide with the type contrstuctor, but this 
 import bio_seq
 let nuc = 'A'.toNucleotide
 let c = nuc.toChar
+```
+
+### Convert nucleotide to string
+```Nim
+let nuc = 'A'.toNucleotide
+let nuc_str = $nuc
+```
+
+### Convert string to nucleotide
+```Nim
+let nuc = "ACTG".toNucleotide
+```
+
+### Convert sequence of nucleotides to string
+```Nim
+let nuc = "ACTG".toNucleotide
+let nuc_str = $nuc
 ```
 
 ### Complemetary based
