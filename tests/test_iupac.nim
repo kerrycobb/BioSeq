@@ -208,5 +208,19 @@ proc testIupac()=
       n = '?'.toNucleotide  
       comp = n.complement   
       check comp == '?'.toNucleotide
+
+
+    test "String to nucleotide":
+      var s: string = "A"
+      var n: seq[Nucleotide]
+      n = s.toNucleotide
+      check n == @['A'.toNucleotide]
+    
+
+    test "Multichar string to nucleotide":
+      var s: string = "ACTG"
+      var n: seq[Nucleotide]
+      n = s.toNucleotide
+      check n == @['A'.toNucleotide,'C'.toNucleotide,'T'.toNucleotide,'G'.toNucleotide]
 testIupac()
 

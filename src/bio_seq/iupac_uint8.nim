@@ -135,6 +135,9 @@ proc toNucleotide*(c: char): Nucleotide =
     raise newException(NucleotideError, "Invalid character: " & c) 
   result = Nucleotide(i)
 
+proc toNucleotide*(s : string): seq[Nucleotide] = 
+  map(s, toNucleotide)
+
 proc toChar*(n: Nucleotide): char = 
   ## Convert uint8 representation to nucleotide character   
   case cast[uint8](n):
