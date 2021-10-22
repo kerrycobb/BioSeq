@@ -33,7 +33,7 @@ type
     data*: seq[Nucleotide]
 
   Alignment* = ref object
-    ## Object which represents a fasta file which the added constraint that all nucleotide lines must be of the same length
+    ## Object which represents a fasta file with the added constraint that all nucleotide lines must be of the same length
     ntax*: int
     ## Number of sequences
     nchar*: int
