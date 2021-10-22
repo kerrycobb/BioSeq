@@ -3,6 +3,31 @@ A library for encoding nucletodes into IUPAC ambiguity codes and writing and rea
 
 8 bit unsigned integer representation of nucleotides based on http://ape-package.ird.fr/misc/BitLevelCodingScheme.html
 
+## Datatypes
+
+### Nucleotide 
+8 bit unsigned integer representation of nucleotides
+
+### Sequence
+Represents a sequence of nucleotides and a corresponding id
+```Nim
+  Sequence* = ref object
+    id*: string
+    data*: seq[Nucleotide]
+```
+
+### Alignment
+Object which represents a fasta file which the added constraint that all nucleotide lines must be of the same length
+```Nim
+  Alignment* = ref object
+    ## Number of sequences
+    ntax*: int
+    nchar*: int
+    seqs*: seq[Sequence]
+```
+
+### Fasta
+Represents a whole FASTA file without any constraints 
 
 ## Alignment parsing
 For parsing alignments it is required that all FASTA entries have the same length, if not an error is thrown. 
