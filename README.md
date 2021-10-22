@@ -31,7 +31,6 @@ let r: string = writeFastaAlignmentString(s)
 ### Write an alignment file
 ```Nim
 import bio_seq
-
 let s = ">header1\nACTG\n>header2\n>CTUG"
 let r = parseFastaAlignmentString(s)
 writeFastaAlignmentStringToFile("file.fasta", r)
@@ -81,23 +80,27 @@ let c = nuc.toChar
 
 ### Convert nucleotide to string
 ```Nim
+import bio_seq
 let nuc = 'A'.toNucleotide
 let nuc_str = $nuc
 ```
 
 ### Convert string to nucleotide
 ```Nim
+import bio_seq
 let nuc = "ACTG".toNucleotide
 ```
 
 ### Convert sequence of nucleotides to string
 ```Nim
+import bio_seq
 let nuc = "ACTG".toNucleotide
 let nuc_str = $nuc
 ```
 
 ### Complemetary based
 ```Nim
+import bio_seq
 let nuc = 'A'.toNucleotide
 let com = nuc.complement
 ```
