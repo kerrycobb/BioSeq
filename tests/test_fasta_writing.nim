@@ -1,5 +1,5 @@
 import std/unittest
-import bio_seq
+import bioseq
 proc fastaWriting()=
   suite "Fasta writing":
     test "non-multiline, <80 charactes":

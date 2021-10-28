@@ -1,7 +1,7 @@
-import ./bio_seq/iupac_uint8
-import ./bio_seq/io/fasta
-import ./bio_seq/io/fastq
-import ./bio_seq/io/sam
+import ./bioseq/iupac_uint8
+import ./bioseq/io/fasta
+import ./bioseq/io/fastq
+import ./bioseq/io/sam
 
 export iupac_uint8,
        fasta,

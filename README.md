@@ -1,4 +1,4 @@
-# bio\_seq
+# BioSeq
 A library for encoding nucletodes into IUPAC ambiguity codes and writing and reading FASTA files.
 
 8 bit unsigned integer representation of nucleotides based on http://ape-package.ird.fr/misc/BitLevelCodingScheme.html
@@ -9,28 +9,28 @@ For parsing alignments it is required that all FASTA entries have the same lengt
 
 ### Parse an alignment string 
 ```Nim
-import bio_seq
+import bioseq
 let s = ">header1\nACTG\n>header2\n>CTUG"
 let r = parseFastaAlignmentString(s)
 ```
 
 ### Parse an alignment file
 ```Nim
-import bio_seq
+import bioseq
 let f = parseFastaAlignmentFile("file.fasta")
 ```
 
 
 ### Write an alignment string 
 ```Nim
-import bio_seq
+import bioseq
 let s = ">header1\nACTG\n>header2\n>CTUG"
 let r = writeFastaAlignmentString(s)
 ```
 
 ### Write an alignment file
 ```Nim
-import bio_seq
+import bioseq
 let f = writeFastaAlignmentStringToFile("file.fasta")
 ```
 
@@ -38,14 +38,14 @@ let f = writeFastaAlignmentStringToFile("file.fasta")
 
 ### Parse a FASTA string 
 ```Nim
-import bio_seq
+import bioseq
 let s = ">header1\nACTG\n>header2\n>CTUTG"
 let r = parseFastaString(s)
 ```
 
 ### Parse a FASTA file
 ```Nim
-import bio_seq
+import bioseq
 let f = parseFastaFile("file.fasta")
 ```
 
@@ -53,7 +53,7 @@ let f = parseFastaFile("file.fasta")
 
 ### Parse a FASTQ file
 ```Nim
-import bio_seq
+import bioseq
 let f = parseFastQFile("file.fastq")
 ```
 
@@ -62,7 +62,7 @@ let f = parseFastQFile("file.fastq")
 
 ### Convert a character to a nucleotide
 ```Nim
-import bio_seq
+import bioseq
 let nuc = 'A'.toNucleotide
 
 ```
@@ -71,7 +71,7 @@ It is also possible to create a nucleotide with the type contrstuctor, but this 
 
 ### Convert a nucleotide to a character
 ```Nim
-import bio_seq
+import bioseq
 let nuc = 'A'.toNucleotide
 let c = nuc.toChar
 ```
