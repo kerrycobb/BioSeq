@@ -4,6 +4,11 @@ A library for encoding nucletodes into IUPAC ambiguity codes and writing and rea
 8 bit unsigned integer representation of nucleotides based on http://ape-package.ird.fr/misc/BitLevelCodingScheme.html
 
 
+## Installation
+```bash
+nimble install bioseq
+```
+
 ## Alignment parsing
 For parsing alignments it is required that all FASTA entries have the same length, if not an error is thrown. 
 
