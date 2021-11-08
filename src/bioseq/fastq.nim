@@ -1,5 +1,5 @@
 import zip/gzipfiles
-import ../iupac_uint8
+import iupac_uint8
 import sequtils
 import strutils
 import sugar
