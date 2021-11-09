@@ -152,7 +152,6 @@ proc testIupac()=
       comp = n.complement
       check comp == 'A'.toNucleotide
 
-
       n = 'G'.toNucleotide
       comp = n.complement
       check comp == 'C'.toNucleotide
