@@ -1,4 +1,6 @@
 # TODO: Figure out how to distinguish between DNA and RNA
+# TODO: Make slice operators for alignment and sequence objects
+# TODO Calculation of base frequencies
 
 import algorithm
 import sequtils
@@ -25,52 +27,6 @@ import sequtils
 ##  -       00000100  4      Alignment gap      -           
 ##  ?	      00000010  2      Unknown character  ?           
 
-type
-  Nucleotide* = distinct uint8
-
-  Sequence* = ref object
-    id*: string
-    data*: seq[Nucleotide]
-
-  Alignment* = ref object
-    ## Object which represents a fasta file which the added constraint that all nucleotide lines must be of the same length
-    ntax*: int
-    ## Number of sequences
-    nchar*: int
-    seqs*: seq[Sequence]
-  
-  Fasta* = ref object
-    ntax*: int
-    ## Number of sequences
-    nchar*: int
-    ## Object which represents a fasta file without any constrains
-    seqs*: seq[Sequence]
-
-  NucleotideError* = object of CatchableError
-  AlignmentError* = object of CatchableError
-  FastaError* = object of CatchableError
-
-# TODO: Make slice operators for alignment and sequence objects
-proc `and`*(a, b: Nucleotide): uint8 {.borrow.} 
-proc `and`*(a: Nucleotide, b: uint8): uint8 {.borrow.} 
-proc `and`*(a: uint8, b: Nucleotide): uint8 {.borrow.} 
-
-proc `or`*(a, b: Nucleotide): uint8 {.borrow.} 
-proc `or`*(a: Nucleotide, b: uint8): uint8 {.borrow.} 
-proc `or`*(a: uint8, b: Nucleotide): uint8 {.borrow.} 
-
-proc `xor`*(a, b: Nucleotide): uint8 {.borrow.} 
-proc `xor`*(a: Nucleotide, b: uint8): uint8 {.borrow.} 
-proc `xor`*(a: uint8, b: Nucleotide): uint8 {.borrow.} 
-
-proc `==`*(a: Nucleotide, b: uint8): bool {.borrow.} 
-proc `==`*(b: uint8, a: Nucleotide): bool {.borrow.} 
-proc `==`*(a, b: Nucleotide): bool {.borrow.}
-
-
-proc len*(s: Sequence): int = s.data.len 
-
-
 # TODO: Could use these with macros to generate case statements and reduce code
 # const
 #   iupacDNAChars = ['A','G','C','T','R','M','W','S','K','Y','V','H', 
@@ -93,8 +49,28 @@ proc len*(s: Sequence): int = s.data.len
 #       "Not T/U", "Not G", "Not C", "Not A", "Any base", "Alignment gap", 
 #       "Unknown character"]
 
+type
+  Nucleotide* = distinct uint8
+
+  Sequence* = ref object
+    id*: string
+    data*: seq[Nucleotide]
+ 
+  SequenceList* = ref object
+    nseqs*: int
+    seqs*: seq[Sequence]
+
+  Alignment* = ref object
+    nseqs*: int
+    nchars*: int
+    seqs*: seq[Sequence]
+ 
+  NucleotideError* = object of CatchableError
+  SequenceListError* = object of CatchableError
+  AlignmentError* = object of CatchableError
+
 proc toNucleotide*(c: char): Nucleotide = 
-  # Convert nucleotide character to uint8 representation 
+  ## Convert nucleotide character to uint8 representation 
   var i: int
   case c:
   of 'A':
@@ -173,8 +149,7 @@ proc toChar*(n: Nucleotide): char =
   of 2:
     result = '?'
   else:
-    raise newException(NucleotideError, "Invalid nucleotide: " & $cast[uint8](n)) 
-
+    raise newException(NucleotideError, "Invalid nucleotide: " & $cast[uint8](n) & " does not represent a nucleotide") 
 
 proc complement*(n: Nucleotide): Nucleotide =
   ## Return complementary base   
@@ -208,27 +183,53 @@ proc complement*(n: Nucleotide): Nucleotide =
     i = 208 
   of 224: # B > B 
     i = 112 
-  of 240:
+  of 240: # N > N
     i = 240 
-  of 4:
+  of 4: # - > -
     i = 4 
-  of 2:
+  of 2: # ? > ?
     i = 2 
   else:
     raise newException(NucleotideError, "Invalid nucleotide: " & $cast[uint8](n)) 
   result = Nucleotide(i)
 
-proc complement*(n: seq[Nucleotide]) : seq[Nucleotide]=
+proc complement*(n: var seq[Nucleotide]) : seq[Nucleotide]=
   n.map(complement)
 
+proc complement*(sequence: var Sequence) = 
+  for i, d in sequence.data:
+    sequence.data[i] = complement(d)
+
+proc reverse*(sequence: var Sequence) = 
+  sequence.data.reverse()
+
+proc reverseComplement*(sequence: var Sequence) = 
+  sequence.complement()
+  sequence.reverse()
+
+proc toString*(a: Sequence): string =
+  ## Convert sequence to string
+  for i in a.data:
+    result.add(i.toChar())
+
+proc toString*(a: SequenceList): string =
+  ## Convert sequences to string
+  for i in a.seqs:
+    result.add(i.toString())
+    result.add('\n')
+
+proc toString*(a: Alignment): string =
+  ## Convert sequences to string
+  for i in a.seqs:
+    result.add(i.toString())
+    result.add('\n')
+
 proc `$`*(a: Nucleotide): string =
-  result = $a.toChar
+  result = $a.toChar() #TODO: Is the $ needed?
 
 proc `$`*(a: seq[Nucleotide]): string =
-  var temp: string
   for n in a:
-    temp.add(n.toChar)
-  temp
+    result.add(n.toChar())
 
 proc `$`*(s: Sequence): string = 
   var seqStr = ""
@@ -236,24 +237,31 @@ proc `$`*(s: Sequence): string =
     seqStr.add(i.toChar())
   result = "id: " & s.id & ", data: " & seqStr
 
-
 proc `$`*(a: Alignment): string =
-  result = "ntax: " & $a.ntax & ", nchar: " & $a.nchar & "\n"
+  result = "nseqs: " & $a.nseqs & ", nchars: " & $a.nchars & "\n"
   for i in a.seqs:
     result.add($i & "\n")
 
-proc `$`*(a: Fasta): string =
-  result = "ntax: " & $a.ntax & ", nchar: " & $a.nchar & "\n"
+proc `$`*(a: SequenceList): string =
+  result = "nseqs: " & $a.nseqs & "\n"
   for i in a.seqs:
     result.add($i & "\n")
 
-proc sequence*(a: Sequence): string =
-  for i in a.data:
-    result.add(i.toChar)
+proc `and`*(a, b: Nucleotide): uint8 {.borrow.} 
+proc `and`*(a: Nucleotide, b: uint8): uint8 {.borrow.} 
+proc `and`*(a: uint8, b: Nucleotide): uint8 {.borrow.} 
 
-proc sequences*(a: Fasta): string =
-  for i in a.seqs:
-    result.add(i.sequence)
+proc `or`*(a, b: Nucleotide): uint8 {.borrow.} 
+proc `or`*(a: Nucleotide, b: uint8): uint8 {.borrow.} 
+proc `or`*(a: uint8, b: Nucleotide): uint8 {.borrow.} 
+
+proc `xor`*(a, b: Nucleotide): uint8 {.borrow.} 
+proc `xor`*(a: Nucleotide, b: uint8): uint8 {.borrow.} 
+proc `xor`*(a: uint8, b: Nucleotide): uint8 {.borrow.} 
+
+proc `==`*(a: Nucleotide, b: uint8): bool {.borrow.} 
+proc `==`*(b: uint8, a: Nucleotide): bool {.borrow.} 
+proc `==`*(a, b: Nucleotide): bool {.borrow.}
 
 proc knownBase*(n: Nucleotide): bool = (n and 8) == 8 
   ## Returns true if base is not ambiguous
@@ -292,32 +300,33 @@ proc add*(alignment: var Alignment, sequence: Sequence) =
   ## Add sequence object to alignment object
   if alignment.isNil:
     alignment = Alignment()
-  if alignment.ntax == 0:
-    alignment.nchar = sequence.len
+  if alignment.nseqs == 0:
+    alignment.nchars = sequence.len
   else:
-    if sequence.data.len != alignment.nchar:
-      raise newException(AlignmentError, "Sequence length does not match alignment")
+    if sequence.data.len != alignment.nchars:
+      raise newException(AlignmentError, "Sequences must have the same length ")
   alignment.seqs.add(sequence)
-  alignment.ntax += 1
+  alignment.nseqs += 1
 
 proc add*(alignment: var Alignment, sequences: seq[Sequence]) = 
-  ## Convenience proc
+  ## Add sequence objects to alignment object
   for sequence in sequences:
     alignment.add(sequence)
 
-proc add*(fasta: var Fasta, sequence: Sequence) =
+proc add*(sequences: var SequenceList, sequence: Sequence) =
   ## Add sequence object to fasta object
-  if fasta.isNil:
-    fasta = Fasta()
-  if fasta.ntax == 0:
-    fasta.nchar = sequence.len
-  fasta.seqs.add(sequence)
-  fasta.ntax += 1
+  if sequences.isNil:
+    sequences = SequenceList()
+  sequences.seqs.add(sequence)
+  sequences.nseqs += 1
+
+proc len*(s: Sequence): int = s.data.len
+  ## Returns number of nucleotides in the sequence
 
 proc countSegregatingSites*(alignment: Alignment): int =
-  for i in 0 ..< alignment.nchar: # Iter over sites in alignment 
+  for i in 0 ..< alignment.nchars: # Iter over sites in alignment 
     while true:
-      for j in 0 ..< alignment.ntax: # Iter over seqs in alignmnent 
+      for j in 0 ..< alignment.nseqs: # Iter over seqs in alignmnent 
         if diffBase(alignment.seqs[0].data[i], alignment.seqs[j].data[i]):
           result += 1
           break
@@ -326,23 +335,13 @@ proc countSegregatingSites*(alignment: Alignment): int =
 proc nucleotideDiversity*(alignment: Alignment): float = 
   # TODO: Make sure this is right
   var pi = 0.0
-  var nchar = float(alignment.nchar)
-  for i in 0 ..< alignment.ntax - 1:
-    for j in i + 1 ..< alignment.ntax: 
+  var nchar = float(alignment.nchars)
+  for i in 0 ..< alignment.nseqs - 1:
+    for j in i + 1 ..< alignment.nseqs: 
       var diff = 0 
-      for k in 0 ..< alignment.nchar:
+      for k in 0 ..< alignment.nchars:
         if diffBase(alignment.seqs[i].data[k], alignment.seqs[j].data[k]):
           diff += 1 
       pi = ((float(diff) / nchar) + pi) / 2
   result = pi
 
-proc reverse*(sequence: Sequence) = 
-  sequence.data.reverse()
-
-proc complement*(sequence: Sequence) = 
-  for i, d in sequence.data:
-    sequence.data[i] = complement(d)
-
-proc reverseComplement*(sequence: Sequence) = 
-  sequence.complement()
-  sequence.reverse()
