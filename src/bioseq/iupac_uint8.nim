@@ -301,7 +301,7 @@ proc add*(alignment: var Alignment, sequence: Sequence) =
   if alignment.isNil:
     alignment = Alignment()
   if alignment.nseqs == 0:
-    alignment.nchars = sequence.len
+    alignment.nchars = sequence.data.len
   else:
     if sequence.data.len != alignment.nchars:
       raise newException(AlignmentError, "Sequences must have the same length ")
