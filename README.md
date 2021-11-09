@@ -1,7 +1,7 @@
 # BioSeq
 A library for encoding IUPAC nucleic acid notation as 8 bit unsigned integers 
-for efficient memory utilization and fast operations. Allows parsing and writing 
-of FASTA, FASTQ, SAM, and Phylip formats.  
+for efficient memory utilization and fast operations using bitwise operators. 
+Allows parsing and writing of FASTA, FASTQ, SAM, and Phylip formats.  
 
 8 bit unsigned integer representation of nucleotides based on http://ape-package.ird.fr/misc/BitLevelCodingScheme.html
 
@@ -28,7 +28,7 @@ let nuc = 'A'.toNucleotide
 let c = nuc.toChar
 ```
 
-### Complemetary based
+### Complementary based
 ```Nim
 let nuc = 'A'.toNucleotide
 let com = nuc.complement
