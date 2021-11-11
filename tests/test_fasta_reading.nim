@@ -68,7 +68,7 @@ proc fastaParsing()=
   suite "Fasta parsing":
     test "parse different length sequences":
       let test = ">stuff\nACTG\n>\nACTGA"
-      let r: Fasta = parseFastaString(test)
+      let r: SequenceList = parseFastaString(test)
       let first = r.seqs[0]
       check first.id == "stuff"
       check first.data == "ACTG".map(toNucleotide)
