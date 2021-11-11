@@ -300,7 +300,7 @@ proc newSequence*(id, data: string): Sequence =
     result.data.add(i.toNucleotide())
 
 proc add*(alignment: var Alignment, sequence: Sequence) =
-  ## Add sequence object to alignment object
+  ## Add sequence to alignment 
   if alignment.isNil:
     alignment = Alignment()
   if alignment.nseqs == 0:
@@ -312,12 +312,12 @@ proc add*(alignment: var Alignment, sequence: Sequence) =
   alignment.nseqs += 1
 
 proc add*(alignment: var Alignment, sequences: seq[Sequence]) = 
-  ## Add sequence objects to alignment object
+  ## Add sequences to alignment 
   for sequence in sequences:
     alignment.add(sequence)
 
 proc add*(sequences: var SequenceList, sequence: Sequence) =
-  ## Add sequence object to fasta object
+  ## Add sequence to sequence list 
   if sequences.isNil:
     sequences = SequenceList()
   sequences.seqs.add(sequence)

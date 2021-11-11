@@ -1,4 +1,4 @@
-import iupac_uint8
+import ./iupac_uint8
 import streams
 import strutils
 
