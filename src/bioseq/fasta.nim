@@ -5,8 +5,6 @@ import strutils
 type
   FastaError* = object of CatchableError
 
-################################################################################
-# FASTA Sequences 
 proc parseFastaStream*(stream:Stream): SequenceList =
   ## Parse FASTA stream
   if stream.isNil:
@@ -52,9 +50,6 @@ proc writeFastaFile*(fasta: SequenceList, path: string) =
     f.writeline($sequence.data)
   f.close()
 
-
-################################################################################
-# FASTA Alignments
 proc parseFastaAlignmentStream*(stream:Stream): Alignment =
   ## Parse Fasta alignment stream
   if stream.isNil:
