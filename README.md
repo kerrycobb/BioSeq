@@ -1,4 +1,6 @@
 # BioSeq
+Work In Progress and undergoeing a substantial rewrite on the rewrite branch. 
+
 A library for encoding IUPAC nucleic acid notation as 8 bit unsigned integers 
 for efficient memory utilization and fast operations using bitwise operators. 
 Allows parsing and writing of FASTA, FASTQ, SAM, and Phylip formats.  
