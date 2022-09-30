@@ -1,6 +1,3 @@
-###############################################################
-#Enum
-
 # import sequtils
 import times
 # import os
@@ -107,4 +104,3 @@ benchmark "char lookup":
 # CPU Time [int assign]  3.779s, 3.708s, 3.719s
 # CPU Time [char case]   3.744s, 3.734s, 3.740s
 # CPU Time [char lookup] 3.744s, 3.728s, 3.716s
-
