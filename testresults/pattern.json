@@ -1,2 +1,0 @@
-[
-{"name":"tests/talignment.nim c","category":"pattern","target":"c","action":"run","result":"reSuccess","expected":"","given":"","machine":"Kerrys-MacBook-Air.local","commit":"5386a940cde","branch":"rewrite"}]
