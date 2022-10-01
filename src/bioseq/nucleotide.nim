@@ -1,7 +1,9 @@
 ## IUPAC 8 bit unsigned integer representation following:
 ## http://ape-package.ird.fr/misc/BitLevelCodingScheme.html
 ## 
+## ======  ========  =====  =================  ==========
 ## Symbol  Binary    uint8  Definition         Complement
+## ======  ========  =====  =================  ==========
 ## A       10001000  136    Adenine            T/U
 ## G       01001000  72     Guanine            C
 ## C       00101000  40     Cytosine           G
@@ -17,8 +19,9 @@
 ## D       11010000  208    Not C              H
 ## B       01110000  112    Not A              V
 ## N       11110000  240    Any base           N
-## -       00000100  4      Alignment gap      -
-## ?	     00000010  2      Unknown character  ?
+## \-      00000100  4      Alignment gap      \-
+## \?	     00000010  2      Unknown character  \?
+## ======  ========  =====  =================  ==========
 
 import ./parserMacro
 
