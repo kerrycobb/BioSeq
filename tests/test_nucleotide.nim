@@ -1,5 +1,4 @@
 import bioseq
-import strutils
 
 block: # nucleotide 
   block: # Nucleotide 
