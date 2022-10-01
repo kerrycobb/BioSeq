@@ -1,4 +1,5 @@
 import bioseq
+import strutils
 
 block: # nucleotide 
   block: # Nucleotide 
@@ -20,7 +21,6 @@ block: # nucleotide
       N =    parseChar('N', DNA)
       Gap =  parseChar('-', DNA)
       Unk =  parseChar('?', DNA)
-  
     assert A.isAdenine()
     assert G.isGuanine()
     assert C.isCytosine()
