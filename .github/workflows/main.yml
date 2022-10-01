@@ -15,8 +15,8 @@ jobs:
         run: nimble -y test 
       
       - name: Build docs
-       run: nim doc --project --index:on --git.url:https://github.com/kerrycobb/BioSeq --outdir:src/htmldocs src/bioseq.nim
-       uses: kerrycobb/github-pages-deploy-action@4.1.4
-       with:
-         branch: gh-pages
-         folder: .
+        run: nim doc --project --index:on --git.url:https://github.com/kerrycobb/BioSeq --outdir:src/htmldocs src/bioseq.nim
+        uses: kerrycobb/github-pages-deploy-action@4.1.4
+        with:
+          branch: gh-pages
+          folder: .
