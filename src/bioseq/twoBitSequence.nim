@@ -4,10 +4,14 @@
 
 ## Bit array representation of nucleotide sequence
 ## Nucleotide bit patterns
-## A  00
-## G  10 
-## C  01 
-## T  11 
+## ========== ===========
+## Nucleotide Bit Pattern
+## ========== ===========
+## A          00
+## G          10 
+## C          01 
+## T          11 
+## ========== ===========
 
 import ./nucleotide
 import bitty
