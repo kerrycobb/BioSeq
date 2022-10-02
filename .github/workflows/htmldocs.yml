@@ -11,6 +11,7 @@ jobs:
     container: nimlang/nim
     steps:
       - uses: actions/checkout@v3
+      - run: nimble install -Y
       - name: build-html
         run: nim doc --project --index:on --git.url:https://github.com/kerrycobb/BioSeq --outdir:htmldocs src/bioseq.nim
       - name: Deploy
