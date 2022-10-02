@@ -1,34 +1,36 @@
 # TODO: Deal with gaps in translate macro. Or should gaps be allowed and translated to ambiguous/unknown
 
 ## IUPAC amino acid code
-## 
-## Symbol Abreviation Amino Acid
-## A    	Ala 	      Alanine
-## C    	Cys 	      Cysteine
-## D    	Asp 	      Aspartic Acid
-## E    	Glu 	      Glutamic Acid
-## F    	Phe 	      Phenylalanine
-## G    	Gly 	      Glycine
-## H    	His 	      Histidine
-## I    	Ile 	      Isoleucine
-## K    	Lys 	      Lysine
-## L    	Leu 	      Leucine
-## M    	Met 	      Methionine
-## N    	Asn 	      Asparagine
-## O      Pyl         Pyrolysine
-## P    	Pro 	      Proline
-## Q    	Gln 	      Glutamine
-## R    	Arg 	      Arginine
-## S    	Ser 	      Serine
-## T    	Thr 	      Threonine
-## U      Sec         Selenocysteine
-## V    	Val 	      Valine
-## W    	Trp 	      Tryptophan
-## Y    	Tyr 	      Tyrosine
-## *      Stp         Stop
-## X      Amb         Ambiguous/Unknown 
-## B      Asx         Aspartic acid or asparagine 
-## Z      Glx         Glutamic acid or glutamine
+## ======  ===========  ============================ 
+## Symbol  Abreviation  Amino Acid
+## ======  ===========  ============================ 
+## A    	 Ala 	        Alanine
+## C    	 Cys 	        Cysteine
+## D    	 Asp 	        Aspartic Acid
+## E    	 Glu 	        Glutamic Acid
+## F    	 Phe 	        Phenylalanine
+## G    	 Gly 	        Glycine
+## H    	 His 	        Histidine
+## I    	 Ile 	        Isoleucine
+## K    	 Lys 	        Lysine
+## L    	 Leu 	        Leucine
+## M    	 Met 	        Methionine
+## N    	 Asn 	        Asparagine
+## O       Pyl          Pyrolysine
+## P    	 Pro 	        Proline
+## Q    	 Gln 	        Glutamine
+## R    	 Arg 	        Arginine
+## S    	 Ser 	        Serine
+## T    	 Thr 	        Threonine
+## U       Sec          Selenocysteine
+## V    	 Val 	        Valine
+## W    	 Trp 	        Tryptophan
+## Y    	 Tyr 	        Tyrosine
+## *       Stp          Stop
+## X       Amb          Ambiguous/Unknown 
+## B       Asx          Aspartic acid or asparagine 
+## Z       Glx          Glutamic acid or glutamine
+## ======  ===========  ============================ 
 
 import ./nucleotide
 import ./parserMacro
