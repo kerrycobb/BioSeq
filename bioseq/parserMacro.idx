@@ -1,0 +1,1 @@
+generateParser	bioseq/parserMacro.html#generateParser.m,char,openArray[char],typed	parserMacro: generateParser(c: char; k: openArray[char]; v: typed): untyped	

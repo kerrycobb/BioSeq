@@ -1,0 +1,9 @@
+TwoBitSequence	bioseq/twoBitSequence.html#TwoBitSequence	twoBitSequence: TwoBitSequence	
+newTwoBitSequence	bioseq/twoBitSequence.html#newTwoBitSequence,int	twoBitSequence: newTwoBitSequence[T](len: int): TwoBitSequence[T]	
+bitArray	bioseq/twoBitSequence.html#bitArray,TwoBitSequence[T]	twoBitSequence: bitArray[T](s: TwoBitSequence[T]): BitArray	
+len	bioseq/twoBitSequence.html#len,TwoBitSequence[T]	twoBitSequence: len[T](s: TwoBitSequence[T]): int	
+toDNA	bioseq/twoBitSequence.html#toDNA,TwoBitSequence[T]	twoBitSequence: toDNA[T](s: var TwoBitSequence[T]): TwoBitSequence[StrictDNA]	
+toRNA	bioseq/twoBitSequence.html#toRNA,TwoBitSequence[T]	twoBitSequence: toRNA[T](s: var TwoBitSequence[T]): TwoBitSequence[StrictRNA]	
+`[]`	bioseq/twoBitSequence.html#[],TwoBitSequence[T],int	twoBitSequence: `[]`[T](s: TwoBitSequence[T]; loc: int): T	
+`[]=`	bioseq/twoBitSequence.html#[]=,TwoBitSequence[T],int,T	twoBitSequence: `[]=`[T](s: var TwoBitSequence[T]; loc: int; val: T)	
+`$`	bioseq/twoBitSequence.html#$,TwoBitSequence[T]	twoBitSequence: `$`[T](s: TwoBitSequence[T]): string	
