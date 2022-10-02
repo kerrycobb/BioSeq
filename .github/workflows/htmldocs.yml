@@ -17,11 +17,7 @@ jobs:
           nim doc --project --index:on --git.url:https://github.com/kerrycobb/BioSeq --outdir:htmldocs src/bioseq.nim
           mv ./htmldocs/theindex.html ./htmldocs/index.html
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@4.1.4
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          branch: gh-pages
-          folder: ./htmldocs
-        # uses: peaceiris/actions-gh-pages@v3
-        # with:
-        #   github_token: ${{ secrets.GITHUB_TOKEN }}
-        #   publish_dir: ./htmldocs
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./htmldocs
