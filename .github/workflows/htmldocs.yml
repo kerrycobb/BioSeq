@@ -15,7 +15,11 @@ jobs:
       - name: build-html
         run: nim doc --project --index:on --git.url:https://github.com/kerrycobb/BioSeq --outdir:htmldocs src/bioseq.nim
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+        uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./htmldocs
+          branch: gh-pages
+          folder: .
+        # uses: peaceiris/actions-gh-pages@v3
+        # with:
+        #   github_token: ${{ secrets.GITHUB_TOKEN }}
+        #   publish_dir: ./htmldocs
