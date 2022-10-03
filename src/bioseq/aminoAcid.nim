@@ -1,6 +1,22 @@
-# TODO: Deal with gaps in translate macro. Or should gaps be allowed and translated to ambiguous/unknown
+# TODO: Make gaps raise an error in the translate macro. 
+# Or should gaps be allowed and translated to ambiguous/unknown?
+# TODO: Should turn the current implementation in an ExtendedAminoAcid type 
+# and exclude the ambiguous and a typical amino acids from the regular one.
 
-## IUPAC amino acid code
+import ./nucleotide
+import ./parserMacro
+import std/macros
+
+## The `aminoAcid` module contains the `AminoAcid` `enum` type for working with  
+## amino acid sequence data. Using an enum type provides convenience and type safety.
+## The `AminoAcid` type is an extended IUPAC code which includes Prolysine, Selenocysteine, 
+## and the two ambiguous characters 'B' and 'Z'. A full description of the 
+## implementation can be seen in the table below. This module provides functions
+## for parsing amino acid characters and for translating a nucleic acid condon. 
+## 
+## The genetic codes for translating to amino acids are sourced from 
+## NCIB at https://www.ncbi.nlm.nih.gov/Taxonomy/Utils/wprintgc.cgi.
+## 
 ## ======  ===========  ============================ 
 ## Symbol  Abreviation  Amino Acid
 ## ======  ===========  ============================ 
@@ -32,9 +48,15 @@
 ## Z       Glx          Glutamic acid or glutamine
 ## ======  ===========  ============================ 
 
-import ./nucleotide
-import ./parserMacro
-import std/macros
+runnableExamples:
+  import bioseq
+  
+  let ala = parseChar('A', AminoAcid)  
+  assert ala.char() == 'A'
+
+  let amino = translate([dnaT, dnaT, dnaT], gc_Standard_1)
+  assert amino == aaF
+
 
 type
   AminoAcid* = enum aaA, aaC, aaD, aaE, aaF, aaG, aaH, aaI, aaK, aaL, aaM, aaN, 
@@ -96,7 +118,7 @@ const
 
 type
   GeneticCode* = enum 
-    ## Genetic codes for translating nucleotides to amino acids.
+    ## Genetic codes for translating nucleotides to amino acids. See source for more information.
     ## Source: https://www.ncbi.nlm.nih.gov/Taxonomy/Utils/wprintgc.cgi
     gc_Standard_1 = "FFLLSSSSYY**CC*WLLLLPPPPHHQQRRRRIIIMTTTTNNKKSSRRVVVVAAAADDEEGGGG",
     gc_Vertebrate_Mito_2 = "FFLLSSSSYY**CCWWLLLLPPPPHHQQRRRRIIMMTTTTNNKKSS**VVVVAAAADDEEGGGG",
@@ -124,41 +146,11 @@ type
     gc_Blastocrithidia_Nuc_31 = "FFLLSSSSYYEECCWWLLLLPPPPHHQQRRRRIIIMTTTTNNKKSSRRVVVVAAAADDEEGGGG",
     gc_Cephalodiscidae_Mito_UAA_Tyr_33 = "FFLLSSSSYYY*CCWWLLLLPPPPHHQQRRRRIIIMTTTTNNKKSSSKVVVVAAAADDEEGGGG"
 
-# Original. Remove later
-# const  
-#   dnaCodonSequence* = [ 
-#     "AAA","AAC","AAG","AAT","ACA","ACC","ACG","ACT","AGA","AGC","AGG","AGT","ATA","ATC","ATG","ATT",
-#     "CAA","CAC","CAG","CAT","CCA","CCC","CCG","CCT","CGA","CGC","CGG","CGT","CTA","CTC","CTG","CTT",
-#     "GAA","GAC","GAG","GAT","GCA","GCC","GCG","GCT","GGA","GGC","GGG","GGT","GTA","GTC","GTG","GTT",
-#     "TAA","TAC","TAG","TAT","TCA","TCC","TCG","TCT","TGA","TGC","TGG","TGT","TTA","TTC","TTG","TTT"]
-#   rnaCodonSequence* = [ 
-#     "AAA","AAC","AAG","AAU","ACA","ACC","ACG","ACU","AGA","AGC","AGG","AGU","AUA","AUC","AUG","AUU",
-#     "CAA","CAC","CAG","CAU","CCA","CCC","CCG","CCU","CGA","CGC","CGG","CGU","CUA","CUC","CUG","CUU",
-#     "GAA","GAC","GAG","GAU","GCA","GCC","GCG","GCU","GGA","GGC","GGG","GGU","GUA","GUC","GUG","GUU",
-#     "UAA","UAC","UAG","UAU","UCA","UCC","UCG","UCU","UGA","UGC","UGG","UGU","UUA","UUC","UUG","UUU"]
-
-# type
-#   AminoAcidCode* = enum 
-#     acStandard =             "KNKNTTTTRSRSIIMIQHQHPPPPRRRRLLLLEDEDAAAAGGGGVVVV*Y*YSSSS*CWCLFLF",
-#     acVertebrateMito =       "KNKNTTTT*S*SMIMIQHQHPPPPRRRRLLLLEDEDAAAAGGGGVVVV*Y*YSSSSWCWCLFLF",
-#     acYeastMito =            "KNKNTTTTRSRSIIMIQHQHPPPPRRRRLLLLEDEDAAAAGGGGVVVV*Y*YSSSSWCWCLFLF",
-#     acMoldMito =             "KNKNTTTTRSRSIIMIQHQHPPPPRRRRLLLLEDEDAAAAGGGGVVVV*Y*YSSSSWCWCLFLF",
-#     acInvertMito =           "KNKNTTTTSSSSMIMIQHQHPPPPRRRRLLLLEDEDAAAAGGGGVVVV*Y*YSSSSWCWCLFLF",
-#     acCiliateNuc =           "KNKNTTTTRSRSIIMIQHQHPPPPRRRRLLLLEDEDAAAAGGGGVVVVQYQYSSSS*CWCLFLF",
-#     acEchinodermMito =       "NNKNTTTTSSSSIIMIQHQHPPPPRRRRLLLLEDEDAAAAGGGGVVVV*Y*YSSSSWCWCLFLF",
-#     acEuplotidNuc =          "KNKNTTTTRSRSIIMIQHQHPPPPRRRRLLLLEDEDAAAAGGGGVVVV*Y*YSSSSCCWCLFLF",
-#     acPlantPlastid =         "KNKNTTTTRSRSIIMIQHQHPPPPRRRRLLLLEDEDAAAAGGGGVVVV*Y*YSSSS*CWCLFLF",
-#     acAltYeastMito =         "KNKNTTTTRSRSIIMIQHQHPPPPRRRRLLSLEDEDAAAAGGGGVVVV*Y*YSSSS*CWCLFLF",
-#     acAscidianMito =         "KNKNTTTTGSGSMIMIQHQHPPPPRRRRLLLLEDEDAAAAGGGGVVVV*Y*YSSSSWCWCLFLF",
-#     acAltFlatwormMito =      "NNKNTTTTSSSSIIMIQHQHPPPPRRRRLLLLEDEDAAAAGGGGVVVVYY*YSSSSWCWCLFLF",
-#     acBlepharismamacro =     "KNKNTTTTRSRSIIMIQHQHPPPPRRRRLLLLEDEDAAAAGGGGVVVV*YQYSSSS*CWCLFLF",
-#     acChlorophyceanmito =    "KNKNTTTTRSRSIIMIQHQHPPPPRRRRLLLLEDEDAAAAGGGGVVVV*YLYSSSS*CWCLFLF",
-#     acTrematodemito =        "NNKNTTTTSSSSMIMIQHQHPPPPRRRRLLLLEDEDAAAAGGGGVVVV*Y*YSSSSWCWCLFLF",
-#     acScenedesmusmito =      "KNKNTTTTRSRSIIMIQHQHPPPPRRRRLLLLEDEDAAAAGGGGVVVV*YLY*SSS*CWCLFLF",
-#     acThraustochytriummito = "KNKNTTTTRSRSIIMIQHQHPPPPRRRRLLLLEDEDAAAAGGGGVVVV*Y*YSSSS*CWC*FLF"
 
 macro generateTranslation(nucleotides: array[3, Nucleotide], aminoAcids: string): untyped = 
   # TODO: Raise exception if codon includes gaps 
+  # TODO: Change this to use the sum of the ordinals instead of converting to string 
+  # which would make the macro unnecessary.
   ## Generates case statement for translating Amino acid codon sequence
   ## 
   ## Generated code:
@@ -213,6 +205,6 @@ macro generateTranslation(nucleotides: array[3, Nucleotide], aminoAcids: string)
   result.add(caseStmt) 
   # echo result.repr
 
-func translate*(nucleotides: array[3, AnyNucleotide], code: GeneticCode = gc_standard_1): AminoAcid = 
+func translate*(nucleotides: array[3, AnyNucleotide], code: GeneticCode): AminoAcid = 
   ## Translate nucleotide codo to amino acid
   generateTranslation(nucleotides, $code) 
