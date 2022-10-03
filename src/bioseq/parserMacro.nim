@@ -2,7 +2,6 @@ import std/macros
 import fusion/astdsl
 
 macro generateParser*(c: char, k: openarray[char], v: typed): untyped = 
-  # TODO: Add option to ignore case?
   ## Generates case statement for parsing nucleotide characters 
   ## 
   ## Generated code:
