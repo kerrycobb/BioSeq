@@ -1,5 +1,29 @@
-## IUPAC 8 bit unsigned integer representation following:
-## http://ape-package.ird.fr/misc/BitLevelCodingScheme.html
+## 
+## The `nucleotide` module provides several `enum` types which represent a single 
+## DNA or RNA molecule (a single base) from a sequence. The use of the `enum` 
+## type provides convenience and type safety.
+## 
+## 
+## There are two categories of nucleotide types which also serve as an alias
+## for the DNA and RNA types that fall within each category which is useful.
+## These aliases along with the `AnyNucleotide` alias which aliases all types 
+## within this module are useful for writing `procs` that can be overloaded to each type
+## within the category when it is appropriate. 
+## - `Nucleotide`
+## - `StrictNucleotide`
+## 
+## 
+## Nucleotide
+## ==========
+## The `DNA` and `RNA` types aliased by `Nucleotide` are consistent with the 
+## IUPAC nucleic acid notation except for one additional character '?' where
+## it is not known if there is a gap or an unknown nucleic acid in the sequence.
+## The `DNA` and `RNA` types can be used in cases where base ambiguity is desired. 
+## These types are mapped to an 8 bit unsigned integer representation following 
+## `Paradis 2007 <http://ape-package.ird.fr/misc/BitLevelCodingScheme.html>`_
+## which allows for very fast comparison of nucleotides when base identities are
+## ambiguous. The binary and uint8 representation along with the IUPAC symbols,
+## definitions, and complementary nucleotides are summarized in the table below. 
 ## 
 ## ======  ========  =====  =================  ==========
 ## Symbol  Binary    uint8  Definition         Complement
@@ -22,6 +46,46 @@
 ## \-      00000100  4      Alignment gap      \-
 ## \?	     00000010  2      Unknown character  \?
 ## ======  ========  =====  =================  ==========
+
+runnableExamples:
+  let t = parseChar('T', DNA)
+  assert t.isThymine() 
+
+  let comp = t.complement()
+  assert comp.char() == 'A'
+
+  let u = parseChar('U', RNA) 
+  assert u.isUracil()
+  
+  let ut = u.toDNA()
+  assert ut.char() == 'T'
+
+  let r = parseChar('W', DNA)
+  assert r.isPurine()
+
+
+## StrictNucleotide 
+## ================
+## The `StrictDNA` and `StrictRNA` types aliased by `StrictNucleotide` are
+## consistent with the `Nucleotide` types except that they are restricted to 
+## only A, G, C, and T/U nucleotides and thus do not allow ambiguity.
+## 
+## ======  ========  =====  =================  ==========
+## Symbol  Binary    uint8  Definition         Complement
+## ======  ========  =====  =================  ==========
+## A       10001000  136    Adenine            T/U
+## G       01001000  72     Guanine            C
+## C       00101000  40     Cytosine           G
+## T/U     00011000  24     Thymine/Uracil     A
+## ======  ========  =====  =================  ==========
+
+runnableExamples:
+  let 
+    t = parseChar('T', StrictDNA)
+    a = t.complement()
+  assert t.isThymine()
+  assert a.char() == 'A'
+
 
 import ./parserMacro
 
