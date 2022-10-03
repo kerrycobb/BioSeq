@@ -63,7 +63,6 @@ runnableExamples:
   let r = parseChar('W', DNA)
   assert r.isPurine()
 
-
 ## StrictNucleotide 
 ## ================
 ## The `StrictDNA` and `StrictRNA` types aliased by `StrictNucleotide` are
@@ -103,11 +102,11 @@ const
   dnaComplement*: array[DNA, DNA] = [dnaT, dnaC, dnaG, dnaA, dnaY, dnaK, dnaW, dnaS, dnaM, dnaR, dnaB, dnaD, dnaH, dnaV, dnaN, dnaGap, dnaUnk]
   rnaComplement*: array[RNA, RNA] = [rnaU, rnaC, rnaG, rnaA, rnaY, rnaK, rnaW, rnaS, rnaM, rnaR, rnaB, rnaD, rnaH, rnaV, rnaN, rnaGap, rnaUnk]
 
-func parseChar*(c: char, T: typedesc[DNA]): DNA = 
+func parseChar*(c: char, typ: typedesc[DNA]): DNA = 
   ## Parse character to DNA enum type.
   generateParser(c, dnaChar, DNA)
 
-func parseChar*(c: char, T: typedesc[RNA]): RNA = 
+func parseChar*(c: char, typ: typedesc[RNA]): RNA = 
   ## Parse character to RNA enum type.
   generateParser(c, rnaChar, RNA)
 
@@ -151,11 +150,11 @@ const
   strictDnaComplement*: array[StrictDNA, StrictDNA] = [sdnaT, sdnaC, sdnaG, sdnaA]
   strictRnaComplement*: array[StrictRNA, StrictRNA] = [srnaU, srnaC, srnaG, srnaA]
 
-func parseChar*(c: char, T: typedesc[StrictDNA]): StrictDNA = 
+func parseChar*(c: char, typ: typedesc[StrictDNA]): StrictDNA = 
   ## Parse character to DNA enum type.
   generateParser(c, strictDnaChar, StrictDNA)
 
-func parseChar*(c: char, T: typedesc[StrictRNA]): StrictRNA = 
+func parseChar*(c: char, typ: typedesc[StrictRNA]): StrictRNA = 
   ## Parse character to RNA enum type.
   generateParser(c, strictRnaChar, StrictRNA)
 
@@ -222,18 +221,18 @@ func diffBase*(a, b: AnyNucleotide): bool = (a.byte and b.byte) < 0b0001_0000'u8
   ## Returns true if bases are unambiguously different. A base will be treated 
   ## as different if it is unknown '?' but not if it is any 'N' or gap '-'.
 
-func toNucleotideSeq*[T: AnyNucleotide](data: seq[char]): seq[T] =
+func toNucleotideSeq*(data: seq[char], typ: typedesc[AnyNucleotide]): seq[typ] =
   ## Parse character seq as Nucleotide seq
-  result = newSeq[T](data.len)
+  result = newSeq[typ](data.len)
   for i, d in data:
-    result[i] = parseChar(d, T)
+    result[i] = parseChar(d, typ)
 
-func toNucleotideSeq*[T: AnyNucleotide](data: string): seq[T] = 
+func toNucleotideSeq*(data: string, typ: typedesc[AnyNucleotide]): seq[typ] = 
   ## Parse string as Nucleotide seq 
   # TODO: Should just be able to cast string to seq[char] and call the above 
   # func but for some reason it wont work here. This approch works outside of
   # this module file. For example in the aminoAcids module.
   # toNucleotideSeq(cast[seq[char]](data))
-  result = newSeq[T](data.len)
+  result = newSeq[typ](data.len)
   for i, d in data:
-    result[i] = parseChar(d, T)
+    result[i] = parseChar(d, typ)

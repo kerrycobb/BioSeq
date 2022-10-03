@@ -171,9 +171,9 @@ block: # nucleotide
     assert parseChar('-', RNA).complement.char == '-'
     assert parseChar('?', RNA).complement.char == '?'
     
-    assert toNucleotideSeq[DNA](@['A', 'T', 'G', 'C']) == @[dnaA, dnaT, dnaG, dnaC]
-    assert toNucleotideSeq[DNA]("ATGC") == @[dnaA, dnaT, dnaG, dnaC]
-  
+    assert toNucleotideSeq(@['A', 'T', 'G', 'C'], DNA) == @[dnaA, dnaT, dnaG, dnaC]
+    assert toNucleotideSeq("ATGC", DNA) == @[dnaA, dnaT, dnaG, dnaC]
+ 
   
   block: # StrictNucleotide
     let 
@@ -238,5 +238,5 @@ block: # nucleotide
     assert parseChar('C', StrictRNA).complement.char == 'G'
     assert parseChar('U', StrictRNA).complement.char == 'A'
         
-    assert toNucleotideSeq[StrictDNA](@['A', 'T', 'G', 'C']) == @[sdnaA, sdnaT, sdnaG, sdnaC]
-    assert toNucleotideSeq[StrictDNA]("ATGC") == @[sdnaA, sdnaT, sdnaG, sdnaC]
+    assert toNucleotideSeq(@['A', 'T', 'G', 'C'], StrictDNA) == @[sdnaA, sdnaT, sdnaG, sdnaC]
+    assert toNucleotideSeq("ATGC", StrictDNA) == @[sdnaA, sdnaT, sdnaG, sdnaC]
