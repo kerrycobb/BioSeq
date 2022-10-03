@@ -26,7 +26,7 @@
 ## V    	 Val 	        Valine
 ## W    	 Trp 	        Tryptophan
 ## Y    	 Tyr 	        Tyrosine
-## *       Stp          Stop
+## \*      Stp          Stop
 ## X       Amb          Ambiguous/Unknown 
 ## B       Asx          Aspartic acid or asparagine 
 ## Z       Glx          Glutamic acid or glutamine
