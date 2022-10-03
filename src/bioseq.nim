@@ -8,7 +8,6 @@ export
   aminoAcid, 
   twoBitSequence
 
-
 ## #######
 ## BioSeq
 ## #######
@@ -16,32 +15,22 @@ export
 ## BioSeq is a library for working with biological sequence data such as DNA, 
 ## RNA, and amino acids. 
 ## 
-## Fundamental components of the BioSeq library are the `nucleotide`_ and 
-## `aminoAcid`_ modules. These module have `enum` types 
-## for representing nucleotides and amino acids in a way that provides convenience
-## and type safety. They provide utilities for parsing characters and performing
-## actions on and with single nucleotides or amino acids such as getting the 
-## complement of a nucleotide, comparing nucleotides, and translating nucleotides
-## to amino acids.
-##
-## Higher level components for dealing with sequences and matrices of nucleotides
-## are under development and will be available in the future. 
+## The BioSeq library has several modules:
+## `nucleotide <bioseq/nucleotide.html>`_
+##    Provides functions for working with nucleotides such as: 
+##      - Safe parsing
+##      - Getting nucleotide complement
+##      - Optimized nucleic acid comparison 
+#    Nucleotides are represented by enum types which provides convenience and type safety.
 ## 
-## The `twoBitSequence`_ module provides a way to 
-## store nucleotide sequence data as a pair of bits within a bitSeq which reduces 
-## memory and allows for certain sequence comparisons to be done more quickly. 
-##
-## Quick Tutorial
-## ==============
-## Show some examples of what can be done here.
+## `aminoAcid <bioseq/aminoAcid.html>`_
+##    Provides functions for working with amino acids such as: 
+##      - Safe parsing 
+##      - Translating from amino acid sequence 
+#    Amino acids are represented by enum types which provides convenience and type safety.
 ## 
-## 
-## Consult the documentation for each module for a more complete documentation.
-## 
-## 
-## 
-## .._nucleotide: bioseq/nucleotide.html
-## .._aminoacid: bioseq/aminoAcid.html
-## .._twoBitSequence: bioseq/twoBitSequence.html
-
+## `twoBitSequence <bioseq/twoBitSequence>`_
+##    Provides storage of nucleotides sequence as a pair of bits within a 
+##    bit sequence which reduces memory and allows for faster performance of
+##    certain sequence comparisons. 
 
