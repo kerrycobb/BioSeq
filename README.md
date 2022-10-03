@@ -4,7 +4,7 @@ and amino acids.
 
 BioSeq is still a work in progress. Critiques, suggestions, and contributions are welcome!
 
-For documentation see [](kerrycobb.github.io/BioSeq/)  
+Read the documentation [here](kerrycobb.github.io/BioSeq/)  
 
 ## Installation 
 It is recommended that BioSeq be installed with nimble.
