@@ -30,7 +30,7 @@ block: # aminoAcid
     assert parseChar('Z', AminoAcid).char == 'Z'
 
   block: # Translate
-    assert translate([dnaA, dnaA, dnaA]) == aaK
-    assert translate([dnaT, dnaT, dnaT]) == aaF
-    assert translate([dnaN, dnaT, dnaT]) == aaX
-    assert translate([rnaA, rnaA, rnaA]) == aaK
+    assert translate([dnaA, dnaA, dnaA], gc_Standard_1) == aaK
+    assert translate([dnaT, dnaT, dnaT], gc_Standard_1) == aaF
+    assert translate([dnaN, dnaT, dnaT], gc_Standard_1) == aaX
+    assert translate([rnaA, rnaA, rnaA], gc_Standard_1) == aaK
