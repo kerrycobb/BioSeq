@@ -1,16 +1,18 @@
+import ./parserMacro
+
 ## 
 ## The `nucleotide` module provides several `enum` types which represent a single 
-## DNA or RNA molecule (a single base) from a sequence. The use of the `enum` 
+## DNA or RNA molecule (a single base) from a sequence. The `enum` 
 ## type provides convenience and type safety.
 ## 
 ## 
-## There are two categories of nucleotide types which also serve as an alias
-## for the DNA and RNA types that fall within each category which is useful.
+## There are two categories of nucleotide types which also serve as type aliases 
+## for the DNA and RNA types that fall within each category.
 ## These aliases along with the `AnyNucleotide` alias which aliases all types 
-## within this module are useful for writing `procs` that can be overloaded to each type
-## within the category when it is appropriate. 
-## - `Nucleotide`
-## - `StrictNucleotide`
+## within this module are useful for overloading of `procs` to each type
+## within the category when appropriate. 
+##   - `Nucleotide`
+##   - `StrictNucleotide`
 ## 
 ## 
 ## Nucleotide
@@ -60,7 +62,7 @@ runnableExamples:
   let ut = u.toDNA()
   assert ut.char() == 'T'
 
-  let r = parseChar('W', DNA)
+  let r = parseChar('R', DNA)
   assert r.isPurine()
 
 ## StrictNucleotide 
@@ -86,7 +88,7 @@ runnableExamples:
   assert a.char() == 'A'
 
 
-import ./parserMacro
+
 
 type
   DNA* = enum dnaA, dnaG, dnaC, dnaT, dnaR, dnaM, dnaW, dnaS, dnaK, dnaY, dnaV, dnaH, dnaD, dnaB, dnaN, dnaGap, dnaUnk
