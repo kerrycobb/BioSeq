@@ -1,9 +1,12 @@
-# TODO: Check on bitArray proc
+# TODO: Check on bitSeq proc
 # TODO: Make proc to reverse bitseq and proc to complement bitseq
 # TODO: Write custom bitseq code to eliminate external dependancy.
 
-## Bit array representation of nucleotide sequence
-## Nucleotide bit patterns
+## Bit array representation of nucleotide sequence. This module contains functions
+## to store `StrictNucleotides` in a bit sequence. This module import the 
+## bit sequence implementation in the `bitty<https://github.com/treeform/bitty>`_ package.
+## 
+## Nucleotide bit patterns:
 ## ========== ===========
 ## Nucleotide Bit Pattern
 ## ========== ===========
@@ -27,7 +30,7 @@ func newTwoBitSequence*[T](len: int): TwoBitSequence[T] =
   result = TwoBitSequence[T](bitArray: newBitArray(2 * len))
   result.len = len
 
-func bitArray*[T](s: TwoBitSequence[T]): BitArray = s.bitArray 
+func bitSeq*[T](s: TwoBitSequence[T]): BitArray = s.bitArray 
   ## Gives read only access to bitArray. 
   # TODO: Confirm that this is read only
 
