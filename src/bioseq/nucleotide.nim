@@ -197,25 +197,25 @@ func knownBase*(n: AnyNucleotide): bool = (n.byte and 0b0000_1000'u8) == 0b0000_
   ## Returns true if base is not ambiguous.
    
 func isAdenine*(n: AnyNucleotide): bool = n.byte == 0b1000_1000'u8 
-  ## Returns true if base is unambiguously adenine.
+  ## Returns true if base is unambiguously adenine (A).
 
 func isGuanine*(n: AnyNucleotide): bool = n.byte == 0b0100_1000'u8
-  ## Returns true if base is unambiguously guanine.
+  ## Returns true if base is unambiguously guanine (G).
    
 func isCytosine*(n: AnyNucleotide): bool = n.byte == 0b0010_1000'u8 
-  ## Returns true if base is unambiguously cytosine.
+  ## Returns true if base is unambiguously cytosine (C).
 
 func isThymine*(n: DNA | StrictDNA): bool = n.byte == 0b0001_1000'u8 
-  ## Returns true if base is unambiguously thymine.
+  ## Returns true if base is unambiguously thymine (T).
 
 func isUracil*(n: RNA | StrictRNA): bool = n.byte == 0b0001_1000'u8 
-  ## Returns true if base is unambiguously uracil.
+  ## Returns true if base is unambiguously uracil (U).
 
 func isPurine*(n: AnyNucleotide): bool = (n.byte and 0b0011_0111'u8) == 0b0000_0000'u8
-  ## Returns true if base ia a unambiguosly purine.
+  ## Returns true if base ia a unambiguosly purine (A or G).
 
 func isPyrimidine*(n: AnyNucleotide): bool = (n.byte and 0b1100_0111'u8) == 0b0000_0000'u8
-  ## Returns true if base is a unabmbiguously pyramidine.
+  ## Returns true if base is a unabmbiguously pyramidine (T/U or C).
 
 func sameBase*(a, b: AnyNucleotide): bool = knownBase(a) and (a == b)
   ## Returns true if bases are unambiguously the same.
