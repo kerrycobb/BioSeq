@@ -132,9 +132,9 @@ window.addEventListener('DOMContentLoaded', main);
     title="`[]=`[T](s: var TwoBitSequence[T]; loc: int; val: T)">`[]=`[T](s: var TwoBitSequence[T]; loc: int; val: T)</a></li>
 
   </ul>
-  <ul class="simple nested-toc-section">bitArray
-      <li><a class="reference" href="#bitArray%2CTwoBitSequence%5BT%5D"
-    title="bitArray[T](s: TwoBitSequence[T]): BitArray">bitArray[T](s: TwoBitSequence[T]): BitArray</a></li>
+  <ul class="simple nested-toc-section">bitSeq
+      <li><a class="reference" href="#bitSeq%2CTwoBitSequence%5BT%5D"
+    title="bitSeq[T](s: TwoBitSequence[T]): BitArray">bitSeq[T](s: TwoBitSequence[T]): BitArray</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">len
@@ -172,7 +172,9 @@ class="link-seesrc" target="_blank">Source</a>
   <div class="nine columns" id="content">
   <div id="tocRoot"></div>
   
-  <p class="module-desc">Bit array representation of nucleotide sequence Nucleotide bit patterns<table border="1" class="docutils"><tr><th>Nucleotide</th><th>Bit Pattern</th></tr>
+  <p class="module-desc"><p>Bit array representation of nucleotide sequence. This module contains functions to store <tt class="docutils literal"><span class="pre"><span class="Identifier">StrictNucleotides</span></span></tt> in a bit sequence. This module import the bit sequence implementation in the <a class="reference external" href="https://github.com/treeform/bitty">bitty</a> package.</p>
+<p>Nucleotide bit patterns:</p>
+<table border="1" class="docutils"><tr><th>Nucleotide</th><th>Bit Pattern</th></tr>
 <tr><td>A</td><td>00</td></tr>
 <tr><td>G</td><td>10</td></tr>
 <tr><td>C</td><td>01</td></tr>
@@ -195,9 +197,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/kerrycobb/BioSeq/tree/version-1-6/src/bioseq/twoBitSequence.nim#L21"
+href="https://github.com/kerrycobb/BioSeq/tree/version-1-6/src/bioseq/twoBitSequence.nim#L24"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/twoBitSequence.nim#L21" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/twoBitSequence.nim#L24" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -212,9 +214,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/kerrycobb/BioSeq/tree/version-1-6/src/bioseq/twoBitSequence.nim#L71"
+href="https://github.com/kerrycobb/BioSeq/tree/version-1-6/src/bioseq/twoBitSequence.nim#L74"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/twoBitSequence.nim#L71" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/twoBitSequence.nim#L74" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -224,9 +226,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/kerrycobb/BioSeq/tree/version-1-6/src/bioseq/twoBitSequence.nim#L55"
+href="https://github.com/kerrycobb/BioSeq/tree/version-1-6/src/bioseq/twoBitSequence.nim#L58"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/twoBitSequence.nim#L55" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/twoBitSequence.nim#L58" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -236,21 +238,21 @@ class="link-seesrc" target="_blank">Source</a>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/kerrycobb/BioSeq/tree/version-1-6/src/bioseq/twoBitSequence.nim#L45"
+href="https://github.com/kerrycobb/BioSeq/tree/version-1-6/src/bioseq/twoBitSequence.nim#L48"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/twoBitSequence.nim#L45" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/twoBitSequence.nim#L48" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
-<div id="bitArray,TwoBitSequence[T]">
-<dt><pre><span class="Keyword">func</span> <a href="#bitArray%2CTwoBitSequence%5BT%5D"><span class="Identifier">bitArray</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">s</span><span class="Other">:</span> <a href="twoBitSequence.html#TwoBitSequence"><span class="Identifier">TwoBitSequence</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">BitArray</span></pre></dt>
+<div id="bitSeq,TwoBitSequence[T]">
+<dt><pre><span class="Keyword">func</span> <a href="#bitSeq%2CTwoBitSequence%5BT%5D"><span class="Identifier">bitSeq</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">s</span><span class="Other">:</span> <a href="twoBitSequence.html#TwoBitSequence"><span class="Identifier">TwoBitSequence</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">BitArray</span></pre></dt>
 <dd>
 
 Gives read only access to bitArray. 
 &nbsp;&nbsp;<a
-href="https://github.com/kerrycobb/BioSeq/tree/version-1-6/src/bioseq/twoBitSequence.nim#L30"
+href="https://github.com/kerrycobb/BioSeq/tree/version-1-6/src/bioseq/twoBitSequence.nim#L33"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/twoBitSequence.nim#L30" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/twoBitSequence.nim#L33" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -260,9 +262,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Returns len
 &nbsp;&nbsp;<a
-href="https://github.com/kerrycobb/BioSeq/tree/version-1-6/src/bioseq/twoBitSequence.nim#L34"
+href="https://github.com/kerrycobb/BioSeq/tree/version-1-6/src/bioseq/twoBitSequence.nim#L37"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/twoBitSequence.nim#L34" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/twoBitSequence.nim#L37" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -272,9 +274,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Create new two bit sequence array
 &nbsp;&nbsp;<a
-href="https://github.com/kerrycobb/BioSeq/tree/version-1-6/src/bioseq/twoBitSequence.nim#L25"
+href="https://github.com/kerrycobb/BioSeq/tree/version-1-6/src/bioseq/twoBitSequence.nim#L28"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/twoBitSequence.nim#L25" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/twoBitSequence.nim#L28" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -284,9 +286,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Convert sequence to DNA
 &nbsp;&nbsp;<a
-href="https://github.com/kerrycobb/BioSeq/tree/version-1-6/src/bioseq/twoBitSequence.nim#L37"
+href="https://github.com/kerrycobb/BioSeq/tree/version-1-6/src/bioseq/twoBitSequence.nim#L40"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/twoBitSequence.nim#L37" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/twoBitSequence.nim#L40" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -296,9 +298,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Convert sequence to RNA
 &nbsp;&nbsp;<a
-href="https://github.com/kerrycobb/BioSeq/tree/version-1-6/src/bioseq/twoBitSequence.nim#L41"
+href="https://github.com/kerrycobb/BioSeq/tree/version-1-6/src/bioseq/twoBitSequence.nim#L44"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/twoBitSequence.nim#L41" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/twoBitSequence.nim#L44" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -312,7 +314,7 @@ class="link-seesrc" target="_blank">Source</a>
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2022-10-03 05:10:29 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2022-10-05 15:11:07 UTC</small>
       </div>
     </div>
   </div>

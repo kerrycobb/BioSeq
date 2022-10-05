@@ -20,44 +20,44 @@ aaU	bioseq/aminoAcid.html#aaU	AminoAcid.aaU
 aaV	bioseq/aminoAcid.html#aaV	AminoAcid.aaV	
 aaW	bioseq/aminoAcid.html#aaW	AminoAcid.aaW	
 aaY	bioseq/aminoAcid.html#aaY	AminoAcid.aaY	
-aaStp	bioseq/aminoAcid.html#aaStp	AminoAcid.aaStp	
-aaX	bioseq/aminoAcid.html#aaX	AminoAcid.aaX	
 aaB	bioseq/aminoAcid.html#aaB	AminoAcid.aaB	
 aaZ	bioseq/aminoAcid.html#aaZ	AminoAcid.aaZ	
+aaStp	bioseq/aminoAcid.html#aaStp	AminoAcid.aaStp	
+aaX	bioseq/aminoAcid.html#aaX	AminoAcid.aaX	
 AminoAcid	bioseq/aminoAcid.html#AminoAcid	aminoAcid: AminoAcid	
 aminoAcidChar	bioseq/aminoAcid.html#aminoAcidChar	aminoAcid: aminoAcidChar	
-aminoAcidAbrev	bioseq/aminoAcid.html#aminoAcidAbrev	aminoAcid: aminoAcidAbrev	
-aminoAcidName	bioseq/aminoAcid.html#aminoAcidName	aminoAcid: aminoAcidName	
+aminoAcidAbreviation	bioseq/aminoAcid.html#aminoAcidAbreviation	aminoAcid: aminoAcidAbreviation	
+aminoAcidDefinition	bioseq/aminoAcid.html#aminoAcidDefinition	aminoAcid: aminoAcidDefinition	
 parseChar	bioseq/aminoAcid.html#parseChar,char,typedesc[AminoAcid]	aminoAcid: parseChar(c: char; T: typedesc[AminoAcid]): AminoAcid	
+char	bioseq/aminoAcid.html#char,AminoAcid	aminoAcid: char(a: AminoAcid): char	
+abreviation	bioseq/aminoAcid.html#abreviation,AminoAcid	aminoAcid: abreviation(a: AminoAcid): string	
+definition	bioseq/aminoAcid.html#definition,AminoAcid	aminoAcid: definition(a: AminoAcid): string	
 toAminoAcidSeq	bioseq/aminoAcid.html#toAminoAcidSeq,seq[char]	aminoAcid: toAminoAcidSeq(data: seq[char]): seq[AminoAcid]	
 toAminoAcidSeq	bioseq/aminoAcid.html#toAminoAcidSeq,string	aminoAcid: toAminoAcidSeq(data: string): seq[AminoAcid]	
-char	bioseq/aminoAcid.html#char,AminoAcid	aminoAcid: char(a: AminoAcid): char	
-dnaCodonSequence	bioseq/aminoAcid.html#dnaCodonSequence	aminoAcid: dnaCodonSequence	
-rnaCodonSequence	bioseq/aminoAcid.html#rnaCodonSequence	aminoAcid: rnaCodonSequence	
-gc_Standard_1	bioseq/aminoAcid.html#gc_Standard_1	GeneticCode.gc_Standard_1	
-gc_Vertebrate_Mito_2	bioseq/aminoAcid.html#gc_Vertebrate_Mito_2	GeneticCode.gc_Vertebrate_Mito_2	
-gc_Yeast_Mito_3	bioseq/aminoAcid.html#gc_Yeast_Mito_3	GeneticCode.gc_Yeast_Mito_3	
-gc_Mold_Protozoan_Coelenterate_Mito_and_Mycoplasma_Spiroplasma_4	bioseq/aminoAcid.html#gc_Mold_Protozoan_Coelenterate_Mito_and_Mycoplasma_Spiroplasma_4	GeneticCode.gc_Mold_Protozoan_Coelenterate_Mito_and_Mycoplasma_Spiroplasma_4	
-gc_Invertebrate_Mito_5	bioseq/aminoAcid.html#gc_Invertebrate_Mito_5	GeneticCode.gc_Invertebrate_Mito_5	
-gc_Ciliate_Dasycladacean_and_Hexamita_Nuc_6	bioseq/aminoAcid.html#gc_Ciliate_Dasycladacean_and_Hexamita_Nuc_6	GeneticCode.gc_Ciliate_Dasycladacean_and_Hexamita_Nuc_6	
-gc_Echinoderm_and_Flatworm_Mito_9	bioseq/aminoAcid.html#gc_Echinoderm_and_Flatworm_Mito_9	GeneticCode.gc_Echinoderm_and_Flatworm_Mito_9	
-gc_Euplotid_Nuc_10	bioseq/aminoAcid.html#gc_Euplotid_Nuc_10	GeneticCode.gc_Euplotid_Nuc_10	
-gc_Bacterial_Archaeal_and_Plant_Plastid_11	bioseq/aminoAcid.html#gc_Bacterial_Archaeal_and_Plant_Plastid_11	GeneticCode.gc_Bacterial_Archaeal_and_Plant_Plastid_11	
-gc_Alternative_Yeast_Nuc_12	bioseq/aminoAcid.html#gc_Alternative_Yeast_Nuc_12	GeneticCode.gc_Alternative_Yeast_Nuc_12	
-gc_Ascidian_Mito_13	bioseq/aminoAcid.html#gc_Ascidian_Mito_13	GeneticCode.gc_Ascidian_Mito_13	
-gc_Alternative_Flatworm_Mito_14	bioseq/aminoAcid.html#gc_Alternative_Flatworm_Mito_14	GeneticCode.gc_Alternative_Flatworm_Mito_14	
-gc_Chlorophycean_Mito_16	bioseq/aminoAcid.html#gc_Chlorophycean_Mito_16	GeneticCode.gc_Chlorophycean_Mito_16	
-gc_Trematode_Mito_21	bioseq/aminoAcid.html#gc_Trematode_Mito_21	GeneticCode.gc_Trematode_Mito_21	
-gc_Scenedesmus_obliquus_Mito_22	bioseq/aminoAcid.html#gc_Scenedesmus_obliquus_Mito_22	GeneticCode.gc_Scenedesmus_obliquus_Mito_22	
-gc_Thraustochytrium_Mito_23	bioseq/aminoAcid.html#gc_Thraustochytrium_Mito_23	GeneticCode.gc_Thraustochytrium_Mito_23	
-gc_Rhabdopleuridae_Mito_24	bioseq/aminoAcid.html#gc_Rhabdopleuridae_Mito_24	GeneticCode.gc_Rhabdopleuridae_Mito_24	
-gc_Candidate_Division_SR1_and_Gracilibacteria_25	bioseq/aminoAcid.html#gc_Candidate_Division_SR1_and_Gracilibacteria_25	GeneticCode.gc_Candidate_Division_SR1_and_Gracilibacteria_25	
-gc_Pachysolen_tannophilus_Nuc_26	bioseq/aminoAcid.html#gc_Pachysolen_tannophilus_Nuc_26	GeneticCode.gc_Pachysolen_tannophilus_Nuc_26	
-gc_Karyorelict_Nuc_27	bioseq/aminoAcid.html#gc_Karyorelict_Nuc_27	GeneticCode.gc_Karyorelict_Nuc_27	
-gc_Condylostoma_Nuc_28	bioseq/aminoAcid.html#gc_Condylostoma_Nuc_28	GeneticCode.gc_Condylostoma_Nuc_28	
-gc_Mesodinium_Nuc_29	bioseq/aminoAcid.html#gc_Mesodinium_Nuc_29	GeneticCode.gc_Mesodinium_Nuc_29	
-gc_Peritrich_Nuc_30	bioseq/aminoAcid.html#gc_Peritrich_Nuc_30	GeneticCode.gc_Peritrich_Nuc_30	
-gc_Blastocrithidia_Nuc_31	bioseq/aminoAcid.html#gc_Blastocrithidia_Nuc_31	GeneticCode.gc_Blastocrithidia_Nuc_31	
-gc_Cephalodiscidae_Mito_UAA_Tyr_33	bioseq/aminoAcid.html#gc_Cephalodiscidae_Mito_UAA_Tyr_33	GeneticCode.gc_Cephalodiscidae_Mito_UAA_Tyr_33	
+gCode1	bioseq/aminoAcid.html#gCode1	GeneticCode.gCode1	
+gCode2	bioseq/aminoAcid.html#gCode2	GeneticCode.gCode2	
+gCode3	bioseq/aminoAcid.html#gCode3	GeneticCode.gCode3	
+gCode4	bioseq/aminoAcid.html#gCode4	GeneticCode.gCode4	
+gCode5	bioseq/aminoAcid.html#gCode5	GeneticCode.gCode5	
+gCode6	bioseq/aminoAcid.html#gCode6	GeneticCode.gCode6	
+gCode9	bioseq/aminoAcid.html#gCode9	GeneticCode.gCode9	
+gCode10	bioseq/aminoAcid.html#gCode10	GeneticCode.gCode10	
+gCode11	bioseq/aminoAcid.html#gCode11	GeneticCode.gCode11	
+gCode12	bioseq/aminoAcid.html#gCode12	GeneticCode.gCode12	
+gCode13	bioseq/aminoAcid.html#gCode13	GeneticCode.gCode13	
+gCode14	bioseq/aminoAcid.html#gCode14	GeneticCode.gCode14	
+gCode16	bioseq/aminoAcid.html#gCode16	GeneticCode.gCode16	
+gCode21	bioseq/aminoAcid.html#gCode21	GeneticCode.gCode21	
+gCode22	bioseq/aminoAcid.html#gCode22	GeneticCode.gCode22	
+gCode23	bioseq/aminoAcid.html#gCode23	GeneticCode.gCode23	
+gCode24	bioseq/aminoAcid.html#gCode24	GeneticCode.gCode24	
+gCode25	bioseq/aminoAcid.html#gCode25	GeneticCode.gCode25	
+gCode26	bioseq/aminoAcid.html#gCode26	GeneticCode.gCode26	
+gCode27	bioseq/aminoAcid.html#gCode27	GeneticCode.gCode27	
+gCode28	bioseq/aminoAcid.html#gCode28	GeneticCode.gCode28	
+gCode29	bioseq/aminoAcid.html#gCode29	GeneticCode.gCode29	
+gCode30	bioseq/aminoAcid.html#gCode30	GeneticCode.gCode30	
+gCode31	bioseq/aminoAcid.html#gCode31	GeneticCode.gCode31	
+gCode33	bioseq/aminoAcid.html#gCode33	GeneticCode.gCode33	
 GeneticCode	bioseq/aminoAcid.html#GeneticCode	aminoAcid: GeneticCode	
-translate	bioseq/aminoAcid.html#translate,array[,AnyNucleotide],GeneticCode	aminoAcid: translate(nucleotides: array[3, AnyNucleotide];\n          code: GeneticCode = gc_standard_1): AminoAcid	
+translate	bioseq/aminoAcid.html#translate,array[,AnyNucleotide],GeneticCode	aminoAcid: translate(nucleotides: array[3, AnyNucleotide]; code: GeneticCode): AminoAcid	

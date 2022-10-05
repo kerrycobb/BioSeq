@@ -1,6 +1,6 @@
 TwoBitSequence	bioseq/twoBitSequence.html#TwoBitSequence	twoBitSequence: TwoBitSequence	
 newTwoBitSequence	bioseq/twoBitSequence.html#newTwoBitSequence,int	twoBitSequence: newTwoBitSequence[T](len: int): TwoBitSequence[T]	
-bitArray	bioseq/twoBitSequence.html#bitArray,TwoBitSequence[T]	twoBitSequence: bitArray[T](s: TwoBitSequence[T]): BitArray	
+bitSeq	bioseq/twoBitSequence.html#bitSeq,TwoBitSequence[T]	twoBitSequence: bitSeq[T](s: TwoBitSequence[T]): BitArray	
 len	bioseq/twoBitSequence.html#len,TwoBitSequence[T]	twoBitSequence: len[T](s: TwoBitSequence[T]): int	
 toDNA	bioseq/twoBitSequence.html#toDNA,TwoBitSequence[T]	twoBitSequence: toDNA[T](s: var TwoBitSequence[T]): TwoBitSequence[StrictDNA]	
 toRNA	bioseq/twoBitSequence.html#toRNA,TwoBitSequence[T]	twoBitSequence: toRNA[T](s: var TwoBitSequence[T]): TwoBitSequence[StrictRNA]	

@@ -41,8 +41,8 @@ dnaChar	bioseq/nucleotide.html#dnaChar	nucleotide: dnaChar
 rnaChar	bioseq/nucleotide.html#rnaChar	nucleotide: rnaChar	
 dnaComplement	bioseq/nucleotide.html#dnaComplement	nucleotide: dnaComplement	
 rnaComplement	bioseq/nucleotide.html#rnaComplement	nucleotide: rnaComplement	
-parseChar	bioseq/nucleotide.html#parseChar,char,typedesc[DNA]	nucleotide: parseChar(c: char; T: typedesc[DNA]): DNA	
-parseChar	bioseq/nucleotide.html#parseChar,char,typedesc[RNA]	nucleotide: parseChar(c: char; T: typedesc[RNA]): RNA	
+parseChar	bioseq/nucleotide.html#parseChar,char,typedesc[DNA]	nucleotide: parseChar(c: char; typ: typedesc[DNA]): DNA	
+parseChar	bioseq/nucleotide.html#parseChar,char,typedesc[RNA]	nucleotide: parseChar(c: char; typ: typedesc[RNA]): RNA	
 byte	bioseq/nucleotide.html#byte,DNA	nucleotide: byte(n: DNA): byte	
 byte	bioseq/nucleotide.html#byte,RNA	nucleotide: byte(n: RNA): byte	
 char	bioseq/nucleotide.html#char,DNA	nucleotide: char(n: DNA): char	
@@ -68,8 +68,8 @@ strictDnaChar	bioseq/nucleotide.html#strictDnaChar	nucleotide: strictDnaChar
 strictRnaChar	bioseq/nucleotide.html#strictRnaChar	nucleotide: strictRnaChar	
 strictDnaComplement	bioseq/nucleotide.html#strictDnaComplement	nucleotide: strictDnaComplement	
 strictRnaComplement	bioseq/nucleotide.html#strictRnaComplement	nucleotide: strictRnaComplement	
-parseChar	bioseq/nucleotide.html#parseChar,char,typedesc[StrictDNA]	nucleotide: parseChar(c: char; T: typedesc[StrictDNA]): StrictDNA	
-parseChar	bioseq/nucleotide.html#parseChar,char,typedesc[StrictRNA]	nucleotide: parseChar(c: char; T: typedesc[StrictRNA]): StrictRNA	
+parseChar	bioseq/nucleotide.html#parseChar,char,typedesc[StrictDNA]	nucleotide: parseChar(c: char; typ: typedesc[StrictDNA]): StrictDNA	
+parseChar	bioseq/nucleotide.html#parseChar,char,typedesc[StrictRNA]	nucleotide: parseChar(c: char; typ: typedesc[StrictRNA]): StrictRNA	
 byte	bioseq/nucleotide.html#byte,StrictDNA	nucleotide: byte(n: StrictDNA): byte	
 byte	bioseq/nucleotide.html#byte,StrictRNA	nucleotide: byte(n: StrictRNA): byte	
 char	bioseq/nucleotide.html#char,StrictDNA	nucleotide: char(n: StrictDNA): char	
@@ -90,5 +90,7 @@ isPurine	bioseq/nucleotide.html#isPurine,AnyNucleotide	nucleotide: isPurine(n: A
 isPyrimidine	bioseq/nucleotide.html#isPyrimidine,AnyNucleotide	nucleotide: isPyrimidine(n: AnyNucleotide): bool	
 sameBase	bioseq/nucleotide.html#sameBase,AnyNucleotide,AnyNucleotide	nucleotide: sameBase(a, b: AnyNucleotide): bool	
 diffBase	bioseq/nucleotide.html#diffBase,AnyNucleotide,AnyNucleotide	nucleotide: diffBase(a, b: AnyNucleotide): bool	
-toNucleotideSeq	bioseq/nucleotide.html#toNucleotideSeq,seq[char]	nucleotide: toNucleotideSeq[T: AnyNucleotide](data: seq[char]): seq[T]	
-toNucleotideSeq	bioseq/nucleotide.html#toNucleotideSeq,string	nucleotide: toNucleotideSeq[T: AnyNucleotide](data: string): seq[T]	
+toNucleotideSeq	bioseq/nucleotide.html#toNucleotideSeq,seq[char],typedesc[AnyNucleotide]	nucleotide: toNucleotideSeq(data: seq[char]; typ: typedesc[AnyNucleotide]): seq[typ:type]	
+toNucleotideSeq	bioseq/nucleotide.html#toNucleotideSeq,string,typedesc[AnyNucleotide]	nucleotide: toNucleotideSeq(data: string; typ: typedesc[AnyNucleotide]): seq[typ:type]	
+Nucleotide	bioseq/nucleotide.html#nucleotide	 Nucleotide	
+StrictNucleotide	bioseq/nucleotide.html#strictnucleotide	 StrictNucleotide	

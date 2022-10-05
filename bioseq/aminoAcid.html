@@ -110,59 +110,75 @@ window.addEventListener('DOMContentLoaded', main);
       <li><a class="reference" href="#AminoAcid"
     title="AminoAcid = enum
   aaA, aaC, aaD, aaE, aaF, aaG, aaH, aaI, aaK, aaL, aaM, aaN, aaO, aaP, aaQ,
-  aaR, aaS, aaT, aaU, aaV, aaW, aaY, aaStp, aaX, aaB, aaZ">AminoAcid</a></li>
+  aaR, aaS, aaT, aaU, aaV, aaW, aaY, aaB, aaZ, aaStp, aaX">AminoAcid</a></li>
   <li><a class="reference" href="#GeneticCode"
     title="GeneticCode = enum
-  gc_Standard_1 = &quot;FFLLSSSSYY**CC*WLLLLPPPPHHQQRRRRIIIMTTTTNNKKSSRRVVVVAAAADDEEGGGG&quot;, gc_Vertebrate_Mito_2 = &quot;FFLLSSSSYY**CCWWLLLLPPPPHHQQRRRRIIMMTTTTNNKKSS**VVVVAAAADDEEGGGG&quot;, gc_Yeast_Mito_3 = &quot;FFLLSSSSYY**CCWWTTTTPPPPHHQQRRRRIIMMTTTTNNKKSSRRVVVVAAAADDEEGGGG&quot;, gc_Mold_Protozoan_Coelenterate_Mito_and_Mycoplasma_Spiroplasma_4 = &quot;FFLLSSSSYY**CCWWLLLLPPPPHHQQRRRRIIIMTTTTNNKKSSRRVVVVAAAADDEEGGGG&quot;, gc_Invertebrate_Mito_5 = &quot;FFLLSSSSYY**CCWWLLLLPPPPHHQQRRRRIIMMTTTTNNKKSSSSVVVVAAAADDEEGGGG&quot;, gc_Ciliate_Dasycladacean_and_Hexamita_Nuc_6 = &quot;FFLLSSSSYYQQCC*WLLLLPPPPHHQQRRRRIIIMTTTTNNKKSSRRVVVVAAAADDEEGGGG&quot;, gc_Echinoderm_and_Flatworm_Mito_9 = &quot;FFLLSSSSYY**CCWWLLLLPPPPHHQQRRRRIIIMTTTTNNNKSSSSVVVVAAAADDEEGGGG&quot;, gc_Euplotid_Nuc_10 = &quot;FFLLSSSSYY**CCCWLLLLPPPPHHQQRRRRIIIMTTTTNNKKSSRRVVVVAAAADDEEGGGG&quot;, gc_Bacterial_Archaeal_and_Plant_Plastid_11 = &quot;FFLLSSSSYY**CC*WLLLLPPPPHHQQRRRRIIIMTTTTNNKKSSRRVVVVAAAADDEEGGGG&quot;, gc_Alternative_Yeast_Nuc_12 = &quot;FFLLSSSSYY**CC*WLLLSPPPPHHQQRRRRIIIMTTTTNNKKSSRRVVVVAAAADDEEGGGG&quot;, gc_Ascidian_Mito_13 = &quot;FFLLSSSSYY**CCWWLLLLPPPPHHQQRRRRIIMMTTTTNNKKSSGGVVVVAAAADDEEGGGG&quot;, gc_Alternative_Flatworm_Mito_14 = &quot;FFLLSSSSYYY*CCWWLLLLPPPPHHQQRRRRIIIMTTTTNNNKSSSSVVVVAAAADDEEGGGG&quot;, gc_Chlorophycean_Mito_16 = &quot;FFLLSSSSYY*LCC*WLLLLPPPPHHQQRRRRIIIMTTTTNNKKSSRRVVVVAAAADDEEGGGG&quot;, gc_Trematode_Mito_21 = &quot;FFLLSSSSYY**CCWWLLLLPPPPHHQQRRRRIIMMTTTTNNNKSSSSVVVVAAAADDEEGGGG&quot;, gc_Scenedesmus_obliquus_Mito_22 = &quot;FFLLSS*SYY*LCC*WLLLLPPPPHHQQRRRRIIIMTTTTNNKKSSRRVVVVAAAADDEEGGGG&quot;, gc_Thraustochytrium_Mito_23 = &quot;FF*LSSSSYY**CC*WLLLLPPPPHHQQRRRRIIIMTTTTNNKKSSRRVVVVAAAADDEEGGGG&quot;, gc_Rhabdopleuridae_Mito_24 = &quot;FFLLSSSSYY**CCWWLLLLPPPPHHQQRRRRIIIMTTTTNNKKSSSKVVVVAAAADDEEGGGG&quot;, gc_Candidate_Division_SR1_and_Gracilibacteria_25 = &quot;FFLLSSSSYY**CCGWLLLLPPPPHHQQRRRRIIIMTTTTNNKKSSRRVVVVAAAADDEEGGGG&quot;, gc_Pachysolen_tannophilus_Nuc_26 = &quot;FFLLSSSSYY**CC*WLLLAPPPPHHQQRRRRIIIMTTTTNNKKSSRRVVVVAAAADDEEGGGG&quot;, gc_Karyorelict_Nuc_27 = &quot;FFLLSSSSYYQQCCWWLLLLPPPPHHQQRRRRIIIMTTTTNNKKSSRRVVVVAAAADDEEGGGG&quot;, gc_Condylostoma_Nuc_28 = &quot;FFLLSSSSYYQQCCWWLLLLPPPPHHQQRRRRIIIMTTTTNNKKSSRRVVVVAAAADDEEGGGG&quot;, gc_Mesodinium_Nuc_29 = &quot;FFLLSSSSYYYYCC*WLLLLPPPPHHQQRRRRIIIMTTTTNNKKSSRRVVVVAAAADDEEGGGG&quot;, gc_Peritrich_Nuc_30 = &quot;FFLLSSSSYYEECC*WLLLLPPPPHHQQRRRRIIIMTTTTNNKKSSRRVVVVAAAADDEEGGGG&quot;, gc_Blastocrithidia_Nuc_31 = &quot;FFLLSSSSYYEECCWWLLLLPPPPHHQQRRRRIIIMTTTTNNKKSSRRVVVVAAAADDEEGGGG&quot;, gc_Cephalodiscidae_Mito_UAA_Tyr_33 = &quot;FFLLSSSSYYY*CCWWLLLLPPPPHHQQRRRRIIIMTTTTNNKKSSSKVVVVAAAADDEEGGGG&quot;">GeneticCode</a></li>
+  gCode1 = &quot;KKNNRRSSTTTTIMIIEEDDGGGGAAAAVVVVQQHHRRRRPPPPLLLL**YY*WCCSSSSLLFF&quot;,
+  gCode2 = &quot;KKNN**SSTTTTMMIIEEDDGGGGAAAAVVVVQQHHRRRRPPPPLLLL**YYWWCCSSSSLLFF&quot;,
+  gCode3 = &quot;KKNNRRSSTTTTMMIIEEDDGGGGAAAAVVVVQQHHRRRRPPPPTTTT**YYWWCCSSSSLLFF&quot;,
+  gCode4 = &quot;KKNNRRSSTTTTIMIIEEDDGGGGAAAAVVVVQQHHRRRRPPPPLLLL**YYWWCCSSSSLLFF&quot;,
+  gCode5 = &quot;KKNNSSSSTTTTMMIIEEDDGGGGAAAAVVVVQQHHRRRRPPPPLLLL**YYWWCCSSSSLLFF&quot;,
+  gCode6 = &quot;KKNNRRSSTTTTIMIIEEDDGGGGAAAAVVVVQQHHRRRRPPPPLLLLQQYY*WCCSSSSLLFF&quot;,
+  gCode9 = &quot;NKNNSSSSTTTTIMIIEEDDGGGGAAAAVVVVQQHHRRRRPPPPLLLL**YYWWCCSSSSLLFF&quot;,
+  gCode10 = &quot;KKNNRRSSTTTTIMIIEEDDGGGGAAAAVVVVQQHHRRRRPPPPLLLL**YYCWCCSSSSLLFF&quot;,
+  gCode11 = &quot;KKNNRRSSTTTTIMIIEEDDGGGGAAAAVVVVQQHHRRRRPPPPLLLL**YY*WCCSSSSLLFF&quot;,
+  gCode12 = &quot;KKNNRRSSTTTTIMIIEEDDGGGGAAAAVVVVQQHHRRRRPPPPLSLL**YY*WCCSSSSLLFF&quot;,
+  gCode13 = &quot;KKNNGGSSTTTTMMIIEEDDGGGGAAAAVVVVQQHHRRRRPPPPLLLL**YYWWCCSSSSLLFF&quot;,
+  gCode14 = &quot;NKNNSSSSTTTTIMIIEEDDGGGGAAAAVVVVQQHHRRRRPPPPLLLLY*YYWWCCSSSSLLFF&quot;,
+  gCode16 = &quot;KKNNRRSSTTTTIMIIEEDDGGGGAAAAVVVVQQHHRRRRPPPPLLLL*LYY*WCCSSSSLLFF&quot;,
+  gCode21 = &quot;NKNNSSSSTTTTMMIIEEDDGGGGAAAAVVVVQQHHRRRRPPPPLLLL**YYWWCCSSSSLLFF&quot;,
+  gCode22 = &quot;KKNNRRSSTTTTIMIIEEDDGGGGAAAAVVVVQQHHRRRRPPPPLLLL*LYY*WCC*SSSLLFF&quot;,
+  gCode23 = &quot;KKNNRRSSTTTTIMIIEEDDGGGGAAAAVVVVQQHHRRRRPPPPLLLL**YY*WCCSSSS*LFF&quot;,
+  gCode24 = &quot;KKNNSKSSTTTTIMIIEEDDGGGGAAAAVVVVQQHHRRRRPPPPLLLL**YYWWCCSSSSLLFF&quot;,
+  gCode25 = &quot;KKNNRRSSTTTTIMIIEEDDGGGGAAAAVVVVQQHHRRRRPPPPLLLL**YYGWCCSSSSLLFF&quot;,
+  gCode26 = &quot;KKNNRRSSTTTTIMIIEEDDGGGGAAAAVVVVQQHHRRRRPPPPLALL**YY*WCCSSSSLLFF&quot;,
+  gCode27 = &quot;KKNNRRSSTTTTIMIIEEDDGGGGAAAAVVVVQQHHRRRRPPPPLLLLQQYYWWCCSSSSLLFF&quot;,
+  gCode28 = &quot;KKNNRRSSTTTTIMIIEEDDGGGGAAAAVVVVQQHHRRRRPPPPLLLLQQYYWWCCSSSSLLFF&quot;,
+  gCode29 = &quot;KKNNRRSSTTTTIMIIEEDDGGGGAAAAVVVVQQHHRRRRPPPPLLLLYYYY*WCCSSSSLLFF&quot;,
+  gCode30 = &quot;KKNNRRSSTTTTIMIIEEDDGGGGAAAAVVVVQQHHRRRRPPPPLLLLEEYY*WCCSSSSLLFF&quot;,
+  gCode31 = &quot;KKNNRRSSTTTTIMIIEEDDGGGGAAAAVVVVQQHHRRRRPPPPLLLLEEYYWWCCSSSSLLFF&quot;,
+  gCode33 = &quot;KKNNSKSSTTTTIMIIEEDDGGGGAAAAVVVVQQHHRRRRPPPPLLLLY*YYWWCCSSSSLLFF&quot;">GeneticCode</a></li>
 
   </ul>
 </li>
 <li>
   <a class="reference reference-toplevel" href="#10" id="60">Consts</a>
   <ul class="simple simple-toc-section">
-      <li><a class="reference" href="#aminoAcidAbrev"
-    title="aminoAcidAbrev: array[AminoAcid, string] = [&quot;Ala&quot;, &quot;Cys&quot;, &quot;Asp&quot;, &quot;Glu&quot;, &quot;Phe&quot;,
-    &quot;Gly&quot;, &quot;His&quot;, &quot;Ile&quot;, &quot;Lys&quot;, &quot;Leu&quot;, &quot;Met&quot;, &quot;Asn&quot;, &quot;Pyl&quot;, &quot;Pro&quot;, &quot;Gln&quot;, &quot;Arg&quot;,
-    &quot;Ser&quot;, &quot;Thr&quot;, &quot;Sec&quot;, &quot;Val&quot;, &quot;Trp&quot;, &quot;Tyr&quot;, &quot;Stp&quot;, &quot;Amb&quot;, &quot;Asx&quot;, &quot;Glx&quot;]">aminoAcidAbrev</a></li>
+      <li><a class="reference" href="#aminoAcidAbreviation"
+    title="aminoAcidAbreviation: array[AminoAcid, string] = [&quot;Ala&quot;, &quot;Cys&quot;, &quot;Asp&quot;, &quot;Glu&quot;,
+    &quot;Phe&quot;, &quot;Gly&quot;, &quot;His&quot;, &quot;Ile&quot;, &quot;Lys&quot;, &quot;Leu&quot;, &quot;Met&quot;, &quot;Asn&quot;, &quot;Pyl&quot;, &quot;Pro&quot;, &quot;Gln&quot;,
+    &quot;Arg&quot;, &quot;Ser&quot;, &quot;Thr&quot;, &quot;Sec&quot;, &quot;Val&quot;, &quot;Trp&quot;, &quot;Tyr&quot;, &quot;Asx&quot;, &quot;Glx&quot;, &quot;Stp&quot;, &quot;Amb&quot;]">aminoAcidAbreviation</a></li>
   <li><a class="reference" href="#aminoAcidChar"
     title="aminoAcidChar: array[AminoAcid, char] = ['A', 'C', 'D', 'E', 'F', 'G', 'H', 'I',
-    'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'Y', '*',
-    'X', 'B', 'Z']">aminoAcidChar</a></li>
-  <li><a class="reference" href="#aminoAcidName"
-    title="aminoAcidName: array[AminoAcid, string] = [&quot;Alanine&quot;, &quot;Cysteine&quot;,
+    'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'Y', 'B',
+    'Z', '*', 'X']">aminoAcidChar</a></li>
+  <li><a class="reference" href="#aminoAcidDefinition"
+    title="aminoAcidDefinition: array[AminoAcid, string] = [&quot;Alanine&quot;, &quot;Cysteine&quot;,
     &quot;Aspartic Acid&quot;, &quot;Glutamic Acid&quot;, &quot;Phenylalanine&quot;, &quot;Glycine&quot;, &quot;Histidine&quot;,
     &quot;Isoleucine&quot;, &quot;Lysine&quot;, &quot;Leucine&quot;, &quot;Methionine&quot;, &quot;Asparagine&quot;,
     &quot;Pyrrolysine&quot;, &quot;Proline&quot;, &quot;Glutamine&quot;, &quot;Arginine&quot;, &quot;Serine&quot;, &quot;Threonine&quot;,
-    &quot;Selenocysteine&quot;, &quot;Valine&quot;, &quot;Tryptophan&quot;, &quot;Tyrosine&quot;, &quot;Stop&quot;,
-    &quot;Ambiguous/Unknown&quot;, &quot;Aspartic acid or asparagine&quot;,
-    &quot;Glutamic acid or glutamine&quot;]">aminoAcidName</a></li>
-  <li><a class="reference" href="#dnaCodonSequence"
-    title="dnaCodonSequence = [&quot;TTT&quot;, &quot;TTC&quot;, &quot;TTA&quot;, &quot;TTG&quot;, &quot;TCT&quot;, &quot;TCC&quot;, &quot;TCA&quot;, &quot;TCG&quot;,
-                    &quot;TAT&quot;, &quot;TAC&quot;, &quot;TAA&quot;, &quot;TAG&quot;, &quot;TGT&quot;, &quot;TGC&quot;, &quot;TGA&quot;, &quot;TGG&quot;,
-                    &quot;CTT&quot;, &quot;CTC&quot;, &quot;CTA&quot;, &quot;CTG&quot;, &quot;CCT&quot;, &quot;CCC&quot;, &quot;CCA&quot;, &quot;CCG&quot;,
-                    &quot;CAT&quot;, &quot;CAC&quot;, &quot;CAA&quot;, &quot;CAG&quot;, &quot;CGT&quot;, &quot;CGC&quot;, &quot;CGA&quot;, &quot;CGG&quot;,
-                    &quot;ATT&quot;, &quot;ATC&quot;, &quot;ATA&quot;, &quot;ATG&quot;, &quot;ACT&quot;, &quot;ACC&quot;, &quot;ACA&quot;, &quot;ACG&quot;,
-                    &quot;AAT&quot;, &quot;AAC&quot;, &quot;AAA&quot;, &quot;AAG&quot;, &quot;AGT&quot;, &quot;AGC&quot;, &quot;AGA&quot;, &quot;AGG&quot;,
-                    &quot;GTT&quot;, &quot;GTC&quot;, &quot;GTA&quot;, &quot;GTG&quot;, &quot;GCT&quot;, &quot;GCC&quot;, &quot;GCA&quot;, &quot;GCG&quot;,
-                    &quot;GAT&quot;, &quot;GAC&quot;, &quot;GAA&quot;, &quot;GAG&quot;, &quot;GGT&quot;, &quot;GGC&quot;, &quot;GGA&quot;, &quot;GGG&quot;]">dnaCodonSequence</a></li>
-  <li><a class="reference" href="#rnaCodonSequence"
-    title="rnaCodonSequence = [&quot;UUU&quot;, &quot;UUC&quot;, &quot;UUA&quot;, &quot;UUG&quot;, &quot;UCU&quot;, &quot;UCC&quot;, &quot;UCA&quot;, &quot;UCG&quot;,
-                    &quot;UAU&quot;, &quot;UAC&quot;, &quot;UAA&quot;, &quot;UAG&quot;, &quot;UGU&quot;, &quot;UGC&quot;, &quot;UGA&quot;, &quot;UGG&quot;,
-                    &quot;CUU&quot;, &quot;CUC&quot;, &quot;CUA&quot;, &quot;CUG&quot;, &quot;CCU&quot;, &quot;CCC&quot;, &quot;CCA&quot;, &quot;CCG&quot;,
-                    &quot;CAU&quot;, &quot;CAC&quot;, &quot;CAA&quot;, &quot;CAG&quot;, &quot;CGU&quot;, &quot;CGC&quot;, &quot;CGA&quot;, &quot;CGG&quot;,
-                    &quot;AUU&quot;, &quot;AUC&quot;, &quot;AUA&quot;, &quot;AUG&quot;, &quot;ACU&quot;, &quot;ACC&quot;, &quot;ACA&quot;, &quot;ACG&quot;,
-                    &quot;AAU&quot;, &quot;AAC&quot;, &quot;AAA&quot;, &quot;AAG&quot;, &quot;AGU&quot;, &quot;AGC&quot;, &quot;AGA&quot;, &quot;AGG&quot;,
-                    &quot;GUU&quot;, &quot;GUC&quot;, &quot;GUA&quot;, &quot;GUG&quot;, &quot;GCU&quot;, &quot;GCC&quot;, &quot;GCA&quot;, &quot;GCG&quot;,
-                    &quot;GAU&quot;, &quot;GAC&quot;, &quot;GAA&quot;, &quot;GAG&quot;, &quot;GGU&quot;, &quot;GGC&quot;, &quot;GGA&quot;, &quot;GGG&quot;]">rnaCodonSequence</a></li>
+    &quot;Selenocysteine&quot;, &quot;Valine&quot;, &quot;Tryptophan&quot;, &quot;Tyrosine&quot;,
+    &quot;Aspartic acid or asparagine&quot;, &quot;Glutamic acid or glutamine&quot;, &quot;Stop&quot;,
+    &quot;Ambiguous/Unknown&quot;]">aminoAcidDefinition</a></li>
 
   </ul>
 </li>
 <li>
   <a class="reference reference-toplevel" href="#12" id="62">Procs</a>
   <ul class="simple simple-toc-section">
-      <ul class="simple nested-toc-section">char
+      <ul class="simple nested-toc-section">abreviation
+      <li><a class="reference" href="#abreviation%2CAminoAcid"
+    title="abreviation(a: AminoAcid): string">abreviation(a: AminoAcid): string</a></li>
+
+  </ul>
+  <ul class="simple nested-toc-section">char
       <li><a class="reference" href="#char%2CAminoAcid"
     title="char(a: AminoAcid): char">char(a: AminoAcid): char</a></li>
+
+  </ul>
+  <ul class="simple nested-toc-section">definition
+      <li><a class="reference" href="#definition%2CAminoAcid"
+    title="definition(a: AminoAcid): string">definition(a: AminoAcid): string</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">parseChar
@@ -179,9 +195,7 @@ window.addEventListener('DOMContentLoaded', main);
   </ul>
   <ul class="simple nested-toc-section">translate
       <li><a class="reference" href="#translate%2Carray%5B%2CAnyNucleotide%5D%2CGeneticCode"
-    title="translate(nucleotides: array[3, AnyNucleotide];
-          code: GeneticCode = gc_standard_1): AminoAcid">translate(nucleotides: array[3, AnyNucleotide];
-          code: GeneticCode = gc_standard_1): AminoAcid</a></li>
+    title="translate(nucleotides: array[3, AnyNucleotide]; code: GeneticCode): AminoAcid">translate(nucleotides: array[3, AnyNucleotide]; code: GeneticCode): AminoAcid</a></li>
 
   </ul>
 
@@ -199,34 +213,45 @@ class="link-seesrc" target="_blank">Source</a>
   <div class="nine columns" id="content">
   <div id="tocRoot"></div>
   
-  <p class="module-desc">IUPAC amino acid code<table border="1" class="docutils"><tr><th>Symbol</th><th>Abreviation</th><th>Amino Acid</th></tr>
-<tr><td>A</td><td>Ala</td><td>Alanine</td></tr>
-<tr><td>C</td><td>Cys</td><td>Cysteine</td></tr>
-<tr><td>D</td><td>Asp</td><td>Aspartic Acid</td></tr>
-<tr><td>E</td><td>Glu</td><td>Glutamic Acid</td></tr>
-<tr><td>F</td><td>Phe</td><td>Phenylalanine</td></tr>
-<tr><td>G</td><td>Gly</td><td>Glycine</td></tr>
-<tr><td>H</td><td>His</td><td>Histidine</td></tr>
-<tr><td>I</td><td>Ile</td><td>Isoleucine</td></tr>
-<tr><td>K</td><td>Lys</td><td>Lysine</td></tr>
-<tr><td>L</td><td>Leu</td><td>Leucine</td></tr>
-<tr><td>M</td><td>Met</td><td>Methionine</td></tr>
-<tr><td>N</td><td>Asn</td><td>Asparagine</td></tr>
-<tr><td>O</td><td>Pyl</td><td>Pyrolysine</td></tr>
-<tr><td>P</td><td>Pro</td><td>Proline</td></tr>
-<tr><td>Q</td><td>Gln</td><td>Glutamine</td></tr>
-<tr><td>R</td><td>Arg</td><td>Arginine</td></tr>
-<tr><td>S</td><td>Ser</td><td>Serine</td></tr>
-<tr><td>T</td><td>Thr</td><td>Threonine</td></tr>
-<tr><td>U</td><td>Sec</td><td>Selenocysteine</td></tr>
-<tr><td>V</td><td>Val</td><td>Valine</td></tr>
-<tr><td>W</td><td>Trp</td><td>Tryptophan</td></tr>
-<tr><td>Y</td><td>Tyr</td><td>Tyrosine</td></tr>
-<tr><td>*</td><td>Stp</td><td>Stop</td></tr>
-<tr><td>X</td><td>Amb</td><td>Ambiguous/Unknown</td></tr>
-<tr><td>B</td><td>Asx</td><td>Aspartic acid or asparagine</td></tr>
-<tr><td>Z</td><td>Glx</td><td>Glutamic acid or glutamine</td></tr>
-</table></p>
+  <p class="module-desc"><p>This module contains the <tt class="docutils literal"><span class="pre"><span class="Identifier">AminoAcid</span></span></tt> enum type for working with amino acid sequence data. Using an enum type provides convenience and type safety. The <tt class="docutils literal"><span class="pre"><span class="Identifier">AminoAcid</span></span></tt> type represents an extended IUPAC code which includes Prolysine, Selenocysteine, and the two ambiguous characters 'B' and 'Z'. A full description of the implementation can be seen in the table below.</p>
+<p>The genetic codes for translating to amino acids are sourced from NCIB at <a class="reference external" href="https://www.ncbi.nlm.nih.gov/Taxonomy/Utils/wprintgc.cgi">https://www.ncbi.nlm.nih.gov/Taxonomy/Utils/wprintgc.cgi</a>.</p>
+<table border="1" class="docutils"><tr><th>Symbol</th><th>BioSeq</th><th>Abreviation</th><th>Definition</th></tr>
+<tr><td>A</td><td><tt class="docutils literal"><span class="pre"><span class="Identifier">aaA</span></span></tt></td><td>Ala</td><td>Alanine</td></tr>
+<tr><td>C</td><td><tt class="docutils literal"><span class="pre"><span class="Identifier">aaC</span></span></tt></td><td>Cys</td><td>Cysteine</td></tr>
+<tr><td>D</td><td><tt class="docutils literal"><span class="pre"><span class="Identifier">aaD</span></span></tt></td><td>Asp</td><td>Aspartic Acid</td></tr>
+<tr><td>E</td><td><tt class="docutils literal"><span class="pre"><span class="Identifier">aaE</span></span></tt></td><td>Glu</td><td>Glutamic Acid</td></tr>
+<tr><td>F</td><td><tt class="docutils literal"><span class="pre"><span class="Identifier">aaF</span></span></tt></td><td>Phe</td><td>Phenylalanine</td></tr>
+<tr><td>G</td><td><tt class="docutils literal"><span class="pre"><span class="Identifier">aaG</span></span></tt></td><td>Gly</td><td>Glycine</td></tr>
+<tr><td>H</td><td><tt class="docutils literal"><span class="pre"><span class="Identifier">aaH</span></span></tt></td><td>His</td><td>Histidine</td></tr>
+<tr><td>I</td><td><tt class="docutils literal"><span class="pre"><span class="Identifier">aaI</span></span></tt></td><td>Ile</td><td>Isoleucine</td></tr>
+<tr><td>K</td><td><tt class="docutils literal"><span class="pre"><span class="Identifier">aaK</span></span></tt></td><td>Lys</td><td>Lysine</td></tr>
+<tr><td>L</td><td><tt class="docutils literal"><span class="pre"><span class="Identifier">aaL</span></span></tt></td><td>Leu</td><td>Leucine</td></tr>
+<tr><td>M</td><td><tt class="docutils literal"><span class="pre"><span class="Identifier">aaM</span></span></tt></td><td>Met</td><td>Methionine</td></tr>
+<tr><td>N</td><td><tt class="docutils literal"><span class="pre"><span class="Identifier">aaN</span></span></tt></td><td>Asn</td><td>Asparagine</td></tr>
+<tr><td>O</td><td><tt class="docutils literal"><span class="pre"><span class="Identifier">aaO</span></span></tt></td><td>Pyl</td><td>Pyrolysine</td></tr>
+<tr><td>P</td><td><tt class="docutils literal"><span class="pre"><span class="Identifier">aaP</span></span></tt></td><td>Pro</td><td>Proline</td></tr>
+<tr><td>Q</td><td><tt class="docutils literal"><span class="pre"><span class="Identifier">aaQ</span></span></tt></td><td>Gln</td><td>Glutamine</td></tr>
+<tr><td>R</td><td><tt class="docutils literal"><span class="pre"><span class="Identifier">aaR</span></span></tt></td><td>Arg</td><td>Arginine</td></tr>
+<tr><td>S</td><td><tt class="docutils literal"><span class="pre"><span class="Identifier">aaS</span></span></tt></td><td>Ser</td><td>Serine</td></tr>
+<tr><td>T</td><td><tt class="docutils literal"><span class="pre"><span class="Identifier">aaT</span></span></tt></td><td>Thr</td><td>Threonine</td></tr>
+<tr><td>U</td><td><tt class="docutils literal"><span class="pre"><span class="Identifier">aaU</span></span></tt></td><td>Sec</td><td>Selenocysteine</td></tr>
+<tr><td>V</td><td><tt class="docutils literal"><span class="pre"><span class="Identifier">aaV</span></span></tt></td><td>Val</td><td>Valine</td></tr>
+<tr><td>W</td><td><tt class="docutils literal"><span class="pre"><span class="Identifier">aaW</span></span></tt></td><td>Trp</td><td>Tryptophan</td></tr>
+<tr><td>Y</td><td><tt class="docutils literal"><span class="pre"><span class="Identifier">aaY</span></span></tt></td><td>Tyr</td><td>Tyrosine</td></tr>
+<tr><td>B</td><td><tt class="docutils literal"><span class="pre"><span class="Identifier">aaB</span></span></tt></td><td>Asx</td><td>Aspartic acid or asparagine</td></tr>
+<tr><td>Z</td><td><tt class="docutils literal"><span class="pre"><span class="Identifier">aaZ</span></span></tt></td><td>Glx</td><td>Glutamic acid or glutamine</td></tr>
+<tr><td>*</td><td><tt class="docutils literal"><span class="pre"><span class="Identifier">aaStp</span></span></tt></td><td>Stp</td><td>Stop</td></tr>
+<tr><td>X</td><td><tt class="docutils literal"><span class="pre"><span class="Identifier">aaX</span></span></tt></td><td>Amb</td><td>Ambiguous/Unknown</td></tr>
+</table>
+<p><strong class="examples_text">Example:</strong></p>
+<pre class="listing"><span class="Keyword">import</span> <span class="Identifier">src</span><span class="Operator">/</span><span class="Identifier">bioseq</span><span class="Operator">/</span><span class="Identifier">aminoAcid</span>
+<span class="Keyword">import</span> <span class="Identifier">bioseq</span>
+
+<span class="Keyword">let</span> <span class="Identifier">ala</span> <span class="Operator">=</span> <span class="Identifier">parseChar</span><span class="Punctuation">(</span><span class="CharLit">'A'</span><span class="Punctuation">,</span> <span class="Identifier">AminoAcid</span><span class="Punctuation">)</span>  
+<span class="Identifier">assert</span> <span class="Identifier">ala</span><span class="Operator">.</span><span class="Identifier">char</span><span class="Punctuation">(</span><span class="Punctuation">)</span> <span class="Operator">==</span> <span class="CharLit">'A'</span>
+
+<span class="Keyword">let</span> <span class="Identifier">amino</span> <span class="Operator">=</span> <span class="Identifier">translate</span><span class="Punctuation">(</span><span class="Punctuation">[</span><span class="Identifier">dnaT</span><span class="Punctuation">,</span> <span class="Identifier">dnaT</span><span class="Punctuation">,</span> <span class="Identifier">dnaT</span><span class="Punctuation">]</span><span class="Punctuation">,</span> <span class="Identifier">gCode1</span><span class="Punctuation">)</span>
+<span class="Identifier">assert</span> <span class="Identifier">amino</span> <span class="Operator">==</span> <span class="Identifier">aaF</span></pre></p>
   <div class="section" id="6">
 <h1><a class="toc-backref" href="#6">Imports</a></h1>
 <dl class="item">
@@ -238,27 +263,80 @@ class="link-seesrc" target="_blank">Source</a>
 <div id="AminoAcid">
 <dt><pre><a href="aminoAcid.html#AminoAcid"><span class="Identifier">AminoAcid</span></a> <span class="Other">=</span> <span class="Keyword">enum</span>
   <span class="Identifier">aaA</span><span class="Other">,</span> <span class="Identifier">aaC</span><span class="Other">,</span> <span class="Identifier">aaD</span><span class="Other">,</span> <span class="Identifier">aaE</span><span class="Other">,</span> <span class="Identifier">aaF</span><span class="Other">,</span> <span class="Identifier">aaG</span><span class="Other">,</span> <span class="Identifier">aaH</span><span class="Other">,</span> <span class="Identifier">aaI</span><span class="Other">,</span> <span class="Identifier">aaK</span><span class="Other">,</span> <span class="Identifier">aaL</span><span class="Other">,</span> <span class="Identifier">aaM</span><span class="Other">,</span> <span class="Identifier">aaN</span><span class="Other">,</span> <span class="Identifier">aaO</span><span class="Other">,</span> <span class="Identifier">aaP</span><span class="Other">,</span> <span class="Identifier">aaQ</span><span class="Other">,</span>
-  <span class="Identifier">aaR</span><span class="Other">,</span> <span class="Identifier">aaS</span><span class="Other">,</span> <span class="Identifier">aaT</span><span class="Other">,</span> <span class="Identifier">aaU</span><span class="Other">,</span> <span class="Identifier">aaV</span><span class="Other">,</span> <span class="Identifier">aaW</span><span class="Other">,</span> <span class="Identifier">aaY</span><span class="Other">,</span> <span class="Identifier">aaStp</span><span class="Other">,</span> <span class="Identifier">aaX</span><span class="Other">,</span> <span class="Identifier">aaB</span><span class="Other">,</span> <span class="Identifier">aaZ</span></pre></dt>
+  <span class="Identifier">aaR</span><span class="Other">,</span> <span class="Identifier">aaS</span><span class="Other">,</span> <span class="Identifier">aaT</span><span class="Other">,</span> <span class="Identifier">aaU</span><span class="Other">,</span> <span class="Identifier">aaV</span><span class="Other">,</span> <span class="Identifier">aaW</span><span class="Other">,</span> <span class="Identifier">aaY</span><span class="Other">,</span> <span class="Identifier">aaB</span><span class="Other">,</span> <span class="Identifier">aaZ</span><span class="Other">,</span> <span class="Identifier">aaStp</span><span class="Other">,</span> <span class="Identifier">aaX</span></pre></dt>
 <dd>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/kerrycobb/BioSeq/tree/version-1-6/src/bioseq/aminoAcid.nim#L40"
+href="https://github.com/kerrycobb/BioSeq/tree/version-1-6/src/bioseq/aminoAcid.nim#L63"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/aminoAcid.nim#L40" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/aminoAcid.nim#L63" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
 <div id="GeneticCode">
 <dt><pre><a href="aminoAcid.html#GeneticCode"><span class="Identifier">GeneticCode</span></a> <span class="Other">=</span> <span class="Keyword">enum</span>
-  <span class="Identifier">gc_Standard_1</span> <span class="Other">=</span> <span class="StringLit">&quot;FFLLSSSSYY**CC*WLLLLPPPPHHQQRRRRIIIMTTTTNNKKSSRRVVVVAAAADDEEGGGG&quot;</span><span class="Other">,</span> <span class="Identifier">gc_Vertebrate_Mito_2</span> <span class="Other">=</span> <span class="StringLit">&quot;FFLLSSSSYY**CCWWLLLLPPPPHHQQRRRRIIMMTTTTNNKKSS**VVVVAAAADDEEGGGG&quot;</span><span class="Other">,</span> <span class="Identifier">gc_Yeast_Mito_3</span> <span class="Other">=</span> <span class="StringLit">&quot;FFLLSSSSYY**CCWWTTTTPPPPHHQQRRRRIIMMTTTTNNKKSSRRVVVVAAAADDEEGGGG&quot;</span><span class="Other">,</span> <span class="Identifier">gc_Mold_Protozoan_Coelenterate_Mito_and_Mycoplasma_Spiroplasma_4</span> <span class="Other">=</span> <span class="StringLit">&quot;FFLLSSSSYY**CCWWLLLLPPPPHHQQRRRRIIIMTTTTNNKKSSRRVVVVAAAADDEEGGGG&quot;</span><span class="Other">,</span> <span class="Identifier">gc_Invertebrate_Mito_5</span> <span class="Other">=</span> <span class="StringLit">&quot;FFLLSSSSYY**CCWWLLLLPPPPHHQQRRRRIIMMTTTTNNKKSSSSVVVVAAAADDEEGGGG&quot;</span><span class="Other">,</span> <span class="Identifier">gc_Ciliate_Dasycladacean_and_Hexamita_Nuc_6</span> <span class="Other">=</span> <span class="StringLit">&quot;FFLLSSSSYYQQCC*WLLLLPPPPHHQQRRRRIIIMTTTTNNKKSSRRVVVVAAAADDEEGGGG&quot;</span><span class="Other">,</span> <span class="Identifier">gc_Echinoderm_and_Flatworm_Mito_9</span> <span class="Other">=</span> <span class="StringLit">&quot;FFLLSSSSYY**CCWWLLLLPPPPHHQQRRRRIIIMTTTTNNNKSSSSVVVVAAAADDEEGGGG&quot;</span><span class="Other">,</span> <span class="Identifier">gc_Euplotid_Nuc_10</span> <span class="Other">=</span> <span class="StringLit">&quot;FFLLSSSSYY**CCCWLLLLPPPPHHQQRRRRIIIMTTTTNNKKSSRRVVVVAAAADDEEGGGG&quot;</span><span class="Other">,</span> <span class="Identifier">gc_Bacterial_Archaeal_and_Plant_Plastid_11</span> <span class="Other">=</span> <span class="StringLit">&quot;FFLLSSSSYY**CC*WLLLLPPPPHHQQRRRRIIIMTTTTNNKKSSRRVVVVAAAADDEEGGGG&quot;</span><span class="Other">,</span> <span class="Identifier">gc_Alternative_Yeast_Nuc_12</span> <span class="Other">=</span> <span class="StringLit">&quot;FFLLSSSSYY**CC*WLLLSPPPPHHQQRRRRIIIMTTTTNNKKSSRRVVVVAAAADDEEGGGG&quot;</span><span class="Other">,</span> <span class="Identifier">gc_Ascidian_Mito_13</span> <span class="Other">=</span> <span class="StringLit">&quot;FFLLSSSSYY**CCWWLLLLPPPPHHQQRRRRIIMMTTTTNNKKSSGGVVVVAAAADDEEGGGG&quot;</span><span class="Other">,</span> <span class="Identifier">gc_Alternative_Flatworm_Mito_14</span> <span class="Other">=</span> <span class="StringLit">&quot;FFLLSSSSYYY*CCWWLLLLPPPPHHQQRRRRIIIMTTTTNNNKSSSSVVVVAAAADDEEGGGG&quot;</span><span class="Other">,</span> <span class="Identifier">gc_Chlorophycean_Mito_16</span> <span class="Other">=</span> <span class="StringLit">&quot;FFLLSSSSYY*LCC*WLLLLPPPPHHQQRRRRIIIMTTTTNNKKSSRRVVVVAAAADDEEGGGG&quot;</span><span class="Other">,</span> <span class="Identifier">gc_Trematode_Mito_21</span> <span class="Other">=</span> <span class="StringLit">&quot;FFLLSSSSYY**CCWWLLLLPPPPHHQQRRRRIIMMTTTTNNNKSSSSVVVVAAAADDEEGGGG&quot;</span><span class="Other">,</span> <span class="Identifier">gc_Scenedesmus_obliquus_Mito_22</span> <span class="Other">=</span> <span class="StringLit">&quot;FFLLSS*SYY*LCC*WLLLLPPPPHHQQRRRRIIIMTTTTNNKKSSRRVVVVAAAADDEEGGGG&quot;</span><span class="Other">,</span> <span class="Identifier">gc_Thraustochytrium_Mito_23</span> <span class="Other">=</span> <span class="StringLit">&quot;FF*LSSSSYY**CC*WLLLLPPPPHHQQRRRRIIIMTTTTNNKKSSRRVVVVAAAADDEEGGGG&quot;</span><span class="Other">,</span> <span class="Identifier">gc_Rhabdopleuridae_Mito_24</span> <span class="Other">=</span> <span class="StringLit">&quot;FFLLSSSSYY**CCWWLLLLPPPPHHQQRRRRIIIMTTTTNNKKSSSKVVVVAAAADDEEGGGG&quot;</span><span class="Other">,</span> <span class="Identifier">gc_Candidate_Division_SR1_and_Gracilibacteria_25</span> <span class="Other">=</span> <span class="StringLit">&quot;FFLLSSSSYY**CCGWLLLLPPPPHHQQRRRRIIIMTTTTNNKKSSRRVVVVAAAADDEEGGGG&quot;</span><span class="Other">,</span> <span class="Identifier">gc_Pachysolen_tannophilus_Nuc_26</span> <span class="Other">=</span> <span class="StringLit">&quot;FFLLSSSSYY**CC*WLLLAPPPPHHQQRRRRIIIMTTTTNNKKSSRRVVVVAAAADDEEGGGG&quot;</span><span class="Other">,</span> <span class="Identifier">gc_Karyorelict_Nuc_27</span> <span class="Other">=</span> <span class="StringLit">&quot;FFLLSSSSYYQQCCWWLLLLPPPPHHQQRRRRIIIMTTTTNNKKSSRRVVVVAAAADDEEGGGG&quot;</span><span class="Other">,</span> <span class="Identifier">gc_Condylostoma_Nuc_28</span> <span class="Other">=</span> <span class="StringLit">&quot;FFLLSSSSYYQQCCWWLLLLPPPPHHQQRRRRIIIMTTTTNNKKSSRRVVVVAAAADDEEGGGG&quot;</span><span class="Other">,</span> <span class="Identifier">gc_Mesodinium_Nuc_29</span> <span class="Other">=</span> <span class="StringLit">&quot;FFLLSSSSYYYYCC*WLLLLPPPPHHQQRRRRIIIMTTTTNNKKSSRRVVVVAAAADDEEGGGG&quot;</span><span class="Other">,</span> <span class="Identifier">gc_Peritrich_Nuc_30</span> <span class="Other">=</span> <span class="StringLit">&quot;FFLLSSSSYYEECC*WLLLLPPPPHHQQRRRRIIIMTTTTNNKKSSRRVVVVAAAADDEEGGGG&quot;</span><span class="Other">,</span> <span class="Identifier">gc_Blastocrithidia_Nuc_31</span> <span class="Other">=</span> <span class="StringLit">&quot;FFLLSSSSYYEECCWWLLLLPPPPHHQQRRRRIIIMTTTTNNKKSSRRVVVVAAAADDEEGGGG&quot;</span><span class="Other">,</span> <span class="Identifier">gc_Cephalodiscidae_Mito_UAA_Tyr_33</span> <span class="Other">=</span> <span class="StringLit">&quot;FFLLSSSSYYY*CCWWLLLLPPPPHHQQRRRRIIIMTTTTNNKKSSSKVVVVAAAADDEEGGGG&quot;</span></pre></dt>
+  <span class="Identifier">gCode1</span> <span class="Other">=</span> <span class="StringLit">&quot;KKNNRRSSTTTTIMIIEEDDGGGGAAAAVVVVQQHHRRRRPPPPLLLL**YY*WCCSSSSLLFF&quot;</span><span class="Other">,</span>
+  <span class="Identifier">gCode2</span> <span class="Other">=</span> <span class="StringLit">&quot;KKNN**SSTTTTMMIIEEDDGGGGAAAAVVVVQQHHRRRRPPPPLLLL**YYWWCCSSSSLLFF&quot;</span><span class="Other">,</span>
+  <span class="Identifier">gCode3</span> <span class="Other">=</span> <span class="StringLit">&quot;KKNNRRSSTTTTMMIIEEDDGGGGAAAAVVVVQQHHRRRRPPPPTTTT**YYWWCCSSSSLLFF&quot;</span><span class="Other">,</span>
+  <span class="Identifier">gCode4</span> <span class="Other">=</span> <span class="StringLit">&quot;KKNNRRSSTTTTIMIIEEDDGGGGAAAAVVVVQQHHRRRRPPPPLLLL**YYWWCCSSSSLLFF&quot;</span><span class="Other">,</span>
+  <span class="Identifier">gCode5</span> <span class="Other">=</span> <span class="StringLit">&quot;KKNNSSSSTTTTMMIIEEDDGGGGAAAAVVVVQQHHRRRRPPPPLLLL**YYWWCCSSSSLLFF&quot;</span><span class="Other">,</span>
+  <span class="Identifier">gCode6</span> <span class="Other">=</span> <span class="StringLit">&quot;KKNNRRSSTTTTIMIIEEDDGGGGAAAAVVVVQQHHRRRRPPPPLLLLQQYY*WCCSSSSLLFF&quot;</span><span class="Other">,</span>
+  <span class="Identifier">gCode9</span> <span class="Other">=</span> <span class="StringLit">&quot;NKNNSSSSTTTTIMIIEEDDGGGGAAAAVVVVQQHHRRRRPPPPLLLL**YYWWCCSSSSLLFF&quot;</span><span class="Other">,</span>
+  <span class="Identifier">gCode10</span> <span class="Other">=</span> <span class="StringLit">&quot;KKNNRRSSTTTTIMIIEEDDGGGGAAAAVVVVQQHHRRRRPPPPLLLL**YYCWCCSSSSLLFF&quot;</span><span class="Other">,</span>
+  <span class="Identifier">gCode11</span> <span class="Other">=</span> <span class="StringLit">&quot;KKNNRRSSTTTTIMIIEEDDGGGGAAAAVVVVQQHHRRRRPPPPLLLL**YY*WCCSSSSLLFF&quot;</span><span class="Other">,</span>
+  <span class="Identifier">gCode12</span> <span class="Other">=</span> <span class="StringLit">&quot;KKNNRRSSTTTTIMIIEEDDGGGGAAAAVVVVQQHHRRRRPPPPLSLL**YY*WCCSSSSLLFF&quot;</span><span class="Other">,</span>
+  <span class="Identifier">gCode13</span> <span class="Other">=</span> <span class="StringLit">&quot;KKNNGGSSTTTTMMIIEEDDGGGGAAAAVVVVQQHHRRRRPPPPLLLL**YYWWCCSSSSLLFF&quot;</span><span class="Other">,</span>
+  <span class="Identifier">gCode14</span> <span class="Other">=</span> <span class="StringLit">&quot;NKNNSSSSTTTTIMIIEEDDGGGGAAAAVVVVQQHHRRRRPPPPLLLLY*YYWWCCSSSSLLFF&quot;</span><span class="Other">,</span>
+  <span class="Identifier">gCode16</span> <span class="Other">=</span> <span class="StringLit">&quot;KKNNRRSSTTTTIMIIEEDDGGGGAAAAVVVVQQHHRRRRPPPPLLLL*LYY*WCCSSSSLLFF&quot;</span><span class="Other">,</span>
+  <span class="Identifier">gCode21</span> <span class="Other">=</span> <span class="StringLit">&quot;NKNNSSSSTTTTMMIIEEDDGGGGAAAAVVVVQQHHRRRRPPPPLLLL**YYWWCCSSSSLLFF&quot;</span><span class="Other">,</span>
+  <span class="Identifier">gCode22</span> <span class="Other">=</span> <span class="StringLit">&quot;KKNNRRSSTTTTIMIIEEDDGGGGAAAAVVVVQQHHRRRRPPPPLLLL*LYY*WCC*SSSLLFF&quot;</span><span class="Other">,</span>
+  <span class="Identifier">gCode23</span> <span class="Other">=</span> <span class="StringLit">&quot;KKNNRRSSTTTTIMIIEEDDGGGGAAAAVVVVQQHHRRRRPPPPLLLL**YY*WCCSSSS*LFF&quot;</span><span class="Other">,</span>
+  <span class="Identifier">gCode24</span> <span class="Other">=</span> <span class="StringLit">&quot;KKNNSKSSTTTTIMIIEEDDGGGGAAAAVVVVQQHHRRRRPPPPLLLL**YYWWCCSSSSLLFF&quot;</span><span class="Other">,</span>
+  <span class="Identifier">gCode25</span> <span class="Other">=</span> <span class="StringLit">&quot;KKNNRRSSTTTTIMIIEEDDGGGGAAAAVVVVQQHHRRRRPPPPLLLL**YYGWCCSSSSLLFF&quot;</span><span class="Other">,</span>
+  <span class="Identifier">gCode26</span> <span class="Other">=</span> <span class="StringLit">&quot;KKNNRRSSTTTTIMIIEEDDGGGGAAAAVVVVQQHHRRRRPPPPLALL**YY*WCCSSSSLLFF&quot;</span><span class="Other">,</span>
+  <span class="Identifier">gCode27</span> <span class="Other">=</span> <span class="StringLit">&quot;KKNNRRSSTTTTIMIIEEDDGGGGAAAAVVVVQQHHRRRRPPPPLLLLQQYYWWCCSSSSLLFF&quot;</span><span class="Other">,</span>
+  <span class="Identifier">gCode28</span> <span class="Other">=</span> <span class="StringLit">&quot;KKNNRRSSTTTTIMIIEEDDGGGGAAAAVVVVQQHHRRRRPPPPLLLLQQYYWWCCSSSSLLFF&quot;</span><span class="Other">,</span>
+  <span class="Identifier">gCode29</span> <span class="Other">=</span> <span class="StringLit">&quot;KKNNRRSSTTTTIMIIEEDDGGGGAAAAVVVVQQHHRRRRPPPPLLLLYYYY*WCCSSSSLLFF&quot;</span><span class="Other">,</span>
+  <span class="Identifier">gCode30</span> <span class="Other">=</span> <span class="StringLit">&quot;KKNNRRSSTTTTIMIIEEDDGGGGAAAAVVVVQQHHRRRRPPPPLLLLEEYY*WCCSSSSLLFF&quot;</span><span class="Other">,</span>
+  <span class="Identifier">gCode31</span> <span class="Other">=</span> <span class="StringLit">&quot;KKNNRRSSTTTTIMIIEEDDGGGGAAAAVVVVQQHHRRRRPPPPLLLLEEYYWWCCSSSSLLFF&quot;</span><span class="Other">,</span>
+  <span class="Identifier">gCode33</span> <span class="Other">=</span> <span class="StringLit">&quot;KKNNSKSSTTTTIMIIEEDDGGGGAAAAVVVVQQHHRRRRPPPPLLLLY*YYWWCCSSSSLLFF&quot;</span></pre></dt>
 <dd>
 
-Genetic codes for translating nucleotides to amino acids. Source: <a class="reference external" href="https://www.ncbi.nlm.nih.gov/Taxonomy/Utils/wprintgc.cgi">https://www.ncbi.nlm.nih.gov/Taxonomy/Utils/wprintgc.cgi</a>
+Genetic codes for translating nucleotides to amino acids. The genetic code follows the <a class="reference external" href="https://www.ncbi.nlm.nih.gov/Taxonomy/Utils/wprintgc.cgi">NCBI definitions</a><ul class="simple"><li><tt class="docutils literal"><span class="pre"><span class="Identifier">gCode1</span></span></tt>  - <a class="reference external" href="https://www.ncbi.nlm.nih.gov/Taxonomy/Utils/wprintgc.cgi#SG1">The Standard Code</a></li>
+<li><tt class="docutils literal"><span class="pre"><span class="Identifier">gCode2</span></span></tt>  - <a class="reference external" href="https://www.ncbi.nlm.nih.gov/Taxonomy/Utils/wprintgc.cgi#SG2">The Vertebrate Mitochondrial Code</a></li>
+<li><tt class="docutils literal"><span class="pre"><span class="Identifier">gCode3</span></span></tt>  - <a class="reference external" href="https://www.ncbi.nlm.nih.gov/Taxonomy/Utils/wprintgc.cgi#SG3">The Yeast Mitochondrial Code</a></li>
+<li><tt class="docutils literal"><span class="pre"><span class="Identifier">gCode4</span></span></tt> - <a class="reference external" href="https://www.ncbi.nlm.nih.gov/Taxonomy/Utils/wprintgc.cgi#SG4">The Mold, Protozoan, and Coelenterate Mitochondrial Code and the Mycoplasma/Spiroplasma Code</a></li>
+<li><tt class="docutils literal"><span class="pre"><span class="Identifier">gCode5</span></span></tt> - <a class="reference external" href="https://www.ncbi.nlm.nih.gov/Taxonomy/Utils/wprintgc.cgi#SG5">The Invertebrate Mitochondrial Code</a></li>
+<li><tt class="docutils literal"><span class="pre"><span class="Identifier">gCode6</span></span></tt>  - <a class="reference external" href="https://www.ncbi.nlm.nih.gov/Taxonomy/Utils/wprintgc.cgi#SG6">The Ciliate, Dasycladacean and Hexamita Nuclear Code</a></li>
+<li><tt class="docutils literal"><span class="pre"><span class="Identifier">gCode9</span></span></tt>  - <a class="reference external" href="https://www.ncbi.nlm.nih.gov/Taxonomy/Utils/wprintgc.cgi#SG9">The Echinoderm and Flatworm Mitochondrial Code</a></li>
+<li><tt class="docutils literal"><span class="pre"><span class="Identifier">gCode10</span></span></tt> - <a class="reference external" href="https://www.ncbi.nlm.nih.gov/Taxonomy/Utils/wprintgc.cgi#SG10">The Euplotid Nuclear Code</a></li>
+<li><tt class="docutils literal"><span class="pre"><span class="Identifier">gCode11</span></span></tt> - <a class="reference external" href="https://www.ncbi.nlm.nih.gov/Taxonomy/Utils/wprintgc.cgi#SG11">The Bacterial, Archaeal and Plant Plastid Code</a></li>
+<li><tt class="docutils literal"><span class="pre"><span class="Identifier">gCode12</span></span></tt> - <a class="reference external" href="https://www.ncbi.nlm.nih.gov/Taxonomy/Utils/wprintgc.cgi#SG12">The Alternative Yeast Nuclear Code</a></li>
+<li><tt class="docutils literal"><span class="pre"><span class="Identifier">gCode13</span></span></tt> - <a class="reference external" href="https://www.ncbi.nlm.nih.gov/Taxonomy/Utils/wprintgc.cgi#SG13">The Ascidian Mitochondrial Code</a></li>
+<li><tt class="docutils literal"><span class="pre"><span class="Identifier">gCode14</span></span></tt> - <a class="reference external" href="https://www.ncbi.nlm.nih.gov/Taxonomy/Utils/wprintgc.cgi#SG14">The Alternative Flatworm Mitochondrial Code</a></li>
+<li><tt class="docutils literal"><span class="pre"><span class="Identifier">gCode16</span></span></tt> - <a class="reference external" href="https://www.ncbi.nlm.nih.gov/Taxonomy/Utils/wprintgc.cgi#SG16">Chlorophycean Mitochondrial Code</a></li>
+<li><tt class="docutils literal"><span class="pre"><span class="Identifier">gCode21</span></span></tt> - <a class="reference external" href="https://www.ncbi.nlm.nih.gov/Taxonomy/Utils/wprintgc.cgi#SG21">Trematode Mitochondrial Code</a></li>
+<li><tt class="docutils literal"><span class="pre"><span class="Identifier">gCode22</span></span></tt> - <a class="reference external" href="https://www.ncbi.nlm.nih.gov/Taxonomy/Utils/wprintgc.cgi#SG22">Scenedesmus obliquus Mitochondrial Code</a></li>
+<li><tt class="docutils literal"><span class="pre"><span class="Identifier">gCode23</span></span></tt> - <a class="reference external" href="https://www.ncbi.nlm.nih.gov/Taxonomy/Utils/wprintgc.cgi#SG23">Thraustochytrium Mitochondrial Code</a></li>
+<li><tt class="docutils literal"><span class="pre"><span class="Identifier">gCode24</span></span></tt> - <a class="reference external" href="https://www.ncbi.nlm.nih.gov/Taxonomy/Utils/wprintgc.cgi#SG24">Rhabdopleuridae Mitochondrial Code</a></li>
+<li><tt class="docutils literal"><span class="pre"><span class="Identifier">gCode25</span></span></tt> - <a class="reference external" href="https://www.ncbi.nlm.nih.gov/Taxonomy/Utils/wprintgc.cgi#SG25">Candidate Division SR1 and Gracilibacteria Code</a></li>
+<li><tt class="docutils literal"><span class="pre"><span class="Identifier">gCode26</span></span></tt> - <a class="reference external" href="https://www.ncbi.nlm.nih.gov/Taxonomy/Utils/wprintgc.cgi#SG26">Pachysolen tannophilus Nuclear Code</a></li>
+<li><tt class="docutils literal"><span class="pre"><span class="Identifier">gCode27</span></span></tt> - <a class="reference external" href="https://www.ncbi.nlm.nih.gov/Taxonomy/Utils/wprintgc.cgi#SG27">Karyorelict Nuclear Code</a></li>
+<li><tt class="docutils literal"><span class="pre"><span class="Identifier">gCode28</span></span></tt> - <a class="reference external" href="https://www.ncbi.nlm.nih.gov/Taxonomy/Utils/wprintgc.cgi#SG28">Condylostoma Nuclear Code</a></li>
+<li><tt class="docutils literal"><span class="pre"><span class="Identifier">gCode29</span></span></tt> - <a class="reference external" href="https://www.ncbi.nlm.nih.gov/Taxonomy/Utils/wprintgc.cgi#SG29">Mesodinium Nuclear Code</a></li>
+<li><tt class="docutils literal"><span class="pre"><span class="Identifier">gCode30</span></span></tt> - <a class="reference external" href="https://www.ncbi.nlm.nih.gov/Taxonomy/Utils/wprintgc.cgi#SG30">Peritrich Nuclear Code</a></li>
+<li><tt class="docutils literal"><span class="pre"><span class="Identifier">gCode31</span></span></tt> - <a class="reference external" href="https://www.ncbi.nlm.nih.gov/Taxonomy/Utils/wprintgc.cgi#SG31">Blastocrithidia Nuclear Code</a></li>
+<li><tt class="docutils literal"><span class="pre"><span class="Identifier">gCode33</span></span></tt> - <a class="reference external" href="https://www.ncbi.nlm.nih.gov/Taxonomy/Utils/wprintgc.cgi#SG33">Cephalodiscidae Mitochondrial UAA-Tyr Code</a></li>
+</ul>
+<p><br/></p> <dl class="docutils"><dt>The amino acids in each genetic code string are ordered relative to this sequence of codons:</dt>
+<dd>AAA, AAG, AAC, AAT, AGA, AGG, AGC, AGT, ACA, ACG, ACC, ACT, ATA, ATG, ATC, ATT, GAA, GAG, GAC, GAT, GGA, GGG, GGC, GGT, GCA, GCG, GCC, GCT, GTA, GTG, GTC, GTT, CAA, CAG, CAC, CAT, CGA, CGG, CGC, CGT, CCA, CCG, CCC, CCT, CTA, CTG, CTC, CTT, TAA, TAG, TAC, TAT, TGA, TGG, TGC, TGT, TCA, TCG, TCC, TCT, TTA, TTG, TTC, TTT</dd>
+</dl>
+
 &nbsp;&nbsp;<a
-href="https://github.com/kerrycobb/BioSeq/tree/version-1-6/src/bioseq/aminoAcid.nim#L98"
+href="https://github.com/kerrycobb/BioSeq/tree/version-1-6/src/bioseq/aminoAcid.nim#L106"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/aminoAcid.nim#L98" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/aminoAcid.nim#L106" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -267,87 +345,49 @@ class="link-seesrc" target="_blank">Source</a>
 <div class="section" id="10">
 <h1><a class="toc-backref" href="#10">Consts</a></h1>
 <dl class="item">
-<div id="aminoAcidAbrev">
-<dt><pre><a href="aminoAcid.html#aminoAcidAbrev"><span class="Identifier">aminoAcidAbrev</span></a><span class="Other">:</span> <span class="Identifier">array</span><span class="Other">[</span><span class="Identifier">AminoAcid</span><span class="Other">,</span> <span class="Identifier">string</span><span class="Other">]</span> <span class="Other">=</span> <span class="Other">[</span><span class="StringLit">&quot;Ala&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Cys&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Asp&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Glu&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Phe&quot;</span><span class="Other">,</span>
-    <span class="StringLit">&quot;Gly&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;His&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Ile&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Lys&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Leu&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Met&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Asn&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Pyl&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Pro&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Gln&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Arg&quot;</span><span class="Other">,</span>
-    <span class="StringLit">&quot;Ser&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Thr&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Sec&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Val&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Trp&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Tyr&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Stp&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Amb&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Asx&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Glx&quot;</span><span class="Other">]</span></pre></dt>
+<div id="aminoAcidAbreviation">
+<dt><pre><a href="aminoAcid.html#aminoAcidAbreviation"><span class="Identifier">aminoAcidAbreviation</span></a><span class="Other">:</span> <span class="Identifier">array</span><span class="Other">[</span><span class="Identifier">AminoAcid</span><span class="Other">,</span> <span class="Identifier">string</span><span class="Other">]</span> <span class="Other">=</span> <span class="Other">[</span><span class="StringLit">&quot;Ala&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Cys&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Asp&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Glu&quot;</span><span class="Other">,</span>
+    <span class="StringLit">&quot;Phe&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Gly&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;His&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Ile&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Lys&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Leu&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Met&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Asn&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Pyl&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Pro&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Gln&quot;</span><span class="Other">,</span>
+    <span class="StringLit">&quot;Arg&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Ser&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Thr&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Sec&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Val&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Trp&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Tyr&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Asx&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Glx&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Stp&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Amb&quot;</span><span class="Other">]</span></pre></dt>
 <dd>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/kerrycobb/BioSeq/tree/version-1-6/src/bioseq/aminoAcid.nim#L47"
+href="https://github.com/kerrycobb/BioSeq/tree/version-1-6/src/bioseq/aminoAcid.nim#L70"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/aminoAcid.nim#L47" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/aminoAcid.nim#L70" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
 <div id="aminoAcidChar">
 <dt><pre><a href="aminoAcid.html#aminoAcidChar"><span class="Identifier">aminoAcidChar</span></a><span class="Other">:</span> <span class="Identifier">array</span><span class="Other">[</span><span class="Identifier">AminoAcid</span><span class="Other">,</span> <span class="Identifier">char</span><span class="Other">]</span> <span class="Other">=</span> <span class="Other">[</span><span class="CharLit">'A'</span><span class="Other">,</span> <span class="CharLit">'C'</span><span class="Other">,</span> <span class="CharLit">'D'</span><span class="Other">,</span> <span class="CharLit">'E'</span><span class="Other">,</span> <span class="CharLit">'F'</span><span class="Other">,</span> <span class="CharLit">'G'</span><span class="Other">,</span> <span class="CharLit">'H'</span><span class="Other">,</span> <span class="CharLit">'I'</span><span class="Other">,</span>
-    <span class="CharLit">'K'</span><span class="Other">,</span> <span class="CharLit">'L'</span><span class="Other">,</span> <span class="CharLit">'M'</span><span class="Other">,</span> <span class="CharLit">'N'</span><span class="Other">,</span> <span class="CharLit">'O'</span><span class="Other">,</span> <span class="CharLit">'P'</span><span class="Other">,</span> <span class="CharLit">'Q'</span><span class="Other">,</span> <span class="CharLit">'R'</span><span class="Other">,</span> <span class="CharLit">'S'</span><span class="Other">,</span> <span class="CharLit">'T'</span><span class="Other">,</span> <span class="CharLit">'U'</span><span class="Other">,</span> <span class="CharLit">'V'</span><span class="Other">,</span> <span class="CharLit">'W'</span><span class="Other">,</span> <span class="CharLit">'Y'</span><span class="Other">,</span> <span class="CharLit">'*'</span><span class="Other">,</span>
-    <span class="CharLit">'X'</span><span class="Other">,</span> <span class="CharLit">'B'</span><span class="Other">,</span> <span class="CharLit">'Z'</span><span class="Other">]</span></pre></dt>
+    <span class="CharLit">'K'</span><span class="Other">,</span> <span class="CharLit">'L'</span><span class="Other">,</span> <span class="CharLit">'M'</span><span class="Other">,</span> <span class="CharLit">'N'</span><span class="Other">,</span> <span class="CharLit">'O'</span><span class="Other">,</span> <span class="CharLit">'P'</span><span class="Other">,</span> <span class="CharLit">'Q'</span><span class="Other">,</span> <span class="CharLit">'R'</span><span class="Other">,</span> <span class="CharLit">'S'</span><span class="Other">,</span> <span class="CharLit">'T'</span><span class="Other">,</span> <span class="CharLit">'U'</span><span class="Other">,</span> <span class="CharLit">'V'</span><span class="Other">,</span> <span class="CharLit">'W'</span><span class="Other">,</span> <span class="CharLit">'Y'</span><span class="Other">,</span> <span class="CharLit">'B'</span><span class="Other">,</span>
+    <span class="CharLit">'Z'</span><span class="Other">,</span> <span class="CharLit">'*'</span><span class="Other">,</span> <span class="CharLit">'X'</span><span class="Other">]</span></pre></dt>
 <dd>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/kerrycobb/BioSeq/tree/version-1-6/src/bioseq/aminoAcid.nim#L44"
+href="https://github.com/kerrycobb/BioSeq/tree/version-1-6/src/bioseq/aminoAcid.nim#L67"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/aminoAcid.nim#L44" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/aminoAcid.nim#L67" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
-<div id="aminoAcidName">
-<dt><pre><a href="aminoAcid.html#aminoAcidName"><span class="Identifier">aminoAcidName</span></a><span class="Other">:</span> <span class="Identifier">array</span><span class="Other">[</span><span class="Identifier">AminoAcid</span><span class="Other">,</span> <span class="Identifier">string</span><span class="Other">]</span> <span class="Other">=</span> <span class="Other">[</span><span class="StringLit">&quot;Alanine&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Cysteine&quot;</span><span class="Other">,</span>
+<div id="aminoAcidDefinition">
+<dt><pre><a href="aminoAcid.html#aminoAcidDefinition"><span class="Identifier">aminoAcidDefinition</span></a><span class="Other">:</span> <span class="Identifier">array</span><span class="Other">[</span><span class="Identifier">AminoAcid</span><span class="Other">,</span> <span class="Identifier">string</span><span class="Other">]</span> <span class="Other">=</span> <span class="Other">[</span><span class="StringLit">&quot;Alanine&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Cysteine&quot;</span><span class="Other">,</span>
     <span class="StringLit">&quot;Aspartic Acid&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Glutamic Acid&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Phenylalanine&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Glycine&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Histidine&quot;</span><span class="Other">,</span>
     <span class="StringLit">&quot;Isoleucine&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Lysine&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Leucine&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Methionine&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Asparagine&quot;</span><span class="Other">,</span>
     <span class="StringLit">&quot;Pyrrolysine&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Proline&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Glutamine&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Arginine&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Serine&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Threonine&quot;</span><span class="Other">,</span>
-    <span class="StringLit">&quot;Selenocysteine&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Valine&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Tryptophan&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Tyrosine&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Stop&quot;</span><span class="Other">,</span>
-    <span class="StringLit">&quot;Ambiguous/Unknown&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Aspartic acid or asparagine&quot;</span><span class="Other">,</span>
-    <span class="StringLit">&quot;Glutamic acid or glutamine&quot;</span><span class="Other">]</span></pre></dt>
+    <span class="StringLit">&quot;Selenocysteine&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Valine&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Tryptophan&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Tyrosine&quot;</span><span class="Other">,</span>
+    <span class="StringLit">&quot;Aspartic acid or asparagine&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Glutamic acid or glutamine&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;Stop&quot;</span><span class="Other">,</span>
+    <span class="StringLit">&quot;Ambiguous/Unknown&quot;</span><span class="Other">]</span></pre></dt>
 <dd>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/kerrycobb/BioSeq/tree/version-1-6/src/bioseq/aminoAcid.nim#L51"
+href="https://github.com/kerrycobb/BioSeq/tree/version-1-6/src/bioseq/aminoAcid.nim#L74"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/aminoAcid.nim#L51" class="link-seesrc" target="_blank" >Edit</a>
-
-</dd>
-</div>
-<div id="dnaCodonSequence">
-<dt><pre><a href="aminoAcid.html#dnaCodonSequence"><span class="Identifier">dnaCodonSequence</span></a> <span class="Other">=</span> <span class="Other">[</span><span class="StringLit">&quot;TTT&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;TTC&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;TTA&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;TTG&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;TCT&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;TCC&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;TCA&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;TCG&quot;</span><span class="Other">,</span>
-                    <span class="StringLit">&quot;TAT&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;TAC&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;TAA&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;TAG&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;TGT&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;TGC&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;TGA&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;TGG&quot;</span><span class="Other">,</span>
-                    <span class="StringLit">&quot;CTT&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;CTC&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;CTA&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;CTG&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;CCT&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;CCC&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;CCA&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;CCG&quot;</span><span class="Other">,</span>
-                    <span class="StringLit">&quot;CAT&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;CAC&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;CAA&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;CAG&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;CGT&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;CGC&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;CGA&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;CGG&quot;</span><span class="Other">,</span>
-                    <span class="StringLit">&quot;ATT&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;ATC&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;ATA&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;ATG&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;ACT&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;ACC&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;ACA&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;ACG&quot;</span><span class="Other">,</span>
-                    <span class="StringLit">&quot;AAT&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;AAC&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;AAA&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;AAG&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;AGT&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;AGC&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;AGA&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;AGG&quot;</span><span class="Other">,</span>
-                    <span class="StringLit">&quot;GTT&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;GTC&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;GTA&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;GTG&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;GCT&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;GCC&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;GCA&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;GCG&quot;</span><span class="Other">,</span>
-                    <span class="StringLit">&quot;GAT&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;GAC&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;GAA&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;GAG&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;GGT&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;GGC&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;GGA&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;GGG&quot;</span><span class="Other">]</span></pre></dt>
-<dd>
-
-
-&nbsp;&nbsp;<a
-href="https://github.com/kerrycobb/BioSeq/tree/version-1-6/src/bioseq/aminoAcid.nim#L77"
-class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/aminoAcid.nim#L77" class="link-seesrc" target="_blank" >Edit</a>
-
-</dd>
-</div>
-<div id="rnaCodonSequence">
-<dt><pre><a href="aminoAcid.html#rnaCodonSequence"><span class="Identifier">rnaCodonSequence</span></a> <span class="Other">=</span> <span class="Other">[</span><span class="StringLit">&quot;UUU&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;UUC&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;UUA&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;UUG&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;UCU&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;UCC&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;UCA&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;UCG&quot;</span><span class="Other">,</span>
-                    <span class="StringLit">&quot;UAU&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;UAC&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;UAA&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;UAG&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;UGU&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;UGC&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;UGA&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;UGG&quot;</span><span class="Other">,</span>
-                    <span class="StringLit">&quot;CUU&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;CUC&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;CUA&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;CUG&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;CCU&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;CCC&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;CCA&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;CCG&quot;</span><span class="Other">,</span>
-                    <span class="StringLit">&quot;CAU&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;CAC&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;CAA&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;CAG&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;CGU&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;CGC&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;CGA&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;CGG&quot;</span><span class="Other">,</span>
-                    <span class="StringLit">&quot;AUU&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;AUC&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;AUA&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;AUG&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;ACU&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;ACC&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;ACA&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;ACG&quot;</span><span class="Other">,</span>
-                    <span class="StringLit">&quot;AAU&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;AAC&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;AAA&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;AAG&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;AGU&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;AGC&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;AGA&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;AGG&quot;</span><span class="Other">,</span>
-                    <span class="StringLit">&quot;GUU&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;GUC&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;GUA&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;GUG&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;GCU&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;GCC&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;GCA&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;GCG&quot;</span><span class="Other">,</span>
-                    <span class="StringLit">&quot;GAU&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;GAC&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;GAA&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;GAG&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;GGU&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;GGC&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;GGA&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;GGG&quot;</span><span class="Other">]</span></pre></dt>
-<dd>
-
-
-&nbsp;&nbsp;<a
-href="https://github.com/kerrycobb/BioSeq/tree/version-1-6/src/bioseq/aminoAcid.nim#L87"
-class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/aminoAcid.nim#L87" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/aminoAcid.nim#L74" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -356,15 +396,39 @@ class="link-seesrc" target="_blank">Source</a>
 <div class="section" id="12">
 <h1><a class="toc-backref" href="#12">Procs</a></h1>
 <dl class="item">
+<div id="abreviation,AminoAcid">
+<dt><pre><span class="Keyword">func</span> <a href="#abreviation%2CAminoAcid"><span class="Identifier">abreviation</span></a><span class="Other">(</span><span class="Identifier">a</span><span class="Other">:</span> <a href="aminoAcid.html#AminoAcid"><span class="Identifier">AminoAcid</span></a><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">string</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+<dd>
+
+Returns amino acid abreviation
+&nbsp;&nbsp;<a
+href="https://github.com/kerrycobb/BioSeq/tree/version-1-6/src/bioseq/aminoAcid.nim#L88"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/aminoAcid.nim#L88" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
 <div id="char,AminoAcid">
 <dt><pre><span class="Keyword">func</span> <a href="#char%2CAminoAcid"><span class="Identifier">char</span></a><span class="Other">(</span><span class="Identifier">a</span><span class="Other">:</span> <a href="aminoAcid.html#AminoAcid"><span class="Identifier">AminoAcid</span></a><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">char</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
 <dd>
 
-Character representation of amino acid.
+Returns amino acid character.
 &nbsp;&nbsp;<a
-href="https://github.com/kerrycobb/BioSeq/tree/version-1-6/src/bioseq/aminoAcid.nim#L72"
+href="https://github.com/kerrycobb/BioSeq/tree/version-1-6/src/bioseq/aminoAcid.nim#L85"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/aminoAcid.nim#L72" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/aminoAcid.nim#L85" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
+<div id="definition,AminoAcid">
+<dt><pre><span class="Keyword">func</span> <a href="#definition%2CAminoAcid"><span class="Identifier">definition</span></a><span class="Other">(</span><span class="Identifier">a</span><span class="Other">:</span> <a href="aminoAcid.html#AminoAcid"><span class="Identifier">AminoAcid</span></a><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">string</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+<dd>
+
+Returns amino acid definition
+&nbsp;&nbsp;<a
+href="https://github.com/kerrycobb/BioSeq/tree/version-1-6/src/bioseq/aminoAcid.nim#L91"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/aminoAcid.nim#L91" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -374,9 +438,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Parse character to DNA enum type.
 &nbsp;&nbsp;<a
-href="https://github.com/kerrycobb/BioSeq/tree/version-1-6/src/bioseq/aminoAcid.nim#L58"
+href="https://github.com/kerrycobb/BioSeq/tree/version-1-6/src/bioseq/aminoAcid.nim#L81"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/aminoAcid.nim#L58" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/aminoAcid.nim#L81" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -385,11 +449,11 @@ class="link-seesrc" target="_blank">Source</a>
     <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
 <dd>
 
-Parse character seq as Nucleotide seq
+Parse seq[char] to seq[AminoAcid] 
 &nbsp;&nbsp;<a
-href="https://github.com/kerrycobb/BioSeq/tree/version-1-6/src/bioseq/aminoAcid.nim#L62"
+href="https://github.com/kerrycobb/BioSeq/tree/version-1-6/src/bioseq/aminoAcid.nim#L94"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/aminoAcid.nim#L62" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/aminoAcid.nim#L94" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -398,24 +462,23 @@ class="link-seesrc" target="_blank">Source</a>
     <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
 <dd>
 
-Parse string as Nucleotide seq 
+Parse string to seq[AminoAcid] 
 &nbsp;&nbsp;<a
-href="https://github.com/kerrycobb/BioSeq/tree/version-1-6/src/bioseq/aminoAcid.nim#L68"
+href="https://github.com/kerrycobb/BioSeq/tree/version-1-6/src/bioseq/aminoAcid.nim#L100"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/aminoAcid.nim#L68" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/aminoAcid.nim#L100" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
 <div id="translate,array[,AnyNucleotide],GeneticCode">
-<dt><pre><span class="Keyword">func</span> <a href="#translate%2Carray%5B%2CAnyNucleotide%5D%2CGeneticCode"><span class="Identifier">translate</span></a><span class="Other">(</span><span class="Identifier">nucleotides</span><span class="Other">:</span> <span class="Identifier">array</span><span class="Other">[</span><span class="DecNumber">3</span><span class="Other">,</span> <a href="nucleotide.html#AnyNucleotide"><span class="Identifier">AnyNucleotide</span></a><span class="Other">]</span><span class="Other">;</span>
-               <span class="Identifier">code</span><span class="Other">:</span> <a href="aminoAcid.html#GeneticCode"><span class="Identifier">GeneticCode</span></a> <span class="Other">=</span> <span class="Identifier">gc_standard_1</span><span class="Other">)</span><span class="Other">:</span> <a href="aminoAcid.html#AminoAcid"><span class="Identifier">AminoAcid</span></a></pre></dt>
+<dt><pre><span class="Keyword">func</span> <a href="#translate%2Carray%5B%2CAnyNucleotide%5D%2CGeneticCode"><span class="Identifier">translate</span></a><span class="Other">(</span><span class="Identifier">nucleotides</span><span class="Other">:</span> <span class="Identifier">array</span><span class="Other">[</span><span class="DecNumber">3</span><span class="Other">,</span> <a href="nucleotide.html#AnyNucleotide"><span class="Identifier">AnyNucleotide</span></a><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">code</span><span class="Other">:</span> <a href="aminoAcid.html#GeneticCode"><span class="Identifier">GeneticCode</span></a><span class="Other">)</span><span class="Other">:</span> <a href="aminoAcid.html#AminoAcid"><span class="Identifier">AminoAcid</span></a></pre></dt>
 <dd>
 
-Translate nucleotide codo to amino acid
+Translate nucleotide codon to amino acid. See documentation for <a class="reference external" href="#GeneticCode">GeneticCode</a> for code parameter options.
 &nbsp;&nbsp;<a
-href="https://github.com/kerrycobb/BioSeq/tree/version-1-6/src/bioseq/aminoAcid.nim#L216"
+href="https://github.com/kerrycobb/BioSeq/tree/version-1-6/src/bioseq/aminoAcid.nim#L183"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/aminoAcid.nim#L216" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/aminoAcid.nim#L183" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -429,7 +492,7 @@ class="link-seesrc" target="_blank">Source</a>
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2022-10-03 05:10:29 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2022-10-05 15:11:07 UTC</small>
       </div>
     </div>
   </div>
