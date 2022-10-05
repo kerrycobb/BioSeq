@@ -9,8 +9,6 @@ and amino acids.
 
 BioSeq is still a work in progress. Critiques, suggestions, and contributions are welcome!
 
-Read the documentation [here](https://kerrycobb.github.io/BioSeq/)
-
 ## Installation 
 You will need the Nim compiler to be installed on your system. See https://nim-lang.org/
 
@@ -18,3 +16,6 @@ It is recommended that BioSeq be installed with nimble.
 ```bash
 nimble install bioseq
 ```
+
+## Usage
+Read the documentation [here](https://kerrycobb.github.io/BioSeq/)
