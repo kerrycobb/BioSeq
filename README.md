@@ -1,3 +1,8 @@
+![Github Actions CI](https://github.com/kerrycobb/bioseq/actions/workflows/tests.yml/badge.svg)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![Stability](https://img.shields.io/badge/stability-experimental-orange.svg)
+
+
 # BioSeq
 BioSeq is a Nim library for working with biological sequence data such as DNA, RNA,
 and amino acids.
