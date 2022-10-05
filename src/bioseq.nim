@@ -15,7 +15,8 @@ export
 ## BioSeq is a Nim library for working with biological sequence data such as DNA, 
 ## RNA, and amino acids. 
 ## 
-## BioSeq modules:
+## BioSeq Modules
+## ==============
 ## `nucleotide<./bioseq/nucleotide.html>`_
 ##    Provides functions for working with nucleotides such as: 
 ##      - Safe parsing
