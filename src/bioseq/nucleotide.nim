@@ -5,18 +5,19 @@ import ./parserMacro
 ## DNA or RNA molecule (a single base) from a sequence. The `enum` 
 ## type provides convenience and type safety.
 ## 
-## 
 ## There are two categories of nucleotide types which also serve as type aliases 
 ## for the DNA and RNA types that fall within each category.
 ## These aliases along with the `AnyNucleotide` alias which aliases all types 
 ## within this module are useful for overloading of `procs` to each type
 ## within the category when appropriate. 
+##
+## **Type Categories**
 ##   - `Nucleotide`
 ##   - `StrictNucleotide`
 ## 
 ## 
 ## Nucleotide
-## ==========
+## ========== 
 ## The `DNA` and `RNA` types aliased by `Nucleotide` are consistent with the 
 ## IUPAC nucleic acid notation except for one additional character '?' where
 ## it is not known if there is a gap or an unknown nucleic acid in the sequence.
