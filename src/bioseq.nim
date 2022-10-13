@@ -30,6 +30,12 @@ export
 ##      - Safe parsing 
 ##      - Translating from amino acid sequence 
 ## 
+## `sequence<./bioseq/sequence.html>`_
+##    Provides functions for working with sequences of nucleotides:
+##      - Complement nucleotide sequence
+##      - Reverse complement nucleotide sequence
+##      - Translate nucleotide sequence
+## 
 ## `twoBitSequence <./bioseq/twoBitSequence>`_
 ##    Provides storage of nucleotides sequence as a pair of bits within a 
 ##    bit sequence which reduces memory and allows for faster performance with 

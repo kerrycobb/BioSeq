@@ -55,7 +55,7 @@ runnableExamples:
   let ala = parseChar('A', AminoAcid)  
   assert ala.char() == 'A'
 
-  let amino = translate([dnaT, dnaT, dnaT], gCode1)
+  let amino = translateCodon([dnaT, dnaT, dnaT], gCode1)
   assert amino == aaF
 
 
