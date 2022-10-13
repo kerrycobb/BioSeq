@@ -241,7 +241,3 @@ suite "StrictNucleotide":
     check parseChar('G', StrictRNA).complement.char == 'C'
     check parseChar('C', StrictRNA).complement.char == 'G'
     check parseChar('U', StrictRNA).complement.char == 'A'
-
-  test "toNucleotideSeq":    
-    check toNucleotideSeq(@['A', 'T', 'G', 'C'], StrictDNA) == @[sdnaA, sdnaT, sdnaG, sdnaC]
-    check toNucleotideSeq("ATGC", StrictDNA) == @[sdnaA, sdnaT, sdnaG, sdnaC]
