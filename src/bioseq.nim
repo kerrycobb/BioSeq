@@ -1,12 +1,14 @@
 import 
   ./bioseq/[nucleotide,
             aminoAcid,
-            twoBitSequence]
+            twoBitSequence,
+            sequence]
 
 export 
   nucleotide, 
   aminoAcid, 
-  twoBitSequence
+  twoBitSequence,
+  sequence
 
 ## #######
 ## BioSeq
