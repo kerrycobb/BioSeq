@@ -90,6 +90,9 @@ func abreviation*(a: AminoAcid): string = aminoAcidAbreviation[a]
 
 func definition*(a: AminoAcid): string = aminoAcidDefinition[a]
   ## Returns amino acid definition
+
+func `$`*(a: AminoAcid): string = $a.char
+  ## Convert AminoAcid enum type to string representation.
  
 func toAminoAcidSeq*(data: seq[char]): seq[AminoAcid] =
   ## Parse seq[char] to seq[AminoAcid] 
@@ -101,6 +104,10 @@ func toAminoAcidSeq*(data: string): seq[AminoAcid] =
   ## Parse string to seq[AminoAcid] 
   toAminoAcidSeq(cast[seq[char]](data))
 
+func `$`*(data: seq[AminoAcid]): string = 
+  result = newstring(data.len)
+  for i in 0 ..< data.len:
+    result[i] = data[i].char
 
 type
   GeneticCode* = enum 
@@ -180,7 +187,7 @@ macro createGeneticCodeMatrix(): untyped =
 const geneticCodeMatrix = createGeneticCodeMatrix() 
   ## Used by the translate proc for faster lookup of amino acids
 
-func translate*(nucleotides: array[3, AnyNucleotide], code: GeneticCode): AminoAcid = 
+func translateCodon*(nucleotides: array[3, AnyNucleotide], code: GeneticCode): AminoAcid = 
   # TODO: What to do about '-' and '?'
   ## Translate nucleotide codon to amino acid. See documentation for 
   ## `GeneticCode<#GeneticCode>`_ for code parameter options.
@@ -192,8 +199,6 @@ func translate*(nucleotides: array[3, AnyNucleotide], code: GeneticCode): AminoA
     result = geneticCodeMatrix[code.ord * 64 + num]  
   else:
     result = aaX 
-
-
 
 # TODO: Are these useful for anything?
 # const
