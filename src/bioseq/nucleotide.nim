@@ -1,4 +1,5 @@
 import ./parserMacro
+# import ./aminoAcid
 
 ## 
 ## The `nucleotide` module provides several `enum` types which represent a single 
@@ -223,19 +224,3 @@ func sameBase*(a, b: AnyNucleotide): bool = knownBase(a) and (a == b)
 func diffBase*(a, b: AnyNucleotide): bool = (a.byte and b.byte) < 0b0001_0000'u8 
   ## Returns true if bases are unambiguously different. A base will be treated 
   ## as different if it is unknown '?' but not if it is any 'N' or gap '-'.
-
-func toNucleotideSeq*(data: seq[char], typ: typedesc[AnyNucleotide]): seq[typ] =
-  ## Parse character seq as Nucleotide seq
-  result = newSeq[typ](data.len)
-  for i, d in data:
-    result[i] = parseChar(d, typ)
-
-func toNucleotideSeq*(data: string, typ: typedesc[AnyNucleotide]): seq[typ] = 
-  ## Parse string as Nucleotide seq 
-  # TODO: Should just be able to cast string to seq[char] and call the above 
-  # func but for some reason it wont work here. This approch works outside of
-  # this module file. For example in the aminoAcids module.
-  # toNucleotideSeq(cast[seq[char]](data))
-  result = newSeq[typ](data.len)
-  for i, d in data:
-    result[i] = parseChar(d, typ)
