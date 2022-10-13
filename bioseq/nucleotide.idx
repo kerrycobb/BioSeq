@@ -90,7 +90,5 @@ isPurine	bioseq/nucleotide.html#isPurine,AnyNucleotide	nucleotide: isPurine(n: A
 isPyrimidine	bioseq/nucleotide.html#isPyrimidine,AnyNucleotide	nucleotide: isPyrimidine(n: AnyNucleotide): bool	
 sameBase	bioseq/nucleotide.html#sameBase,AnyNucleotide,AnyNucleotide	nucleotide: sameBase(a, b: AnyNucleotide): bool	
 diffBase	bioseq/nucleotide.html#diffBase,AnyNucleotide,AnyNucleotide	nucleotide: diffBase(a, b: AnyNucleotide): bool	
-toNucleotideSeq	bioseq/nucleotide.html#toNucleotideSeq,seq[char],typedesc[AnyNucleotide]	nucleotide: toNucleotideSeq(data: seq[char]; typ: typedesc[AnyNucleotide]): seq[typ:type]	
-toNucleotideSeq	bioseq/nucleotide.html#toNucleotideSeq,string,typedesc[AnyNucleotide]	nucleotide: toNucleotideSeq(data: string; typ: typedesc[AnyNucleotide]): seq[typ:type]	
 Nucleotide	bioseq/nucleotide.html#nucleotide	 Nucleotide	
 StrictNucleotide	bioseq/nucleotide.html#strictnucleotide	 StrictNucleotide	

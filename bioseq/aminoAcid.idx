@@ -32,8 +32,10 @@ parseChar	bioseq/aminoAcid.html#parseChar,char,typedesc[AminoAcid]	aminoAcid: pa
 char	bioseq/aminoAcid.html#char,AminoAcid	aminoAcid: char(a: AminoAcid): char	
 abreviation	bioseq/aminoAcid.html#abreviation,AminoAcid	aminoAcid: abreviation(a: AminoAcid): string	
 definition	bioseq/aminoAcid.html#definition,AminoAcid	aminoAcid: definition(a: AminoAcid): string	
+`$`	bioseq/aminoAcid.html#$,AminoAcid	aminoAcid: `$`(a: AminoAcid): string	
 toAminoAcidSeq	bioseq/aminoAcid.html#toAminoAcidSeq,seq[char]	aminoAcid: toAminoAcidSeq(data: seq[char]): seq[AminoAcid]	
 toAminoAcidSeq	bioseq/aminoAcid.html#toAminoAcidSeq,string	aminoAcid: toAminoAcidSeq(data: string): seq[AminoAcid]	
+`$`	bioseq/aminoAcid.html#$,seq[AminoAcid]	aminoAcid: `$`(data: seq[AminoAcid]): string	
 gCode1	bioseq/aminoAcid.html#gCode1	GeneticCode.gCode1	
 gCode2	bioseq/aminoAcid.html#gCode2	GeneticCode.gCode2	
 gCode3	bioseq/aminoAcid.html#gCode3	GeneticCode.gCode3	
@@ -60,4 +62,4 @@ gCode30	bioseq/aminoAcid.html#gCode30	GeneticCode.gCode30
 gCode31	bioseq/aminoAcid.html#gCode31	GeneticCode.gCode31	
 gCode33	bioseq/aminoAcid.html#gCode33	GeneticCode.gCode33	
 GeneticCode	bioseq/aminoAcid.html#GeneticCode	aminoAcid: GeneticCode	
-translate	bioseq/aminoAcid.html#translate,array[,AnyNucleotide],GeneticCode	aminoAcid: translate(nucleotides: array[3, AnyNucleotide]; code: GeneticCode): AminoAcid	
+translateCodon	bioseq/aminoAcid.html#translateCodon,array[,AnyNucleotide],GeneticCode	aminoAcid: translateCodon(nucleotides: array[3, AnyNucleotide]; code: GeneticCode): AminoAcid	

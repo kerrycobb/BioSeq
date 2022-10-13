@@ -1,0 +1,10 @@
+toNucleotideSeq	bioseq/sequence.html#toNucleotideSeq,seq[char],typedesc[AnyNucleotide]	sequence: toNucleotideSeq(data: seq[char]; typ: typedesc[AnyNucleotide]): seq[typ:type]	
+toNucleotideSeq	bioseq/sequence.html#toNucleotideSeq,string,typedesc[AnyNucleotide]	sequence: toNucleotideSeq(data: string; typ: typedesc[AnyNucleotide]): seq[typ:type]	
+toString	bioseq/sequence.html#toString,seq[T]	sequence: toString[T: AnyNucleotide](data: seq[T]): string	
+toCharSeq	bioseq/sequence.html#toCharSeq,seq[T]	sequence: toCharSeq[T: AnyNucleotide](data: seq[T]): seq[char]	
+`$`	bioseq/sequence.html#$,seq[AnyNucleotide]	sequence: `$`(data: seq[AnyNucleotide]): string	
+complement	bioseq/sequence.html#complement,seq[T]	sequence: complement[T: AnyNucleotide](s: seq[T]): seq[T]	
+complement	bioseq/sequence.html#complement,seq[T]_2	sequence: complement[T: AnyNucleotide](s: var seq[T])	
+reverseComplement	bioseq/sequence.html#reverseComplement,seq[T]	sequence: reverseComplement[T: AnyNucleotide](s: seq[T]): seq[T]	
+reverseComplement	bioseq/sequence.html#reverseComplement,seq[T]_2	sequence: reverseComplement[T: AnyNucleotide](s: var seq[T])	
+translate	bioseq/sequence.html#translate,seq[T],GeneticCode	sequence: translate[T: AnyNucleotide](s: seq[T]; code: GeneticCode = gCode1): seq[\n    AminoAcid]	
