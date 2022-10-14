@@ -1,0 +1,16 @@
+Matrix	bioseq/matrix.html#Matrix	matrix: Matrix	
+newMatrix	bioseq/matrix.html#newMatrix,int,int	matrix: newMatrix[T](rows, cols: int): Matrix[T]	
+dim	bioseq/matrix.html#dim,Matrix[T]	matrix: dim[T](m: Matrix[T]): (int, int)	
+rows	bioseq/matrix.html#rows,Matrix[T]	matrix: rows[T](m: Matrix[T]): int	
+cols	bioseq/matrix.html#cols,Matrix[T]	matrix: cols[T](m: Matrix[T]): int	
+checkBounds	bioseq/matrix.html#checkBounds.t,untyped,string	matrix: checkBounds(cond: untyped; msg = &quot;&quot;)	
+`[]`	bioseq/matrix.html#[],Matrix[T],int,int	matrix: `[]`[T](m: Matrix[T]; i, j: int): T	
+`[]`	bioseq/matrix.html#[],Matrix[T],int,int_2	matrix: `[]`[T](m: var Matrix[T]; i, j: int): var T	
+`[]=`	bioseq/matrix.html#[]=,Matrix[T],int,int,T	matrix: `[]=`[T](m: var Matrix[T]; i, j: int; s: T)	
+`$`	bioseq/matrix.html#$,Matrix[T]	matrix: `$`[T](m: Matrix[T]): string	
+stack	bioseq/matrix.html#stack,varargs[Matrix[T]]	matrix: stack[T](matrices: varargs[Matrix[T]]): Matrix[T]	
+concat	bioseq/matrix.html#concat,varargs[Matrix[T]]	matrix: concat[T](matrices: varargs[Matrix[T]]): Matrix[T]	
+column	bioseq/matrix.html#column.i,Matrix[T],int	matrix: column[T](m: Matrix[T]; j: int): T	
+column	bioseq/matrix.html#column.i,Matrix[T],int_2	matrix: column[T](m: var Matrix[T]; j: int): var T	
+row	bioseq/matrix.html#row.i,Matrix[T],int	matrix: row[T](m: Matrix[T]; j: int): T	
+row	bioseq/matrix.html#row.i,Matrix[T],int_2	matrix: row[T](m: var Matrix[T]; j: int): var T	
