@@ -3,7 +3,6 @@ newMatrix	bioseq/matrix.html#newMatrix,int,int	matrix: newMatrix[T](rows, cols: 
 dim	bioseq/matrix.html#dim,Matrix[T]	matrix: dim[T](m: Matrix[T]): (int, int)	
 rows	bioseq/matrix.html#rows,Matrix[T]	matrix: rows[T](m: Matrix[T]): int	
 cols	bioseq/matrix.html#cols,Matrix[T]	matrix: cols[T](m: Matrix[T]): int	
-checkBounds	bioseq/matrix.html#checkBounds.t,untyped,string	matrix: checkBounds(cond: untyped; msg = &quot;&quot;)	
 `[]`	bioseq/matrix.html#[],Matrix[T],int,int	matrix: `[]`[T](m: Matrix[T]; i, j: int): T	
 `[]`	bioseq/matrix.html#[],Matrix[T],int,int_2	matrix: `[]`[T](m: var Matrix[T]; i, j: int): var T	
 `[]=`	bioseq/matrix.html#[]=,Matrix[T],int,int,T	matrix: `[]=`[T](m: var Matrix[T]; i, j: int; s: T)	
