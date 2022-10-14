@@ -39,8 +39,7 @@ export
 ##      - Translate nucleotide sequence
 ## 
 ## `matrix<./bioseq/matrix.html>`_
-##  Provides functions for working with a sequence alignment matrix.
-##  Not much is implemented yet.
+##    Provides functions for working with a sequence alignment matrix. Not much is implemented yet.
 ## 
 ## `twoBitSequence <./bioseq/twoBitSequence>`_
 ##    Provides storage of nucleotides sequence as a pair of bits within a 
