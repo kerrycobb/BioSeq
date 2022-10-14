@@ -60,18 +60,15 @@ func reverseComplement*[T: AnyNucleotide](s: var seq[T]) =
 
 proc translate*[T: AnyNucleotide](s: seq[T], code: GeneticCode = gCode1): seq[AminoAcid] =
   ## Translate sequence of nucleotides to sequence of amino acid.
-  # TODO: Might be a more elegant and performant way to do this and do the translateCodon proc.
+  ## See documentation for `GeneticCode` `here<./aminoacid.html#GeneticCode>`_
   assert s.len mod 3 == 0 
   result = newSeq[AminoAcid](s.len div 3)
   for i in 0 ..< result.len:
     let 
       a = 0 + i * 3
       b = 2 + i * 3
-      slice = s[a..b] 
-    var codon: array[3, T]  
-    for i in 0..2:
-      codon[i] = slice[i] 
-    result[i] = translateCodon(codon, code)
+      codon = s[a..b] 
+    result[i] = translateCodon([codon[0],codon[1],codon[2]], code)
 
 
  
