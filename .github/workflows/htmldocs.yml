@@ -14,7 +14,7 @@ jobs:
       - run: nimble install -Y
       - name: build-html
         run: |
-          nim doc --project --index:on --git.url:https://github.com/kerrycobb/BioSeq --outdir:htmldocs src/bioseq.nim
+          nim doc --project --index:on --git.url:https://github.com/kerrycobb/BioSeq --git.commit:master --outdir:htmldocs src/bioseq.nim
           mv ./htmldocs/bioseq.html ./htmldocs/index.html 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
