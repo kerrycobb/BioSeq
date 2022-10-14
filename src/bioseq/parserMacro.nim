@@ -2,16 +2,18 @@ import std/macros
 import fusion/astdsl
 
 macro generateParser*(c: char, k: openarray[char], v: typed): untyped = 
-  ## Generates case statement for parsing nucleotide characters 
+  ## Generates case statement for parsing characters to enum types. 
   ## 
-  ## Generated code:
-  ## 
+  ## Example of statement generated for DNA:
   ## case c
   ## of 'A':
   ##   result = DNA(0)
+  ## of 'G':
+  ##   result = DNA(1)
   ## \...
   ## else:
   ##   raise newException(ValueError, "Invalid " & $DNA & "character: \'" & c)
+   
   template raiseValueError(v, c: untyped) =
     raise newException(ValueError, "Invalid " & $v & "character: '" & c) 
   result = buildAst(stmtList):
