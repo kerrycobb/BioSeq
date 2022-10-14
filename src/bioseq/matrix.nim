@@ -34,7 +34,7 @@ proc cols*[T](m: Matrix[T]): int =
   ## Get column dimension.
   m.cols
 
-template checkBounds*(cond: untyped, msg = "") =
+template checkBounds(cond: untyped, msg = "") =
   when compileOption("boundChecks"):
     {.line.}:
       if not cond:
