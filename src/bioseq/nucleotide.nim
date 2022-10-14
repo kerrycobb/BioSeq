@@ -90,8 +90,6 @@ runnableExamples:
   assert a.char() == 'A'
 
 
-
-
 type
   DNA* = enum dnaA, dnaG, dnaC, dnaT, dnaR, dnaM, dnaW, dnaS, dnaK, dnaY, dnaV, dnaH, dnaD, dnaB, dnaN, dnaGap, dnaUnk
   RNA* = enum rnaA, rnaG, rnaC, rnaU, rnaR, rnaM, rnaW, rnaS, rnaK, rnaY, rnaV, rnaH, rnaD, rnaB, rnaN, rnaGap, rnaUnk
