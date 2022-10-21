@@ -1,6 +1,4 @@
 import ./alignment
-import ./nucleotide
-import ./aminoAcid
 import std/streams
 import std/strutils
 import std/strformat

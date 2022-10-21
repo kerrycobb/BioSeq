@@ -22,6 +22,7 @@ proc nchars*[T](a: Alignment[T]): int =
   a.data.cols
 
 proc `$`*[T](a: Alignment[T]): string =
+  mixin toChar
   var maxLenId = 0
   for i in a.ids: 
     if i.len > maxLenId: 

@@ -65,6 +65,7 @@ proc `[]=`*[T](m: var Matrix[T], i, j: int, s: T) =
   m.data[i * m.cols + j] = s
 
 proc toString*[T](m: Matrix[T]): string =
+  mixin toChar
   result = newString(m.rows * m.cols + m.rows - 1) 
   for i in 0 ..< m.rows:
     for j in 0 ..< m.cols:

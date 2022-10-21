@@ -5,6 +5,7 @@ import std/algorithm
 ## Procs for dealing with sequences of Nucleotides
 
 proc toSeq*(data: seq[char], typ: typedesc): seq[typ] = 
+  mixin parseChar
   result = newSeq[typ](data.len)
   for i, d in data:
     result[i] = parseChar(d, typ)
@@ -13,11 +14,13 @@ proc toSeq*(data: string, typ: typedesc): seq[typ] =
   result = toSeq(cast[seq[char]](data), typ)
 
 func toString*[T](data: seq[T]): string =  
+  mixin toChar
   result = newString(data.len)
   for i in 0 ..< data.len:
     result[i] = data[i].toChar
 
 func toCharSeq*[T](data: seq[T]): seq[char] = 
+  mixin toChar
   result = newSeq[char](data.len)
   for i in 0 ..< data.len:
     result[i] = data[i].toChar

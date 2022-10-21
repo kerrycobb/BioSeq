@@ -29,10 +29,10 @@ export
 ## 
 ## BioSeq Modules
 ## ==============
-## `seqRecord<./bioseq/seqRecord.html`>_
+## `seqRecord<./bioseq/seqRecord.html>`_
 ##    Container for sequence data and associated sample id.
 ## 
-## `alignment<./bioseq/alignment.html`>_ 
+## `alignment<./bioseq/alignment.html>`_ 
 ##    Container for sequence alignment matrix and associated sample ids.  
 ## 
 ## `nucleotide<./bioseq/nucleotide.html>`_
@@ -41,7 +41,7 @@ export
 ## `aminoAcid<./bioseq/aminoAcid.html>`_
 ##    Types and procs for working with amino acids.
 ##
-## `fasta<./bioseq/fasta.nim>`_
+## `fasta<./bioseq/fasta.html>`_
 ##    Fasta format parsing and writing.
 ## 
 ## `phylip<./bioseq/phylip.html>`_
@@ -53,6 +53,6 @@ export
 ## `matrix<./bioseq/matrix.html>`_
 ##    For working with a sequence alignment matrix.
 ##  
-## `twoBitSequence <./bioseq/twoBitSequence>`_
+## `twoBitSequence <./bioseq/twoBitSequence.html>`_
 ##    Storage of nucleotides sequence as a pair of bits within a 
 ##    bit sequence.

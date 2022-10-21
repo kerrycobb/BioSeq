@@ -72,6 +72,7 @@ func `[]=`*[T](s: var TwoBitSequence[T], loc: int, val: T) =
     s.bitArray[arrayLoc + 1] = true 
 
 func `$`*[T](s: TwoBitSequence[T]): string = 
+  mixin toChar
   result = newString(s.len)
   for i in 0 ..< s.len:
     result[i] = s[i].toChar
