@@ -56,13 +56,13 @@ runnableExamples:
   assert t.isThymine() 
 
   let comp = t.complement()
-  assert comp.char() == 'A'
+  assert comp.toChar() == 'A'
 
   let u = parseChar('U', RNA) 
   assert u.isUracil()
   
   let ut = u.toDNA()
-  assert ut.char() == 'T'
+  assert ut.toChar() == 'T'
 
   let r = parseChar('R', DNA)
   assert r.isPurine()
@@ -87,7 +87,7 @@ runnableExamples:
     t = parseChar('T', StrictDNA)
     a = t.complement()
   assert t.isThymine()
-  assert a.char() == 'A'
+  assert a.toChar() == 'A'
 
 
 type
@@ -118,10 +118,10 @@ func byte*(n: DNA): byte = dnaByte[n]
 func byte*(n: RNA): byte = rnaByte[n]
   ## Byte representation of base, alias of uint8.
 
-func char*(n: DNA): char = dnaChar[n]
+func toChar*(n: DNA): char = dnaChar[n]
   ## Character representation of base.
 
-func char*(n: RNA): char = rnaChar[n]
+func toChar*(n: RNA): char = rnaChar[n]
   ## Character representation of base.
 
 func complement*(n: DNA): DNA = dnaComplement[n]
@@ -166,10 +166,10 @@ func byte*(n: StrictDNA): byte = strictDnaByte[n]
 func byte*(n: StrictRNA): byte = strictRnaByte[n]
   ## Byte representation of base, alias of uint8.
 
-func char*(n: StrictDNA): char = strictDnaChar[n]
+func toChar*(n: StrictDNA): char = strictDnaChar[n]
   ## Character representation of base.
 
-func char*(n: StrictRNA): char = strictRnaChar[n]
+func toChar*(n: StrictRNA): char = strictRnaChar[n]
   ## Character representation of base.
 
 func complement*(n: StrictDNA): StrictDNA = strictDnaComplement[n]

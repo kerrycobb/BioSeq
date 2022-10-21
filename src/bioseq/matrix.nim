@@ -58,12 +58,16 @@ proc `[]=`*[T](m: var Matrix[T], i, j: int, s: T) =
   checkBounds(j >= 0 and j < m.cols)
   m.data[i * m.cols + j] = s
 
-proc `$`*[T](m: Matrix[T]): string =
-  result = newString(m.rows * m.cols + m.rows) 
+proc toString*[T](m: Matrix[T]): string =
+  result = newString(m.rows * m.cols + m.rows - 1) 
   for i in 0 ..< m.rows:
     for j in 0 ..< m.cols:
-      result[i * m.cols + j + i] = m[i,j].char
-    result[(i + 1) * m.cols + i] = '\n'
+      result[i * m.cols + j + i] = m[i,j].toChar
+    if i != m.rows - 1:
+      result[(i + 1) * m.cols + i] = '\n'
+
+proc `$`*[T](m: Matrix[T]): string =
+  m.toString()
 
 proc stack*[T](matrices: varargs[Matrix[T]]): Matrix[T] = 
   ## Stack matrices together. 

@@ -1,76 +1,83 @@
-# TODO: Implement some checks expected to fail
-# Implement a file parsing and iterator checks
+# TODO: Implement some checks expected to fail.
+# Implement a file parsing and iterator checks.
+# Should make the checks a little more straightforward once alignment and matrix 
+# modules mature.
 
 import ../src/bioseq
-import unittest 
+import std/unittest 
 import std/strutils
 
-let 
-  expectedIds = @["Taxon1", "Taxon2", "Taxon3"]
-  expectedData = """
-    ATGCATGCATGC
-    ATGCATGCATGC
-    ATGCATGCATGC
-    """.dedent()
-
 suite "Phylip Reading":
+  let 
+    expectedIds =  @["Sample1", "Sample2", "Sample3", "Sample4"]
+    expectedData = @[
+        "ATGCATGCATGC", 
+        "TTGCTTGCATGC", 
+        "GTGCGTGCATGC", 
+        "CTGCCTGCATGC"].join()
+
   test "Interleaved String":    
     let 
       str = """
 
-        3 12 
+        4 12 
 
-        Taxon1 AT GC
-
-        Taxon2 AT G C
-
-        Taxon3 AT GC
+        Sample1 ATGC
+        Sample2 TTGC
+        Sample3 GT GC
+        Sample4  CTGC
+         ATGC
+        T TGC
+        GTGC
+        CTGC
 
         ATGC
-        
-        AT GC
 
-        AT GC
+        ATGC
 
-        A T GC
+        ATGC
 
-        AT GC
+        ATGC
 
-        AT GC
         """
       a = parsePhylipString(str, DNA, Interleaved)
-    check a.ids == expectedIds 
-    check $a.data == expectedData 
-
+    check a.ids == expectedIds
+    check a.data.toString.replace("\n", "") == expectedData 
+    check a.nseqs == 4
+    check a.nchars == 12
 
   test "Sequential String":
     let 
       str = """
+        4 12 
 
-        3 12 
+        Sample1 ATGC
 
-        Taxon1 AT GC
+        ATGC
 
-        AT GC 
+        ATGC
 
-        AT GC 
+        Sample2  TTGC
 
-        Taxon2 ATGC
+        TT GC
 
-        AT GC 
+          ATGC
 
-        AT GC 
+        Sample3 GT GC
 
-        Taxon3 ATG C 
+        GTGC
 
-        AT G C 
+        ATGC
 
-        AT GC 
-        """
+        Sample4 CTGC
+
+        CTGC
+
+        ATGC
+
+        """.dedent()
       a = parsePhylipString(str, DNA, Sequential)
-    check a.ids == expectedIds 
-    check $a.data == expectedData 
-
-
-
-
+    check a.ids == expectedIds
+    check a.data.toString.replace("\n", "") == expectedData 
+    check a.nseqs == 4
+    check a.nchars == 12

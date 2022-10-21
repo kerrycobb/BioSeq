@@ -24,18 +24,18 @@ func toString*[T: AnyNucleotide](data: seq[T]): string =
   ## Returns string representation of nucleotide sequence.
   result = newString(data.len)
   for i in 0 ..< data.len:
-    result[i] = data[i].char
+    result[i] = data[i].toChar
 
 func toCharSeq*[T: AnyNucleotide](data: seq[T]): seq[char] = 
   ## Returns seq of characters representing nucleotide sequence.
   result = newSeq[char](data.len)
   for i in 0 ..< data.len:
-    result[i] = data[i].char
+    result[i] = data[i].toChar
 
 func `$`*(data: seq[AnyNucleotide]): string = 
   result = newstring(data.len)
   for i in 0 ..< data.len:
-    result[i] = data[i].char
+    result[i] = data[i].toChar
 
 func complement*[T: AnyNucleotide](s: seq[T]): seq[T] = 
   ## Returns the complement of a sequence of nucleotides.

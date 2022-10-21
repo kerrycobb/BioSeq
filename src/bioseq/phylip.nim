@@ -12,26 +12,26 @@ runnableExamples:
     str = """
       2 8
       Sample1 ATGC
-      Sample2 ATGC
-      ATGC
-      ATGC
-      2 8
-      Sample1 TTGC
       Sample2 TTGC
       ATGC
       ATGC
+      2 8
+      Sample3 GTGC
+      Sample4 CTGC
+      ATGC
+      ATGC
       """
-  echo parsePhylipString(str, DNA, Interleaved).data
-  # ATGCATGC
-  # ATGCATGC
+    a = parsePhylipString(str, DNA, Interleaved)
+  echo a
+  # Sample1 ATGCATGC
+  # Sample2 TTGCATGC
 
   for i in phylipStringIterator(str, DNA, Interleaved): 
     echo i.data
-  # ATGCATGC
-  # ATGCATGC
-  # 
-  # TTGCATGC
-  # TTGCATGC
+  # Sample1 ATGCATGC
+  # Sample2 TTGCATGC
+  # Sample3 GTGCATGC
+  # Sample4 CTGCATGC
 
 ## ```Nim
 ## let a = parsePhylipFile("input.phy", DNA, Sequential)
@@ -101,7 +101,10 @@ proc parsePhylipAlignment[T](p: var PhylipParser[T], allowEmpty=false) =
         raise newException(PhylipError, fmt"Line lengths within block must be equal at line {p.lineNum}")
       p.alignment.ids[currentTaxon] = id 
       for i in 0 ..< sequence.len:
-        p.alignment.data[currentTaxon, i] = parseChar(sequence[i], T)
+        try:
+          p.alignment.data[currentTaxon, i] = parseChar(sequence[i], T)
+        except ValueError:
+          raise newException(PhylipError, fmt"Invalid {$T} character '{sequence[i]}' at line {p.lineNum}. Header may not match data")
       if currentTaxon == p.alignment.nseqs - 1: 
         cumLen += sequence.len 
         if cumLen == p.alignment.nchars: 
@@ -118,9 +121,13 @@ proc parsePhylipAlignment[T](p: var PhylipParser[T], allowEmpty=false) =
       if currentTaxon == 0:
         currentLen = sequence.len
       elif currentLen != sequence.len:
-        raise newException(PhylipError, fmt"Line lengths within block must be equal at line {p.lineNum}")
+        raise newException(PhylipError, fmt"Line lengths within block must be equal at line {p.lineNum}. Header may not match data")
       for i in 0 ..< sequence.len:
-        p.alignment.data[currentTaxon, cumLen + i] = parseChar(sequence[i], T)
+        try:
+          p.alignment.data[currentTaxon, cumLen + i] = parseChar(sequence[i], T)
+        except ValueError:
+          raise newException(PhylipError, fmt"Invalid {$T} character '{sequence[i]}' at line {p.lineNum}")
+
       if currentTaxon == p.alignment.nseqs - 1: 
         cumLen += sequence.len
         if cumLen == p.alignment.nchars: 
@@ -142,7 +149,10 @@ proc parsePhylipAlignment[T](p: var PhylipParser[T], allowEmpty=false) =
         sequence = parts[1].replace(" ", "")
       p.alignment.ids[currentTaxon] = id 
       for i in 0 ..< sequence.len:
-        p.alignment.data[currentTaxon, i] = parseChar(sequence[i], T)
+        try:
+          p.alignment.data[currentTaxon, i] = parseChar(sequence[i], T)
+        except ValueError:
+          raise newException(PhylipError, fmt"Invalid {$T} character '{sequence[i]}' at line {p.lineNum}. Header may not match data")
       cumLen += sequence.len
       if cumLen == p.alignment.nchars: 
         if currentTaxon == p.alignment.nseqs - 1: 
@@ -157,7 +167,10 @@ proc parsePhylipAlignment[T](p: var PhylipParser[T], allowEmpty=false) =
     of phySequential: # Parse remaining lines of sequential sequence 
       var sequence = line.replace(" ", "")
       for i in 0 ..< sequence.len:
-        p.alignment.data[currentTaxon, cumLen + i] = parseChar(sequence[i], T)
+        try:
+          p.alignment.data[currentTaxon, cumLen + i] = parseChar(sequence[i], T)
+        except ValueError:
+          raise newException(PhylipError, fmt"Invalid {$T} character '{sequence[i]}' at line {p.lineNum}. Header may not match data")
       cumLen += sequence.len
       if cumLen == p.alignment.nchars: 
         if currentTaxon == p.alignment.nseqs - 1: 
@@ -180,7 +193,7 @@ proc parsePhylipAlignment[T](p: var PhylipParser[T], allowEmpty=false) =
     else:
       raise newException(PhylipError, "Unexpected end of Phylip")
 
-iterator phylipStreamIterator*(stream: Stream, typ: typedesc, fmt: PhylipFormat): Alignment[typ] = 
+iterator iterPhylipStream*(stream: Stream, typ: typedesc, fmt: PhylipFormat): Alignment[typ] = 
   var parser = PhylipParser[typ](stream:stream, format:fmt)
   while true:  
     parser.parsePhylipAlignment(allowEmpty=true)
@@ -189,15 +202,15 @@ iterator phylipStreamIterator*(stream: Stream, typ: typedesc, fmt: PhylipFormat)
     else:
       yield parser.alignment 
 
-iterator phylipStringIterator*(str: string, typ: typedesc, fmt: PhylipFormat): Alignment[typ] = 
+iterator iterPhylipString*(str: string, typ: typedesc, fmt: PhylipFormat): Alignment[typ] = 
   var ss = newStringStream(str)
-  for i in phylipStreamIterator(ss, typ, fmt):
+  for i in iterPhylipStream(ss, typ, fmt):
     yield i 
   ss.close()
 
-iterator phylipFileIterator*(path: string, typ: typedesc, fmt: PhylipFormat): Alignment[typ] = 
+iterator iterPhylipFile*(path: string, typ: typedesc, fmt: PhylipFormat): Alignment[typ] = 
   var fs = newFileStream(path)
-  for i in phylipStreamIterator(fs, typ, fmt):
+  for i in iterPhylipStream(fs, typ, fmt):
     yield i 
   fs.close()
 

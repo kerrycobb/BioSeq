@@ -1,17 +1,23 @@
 import 
-  ./bioseq/[nucleotide,
+  ./bioseq/[alignment,
             aminoAcid,
-            twoBitSequence,
-            sequence,
+            fasta,
             matrix,
-            phylip]
+            nucleotide,
+            phylip,
+            sequence,
+            seqRecord,
+            twoBitSequence]
 
 export 
-  nucleotide, 
+  alignment,
   aminoAcid, 
+  fasta,
+  matrix,
+  nucleotide, 
   twoBitSequence,
   sequence,
-  matrix,
+  seqRecord,
   phylip
 
 ## #######
@@ -43,8 +49,11 @@ export
 ## `matrix<./bioseq/matrix.html>`_
 ##    For working with a sequence alignment matrix. Not much is implemented yet.
 ## 
+## `fasta<./bioseq/fasta.nim>`_
+##    Fasta format parsing and writing.
+## 
 ## `phylip<./bioseq/phylip.html>`_
-##    For parsing and writing sequence alignments in Phylip format.
+##    Parsing and writing sequence alignments in Phylip format.
 ##  
 ## `twoBitSequence <./bioseq/twoBitSequence>`_
 ##    Storage of nucleotides sequence as a pair of bits within a 

@@ -1,5 +1,5 @@
 import ../src/bioseq 
-import unittest
+import std/unittest
 
 suite "twoBitSequence":
   var 

@@ -53,7 +53,7 @@ runnableExamples:
   import bioseq
   
   let ala = parseChar('A', AminoAcid)  
-  assert ala.char() == 'A'
+  assert ala.toChar() == 'A'
 
   let amino = translateCodon([dnaT, dnaT, dnaT], gCode1)
   assert amino == aaF
@@ -82,7 +82,7 @@ func parseChar*(c: char, T: typedesc[AminoAcid]): AminoAcid =
   ## Parse character to DNA enum type.
   generateParser(c, aminoAcidChar, AminoAcid)
 
-func char*(a: AminoAcid): char = aminoAcidChar[a]
+func toChar*(a: AminoAcid): char = aminoAcidChar[a]
   ## Returns amino acid character.
 
 func abreviation*(a: AminoAcid): string = aminoAcidAbreviation[a]
@@ -91,7 +91,7 @@ func abreviation*(a: AminoAcid): string = aminoAcidAbreviation[a]
 func definition*(a: AminoAcid): string = aminoAcidDefinition[a]
   ## Returns amino acid definition
 
-func `$`*(a: AminoAcid): string = $a.char
+func `$`*(a: AminoAcid): string = $a.toChar
   ## Convert AminoAcid enum type to string representation.
  
 func toAminoAcidSeq*(data: seq[char]): seq[AminoAcid] =
@@ -107,7 +107,7 @@ func toAminoAcidSeq*(data: string): seq[AminoAcid] =
 func `$`*(data: seq[AminoAcid]): string = 
   result = newstring(data.len)
   for i in 0 ..< data.len:
-    result[i] = data[i].char
+    result[i] = data[i].toChar
 
 type
   GeneticCode* = enum 

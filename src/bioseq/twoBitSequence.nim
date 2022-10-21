@@ -74,7 +74,7 @@ func `[]=`*[T](s: var TwoBitSequence[T], loc: int, val: T) =
 func `$`*[T](s: TwoBitSequence[T]): string = 
   result = newString(s.len)
   for i in 0 ..< s.len:
-    result[i] = s[i].char
+    result[i] = s[i].toChar
 
 # ##############################################################################
 # Code for making bit seqs 
