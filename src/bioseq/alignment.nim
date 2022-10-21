@@ -10,6 +10,11 @@ type
 proc newAlignment*[T](nseqs, nchars: int): Alignment[T] = 
   Alignment[T](ids: newSeq[string](nseqs), data: newMatrix[T](nseqs, nchars))
 
+proc newAlignment*[T](nseqs, nchars: int, ids: seq[string], data: seq[T]): Alignment[T] = 
+  assert ids.len == nseqs
+  assert data.len == nseqs * nchars
+  Alignment[T](ids:ids, data: newMatrix[T](nseqs, nchars, data))
+
 proc nseqs*[T](a: Alignment[T]): int = 
   a.data.rows()
 
