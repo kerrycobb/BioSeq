@@ -15,7 +15,7 @@ suite "Single Phylip":
         "ATGCATGCATGC", 
         "TTGCTTGCATGC", 
         "GTGCGTGCATGC", 
-        "CTGCCTGCATGC"].join().toNucleotideSeq(DNA)
+        "CTGCCTGCATGC"].join.toSeq(DNA)
     expected = newAlignment[DNA](4, 12, ids, data)
 
   test "Interleaved String":    
@@ -74,7 +74,7 @@ suite "Single Phylip":
 
         ATGC
 
-        """.dedent()
+        """.dedent
       a = parsePhylipString(str, DNA, Sequential)
     check a == expected
 
@@ -84,9 +84,9 @@ suite "Multiple Phylip":
   let 
     expected = @[
       newAlignment[DNA](2, 8, @["Sample1", "Sample2"], 
-          @["ATGCATGC", "TTGCATGC"].join().toNucleotideSeq(DNA)),
+          @["ATGCATGC", "TTGCATGC"].join.toSeq(DNA)),
       newAlignment[DNA](3, 7, @["Sample3", "Sample4", "Sample5"], 
-          @["GTGCATG", "CTGCATG", "ATGCATG"].join().toNucleotideSeq(DNA)),
+          @["GTGCATG", "CTGCATG", "ATGCATG"].join.toSeq(DNA)),
     ] 
     interleaved = """
       2 8

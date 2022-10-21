@@ -3,16 +3,16 @@ import std/unittest
 
 suite "Nucleotide Sequence":
 
-  test "toNucleotideSeq":    
-    check $toNucleotideSeq(@['A', 'T', 'G', 'C'], DNA) == "ATGC" 
-    check $toNucleotideSeq("ATGC", DNA) == "ATGC" 
+  test "To Seq":    
+    check toSeq(@['A', 'T', 'G', 'C'], DNA) == @[dnaA, dnaT, dnaG, dnaC] 
+    check toSeq("ATGC", DNA) == @[dnaA, dnaT, dnaG, dnaC]
 
   test "Complement":
-    check $complement(toNucleotideSeq("ATGC", DNA)) == "TACG" 
+    check complement(toSeq("ATGC", DNA)) == @[dnaT, dnaA, dnaC, dnaG] 
 
   test "Reverse Complement":
-    check $reverseComplement(toNucleotideSeq("ATGC", DNA)) == "GCAT" 
+    check reverseComplement(toSeq("ATGC", DNA)) == @[dnaG, dnaC, dnaA, dnaT] 
 
   test "Translate":
-    let t = toNucleotideSeq("ATGCATGCA", DNA) 
-    check $translate(t) == "MHA" 
+    let t = toSeq("ATGCATGCA", DNA) 
+    check translate(t) == @[aaM, aaH, aaA] 

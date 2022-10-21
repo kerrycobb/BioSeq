@@ -1,4 +1,4 @@
-import ./nucleotide
+# import ./nucleotide
 import ./seqRecord
 import std/streams
 import std/strutils
@@ -7,13 +7,15 @@ import std/sequtils
 
 ## An iterator for reading the headers and sequence data from a fasta file.
 runnableExamples:
+  import bioseq
+  import std/strutils
   var str = """
   >Sample1
   ATGCATGC
   
   >Sample2
   TTGCATGC
-  """
+  """.dedent
   for i in iterFastaString(str, DNA):
     echo i
   # Sample1 ATGCATGC
@@ -32,17 +34,17 @@ iterator iterFastaStream*(stream: Stream, typ: typedesc): SeqRecord[typ] =
     empty = true
   while stream.readLine(line):
     lineNum += 1
-    if line.isEmptyOrWhitespace():
+    if line.isEmptyOrWhitespace:
       continue
     if line.startsWith('>'):
       sequence = SeqRecord[typ](id:line[1..^1])
       empty = false
       break 
     else:
-      raise newException(FastaError, fmt"Expected description at line {lineNum} but got: {line}")
+      raise newException(FastaError, &"Expected line beginning with '>' at {lineNum} but got: \"{line}\"")
   while stream.readLine(line):
     lineNum += 1 
-    if line.isEmptyOrWhitespace():
+    if line.isEmptyOrWhitespace:
       continue
     if line.startsWith('>'):
       sequence.data = concat(sequenceFragments)
@@ -69,10 +71,10 @@ iterator iterFastaString*(str: string, typ: typedesc): SeqRecord[typ] =
   var ss = newStringStream(str)
   for i in iterFastaStream(ss, typ):
     yield i
-  ss.close()
+  ss.close
 
 iterator iterFastaFile*(path: string, typ: typedesc): SeqRecord[typ] =  
   var fs = newFileStream(path)
   for i in iterFastaStream(fs, typ):
     yield i
-  fs.close()
+  fs.close

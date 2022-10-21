@@ -27,7 +27,7 @@ runnableExamples:
   # Sample2 TTGCATGC
 
   for i in iterPhylipString(str, DNA, Interleaved): 
-    echo i.data
+    echo i
   # Sample1 ATGCATGC
   # Sample2 TTGCATGC
   # Sample3 GTGCATGC
@@ -62,12 +62,12 @@ proc parsePhylipAlignment[T](p: var PhylipParser[T], allowEmpty=false) =
   p.state = phyStart
   while p.stream.readLine(line):
     p.lineNum += 1
-    if line.isEmptyOrWhitespace(): # Skip empty lines. Stop current loop here.
+    if line.isEmptyOrWhitespace: # Skip empty lines. Stop current loop here.
       continue
     case p.state
     of phyStart: # Parse header
       var 
-        dimensions = line.strip().split() 
+        dimensions = line.strip.split 
         nseqs: int
         nchars: int
       if dimensions.len != 2:
@@ -89,7 +89,7 @@ proc parsePhylipAlignment[T](p: var PhylipParser[T], allowEmpty=false) =
         p.state = phySequentialStart 
 
     of phyInterleavedStart: # Parse first block of interleaved file
-      var parts = line.strip().split(maxsplit=1)
+      var parts = line.strip.split(maxsplit=1)
       if parts.len != 2: 
         raise newException(PhylipError, fmt"Expected ID and sequence at line {p.lineNum}")
       var
@@ -140,7 +140,7 @@ proc parsePhylipAlignment[T](p: var PhylipParser[T], allowEmpty=false) =
     
     of phySequentialStart: # Parse first line of sequential sequence 
       let 
-        stripped = line.strip() 
+        stripped = line.strip 
         parts = stripped.split(maxsplit=1)
       if parts.len != 2: 
         raise newException(PhylipError, fmt"Expected ID and sequence at line {p.lineNum}")
@@ -206,28 +206,28 @@ iterator iterPhylipString*(str: string, typ: typedesc, fmt: PhylipFormat): Align
   var ss = newStringStream(str)
   for i in iterPhylipStream(ss, typ, fmt):
     yield i 
-  ss.close()
+  ss.close
 
 iterator iterPhylipFile*(path: string, typ: typedesc, fmt: PhylipFormat): Alignment[typ] = 
   var fs = newFileStream(path)
   for i in iterPhylipStream(fs, typ, fmt):
     yield i 
-  fs.close()
+  fs.close
 
 proc parsePhylipStream*(stream: Stream, typ: typedesc, fmt: PhylipFormat): Alignment[typ] =
   ## Read Phylip stream.
   var parser = PhylipParser[typ](stream:stream, format:fmt)
-  parser.parsePhylipAlignment()
+  parser.parsePhylipAlignment
   result = parser.alignment
 
 proc parsePhylipFile*(path: string, typ: typedesc, fmt: PhylipFormat): Alignment[typ] = 
   ## Read Phylip file.
   var fs = newFileStream(path)
   result = parsePhylipStream(fs, typ, fmt)
-  fs.close()
+  fs.close
 
 proc parsePhylipString*(str: string, typ: typedesc, fmt: PhylipFormat): Alignment[typ] =
   ## Read Phylip string.
   var ss = newStringStream(str)
   result = parsePhylipStream(ss, typ, fmt)
-  ss.close()
+  ss.close

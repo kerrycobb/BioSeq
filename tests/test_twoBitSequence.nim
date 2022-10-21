@@ -26,7 +26,7 @@ suite "twoBitSequence":
   test "$ operator":
     check $d == "AGCT"
   
-  var r = d.toRNA()
+  var r = d.toRNA
   test "toRNA":
     check r.bitSeq[0] == false
     check r.bitSeq[1] == false
@@ -41,7 +41,7 @@ suite "twoBitSequence":
     check r.bitSeq[7] == true 
     check r[3] == srnaU
   
-  var d2 = r.toDNA()
+  var d2 = r.toDNA
   test "toDNA":
     check d2.bitSeq[0] == false
     check d2.bitSeq[1] == false

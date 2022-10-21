@@ -16,10 +16,10 @@ proc newAlignment*[T](nseqs, nchars: int, ids: seq[string], data: seq[T]): Align
   Alignment[T](ids:ids, data: newMatrix[T](nseqs, nchars, data))
 
 proc nseqs*[T](a: Alignment[T]): int = 
-  a.data.rows()
+  a.data.rows
 
 proc nchars*[T](a: Alignment[T]): int = 
-  a.data.cols()
+  a.data.cols
 
 proc `$`*[T](a: Alignment[T]): string =
   var maxLenId = 0

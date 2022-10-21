@@ -29,10 +29,10 @@ export
 ## 
 ## BioSeq Modules
 ## ==============
-## `seqRecord`<./bioseq/seqRecord.html`>_
+## `seqRecord<./bioseq/seqRecord.html`>_
 ##    Container for sequence data and associated sample id.
 ## 
-## `alignment`<./bioseq/alignment.html`>_ 
+## `alignment<./bioseq/alignment.html`>_ 
 ##    Container for sequence alignment matrix and associated sample ids.  
 ## 
 ## `nucleotide<./bioseq/nucleotide.html>`_

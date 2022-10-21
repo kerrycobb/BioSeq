@@ -1,6 +1,6 @@
 # TODO: Create some tests that are expected to fail
 
-import ../src/bioseq
+import bioseq
 import unittest 
 import std/strutils
 
@@ -28,11 +28,11 @@ suite "Iter Fasta":
          GT GC
         AT GC
 
-        """.dedent()
+        """.dedent
       samples: seq[string]  
       seqs: seq[string]
     for i in iterFastaString(str, DNA):
       samples.add(i.id)
-      seqs.add(i.data.toString())
+      seqs.add(i.data.toString)
     check samples == expectedSamples 
     check seqs == expectedData 

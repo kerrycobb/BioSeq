@@ -97,7 +97,7 @@ func `$`*[T](s: TwoBitSequence[T]): string =
 
 # func newBitSeq*[T](len: int): BitSeq[T] =  
 #   ## Construct a new bit sequence with.
-#   result = BitSeq[T]()
+#   result = BitSeq[T]
 #   result.bits = newSeq[T]((len + T.sizeof * 8 - 1) div (T.sizeof * 8))
 #   result.len = len
 

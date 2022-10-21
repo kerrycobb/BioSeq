@@ -73,7 +73,7 @@ proc toString*[T](m: Matrix[T]): string =
       result[(i + 1) * m.cols + i] = '\n'
 
 proc `$`*[T](m: Matrix[T]): string =
-  m.toString()
+  m.toString
 
 proc stack*[T](matrices: varargs[Matrix[T]]): Matrix[T] = 
   ## Stack matrices together. 

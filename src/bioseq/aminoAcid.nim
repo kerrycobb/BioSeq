@@ -53,7 +53,7 @@ runnableExamples:
   import bioseq
   
   let ala = parseChar('A', AminoAcid)  
-  assert ala.toChar() == 'A'
+  assert ala.toChar == 'A'
 
   let amino = translateCodon([dnaT, dnaT, dnaT], gCode1)
   assert amino == aaF
@@ -91,24 +91,9 @@ func abreviation*(a: AminoAcid): string = aminoAcidAbreviation[a]
 func definition*(a: AminoAcid): string = aminoAcidDefinition[a]
   ## Returns amino acid definition
 
-func `$`*(a: AminoAcid): string = $a.toChar
-  ## Convert AminoAcid enum type to string representation.
+# func `$`*(a: AminoAcid): string = $a.toChar
+#   ## Convert AminoAcid enum type to string representation.
  
-func toAminoAcidSeq*(data: seq[char]): seq[AminoAcid] =
-  ## Parse seq[char] to seq[AminoAcid] 
-  result = newSeq[AminoAcid](data.len)
-  for i, d in data:
-    result[i] = parseChar(d, AminoAcid)
-
-func toAminoAcidSeq*(data: string): seq[AminoAcid] =
-  ## Parse string to seq[AminoAcid] 
-  toAminoAcidSeq(cast[seq[char]](data))
-
-func `$`*(data: seq[AminoAcid]): string = 
-  result = newstring(data.len)
-  for i in 0 ..< data.len:
-    result[i] = data[i].toChar
-
 type
   GeneticCode* = enum 
     ## Genetic codes for translating nucleotides to amino acids. The genetic 
@@ -175,8 +160,8 @@ type
     gCode33 = "KKNNSKSSTTTTIMIIEEDDGGGGAAAAVVVVQQHHRRRRPPPPLLLLY*YYWWCCSSSSLLFF",
 
 macro createGeneticCodeMatrix(): untyped = 
-  ## Creates 2D array from GeneticCode strings for easy indexing by the 
-  ## translate proc.
+  ## Creates 2D array from GeneticCode strings for simple lookup by the 
+  ## translate codon proc.
   var matrix: array[GeneticCode.high.ord * 64, AminoAcid]
   for i in 0 ..< GeneticCode.high.ord:
     for j in 0 ..< 64:
@@ -185,7 +170,7 @@ macro createGeneticCodeMatrix(): untyped =
   result = newLit(matrix)
 
 const geneticCodeMatrix = createGeneticCodeMatrix() 
-  ## Used by the translate proc for faster lookup of amino acids
+  ## Used by the translate proc to lookup amino acids
 
 func translateCodon*(nucleotides: array[3, AnyNucleotide], code: GeneticCode): AminoAcid = 
   # TODO: What to do about '-' and '?'

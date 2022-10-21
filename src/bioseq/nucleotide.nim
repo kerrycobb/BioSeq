@@ -53,19 +53,19 @@ import ./parserMacro
 
 runnableExamples:
   let t = parseChar('T', DNA)
-  assert t.isThymine() 
+  assert t.isThymine 
 
-  let comp = t.complement()
-  assert comp.toChar() == 'A'
+  let comp = t.complement
+  assert comp.toChar == 'A'
 
   let u = parseChar('U', RNA) 
-  assert u.isUracil()
+  assert u.isUracil
   
-  let ut = u.toDNA()
-  assert ut.toChar() == 'T'
+  let ut = u.toDNA
+  assert ut.toChar == 'T'
 
   let r = parseChar('R', DNA)
-  assert r.isPurine()
+  assert r.isPurine
 
 ## StrictNucleotide 
 ## ================
@@ -85,9 +85,9 @@ runnableExamples:
 runnableExamples:
   let 
     t = parseChar('T', StrictDNA)
-    a = t.complement()
-  assert t.isThymine()
-  assert a.toChar() == 'A'
+    a = t.complement
+  assert t.isThymine
+  assert a.toChar == 'A'
 
 
 type
@@ -189,8 +189,8 @@ func toRNA*(n: StrictDNA): StrictRNA = cast[StrictRNA](n)
 type
   AnyNucleotide* = StrictNucleotide | Nucleotide 
 
-func `$`*(n: AnyNucleotide): string = $n.char
-  ## Convert RNA enum type to string representation.
+# func `$`*(n: AnyNucleotide): string = $n.toChar
+#   ## Convert enum type to string representation.
 
 func knownBase*(n: AnyNucleotide): bool = (n.byte and 0b0000_1000'u8) == 0b0000_1000'u8 
   ## Returns true if base is not ambiguous.
