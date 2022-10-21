@@ -22,6 +22,12 @@ proc newMatrix*[T](rows, cols: int): Matrix[T] =
   result.cols = cols
   result.data = newSeq[T](rows * cols)
 
+proc newMatrixFrom*[T](rows, cols: int, data: seq[T]): Matrix[T] =
+  assert data.len == rows * cols
+  result.rows = rows
+  result.cols = cols
+  result.data = data 
+
 proc dim*[T](m: Matrix[T]): (int, int) =
   ## Get (row, column) dimensions tuple.
   (m.rows, m.cols)
