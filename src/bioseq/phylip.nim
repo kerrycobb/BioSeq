@@ -26,7 +26,7 @@ runnableExamples:
   # Sample1 ATGCATGC
   # Sample2 TTGCATGC
 
-  for i in phylipStringIterator(str, DNA, Interleaved): 
+  for i in iterPhylipString(str, DNA, Interleaved): 
     echo i.data
   # Sample1 ATGCATGC
   # Sample2 TTGCATGC
