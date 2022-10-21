@@ -10,13 +10,13 @@ import std/enumerate
 
 suite "Single Phylip":
   let 
-    ids =  @["Sample1", "Sample2", "Sample3", "Sample4"]
-    data = @[
+    expected = newAlignment[DNA](4, 12, 
+      @["Sample1", "Sample2", "Sample3", "Sample4"], 
+      @[
         "ATGCATGCATGC", 
         "TTGCTTGCATGC", 
         "GTGCGTGCATGC", 
-        "CTGCCTGCATGC"].join.toSeq(DNA)
-    expected = newAlignment[DNA](4, 12, ids, data)
+        "CTGCCTGCATGC"].join.toSeq(DNA))
 
   test "Interleaved String":    
     let 
@@ -136,4 +136,3 @@ suite "Multiple Phylip":
     test "Sequential Iterator":
       for i, a in enumerate(iterPhylipString(sequential, DNA, Sequential)):
         check a == expected[i]
-
