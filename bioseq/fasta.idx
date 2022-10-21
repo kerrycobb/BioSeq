@@ -1,0 +1,4 @@
+FastaError	bioseq/fasta.html#FastaError	fasta: FastaError	
+iterFastaStream	bioseq/fasta.html#iterFastaStream.i,Stream,typedesc	fasta: iterFastaStream(stream: Stream; typ: typedesc): SeqRecord[typ]	
+iterFastaString	bioseq/fasta.html#iterFastaString.i,string,typedesc	fasta: iterFastaString(str: string; typ: typedesc): SeqRecord[typ]	
+iterFastaFile	bioseq/fasta.html#iterFastaFile.i,string,typedesc	fasta: iterFastaFile(path: string; typ: typedesc): SeqRecord[typ]	

@@ -1,0 +1,6 @@
+Alignment	bioseq/alignment.html#Alignment	alignment: Alignment	
+newAlignment	bioseq/alignment.html#newAlignment,int,int	alignment: newAlignment[T](nseqs, nchars: int): Alignment[T]	
+newAlignment	bioseq/alignment.html#newAlignment,int,int,seq[string],seq[T]	alignment: newAlignment[T](nseqs, nchars: int; ids: seq[string]; data: seq[T]): Alignment[T]	
+nseqs	bioseq/alignment.html#nseqs,Alignment[T]	alignment: nseqs[T](a: Alignment[T]): int	
+nchars	bioseq/alignment.html#nchars,Alignment[T]	alignment: nchars[T](a: Alignment[T]): int	
+`$`	bioseq/alignment.html#$,Alignment[T]	alignment: `$`[T](a: Alignment[T]): string	

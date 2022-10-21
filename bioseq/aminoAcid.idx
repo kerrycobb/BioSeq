@@ -29,13 +29,9 @@ aminoAcidChar	bioseq/aminoAcid.html#aminoAcidChar	aminoAcid: aminoAcidChar
 aminoAcidAbreviation	bioseq/aminoAcid.html#aminoAcidAbreviation	aminoAcid: aminoAcidAbreviation	
 aminoAcidDefinition	bioseq/aminoAcid.html#aminoAcidDefinition	aminoAcid: aminoAcidDefinition	
 parseChar	bioseq/aminoAcid.html#parseChar,char,typedesc[AminoAcid]	aminoAcid: parseChar(c: char; T: typedesc[AminoAcid]): AminoAcid	
-char	bioseq/aminoAcid.html#char,AminoAcid	aminoAcid: char(a: AminoAcid): char	
+toChar	bioseq/aminoAcid.html#toChar,AminoAcid	aminoAcid: toChar(a: AminoAcid): char	
 abreviation	bioseq/aminoAcid.html#abreviation,AminoAcid	aminoAcid: abreviation(a: AminoAcid): string	
 definition	bioseq/aminoAcid.html#definition,AminoAcid	aminoAcid: definition(a: AminoAcid): string	
-`$`	bioseq/aminoAcid.html#$,AminoAcid	aminoAcid: `$`(a: AminoAcid): string	
-toAminoAcidSeq	bioseq/aminoAcid.html#toAminoAcidSeq,seq[char]	aminoAcid: toAminoAcidSeq(data: seq[char]): seq[AminoAcid]	
-toAminoAcidSeq	bioseq/aminoAcid.html#toAminoAcidSeq,string	aminoAcid: toAminoAcidSeq(data: string): seq[AminoAcid]	
-`$`	bioseq/aminoAcid.html#$,seq[AminoAcid]	aminoAcid: `$`(data: seq[AminoAcid]): string	
 gCode1	bioseq/aminoAcid.html#gCode1	GeneticCode.gCode1	
 gCode2	bioseq/aminoAcid.html#gCode2	GeneticCode.gCode2	
 gCode3	bioseq/aminoAcid.html#gCode3	GeneticCode.gCode3	

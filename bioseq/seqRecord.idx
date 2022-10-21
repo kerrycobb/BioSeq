@@ -1,0 +1,2 @@
+SeqRecord	bioseq/seqRecord.html#SeqRecord	seqRecord: SeqRecord	
+`$`	bioseq/seqRecord.html#$,SeqRecord[T]	seqRecord: `$`[T](s: SeqRecord[T]): string	

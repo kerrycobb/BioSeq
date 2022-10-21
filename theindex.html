@@ -70,18 +70,14 @@ window.addEventListener('DOMContentLoaded', main);
 <div class="document" id="documentId">
   <div class="container">
     <h1 class="title">Index</h1>
-    Documents: <a href="bioseq.html">BioSeq</a>.<br/><p />Modules: <a href="bioseq/aminoAcid.html">bioseq/aminoAcid</a>, <a href="bioseq/matrix.html">bioseq/matrix</a>, <a href="bioseq/nucleotide.html">bioseq/nucleotide</a>, <a href="bioseq/parserMacro.html">bioseq/parserMacro</a>, <a href="bioseq/sequence.html">bioseq/sequence</a>, <a href="bioseq/twoBitSequence.html">bioseq/twoBitSequence</a>.<br/><p /><h2>API symbols</h2>
+    Documents: <a href="bioseq.html">BioSeq</a>.<br/><p />Modules: <a href="bioseq/alignment.html">bioseq/alignment</a>, <a href="bioseq/aminoAcid.html">bioseq/aminoAcid</a>, <a href="bioseq/fasta.html">bioseq/fasta</a>, <a href="bioseq/matrix.html">bioseq/matrix</a>, <a href="bioseq/nucleotide.html">bioseq/nucleotide</a>, <a href="bioseq/parserMacro.html">bioseq/parserMacro</a>, <a href="bioseq/phylip.html">bioseq/phylip</a>, <a href="bioseq/seqRecord.html">bioseq/seqRecord</a>, <a href="bioseq/sequence.html">bioseq/sequence</a>, <a href="bioseq/twoBitSequence.html">bioseq/twoBitSequence</a>.<br/><p /><h2>API symbols</h2>
 <dl><dt><a name="%60%24%60" href="#%60%24%60"><span>`$`:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="aminoAcid: `$`(a: AminoAcid): string" href="bioseq/aminoAcid.html#%24%2CAminoAcid">aminoAcid: `$`(a: AminoAcid): string</a></li>
-          <li><a class="reference external"
-          data-doc-search-tag="aminoAcid: `$`(data: seq[AminoAcid]): string" href="bioseq/aminoAcid.html#%24%2Cseq%5BAminoAcid%5D">aminoAcid: `$`(data: seq[AminoAcid]): string</a></li>
+          data-doc-search-tag="alignment: `$`[T](a: Alignment[T]): string" href="bioseq/alignment.html#%24%2CAlignment%5BT%5D">alignment: `$`[T](a: Alignment[T]): string</a></li>
           <li><a class="reference external"
           data-doc-search-tag="matrix: `$`[T](m: Matrix[T]): string" href="bioseq/matrix.html#%24%2CMatrix%5BT%5D">matrix: `$`[T](m: Matrix[T]): string</a></li>
           <li><a class="reference external"
-          data-doc-search-tag="nucleotide: `$`(n: AnyNucleotide): string" href="bioseq/nucleotide.html#%24%2CAnyNucleotide">nucleotide: `$`(n: AnyNucleotide): string</a></li>
-          <li><a class="reference external"
-          data-doc-search-tag="sequence: `$`(data: seq[AnyNucleotide]): string" href="bioseq/sequence.html#%24%2Cseq%5BAnyNucleotide%5D">sequence: `$`(data: seq[AnyNucleotide]): string</a></li>
+          data-doc-search-tag="seqRecord: `$`[T](s: SeqRecord[T]): string" href="bioseq/seqRecord.html#%24%2CSeqRecord%5BT%5D">seqRecord: `$`[T](s: SeqRecord[T]): string</a></li>
           <li><a class="reference external"
           data-doc-search-tag="twoBitSequence: `$`[T](s: TwoBitSequence[T]): string" href="bioseq/twoBitSequence.html#%24%2CTwoBitSequence%5BT%5D">twoBitSequence: `$`[T](s: TwoBitSequence[T]): string</a></li>
           </ul></dd>
@@ -207,6 +203,10 @@ window.addEventListener('DOMContentLoaded', main);
 <li><a class="reference external"
           data-doc-search-tag="aminoAcid: abreviation(a: AminoAcid): string" href="bioseq/aminoAcid.html#abreviation%2CAminoAcid">aminoAcid: abreviation(a: AminoAcid): string</a></li>
           </ul></dd>
+<dt><a name="Alignment" href="#Alignment"><span>Alignment:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="alignment: Alignment" href="bioseq/alignment.html#Alignment">alignment: Alignment</a></li>
+          </ul></dd>
 <dt><a name="AminoAcid" href="#AminoAcid"><span>AminoAcid:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="aminoAcid: AminoAcid" href="bioseq/aminoAcid.html#AminoAcid">aminoAcid: AminoAcid</a></li>
@@ -240,18 +240,6 @@ window.addEventListener('DOMContentLoaded', main);
           data-doc-search-tag="nucleotide: byte(n: StrictDNA): byte" href="bioseq/nucleotide.html#byte%2CStrictDNA">nucleotide: byte(n: StrictDNA): byte</a></li>
           <li><a class="reference external"
           data-doc-search-tag="nucleotide: byte(n: StrictRNA): byte" href="bioseq/nucleotide.html#byte%2CStrictRNA">nucleotide: byte(n: StrictRNA): byte</a></li>
-          </ul></dd>
-<dt><a name="char" href="#char"><span>char:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="aminoAcid: char(a: AminoAcid): char" href="bioseq/aminoAcid.html#char%2CAminoAcid">aminoAcid: char(a: AminoAcid): char</a></li>
-          <li><a class="reference external"
-          data-doc-search-tag="nucleotide: char(n: DNA): char" href="bioseq/nucleotide.html#char%2CDNA">nucleotide: char(n: DNA): char</a></li>
-          <li><a class="reference external"
-          data-doc-search-tag="nucleotide: char(n: RNA): char" href="bioseq/nucleotide.html#char%2CRNA">nucleotide: char(n: RNA): char</a></li>
-          <li><a class="reference external"
-          data-doc-search-tag="nucleotide: char(n: StrictDNA): char" href="bioseq/nucleotide.html#char%2CStrictDNA">nucleotide: char(n: StrictDNA): char</a></li>
-          <li><a class="reference external"
-          data-doc-search-tag="nucleotide: char(n: StrictRNA): char" href="bioseq/nucleotide.html#char%2CStrictRNA">nucleotide: char(n: StrictRNA): char</a></li>
           </ul></dd>
 <dt><a name="cols" href="#cols"><span>cols:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -377,6 +365,10 @@ window.addEventListener('DOMContentLoaded', main);
 <li><a class="reference external"
           data-doc-search-tag="DNA.dnaY" href="bioseq/nucleotide.html#dnaY">DNA.dnaY</a></li>
           </ul></dd>
+<dt><a name="FastaError" href="#FastaError"><span>FastaError:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="fasta: FastaError" href="bioseq/fasta.html#FastaError">fasta: FastaError</a></li>
+          </ul></dd>
 <dt><a name="gCode1" href="#gCode1"><span>gCode1:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="GeneticCode.gCode1" href="bioseq/aminoAcid.html#gCode1">GeneticCode.gCode1</a></li>
@@ -485,6 +477,10 @@ window.addEventListener('DOMContentLoaded', main);
 <li><a class="reference external"
           data-doc-search-tag="aminoAcid: GeneticCode" href="bioseq/aminoAcid.html#GeneticCode">aminoAcid: GeneticCode</a></li>
           </ul></dd>
+<dt><a name="Interleaved" href="#Interleaved"><span>Interleaved:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="PhylipFormat.Interleaved" href="bioseq/phylip.html#Interleaved">PhylipFormat.Interleaved</a></li>
+          </ul></dd>
 <dt><a name="isAdenine" href="#isAdenine"><span>isAdenine:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="nucleotide: isAdenine(n: AnyNucleotide): bool" href="bioseq/nucleotide.html#isAdenine%2CAnyNucleotide">nucleotide: isAdenine(n: AnyNucleotide): bool</a></li>
@@ -513,6 +509,32 @@ window.addEventListener('DOMContentLoaded', main);
 <li><a class="reference external"
           data-doc-search-tag="nucleotide: isUracil(n: RNA | StrictRNA): bool" href="bioseq/nucleotide.html#isUracil">nucleotide: isUracil(n: RNA | StrictRNA): bool</a></li>
           </ul></dd>
+<dt><a name="iterFastaFile" href="#iterFastaFile"><span>iterFastaFile:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="fasta: iterFastaFile(path: string; typ: typedesc): SeqRecord[typ]" href="bioseq/fasta.html#iterFastaFile.i%2Cstring%2Ctypedesc">fasta: iterFastaFile(path: string; typ: typedesc): SeqRecord[typ]</a></li>
+          </ul></dd>
+<dt><a name="iterFastaStream" href="#iterFastaStream"><span>iterFastaStream:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="fasta: iterFastaStream(stream: Stream; typ: typedesc): SeqRecord[typ]" href="bioseq/fasta.html#iterFastaStream.i%2CStream%2Ctypedesc">fasta: iterFastaStream(stream: Stream; typ: typedesc): SeqRecord[typ]</a></li>
+          </ul></dd>
+<dt><a name="iterFastaString" href="#iterFastaString"><span>iterFastaString:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="fasta: iterFastaString(str: string; typ: typedesc): SeqRecord[typ]" href="bioseq/fasta.html#iterFastaString.i%2Cstring%2Ctypedesc">fasta: iterFastaString(str: string; typ: typedesc): SeqRecord[typ]</a></li>
+          </ul></dd>
+<dt><a name="iterPhylipFile" href="#iterPhylipFile"><span>iterPhylipFile:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="phylip: iterPhylipFile(path: string; typ: typedesc; fmt: PhylipFormat): Alignment[typ]" href="bioseq/phylip.html#iterPhylipFile.i%2Cstring%2Ctypedesc%2CPhylipFormat">phylip: iterPhylipFile(path: string; typ: typedesc; fmt: PhylipFormat): Alignment[typ]</a></li>
+          </ul></dd>
+<dt><a name="iterPhylipStream" href="#iterPhylipStream"><span>iterPhylipStream:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="phylip: iterPhylipStream(stream: Stream; typ: typedesc; fmt: PhylipFormat): Alignment[
+    typ]" href="bioseq/phylip.html#iterPhylipStream.i%2CStream%2Ctypedesc%2CPhylipFormat">phylip: iterPhylipStream(stream: Stream; typ: typedesc; fmt: PhylipFormat): Alignment[
+    typ]</a></li>
+          </ul></dd>
+<dt><a name="iterPhylipString" href="#iterPhylipString"><span>iterPhylipString:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="phylip: iterPhylipString(str: string; typ: typedesc; fmt: PhylipFormat): Alignment[typ]" href="bioseq/phylip.html#iterPhylipString.i%2Cstring%2Ctypedesc%2CPhylipFormat">phylip: iterPhylipString(str: string; typ: typedesc; fmt: PhylipFormat): Alignment[typ]</a></li>
+          </ul></dd>
 <dt><a name="knownBase" href="#knownBase"><span>knownBase:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="nucleotide: knownBase(n: AnyNucleotide): bool" href="bioseq/nucleotide.html#knownBase%2CAnyNucleotide">nucleotide: knownBase(n: AnyNucleotide): bool</a></li>
@@ -525,13 +547,29 @@ window.addEventListener('DOMContentLoaded', main);
 <li><a class="reference external"
           data-doc-search-tag="matrix: Matrix" href="bioseq/matrix.html#Matrix">matrix: Matrix</a></li>
           </ul></dd>
+<dt><a name="nchars" href="#nchars"><span>nchars:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="alignment: nchars[T](a: Alignment[T]): int" href="bioseq/alignment.html#nchars%2CAlignment%5BT%5D">alignment: nchars[T](a: Alignment[T]): int</a></li>
+          </ul></dd>
+<dt><a name="newAlignment" href="#newAlignment"><span>newAlignment:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="alignment: newAlignment[T](nseqs, nchars: int): Alignment[T]" href="bioseq/alignment.html#newAlignment%2Cint%2Cint">alignment: newAlignment[T](nseqs, nchars: int): Alignment[T]</a></li>
+          <li><a class="reference external"
+          data-doc-search-tag="alignment: newAlignment[T](nseqs, nchars: int; ids: seq[string]; data: seq[T]): Alignment[T]" href="bioseq/alignment.html#newAlignment%2Cint%2Cint%2Cseq%5Bstring%5D%2Cseq%5BT%5D">alignment: newAlignment[T](nseqs, nchars: int; ids: seq[string]; data: seq[T]): Alignment[T]</a></li>
+          </ul></dd>
 <dt><a name="newMatrix" href="#newMatrix"><span>newMatrix:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="matrix: newMatrix[T](rows, cols: int): Matrix[T]" href="bioseq/matrix.html#newMatrix%2Cint%2Cint">matrix: newMatrix[T](rows, cols: int): Matrix[T]</a></li>
+          <li><a class="reference external"
+          data-doc-search-tag="matrix: newMatrix[T](rows, cols: int; data: seq[T]): Matrix[T]" href="bioseq/matrix.html#newMatrix%2Cint%2Cint%2Cseq%5BT%5D">matrix: newMatrix[T](rows, cols: int; data: seq[T]): Matrix[T]</a></li>
           </ul></dd>
 <dt><a name="newTwoBitSequence" href="#newTwoBitSequence"><span>newTwoBitSequence:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="twoBitSequence: newTwoBitSequence[T](len: int): TwoBitSequence[T]" href="bioseq/twoBitSequence.html#newTwoBitSequence%2Cint">twoBitSequence: newTwoBitSequence[T](len: int): TwoBitSequence[T]</a></li>
+          </ul></dd>
+<dt><a name="nseqs" href="#nseqs"><span>nseqs:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="alignment: nseqs[T](a: Alignment[T]): int" href="bioseq/alignment.html#nseqs%2CAlignment%5BT%5D">alignment: nseqs[T](a: Alignment[T]): int</a></li>
           </ul></dd>
 <dt><a name="Nucleotide" href="#Nucleotide"><span>Nucleotide:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -548,6 +586,28 @@ window.addEventListener('DOMContentLoaded', main);
           data-doc-search-tag="nucleotide: parseChar(c: char; typ: typedesc[StrictDNA]): StrictDNA" href="bioseq/nucleotide.html#parseChar%2Cchar%2Ctypedesc%5BStrictDNA%5D">nucleotide: parseChar(c: char; typ: typedesc[StrictDNA]): StrictDNA</a></li>
           <li><a class="reference external"
           data-doc-search-tag="nucleotide: parseChar(c: char; typ: typedesc[StrictRNA]): StrictRNA" href="bioseq/nucleotide.html#parseChar%2Cchar%2Ctypedesc%5BStrictRNA%5D">nucleotide: parseChar(c: char; typ: typedesc[StrictRNA]): StrictRNA</a></li>
+          </ul></dd>
+<dt><a name="parsePhylipFile" href="#parsePhylipFile"><span>parsePhylipFile:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="phylip: parsePhylipFile(path: string; typ: typedesc; fmt: PhylipFormat): Alignment[typ]" href="bioseq/phylip.html#parsePhylipFile%2Cstring%2Ctypedesc%2CPhylipFormat">phylip: parsePhylipFile(path: string; typ: typedesc; fmt: PhylipFormat): Alignment[typ]</a></li>
+          </ul></dd>
+<dt><a name="parsePhylipStream" href="#parsePhylipStream"><span>parsePhylipStream:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="phylip: parsePhylipStream(stream: Stream; typ: typedesc; fmt: PhylipFormat): Alignment[
+    typ]" href="bioseq/phylip.html#parsePhylipStream%2CStream%2Ctypedesc%2CPhylipFormat">phylip: parsePhylipStream(stream: Stream; typ: typedesc; fmt: PhylipFormat): Alignment[
+    typ]</a></li>
+          </ul></dd>
+<dt><a name="parsePhylipString" href="#parsePhylipString"><span>parsePhylipString:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="phylip: parsePhylipString(str: string; typ: typedesc; fmt: PhylipFormat): Alignment[typ]" href="bioseq/phylip.html#parsePhylipString%2Cstring%2Ctypedesc%2CPhylipFormat">phylip: parsePhylipString(str: string; typ: typedesc; fmt: PhylipFormat): Alignment[typ]</a></li>
+          </ul></dd>
+<dt><a name="PhylipError" href="#PhylipError"><span>PhylipError:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="phylip: PhylipError" href="bioseq/phylip.html#PhylipError">phylip: PhylipError</a></li>
+          </ul></dd>
+<dt><a name="PhylipFormat" href="#PhylipFormat"><span>PhylipFormat:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="phylip: PhylipFormat" href="bioseq/phylip.html#PhylipFormat">phylip: PhylipFormat</a></li>
           </ul></dd>
 <dt><a name="reverseComplement" href="#reverseComplement"><span>reverseComplement:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -669,6 +729,14 @@ window.addEventListener('DOMContentLoaded', main);
 <li><a class="reference external"
           data-doc-search-tag="StrictDNA.sdnaT" href="bioseq/nucleotide.html#sdnaT">StrictDNA.sdnaT</a></li>
           </ul></dd>
+<dt><a name="SeqRecord" href="#SeqRecord"><span>SeqRecord:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="seqRecord: SeqRecord" href="bioseq/seqRecord.html#SeqRecord">seqRecord: SeqRecord</a></li>
+          </ul></dd>
+<dt><a name="Sequential" href="#Sequential"><span>Sequential:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="PhylipFormat.Sequential" href="bioseq/phylip.html#Sequential">PhylipFormat.Sequential</a></li>
+          </ul></dd>
 <dt><a name="srnaA" href="#srnaA"><span>srnaA:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="StrictRNA.srnaA" href="bioseq/nucleotide.html#srnaA">StrictRNA.srnaA</a></li>
@@ -725,15 +793,21 @@ window.addEventListener('DOMContentLoaded', main);
 <li><a class="reference external"
           data-doc-search-tag="nucleotide: strictRnaComplement" href="bioseq/nucleotide.html#strictRnaComplement">nucleotide: strictRnaComplement</a></li>
           </ul></dd>
-<dt><a name="toAminoAcidSeq" href="#toAminoAcidSeq"><span>toAminoAcidSeq:</span></a></dt><dd><ul class="simple">
+<dt><a name="toChar" href="#toChar"><span>toChar:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="aminoAcid: toAminoAcidSeq(data: seq[char]): seq[AminoAcid]" href="bioseq/aminoAcid.html#toAminoAcidSeq%2Cseq%5Bchar%5D">aminoAcid: toAminoAcidSeq(data: seq[char]): seq[AminoAcid]</a></li>
+          data-doc-search-tag="aminoAcid: toChar(a: AminoAcid): char" href="bioseq/aminoAcid.html#toChar%2CAminoAcid">aminoAcid: toChar(a: AminoAcid): char</a></li>
           <li><a class="reference external"
-          data-doc-search-tag="aminoAcid: toAminoAcidSeq(data: string): seq[AminoAcid]" href="bioseq/aminoAcid.html#toAminoAcidSeq%2Cstring">aminoAcid: toAminoAcidSeq(data: string): seq[AminoAcid]</a></li>
+          data-doc-search-tag="nucleotide: toChar(n: DNA): char" href="bioseq/nucleotide.html#toChar%2CDNA">nucleotide: toChar(n: DNA): char</a></li>
+          <li><a class="reference external"
+          data-doc-search-tag="nucleotide: toChar(n: RNA): char" href="bioseq/nucleotide.html#toChar%2CRNA">nucleotide: toChar(n: RNA): char</a></li>
+          <li><a class="reference external"
+          data-doc-search-tag="nucleotide: toChar(n: StrictDNA): char" href="bioseq/nucleotide.html#toChar%2CStrictDNA">nucleotide: toChar(n: StrictDNA): char</a></li>
+          <li><a class="reference external"
+          data-doc-search-tag="nucleotide: toChar(n: StrictRNA): char" href="bioseq/nucleotide.html#toChar%2CStrictRNA">nucleotide: toChar(n: StrictRNA): char</a></li>
           </ul></dd>
 <dt><a name="toCharSeq" href="#toCharSeq"><span>toCharSeq:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="sequence: toCharSeq[T: AnyNucleotide](data: seq[T]): seq[char]" href="bioseq/sequence.html#toCharSeq%2Cseq%5BT%5D">sequence: toCharSeq[T: AnyNucleotide](data: seq[T]): seq[char]</a></li>
+          data-doc-search-tag="sequence: toCharSeq[T](data: seq[T]): seq[char]" href="bioseq/sequence.html#toCharSeq%2Cseq%5BT%5D">sequence: toCharSeq[T](data: seq[T]): seq[char]</a></li>
           </ul></dd>
 <dt><a name="toDNA" href="#toDNA"><span>toDNA:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -743,12 +817,6 @@ window.addEventListener('DOMContentLoaded', main);
           <li><a class="reference external"
           data-doc-search-tag="twoBitSequence: toDNA[T](s: var TwoBitSequence[T]): TwoBitSequence[StrictDNA]" href="bioseq/twoBitSequence.html#toDNA%2CTwoBitSequence%5BT%5D">twoBitSequence: toDNA[T](s: var TwoBitSequence[T]): TwoBitSequence[StrictDNA]</a></li>
           </ul></dd>
-<dt><a name="toNucleotideSeq" href="#toNucleotideSeq"><span>toNucleotideSeq:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="sequence: toNucleotideSeq(data: seq[char]; typ: typedesc[AnyNucleotide]): seq[typ:type]" href="bioseq/sequence.html#toNucleotideSeq%2Cseq%5Bchar%5D%2Ctypedesc%5BAnyNucleotide%5D">sequence: toNucleotideSeq(data: seq[char]; typ: typedesc[AnyNucleotide]): seq[typ:type]</a></li>
-          <li><a class="reference external"
-          data-doc-search-tag="sequence: toNucleotideSeq(data: string; typ: typedesc[AnyNucleotide]): seq[typ:type]" href="bioseq/sequence.html#toNucleotideSeq%2Cstring%2Ctypedesc%5BAnyNucleotide%5D">sequence: toNucleotideSeq(data: string; typ: typedesc[AnyNucleotide]): seq[typ:type]</a></li>
-          </ul></dd>
 <dt><a name="toRNA" href="#toRNA"><span>toRNA:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="nucleotide: toRNA(n: DNA): RNA" href="bioseq/nucleotide.html#toRNA%2CDNA">nucleotide: toRNA(n: DNA): RNA</a></li>
@@ -757,9 +825,17 @@ window.addEventListener('DOMContentLoaded', main);
           <li><a class="reference external"
           data-doc-search-tag="twoBitSequence: toRNA[T](s: var TwoBitSequence[T]): TwoBitSequence[StrictRNA]" href="bioseq/twoBitSequence.html#toRNA%2CTwoBitSequence%5BT%5D">twoBitSequence: toRNA[T](s: var TwoBitSequence[T]): TwoBitSequence[StrictRNA]</a></li>
           </ul></dd>
+<dt><a name="toSeq" href="#toSeq"><span>toSeq:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="sequence: toSeq(data: seq[char]; typ: typedesc): seq[typ:type]" href="bioseq/sequence.html#toSeq%2Cseq%5Bchar%5D%2Ctypedesc">sequence: toSeq(data: seq[char]; typ: typedesc): seq[typ:type]</a></li>
+          <li><a class="reference external"
+          data-doc-search-tag="sequence: toSeq(data: string; typ: typedesc): seq[typ:type]" href="bioseq/sequence.html#toSeq%2Cstring%2Ctypedesc">sequence: toSeq(data: string; typ: typedesc): seq[typ:type]</a></li>
+          </ul></dd>
 <dt><a name="toString" href="#toString"><span>toString:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="sequence: toString[T: AnyNucleotide](data: seq[T]): string" href="bioseq/sequence.html#toString%2Cseq%5BT%5D">sequence: toString[T: AnyNucleotide](data: seq[T]): string</a></li>
+          data-doc-search-tag="matrix: toString[T](m: Matrix[T]): string" href="bioseq/matrix.html#toString%2CMatrix%5BT%5D">matrix: toString[T](m: Matrix[T]): string</a></li>
+          <li><a class="reference external"
+          data-doc-search-tag="sequence: toString[T](data: seq[T]): string" href="bioseq/sequence.html#toString%2Cseq%5BT%5D">sequence: toString[T](data: seq[T]): string</a></li>
           </ul></dd>
 <dt><a name="translate" href="#translate"><span>translate:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -780,7 +856,7 @@ window.addEventListener('DOMContentLoaded', main);
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2022-10-14 16:14:26 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2022-10-21 19:30:05 UTC</small>
       </div>
     </div>
   </div>

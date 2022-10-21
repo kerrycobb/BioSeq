@@ -45,8 +45,8 @@ parseChar	bioseq/nucleotide.html#parseChar,char,typedesc[DNA]	nucleotide: parseC
 parseChar	bioseq/nucleotide.html#parseChar,char,typedesc[RNA]	nucleotide: parseChar(c: char; typ: typedesc[RNA]): RNA	
 byte	bioseq/nucleotide.html#byte,DNA	nucleotide: byte(n: DNA): byte	
 byte	bioseq/nucleotide.html#byte,RNA	nucleotide: byte(n: RNA): byte	
-char	bioseq/nucleotide.html#char,DNA	nucleotide: char(n: DNA): char	
-char	bioseq/nucleotide.html#char,RNA	nucleotide: char(n: RNA): char	
+toChar	bioseq/nucleotide.html#toChar,DNA	nucleotide: toChar(n: DNA): char	
+toChar	bioseq/nucleotide.html#toChar,RNA	nucleotide: toChar(n: RNA): char	
 complement	bioseq/nucleotide.html#complement,DNA	nucleotide: complement(n: DNA): DNA	
 complement	bioseq/nucleotide.html#complement,RNA	nucleotide: complement(n: RNA): RNA	
 toDNA	bioseq/nucleotide.html#toDNA,RNA	nucleotide: toDNA(n: RNA): DNA	
@@ -72,14 +72,13 @@ parseChar	bioseq/nucleotide.html#parseChar,char,typedesc[StrictDNA]	nucleotide: 
 parseChar	bioseq/nucleotide.html#parseChar,char,typedesc[StrictRNA]	nucleotide: parseChar(c: char; typ: typedesc[StrictRNA]): StrictRNA	
 byte	bioseq/nucleotide.html#byte,StrictDNA	nucleotide: byte(n: StrictDNA): byte	
 byte	bioseq/nucleotide.html#byte,StrictRNA	nucleotide: byte(n: StrictRNA): byte	
-char	bioseq/nucleotide.html#char,StrictDNA	nucleotide: char(n: StrictDNA): char	
-char	bioseq/nucleotide.html#char,StrictRNA	nucleotide: char(n: StrictRNA): char	
+toChar	bioseq/nucleotide.html#toChar,StrictDNA	nucleotide: toChar(n: StrictDNA): char	
+toChar	bioseq/nucleotide.html#toChar,StrictRNA	nucleotide: toChar(n: StrictRNA): char	
 complement	bioseq/nucleotide.html#complement,StrictDNA	nucleotide: complement(n: StrictDNA): StrictDNA	
 complement	bioseq/nucleotide.html#complement,StrictRNA	nucleotide: complement(n: StrictRNA): StrictRNA	
 toDNA	bioseq/nucleotide.html#toDNA,StrictRNA	nucleotide: toDNA(n: StrictRNA): StrictDNA	
 toRNA	bioseq/nucleotide.html#toRNA,StrictDNA	nucleotide: toRNA(n: StrictDNA): StrictRNA	
 AnyNucleotide	bioseq/nucleotide.html#AnyNucleotide	nucleotide: AnyNucleotide	
-`$`	bioseq/nucleotide.html#$,AnyNucleotide	nucleotide: `$`(n: AnyNucleotide): string	
 knownBase	bioseq/nucleotide.html#knownBase,AnyNucleotide	nucleotide: knownBase(n: AnyNucleotide): bool	
 isAdenine	bioseq/nucleotide.html#isAdenine,AnyNucleotide	nucleotide: isAdenine(n: AnyNucleotide): bool	
 isGuanine	bioseq/nucleotide.html#isGuanine,AnyNucleotide	nucleotide: isGuanine(n: AnyNucleotide): bool	

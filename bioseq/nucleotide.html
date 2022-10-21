@@ -175,12 +175,7 @@ window.addEventListener('DOMContentLoaded', main);
 <li>
   <a class="reference reference-toplevel" href="#12" id="62">Procs</a>
   <ul class="simple simple-toc-section">
-      <ul class="simple nested-toc-section">$
-      <li><a class="reference" href="#%24%2CAnyNucleotide"
-    title="`$`(n: AnyNucleotide): string">`$`(n: AnyNucleotide): string</a></li>
-
-  </ul>
-  <ul class="simple nested-toc-section">byte
+      <ul class="simple nested-toc-section">byte
       <li><a class="reference" href="#byte%2CDNA"
     title="byte(n: DNA): byte">byte(n: DNA): byte</a></li>
   <li><a class="reference" href="#byte%2CRNA"
@@ -189,17 +184,6 @@ window.addEventListener('DOMContentLoaded', main);
     title="byte(n: StrictDNA): byte">byte(n: StrictDNA): byte</a></li>
   <li><a class="reference" href="#byte%2CStrictRNA"
     title="byte(n: StrictRNA): byte">byte(n: StrictRNA): byte</a></li>
-
-  </ul>
-  <ul class="simple nested-toc-section">char
-      <li><a class="reference" href="#char%2CDNA"
-    title="char(n: DNA): char">char(n: DNA): char</a></li>
-  <li><a class="reference" href="#char%2CRNA"
-    title="char(n: RNA): char">char(n: RNA): char</a></li>
-  <li><a class="reference" href="#char%2CStrictDNA"
-    title="char(n: StrictDNA): char">char(n: StrictDNA): char</a></li>
-  <li><a class="reference" href="#char%2CStrictRNA"
-    title="char(n: StrictRNA): char">char(n: StrictRNA): char</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">complement
@@ -274,6 +258,17 @@ window.addEventListener('DOMContentLoaded', main);
     title="sameBase(a, b: AnyNucleotide): bool">sameBase(a, b: AnyNucleotide): bool</a></li>
 
   </ul>
+  <ul class="simple nested-toc-section">toChar
+      <li><a class="reference" href="#toChar%2CDNA"
+    title="toChar(n: DNA): char">toChar(n: DNA): char</a></li>
+  <li><a class="reference" href="#toChar%2CRNA"
+    title="toChar(n: RNA): char">toChar(n: RNA): char</a></li>
+  <li><a class="reference" href="#toChar%2CStrictDNA"
+    title="toChar(n: StrictDNA): char">toChar(n: StrictDNA): char</a></li>
+  <li><a class="reference" href="#toChar%2CStrictRNA"
+    title="toChar(n: StrictRNA): char">toChar(n: StrictRNA): char</a></li>
+
+  </ul>
   <ul class="simple nested-toc-section">toDNA
       <li><a class="reference" href="#toDNA%2CRNA"
     title="toDNA(n: RNA): DNA">toDNA(n: RNA): DNA</a></li>
@@ -335,19 +330,19 @@ class="link-seesrc" target="_blank">Source</a>
 <p><strong class="examples_text">Example:</strong></p>
 <pre class="listing"><span class="Keyword">import</span> <span class="Identifier">src</span><span class="Operator">/</span><span class="Identifier">bioseq</span><span class="Operator">/</span><span class="Identifier">nucleotide</span>
 <span class="Keyword">let</span> <span class="Identifier">t</span> <span class="Operator">=</span> <span class="Identifier">parseChar</span><span class="Punctuation">(</span><span class="CharLit">'T'</span><span class="Punctuation">,</span> <span class="Identifier">DNA</span><span class="Punctuation">)</span>
-<span class="Identifier">assert</span> <span class="Identifier">t</span><span class="Operator">.</span><span class="Identifier">isThymine</span><span class="Punctuation">(</span><span class="Punctuation">)</span> 
+<span class="Identifier">assert</span> <span class="Identifier">t</span><span class="Operator">.</span><span class="Identifier">isThymine</span> 
 
-<span class="Keyword">let</span> <span class="Identifier">comp</span> <span class="Operator">=</span> <span class="Identifier">t</span><span class="Operator">.</span><span class="Identifier">complement</span><span class="Punctuation">(</span><span class="Punctuation">)</span>
-<span class="Identifier">assert</span> <span class="Identifier">comp</span><span class="Operator">.</span><span class="Identifier">char</span><span class="Punctuation">(</span><span class="Punctuation">)</span> <span class="Operator">==</span> <span class="CharLit">'A'</span>
+<span class="Keyword">let</span> <span class="Identifier">comp</span> <span class="Operator">=</span> <span class="Identifier">t</span><span class="Operator">.</span><span class="Identifier">complement</span>
+<span class="Identifier">assert</span> <span class="Identifier">comp</span><span class="Operator">.</span><span class="Identifier">toChar</span> <span class="Operator">==</span> <span class="CharLit">'A'</span>
 
 <span class="Keyword">let</span> <span class="Identifier">u</span> <span class="Operator">=</span> <span class="Identifier">parseChar</span><span class="Punctuation">(</span><span class="CharLit">'U'</span><span class="Punctuation">,</span> <span class="Identifier">RNA</span><span class="Punctuation">)</span> 
-<span class="Identifier">assert</span> <span class="Identifier">u</span><span class="Operator">.</span><span class="Identifier">isUracil</span><span class="Punctuation">(</span><span class="Punctuation">)</span>
+<span class="Identifier">assert</span> <span class="Identifier">u</span><span class="Operator">.</span><span class="Identifier">isUracil</span>
 
-<span class="Keyword">let</span> <span class="Identifier">ut</span> <span class="Operator">=</span> <span class="Identifier">u</span><span class="Operator">.</span><span class="Identifier">toDNA</span><span class="Punctuation">(</span><span class="Punctuation">)</span>
-<span class="Identifier">assert</span> <span class="Identifier">ut</span><span class="Operator">.</span><span class="Identifier">char</span><span class="Punctuation">(</span><span class="Punctuation">)</span> <span class="Operator">==</span> <span class="CharLit">'T'</span>
+<span class="Keyword">let</span> <span class="Identifier">ut</span> <span class="Operator">=</span> <span class="Identifier">u</span><span class="Operator">.</span><span class="Identifier">toDNA</span>
+<span class="Identifier">assert</span> <span class="Identifier">ut</span><span class="Operator">.</span><span class="Identifier">toChar</span> <span class="Operator">==</span> <span class="CharLit">'T'</span>
 
 <span class="Keyword">let</span> <span class="Identifier">r</span> <span class="Operator">=</span> <span class="Identifier">parseChar</span><span class="Punctuation">(</span><span class="CharLit">'R'</span><span class="Punctuation">,</span> <span class="Identifier">DNA</span><span class="Punctuation">)</span>
-<span class="Identifier">assert</span> <span class="Identifier">r</span><span class="Operator">.</span><span class="Identifier">isPurine</span><span class="Punctuation">(</span><span class="Punctuation">)</span></pre>
+<span class="Identifier">assert</span> <span class="Identifier">r</span><span class="Operator">.</span><span class="Identifier">isPurine</span></pre>
 <h1><a class="toc-backref" id="strictnucleotide" href="#strictnucleotide">StrictNucleotide</a></h1><p>The <tt class="docutils literal"><span class="pre"><span class="Identifier">StrictDNA</span></span></tt> and <tt class="docutils literal"><span class="pre"><span class="Identifier">StrictRNA</span></span></tt> types aliased by <tt class="docutils literal"><span class="pre"><span class="Identifier">StrictNucleotide</span></span></tt> are consistent with the <tt class="docutils literal"><span class="pre"><span class="Identifier">Nucleotide</span></span></tt> types except that they are restricted to only A, G, C, and T/U nucleotides and thus do not allow ambiguity.</p>
 <table border="1" class="docutils"><tr><th>Symbol</th><th>Binary</th><th>uint8</th><th>Definition</th><th>Complement</th></tr>
 <tr><td>A</td><td>10001000</td><td>136</td><td>Adenine</td><td>T/U</td></tr>
@@ -359,9 +354,9 @@ class="link-seesrc" target="_blank">Source</a>
 <pre class="listing"><span class="Keyword">import</span> <span class="Identifier">src</span><span class="Operator">/</span><span class="Identifier">bioseq</span><span class="Operator">/</span><span class="Identifier">nucleotide</span>
 <span class="Keyword">let</span> 
   <span class="Identifier">t</span> <span class="Operator">=</span> <span class="Identifier">parseChar</span><span class="Punctuation">(</span><span class="CharLit">'T'</span><span class="Punctuation">,</span> <span class="Identifier">StrictDNA</span><span class="Punctuation">)</span>
-  <span class="Identifier">a</span> <span class="Operator">=</span> <span class="Identifier">t</span><span class="Operator">.</span><span class="Identifier">complement</span><span class="Punctuation">(</span><span class="Punctuation">)</span>
-<span class="Identifier">assert</span> <span class="Identifier">t</span><span class="Operator">.</span><span class="Identifier">isThymine</span><span class="Punctuation">(</span><span class="Punctuation">)</span>
-<span class="Identifier">assert</span> <span class="Identifier">a</span><span class="Operator">.</span><span class="Identifier">char</span><span class="Punctuation">(</span><span class="Punctuation">)</span> <span class="Operator">==</span> <span class="CharLit">'A'</span></pre></p>
+  <span class="Identifier">a</span> <span class="Operator">=</span> <span class="Identifier">t</span><span class="Operator">.</span><span class="Identifier">complement</span>
+<span class="Identifier">assert</span> <span class="Identifier">t</span><span class="Operator">.</span><span class="Identifier">isThymine</span>
+<span class="Identifier">assert</span> <span class="Identifier">a</span><span class="Operator">.</span><span class="Identifier">toChar</span> <span class="Operator">==</span> <span class="CharLit">'A'</span></pre></p>
   <div class="section" id="6">
 <h1><a class="toc-backref" href="#6">Imports</a></h1>
 <dl class="item">
@@ -624,18 +619,6 @@ class="link-seesrc" target="_blank">Source</a>
 <div class="section" id="12">
 <h1><a class="toc-backref" href="#12">Procs</a></h1>
 <dl class="item">
-<div id="$,AnyNucleotide">
-<dt><pre><span class="Keyword">func</span> <a href="#%24%2CAnyNucleotide"><span class="Identifier">`$`</span></a><span class="Other">(</span><span class="Identifier">n</span><span class="Other">:</span> <a href="nucleotide.html#AnyNucleotide"><span class="Identifier">AnyNucleotide</span></a><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">string</span></pre></dt>
-<dd>
-
-Convert RNA enum type to string representation.
-&nbsp;&nbsp;<a
-href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/nucleotide.nim#L192"
-class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/nucleotide.nim#L192" class="link-seesrc" target="_blank" >Edit</a>
-
-</dd>
-</div>
 <div id="byte,DNA">
 <dt><pre><span class="Keyword">func</span> <a href="#byte%2CDNA"><span class="Identifier">byte</span></a><span class="Other">(</span><span class="Identifier">n</span><span class="Other">:</span> <a href="nucleotide.html#DNA"><span class="Identifier">DNA</span></a><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">byte</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
 <dd>
@@ -681,54 +664,6 @@ Byte representation of base, alias of uint8.
 href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/nucleotide.nim#L166"
 class="link-seesrc" target="_blank">Source</a>
 &nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/nucleotide.nim#L166" class="link-seesrc" target="_blank" >Edit</a>
-
-</dd>
-</div>
-<div id="char,DNA">
-<dt><pre><span class="Keyword">func</span> <a href="#char%2CDNA"><span class="Identifier">char</span></a><span class="Other">(</span><span class="Identifier">n</span><span class="Other">:</span> <a href="nucleotide.html#DNA"><span class="Identifier">DNA</span></a><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">char</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
-<dd>
-
-Character representation of base.
-&nbsp;&nbsp;<a
-href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/nucleotide.nim#L121"
-class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/nucleotide.nim#L121" class="link-seesrc" target="_blank" >Edit</a>
-
-</dd>
-</div>
-<div id="char,RNA">
-<dt><pre><span class="Keyword">func</span> <a href="#char%2CRNA"><span class="Identifier">char</span></a><span class="Other">(</span><span class="Identifier">n</span><span class="Other">:</span> <a href="nucleotide.html#RNA"><span class="Identifier">RNA</span></a><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">char</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
-<dd>
-
-Character representation of base.
-&nbsp;&nbsp;<a
-href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/nucleotide.nim#L124"
-class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/nucleotide.nim#L124" class="link-seesrc" target="_blank" >Edit</a>
-
-</dd>
-</div>
-<div id="char,StrictDNA">
-<dt><pre><span class="Keyword">func</span> <a href="#char%2CStrictDNA"><span class="Identifier">char</span></a><span class="Other">(</span><span class="Identifier">n</span><span class="Other">:</span> <a href="nucleotide.html#StrictDNA"><span class="Identifier">StrictDNA</span></a><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">char</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
-<dd>
-
-Character representation of base.
-&nbsp;&nbsp;<a
-href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/nucleotide.nim#L169"
-class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/nucleotide.nim#L169" class="link-seesrc" target="_blank" >Edit</a>
-
-</dd>
-</div>
-<div id="char,StrictRNA">
-<dt><pre><span class="Keyword">func</span> <a href="#char%2CStrictRNA"><span class="Identifier">char</span></a><span class="Other">(</span><span class="Identifier">n</span><span class="Other">:</span> <a href="nucleotide.html#StrictRNA"><span class="Identifier">StrictRNA</span></a><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">char</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
-<dd>
-
-Character representation of base.
-&nbsp;&nbsp;<a
-href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/nucleotide.nim#L172"
-class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/nucleotide.nim#L172" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -948,6 +883,54 @@ class="link-seesrc" target="_blank">Source</a>
 
 </dd>
 </div>
+<div id="toChar,DNA">
+<dt><pre><span class="Keyword">func</span> <a href="#toChar%2CDNA"><span class="Identifier">toChar</span></a><span class="Other">(</span><span class="Identifier">n</span><span class="Other">:</span> <a href="nucleotide.html#DNA"><span class="Identifier">DNA</span></a><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">char</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+<dd>
+
+Character representation of base.
+&nbsp;&nbsp;<a
+href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/nucleotide.nim#L121"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/nucleotide.nim#L121" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
+<div id="toChar,RNA">
+<dt><pre><span class="Keyword">func</span> <a href="#toChar%2CRNA"><span class="Identifier">toChar</span></a><span class="Other">(</span><span class="Identifier">n</span><span class="Other">:</span> <a href="nucleotide.html#RNA"><span class="Identifier">RNA</span></a><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">char</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+<dd>
+
+Character representation of base.
+&nbsp;&nbsp;<a
+href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/nucleotide.nim#L124"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/nucleotide.nim#L124" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
+<div id="toChar,StrictDNA">
+<dt><pre><span class="Keyword">func</span> <a href="#toChar%2CStrictDNA"><span class="Identifier">toChar</span></a><span class="Other">(</span><span class="Identifier">n</span><span class="Other">:</span> <a href="nucleotide.html#StrictDNA"><span class="Identifier">StrictDNA</span></a><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">char</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+<dd>
+
+Character representation of base.
+&nbsp;&nbsp;<a
+href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/nucleotide.nim#L169"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/nucleotide.nim#L169" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
+<div id="toChar,StrictRNA">
+<dt><pre><span class="Keyword">func</span> <a href="#toChar%2CStrictRNA"><span class="Identifier">toChar</span></a><span class="Other">(</span><span class="Identifier">n</span><span class="Other">:</span> <a href="nucleotide.html#StrictRNA"><span class="Identifier">StrictRNA</span></a><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">char</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+<dd>
+
+Character representation of base.
+&nbsp;&nbsp;<a
+href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/nucleotide.nim#L172"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/nucleotide.nim#L172" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
 <div id="toDNA,RNA">
 <dt><pre><span class="Keyword">func</span> <a href="#toDNA%2CRNA"><span class="Identifier">toDNA</span></a><span class="Other">(</span><span class="Identifier">n</span><span class="Other">:</span> <a href="nucleotide.html#RNA"><span class="Identifier">RNA</span></a><span class="Other">)</span><span class="Other">:</span> <a href="nucleotide.html#DNA"><span class="Identifier">DNA</span></a> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
 <dd>
@@ -1006,7 +989,7 @@ class="link-seesrc" target="_blank">Source</a>
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2022-10-14 16:14:25 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2022-10-21 19:30:01 UTC</small>
       </div>
     </div>
   </div>

@@ -1,0 +1,10 @@
+Interleaved	bioseq/phylip.html#Interleaved	PhylipFormat.Interleaved	
+Sequential	bioseq/phylip.html#Sequential	PhylipFormat.Sequential	
+PhylipFormat	bioseq/phylip.html#PhylipFormat	phylip: PhylipFormat	
+PhylipError	bioseq/phylip.html#PhylipError	phylip: PhylipError	
+iterPhylipStream	bioseq/phylip.html#iterPhylipStream.i,Stream,typedesc,PhylipFormat	phylip: iterPhylipStream(stream: Stream; typ: typedesc; fmt: PhylipFormat): Alignment[\n    typ]	
+iterPhylipString	bioseq/phylip.html#iterPhylipString.i,string,typedesc,PhylipFormat	phylip: iterPhylipString(str: string; typ: typedesc; fmt: PhylipFormat): Alignment[typ]	
+iterPhylipFile	bioseq/phylip.html#iterPhylipFile.i,string,typedesc,PhylipFormat	phylip: iterPhylipFile(path: string; typ: typedesc; fmt: PhylipFormat): Alignment[typ]	
+parsePhylipStream	bioseq/phylip.html#parsePhylipStream,Stream,typedesc,PhylipFormat	phylip: parsePhylipStream(stream: Stream; typ: typedesc; fmt: PhylipFormat): Alignment[\n    typ]	
+parsePhylipFile	bioseq/phylip.html#parsePhylipFile,string,typedesc,PhylipFormat	phylip: parsePhylipFile(path: string; typ: typedesc; fmt: PhylipFormat): Alignment[typ]	
+parsePhylipString	bioseq/phylip.html#parsePhylipString,string,typedesc,PhylipFormat	phylip: parsePhylipString(str: string; typ: typedesc; fmt: PhylipFormat): Alignment[typ]	
