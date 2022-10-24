@@ -2,3 +2,7 @@ FastaError	bioseq/fasta.html#FastaError	fasta: FastaError
 iterFastaStream	bioseq/fasta.html#iterFastaStream.i,Stream,typedesc	fasta: iterFastaStream(stream: Stream; typ: typedesc): SeqRecord[typ]	
 iterFastaString	bioseq/fasta.html#iterFastaString.i,string,typedesc	fasta: iterFastaString(str: string; typ: typedesc): SeqRecord[typ]	
 iterFastaFile	bioseq/fasta.html#iterFastaFile.i,string,typedesc	fasta: iterFastaFile(path: string; typ: typedesc): SeqRecord[typ]	
+toFastaString	bioseq/fasta.html#toFastaString,SeqRecord[T],int	fasta: toFastaString[T](s: SeqRecord[T]; lineLength = 80): string	
+toFastaString	bioseq/fasta.html#toFastaString,seq[SeqRecord[T]],int	fasta: toFastaString[T](s: seq[SeqRecord[T]]; lineLength = 80): string	
+toFastaFile	bioseq/fasta.html#toFastaFile,SeqRecord[T],string,FileMode,int	fasta: toFastaFile[T](s: SeqRecord[T]; path: string; mode: FileMode = fmWrite;\n               lineLength = 80)	
+toFastaFile	bioseq/fasta.html#toFastaFile,seq[SeqRecord[T]],string,FileMode,int	fasta: toFastaFile[T](s: seq[SeqRecord[T]]; path: string; mode: FileMode = fmWrite;\n               lineLength = 80)	
