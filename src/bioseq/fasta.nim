@@ -108,16 +108,16 @@ proc toFastaString*[T](s: seq[SeqRecord[T]], lineLength = 80): string =
     result.add(i.toFastaString)
 
 proc toFastaFile*[T](s: SeqRecord[T], path: string, mode: FileMode = fmWrite, 
-  # Writes data to file in Fasta format. Use fmAppend to append rather than overwrite.
     lineLength = 80) =  
+  ## Writes data to file in Fasta format. Use fmAppend to append rather than overwrite.
   var fh = open(path, mode)
-  fh.write(s.toFastaString, lineLength)
+  fh.write(s.toFastaString)
   fh.close
 
 proc toFastaFile*[T](s: seq[SeqRecord[T]], path: string, mode: FileMode = fmWrite, 
-  # Writes data to file in Fasta format. Use fmAppend to append rather than overwrite.
     lineLength = 80) = 
+  ## Writes data to file in Fasta format. Use fmAppend to append rather than overwrite.
   var fh = open(path, mode)
   for i in s:
-    fh.write(i.toFastaString, lineLength)
+    fh.write(i.toFastaString)
   fh.close

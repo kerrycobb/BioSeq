@@ -1,4 +1,5 @@
 # TODO: Create some tests that are expected to fail
+# TODO: Test string and file writing!
 
 import bioseq
 import unittest 
