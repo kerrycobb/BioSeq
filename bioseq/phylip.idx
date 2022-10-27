@@ -8,3 +8,6 @@ iterPhylipFile	bioseq/phylip.html#iterPhylipFile.i,string,typedesc,PhylipFormat	
 parsePhylipStream	bioseq/phylip.html#parsePhylipStream,Stream,typedesc,PhylipFormat	phylip: parsePhylipStream(stream: Stream; typ: typedesc; fmt: PhylipFormat): Alignment[\n    typ]	
 parsePhylipFile	bioseq/phylip.html#parsePhylipFile,string,typedesc,PhylipFormat	phylip: parsePhylipFile(path: string; typ: typedesc; fmt: PhylipFormat): Alignment[typ]	
 parsePhylipString	bioseq/phylip.html#parsePhylipString,string,typedesc,PhylipFormat	phylip: parsePhylipString(str: string; typ: typedesc; fmt: PhylipFormat): Alignment[typ]	
+toPhylip	bioseq/phylip.html#toPhylip.i,Alignment[T],PhylipFormat,int	phylip: toPhylip[T](a: Alignment[T]; fmt: PhylipFormat; lineLength = 80): string	
+toPhylipFile	bioseq/phylip.html#toPhylipFile,Alignment[T],string,PhylipFormat,int,FileMode	phylip: toPhylipFile[T](a: Alignment[T]; path: string; fmt: PhylipFormat;\n                lineLength = 80; mode: FileMode = fmWrite)	
+toPhylipString	bioseq/phylip.html#toPhylipString,Alignment[T],PhylipFormat,int	phylip: toPhylipString[T](a: Alignment[T]; fmt: PhylipFormat; lineLength = 80): string	

@@ -135,6 +135,18 @@ window.addEventListener('DOMContentLoaded', main);
     title="parsePhylipString(str: string; typ: typedesc; fmt: PhylipFormat): Alignment[typ]">parsePhylipString(str: string; typ: typedesc; fmt: PhylipFormat): Alignment[typ]</a></li>
 
   </ul>
+  <ul class="simple nested-toc-section">toPhylipFile
+      <li><a class="reference" href="#toPhylipFile%2CAlignment%5BT%5D%2Cstring%2CPhylipFormat%2Cint%2CFileMode"
+    title="toPhylipFile[T](a: Alignment[T]; path: string; fmt: PhylipFormat;
+                lineLength = 80; mode: FileMode = fmWrite)">toPhylipFile[T](a: Alignment[T]; path: string; fmt: PhylipFormat;
+                lineLength = 80; mode: FileMode = fmWrite)</a></li>
+
+  </ul>
+  <ul class="simple nested-toc-section">toPhylipString
+      <li><a class="reference" href="#toPhylipString%2CAlignment%5BT%5D%2CPhylipFormat%2Cint"
+    title="toPhylipString[T](a: Alignment[T]; fmt: PhylipFormat; lineLength = 80): string">toPhylipString[T](a: Alignment[T]; fmt: PhylipFormat; lineLength = 80): string</a></li>
+
+  </ul>
 
   </ul>
 </li>
@@ -156,6 +168,11 @@ window.addEventListener('DOMContentLoaded', main);
   <ul class="simple nested-toc-section">iterPhylipString
       <li><a class="reference" href="#iterPhylipString.i%2Cstring%2Ctypedesc%2CPhylipFormat"
     title="iterPhylipString(str: string; typ: typedesc; fmt: PhylipFormat): Alignment[typ]">iterPhylipString(str: string; typ: typedesc; fmt: PhylipFormat): Alignment[typ]</a></li>
+
+  </ul>
+  <ul class="simple nested-toc-section">toPhylip
+      <li><a class="reference" href="#toPhylip.i%2CAlignment%5BT%5D%2CPhylipFormat%2Cint"
+    title="toPhylip[T](a: Alignment[T]; fmt: PhylipFormat; lineLength = 80): string">toPhylip[T](a: Alignment[T]; fmt: PhylipFormat; lineLength = 80): string</a></li>
 
   </ul>
 
@@ -216,9 +233,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/phylip.nim#L41"
+href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/phylip.nim#L43"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/phylip.nim#L41" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/phylip.nim#L43" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -229,9 +246,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/phylip.nim#L39"
+href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/phylip.nim#L41"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/phylip.nim#L39" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/phylip.nim#L41" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -245,11 +262,11 @@ class="link-seesrc" target="_blank">Source</a>
     <span class="Identifier">typ</span><span class="Other">]</span></pre></dt>
 <dd>
 
-Read Phylip file.
+Read relaxed Phylip formatted file.
 &nbsp;&nbsp;<a
-href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/phylip.nim#L221"
+href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/phylip.nim#L223"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/phylip.nim#L221" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/phylip.nim#L223" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -258,11 +275,11 @@ class="link-seesrc" target="_blank">Source</a>
     <span class="Identifier">typ</span><span class="Other">]</span></pre></dt>
 <dd>
 
-Read Phylip stream.
+Read relaxed Phylip formatted stream.
 &nbsp;&nbsp;<a
-href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/phylip.nim#L215"
+href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/phylip.nim#L217"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/phylip.nim#L215" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/phylip.nim#L217" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -271,11 +288,36 @@ class="link-seesrc" target="_blank">Source</a>
     <span class="Identifier">typ</span><span class="Other">]</span></pre></dt>
 <dd>
 
-Read Phylip string.
+Read relaxed Phylip formatted string.
 &nbsp;&nbsp;<a
-href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/phylip.nim#L227"
+href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/phylip.nim#L229"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/phylip.nim#L227" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/phylip.nim#L229" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
+<div id="toPhylipFile,Alignment[T],string,PhylipFormat,int,FileMode">
+<dt><pre><span class="Keyword">proc</span> <a href="#toPhylipFile%2CAlignment%5BT%5D%2Cstring%2CPhylipFormat%2Cint%2CFileMode"><span class="Identifier">toPhylipFile</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">a</span><span class="Other">:</span> <a href="alignment.html#Alignment"><span class="Identifier">Alignment</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">path</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">;</span> <span class="Identifier">fmt</span><span class="Other">:</span> <a href="phylip.html#PhylipFormat"><span class="Identifier">PhylipFormat</span></a><span class="Other">;</span>
+                     <span class="Identifier">lineLength</span> <span class="Other">=</span> <span class="DecNumber">80</span><span class="Other">;</span> <span class="Identifier">mode</span><span class="Other">:</span> <span class="Identifier">FileMode</span> <span class="Other">=</span> <span class="Identifier">fmWrite</span><span class="Other">)</span></pre></dt>
+<dd>
+
+Write data to file in Phylip format. Use fmt=fmAppend to append rather than overwrite.
+&nbsp;&nbsp;<a
+href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/phylip.nim#L318"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/phylip.nim#L318" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
+<div id="toPhylipString,Alignment[T],PhylipFormat,int">
+<dt><pre><span class="Keyword">proc</span> <a href="#toPhylipString%2CAlignment%5BT%5D%2CPhylipFormat%2Cint"><span class="Identifier">toPhylipString</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">a</span><span class="Other">:</span> <a href="alignment.html#Alignment"><span class="Identifier">Alignment</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">fmt</span><span class="Other">:</span> <a href="phylip.html#PhylipFormat"><span class="Identifier">PhylipFormat</span></a><span class="Other">;</span> <span class="Identifier">lineLength</span> <span class="Other">=</span> <span class="DecNumber">80</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">string</span></pre></dt>
+<dd>
+
+Write data to string in Phylip format. 
+&nbsp;&nbsp;<a
+href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/phylip.nim#L326"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/phylip.nim#L326" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -291,9 +333,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/phylip.nim#L209"
+href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/phylip.nim#L211"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/phylip.nim#L209" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/phylip.nim#L211" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -304,9 +346,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/phylip.nim#L194"
+href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/phylip.nim#L196"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/phylip.nim#L194" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/phylip.nim#L196" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -317,9 +359,21 @@ class="link-seesrc" target="_blank">Source</a>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/phylip.nim#L203"
+href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/phylip.nim#L205"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/phylip.nim#L203" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/phylip.nim#L205" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
+<div id="toPhylip.i,Alignment[T],PhylipFormat,int">
+<dt><pre><span class="Keyword">iterator</span> <a href="#toPhylip.i%2CAlignment%5BT%5D%2CPhylipFormat%2Cint"><span class="Identifier">toPhylip</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">a</span><span class="Other">:</span> <a href="alignment.html#Alignment"><span class="Identifier">Alignment</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">fmt</span><span class="Other">:</span> <a href="phylip.html#PhylipFormat"><span class="Identifier">PhylipFormat</span></a><span class="Other">;</span> <span class="Identifier">lineLength</span> <span class="Other">=</span> <span class="DecNumber">80</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">string</span></pre></dt>
+<dd>
+
+Iterable yielding lines for a Phylip string or file. 
+&nbsp;&nbsp;<a
+href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/phylip.nim#L237"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/phylip.nim#L237" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -333,7 +387,7 @@ class="link-seesrc" target="_blank">Source</a>
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2022-10-24 18:12:21 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2022-10-27 17:33:31 UTC</small>
       </div>
     </div>
   </div>
