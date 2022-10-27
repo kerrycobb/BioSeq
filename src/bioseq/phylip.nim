@@ -3,6 +3,8 @@ import std/streams
 import std/strutils
 import std/strformat
 
+# TODO: Modify parsers to be able to read line containing only a sample ID
+
 ## Procs for reading and writing DNA alignments in Phylip format
 runnableExamples:
   import bioseq
@@ -213,19 +215,219 @@ iterator iterPhylipFile*(path: string, typ: typedesc, fmt: PhylipFormat): Alignm
   fs.close
 
 proc parsePhylipStream*(stream: Stream, typ: typedesc, fmt: PhylipFormat): Alignment[typ] =
-  ## Read Phylip stream.
+  ## Read relaxed Phylip formatted stream.
   var parser = PhylipParser[typ](stream:stream, format:fmt)
   parser.parsePhylipAlignment
   result = parser.alignment
 
 proc parsePhylipFile*(path: string, typ: typedesc, fmt: PhylipFormat): Alignment[typ] = 
-  ## Read Phylip file.
+  ## Read relaxed Phylip formatted file.
   var fs = newFileStream(path)
   result = parsePhylipStream(fs, typ, fmt)
   fs.close
 
 proc parsePhylipString*(str: string, typ: typedesc, fmt: PhylipFormat): Alignment[typ] =
-  ## Read Phylip string.
+  ## Read relaxed Phylip formatted string.
   var ss = newStringStream(str)
   result = parsePhylipStream(ss, typ, fmt)
   ss.close
+
+
+
+iterator toPhylip*[T](a: Alignment[T], fmt: PhylipFormat, lineLength = 80): string = 
+  ## Iterable yielding lines for a Phylip string or file. 
+  # TODO: Might be useful to have option for what to do if ID is longer than 
+  # line length since the current behavior may not play nicely with other software.
+  mixin toChar
+  assert lineLength > 0
+  var 
+    maxIdLen = 0 
+  for i in a.ids: 
+    if i.len > maxIdLen: 
+      maxIdLen = i.len
+  if maxIdLen > lineLength - 2: 
+    echo "Warning: ID length exceeds line length. Full ID will be written ", 
+         "\n but no data will be written to the first block"
+
+  case fmt
+  of Interleaved:
+    var 
+      line = newStringOfCap(lineLength + 1)
+      pos: int
+    # Write first block
+    for i in 0 ..< a.nseqs:
+      pos = 0
+      line.setLen(0)
+      line.add(a.ids[i])
+      if maxIdLen + 1 <= lineLength: 
+        line.add(' '.repeat(maxIdLen - line.len + 1))
+        while line.len < lineLength and pos < a.nchars:
+          line.add(a.data[i, pos].toChar)
+          pos += 1
+      yield line
+      if i < a.nseqs - 1: 
+        yield "\n"
+      elif pos < a.nchars:
+        yield "\n\n"
+    # Write subsequent blocks
+    # var blockPos = lineLength - maxIdLen - 1 
+    var blockPos = pos 
+    while blockPos < a.nchars:
+      for i in 0 ..< a.nseqs: 
+        line.setLen(0)
+        pos = blockPos 
+        while line.len < lineLength and pos < a.nchars: 
+          line.add(a.data[i, pos].toChar)
+          pos += 1 
+        if i < a.nseqs - 1:
+          line.add('\n')
+        yield line 
+      blockPos = pos
+      if blockPos < a.nchars:
+        yield "\n\n"
+
+  of Sequential:
+    for i in 0 ..< a.nseqs:
+      var 
+        line = newStringOfCap(lineLength + 1)
+        pos = 0
+      # Write ID block
+      line.add(a.ids[i])
+      if maxIdLen + 1 <= lineLength:  
+        line.add(' '.repeat(maxIdLen - line.len + 1))
+        while line.len < lineLength and pos < a.nchars:
+            line.add(a.data[i, pos].toChar)
+            pos += 1
+      if pos < a.nchars - 1:
+        line.add('\n')
+      yield line
+      # Write remaining blocks
+      line.setLen(0) 
+      while pos < a.nchars:
+        line.add(a.data[i, pos].toChar)
+        pos += 1 
+        if line.len == lineLength:
+          if pos != a.nchars:
+            line.add('\n')
+          yield line
+          line.setLen(0)
+      if i < a.nseqs - 1:
+        line.add('\n')
+      yield line
+
+proc toPhylipFile*[T](a: Alignment[T], path: string, fmt: PhylipFormat, 
+    lineLength = 80, mode: FileMode = fmWrite) = 
+  ## Write data to file in Phylip format. Use fmt=fmAppend to append rather than overwrite.
+  var fh = open(path, mode)
+  for i in a.toPhylip(fmt, lineLength):
+    fh.write(i)
+  fh.close()
+
+proc toPhylipString*[T](a: Alignment[T], fmt: PhylipFormat, lineLength = 80): string = 
+  ## Write data to string in Phylip format. 
+  # TODO: Calculate size of string and preallocate
+  for i in a.toPhylip(fmt, lineLength):
+    result.add(i)
+
+
+# proc toPhylipFile*[T](a: Alignment[T], path: string, fmt: PhylipFormat, 
+#     mode: FileMode = fmWrite, lineLength = 80) = 
+#   ## Writes data to file in Phylip format. Use fmt=fmAppend to append rather than overwrite.
+    # TODO: Delete later
+#   var 
+#     maxIdLen = 0 
+#     fh = open(path, mode)
+#   for i in a.ids: 
+#     if i.len > maxIdLen: 
+#       maxIdLen = i.len
+#   if maxIdLen > lineLength - 2: 
+#     echo "Warning: ID length exceeds line length. Full ID will be written ", 
+#          "\n but no data will be written to the first block"
+
+#   case fmt
+#   of Interleaved:
+#     var 
+#       line = newStringOfCap(lineLength + 1)
+#       pos: int
+#     # Write first block
+#     for i in 0 ..< a.nseqs:
+#       pos = 0
+#       line.setLen(0)
+#       line.add(a.ids[i])
+#       if maxIdLen + 1 <= lineLength: 
+#         line.add(' '.repeat(maxIdLen - line.len + 1))
+#         while line.len < lineLength and pos < a.nchars:
+#           line.add(a.data[i, pos].toChar)
+#           pos += 1
+#       fh.write(line)
+#       if i < a.nseqs - 1: 
+#         fh.write('\n')
+#       elif pos < a.nchars:
+#         fh.write("\n\n")
+#     # Write subsequent blocks
+#     var blockPos = lineLength - maxIdLen - 1 
+#     while blockPos < a.nchars:
+#       for i in 0 ..< a.nseqs: 
+#         line.setLen(0)
+#         pos = blockPos 
+#         while line.len < lineLength and pos < a.nchars: 
+#           line.add(a.data[i, pos].toChar)
+#           pos += 1 
+#         if i < a.nseqs - 1:
+#           line.add('\n')
+#         fh.write(line) 
+#       blockPos = pos
+#       if blockPos < a.nchars - 1:
+#         fh.write("\n\n")
+
+#   of Sequential:
+#     for i in 0 ..< a.nseqs:
+#       var 
+#         line = newStringOfCap(lineLength + 1)
+#         pos = 0
+#       # Write ID block
+#       line.add(a.ids[i])
+#       if maxIdLen + 1 <= lineLength:  
+#         line.add(' '.repeat(maxIdLen - line.len + 1))
+#         while line.len < lineLength and pos < a.nchars:
+#             line.add(a.data[i, pos].toChar)
+#             pos += 1
+#       if pos < a.nchars - 1:
+#         line.add('\n')
+#       fh.write(line)
+#       # Write remaining blocks
+#       line.setLen(0) 
+#       while pos < a.nchars:
+#         line.add(a.data[i, pos].toChar)
+#         pos += 1 
+#         if line.len == lineLength:
+#           if pos != a.nchars:
+#             line.add('\n')
+#           fh.write(line)
+#           line.setLen(0)
+#       if i < a.nseqs - 1:
+#         line.add("\n\n")
+#       fh.write(line)
+
+#   fh.close
+
+import ./nucleotide
+import ./sequence
+
+var a = newAlignment[DNA](4, 12, 
+      @["S1", "Smp2", "S3", "S4"], 
+      @[
+        "ATGCATGCATGC", 
+        "TTGCATGCATGC", 
+        "GTGCATGCATGC", 
+        "CTGCATGCATGC"].join.toSeq(DNA))
+
+# a.toPhylipFile("test.phy", Interleaved, lineLength = 20)
+let n = 30 
+echo a.toPhylipString(Interleaved, lineLength = n)
+echo "---------"
+echo a.toPhylipString(Sequential,  lineLength = n)
+echo "---------"
+
+# for i in a.toPhylip(Interleaved, lineLength = 20):
+  # echo i

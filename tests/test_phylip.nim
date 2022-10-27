@@ -1,7 +1,7 @@
-# TODO: Implement some checks expected to fail.
-# Implement a file parsing and iterator checks.
-# Should make the checks a little more straightforward once alignment and matrix 
-# modules mature.
+# TODO: 
+# - Implement some checks expected to fail.
+# - Implement a file parsing and iterator checks.
+# - Phylip writing chekcs
 
 import ../src/bioseq
 import std/unittest 
@@ -136,3 +136,27 @@ suite "Multiple Phylip":
     test "Sequential Iterator":
       for i, a in enumerate(iterPhylipString(sequential, DNA, Sequential)):
         check a == expected[i]
+
+
+
+# import ./nucleotide
+# import ./sequence
+
+# var a = newAlignment[DNA](4, 12, 
+#       @["S1", "Smp2", "S3", "S4"], 
+#       @[
+#         "ATGCATGCATGC", 
+#         "TTGCATGCATGC", 
+#         "GTGCATGCATGC", 
+#         "CTGCATGCATGC"].join.toSeq(DNA))
+
+# let n = 30 
+# echo a.toPhylipString(Interleaved, lineLength = n)
+# echo "---------"
+# echo a.toPhylipString(Sequential,  lineLength = n)
+# echo "---------"
+
+# a.toPhylipFile("test.phy", Interleaved, lineLength = 20)
+
+# for i in a.toPhylip(Interleaved, lineLength = 20):
+  # echo i
