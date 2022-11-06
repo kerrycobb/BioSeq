@@ -1,17 +1,20 @@
 import 
-  ./bioseq/[alignment,
-            aminoAcid,
-            fasta,
-            matrix,
-            nucleotide,
-            phylip,
-            seqRecord,
-            sequence,
-            twoBitSequence]
+  ./bioseq/[
+    alignment,
+    aminoAcid,
+    biallelic,
+    fasta,
+    matrix,
+    nucleotide,
+    phylip,
+    seqRecord,
+    sequence,
+    twoBitSequence]
 
 export 
   alignment,
   aminoAcid, 
+  biallelic,
   fasta,
   matrix,
   nucleotide, 
