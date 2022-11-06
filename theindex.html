@@ -70,7 +70,7 @@ window.addEventListener('DOMContentLoaded', main);
 <div class="document" id="documentId">
   <div class="container">
     <h1 class="title">Index</h1>
-    Documents: <a href="bioseq.html">BioSeq</a>.<br/><p />Modules: <a href="bioseq/alignment.html">bioseq/alignment</a>, <a href="bioseq/aminoAcid.html">bioseq/aminoAcid</a>, <a href="bioseq/fasta.html">bioseq/fasta</a>, <a href="bioseq/matrix.html">bioseq/matrix</a>, <a href="bioseq/nucleotide.html">bioseq/nucleotide</a>, <a href="bioseq/parserMacro.html">bioseq/parserMacro</a>, <a href="bioseq/phylip.html">bioseq/phylip</a>, <a href="bioseq/seqRecord.html">bioseq/seqRecord</a>, <a href="bioseq/sequence.html">bioseq/sequence</a>, <a href="bioseq/twoBitSequence.html">bioseq/twoBitSequence</a>.<br/><p /><h2>API symbols</h2>
+    Documents: <a href="bioseq.html">BioSeq</a>.<br/><p />Modules: <a href="bioseq/alignment.html">bioseq/alignment</a>, <a href="bioseq/aminoAcid.html">bioseq/aminoAcid</a>, <a href="bioseq/biallelic.html">bioseq/biallelic</a>, <a href="bioseq/fasta.html">bioseq/fasta</a>, <a href="bioseq/matrix.html">bioseq/matrix</a>, <a href="bioseq/nucleotide.html">bioseq/nucleotide</a>, <a href="bioseq/parserMacro.html">bioseq/parserMacro</a>, <a href="bioseq/phylip.html">bioseq/phylip</a>, <a href="bioseq/seqRecord.html">bioseq/seqRecord</a>, <a href="bioseq/sequence.html">bioseq/sequence</a>, <a href="bioseq/twoBitSequence.html">bioseq/twoBitSequence</a>.<br/><p /><h2>API symbols</h2>
 <dl><dt><a name="%60%24%60" href="#%60%24%60"><span>`$`:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="alignment: `$`[T](a: Alignment[T]): string" href="bioseq/alignment.html#%24%2CAlignment%5BT%5D">alignment: `$`[T](a: Alignment[T]): string</a></li>
@@ -83,15 +83,15 @@ window.addEventListener('DOMContentLoaded', main);
           </ul></dd>
 <dt><a name="%60%5B%5D%3D%60" href="#%60%5B%5D%3D%60"><span>`[]=`:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="matrix: `[]=`[T](m: var Matrix[T]; i, j: int; s: T)" href="bioseq/matrix.html#%5B%5D%3D%2CMatrix%5BT%5D%2Cint%2Cint%2CT">matrix: `[]=`[T](m: var Matrix[T]; i, j: int; s: T)</a></li>
+          data-doc-search-tag="matrix: `[]=`[T](m: var Matrix[T]; row, col: int; s: T)" href="bioseq/matrix.html#%5B%5D%3D%2CMatrix%5BT%5D%2Cint%2Cint%2CT">matrix: `[]=`[T](m: var Matrix[T]; row, col: int; s: T)</a></li>
           <li><a class="reference external"
           data-doc-search-tag="twoBitSequence: `[]=`[T](s: var TwoBitSequence[T]; loc: int; val: T)" href="bioseq/twoBitSequence.html#%5B%5D%3D%2CTwoBitSequence%5BT%5D%2Cint%2CT">twoBitSequence: `[]=`[T](s: var TwoBitSequence[T]; loc: int; val: T)</a></li>
           </ul></dd>
 <dt><a name="%60%5B%5D%60" href="#%60%5B%5D%60"><span>`[]`:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="matrix: `[]`[T](m: Matrix[T]; i, j: int): T" href="bioseq/matrix.html#%5B%5D%2CMatrix%5BT%5D%2Cint%2Cint">matrix: `[]`[T](m: Matrix[T]; i, j: int): T</a></li>
+          data-doc-search-tag="matrix: `[]`[T](m: Matrix[T]; row, col: int): T" href="bioseq/matrix.html#%5B%5D%2CMatrix%5BT%5D%2Cint%2Cint">matrix: `[]`[T](m: Matrix[T]; row, col: int): T</a></li>
           <li><a class="reference external"
-          data-doc-search-tag="matrix: `[]`[T](m: var Matrix[T]; i, j: int): var T" href="bioseq/matrix.html#%5B%5D%2CMatrix%5BT%5D%2Cint%2Cint_2">matrix: `[]`[T](m: var Matrix[T]; i, j: int): var T</a></li>
+          data-doc-search-tag="matrix: `[]`[T](m: var Matrix[T]; row, col: int): var T" href="bioseq/matrix.html#%5B%5D%2CMatrix%5BT%5D%2Cint%2Cint_2">matrix: `[]`[T](m: var Matrix[T]; row, col: int): var T</a></li>
           <li><a class="reference external"
           data-doc-search-tag="twoBitSequence: `[]`[T](s: TwoBitSequence[T]; loc: int): T" href="bioseq/twoBitSequence.html#%5B%5D%2CTwoBitSequence%5BT%5D%2Cint">twoBitSequence: `[]`[T](s: TwoBitSequence[T]; loc: int): T</a></li>
           </ul></dd>
@@ -245,12 +245,6 @@ window.addEventListener('DOMContentLoaded', main);
 <li><a class="reference external"
           data-doc-search-tag="matrix: cols[T](m: Matrix[T]): int" href="bioseq/matrix.html#cols%2CMatrix%5BT%5D">matrix: cols[T](m: Matrix[T]): int</a></li>
           </ul></dd>
-<dt><a name="column" href="#column"><span>column:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="matrix: column[T](m: Matrix[T]; j: int): T" href="bioseq/matrix.html#column.i%2CMatrix%5BT%5D%2Cint">matrix: column[T](m: Matrix[T]; j: int): T</a></li>
-          <li><a class="reference external"
-          data-doc-search-tag="matrix: column[T](m: var Matrix[T]; j: int): var T" href="bioseq/matrix.html#column.i%2CMatrix%5BT%5D%2Cint_2">matrix: column[T](m: var Matrix[T]; j: int): var T</a></li>
-          </ul></dd>
 <dt><a name="complement" href="#complement"><span>complement:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="nucleotide: complement(n: DNA): DNA" href="bioseq/nucleotide.html#complement%2CDNA">nucleotide: complement(n: DNA): DNA</a></li>
@@ -269,6 +263,26 @@ window.addEventListener('DOMContentLoaded', main);
 <li><a class="reference external"
           data-doc-search-tag="matrix: concat[T](matrices: varargs[Matrix[T]]): Matrix[T]" href="bioseq/matrix.html#concat%2Cvarargs%5BMatrix%5BT%5D%5D">matrix: concat[T](matrices: varargs[Matrix[T]]): Matrix[T]</a></li>
           </ul></dd>
+<dt><a name="db0" href="#db0"><span>db0:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="DiploidBiallelic.db0" href="bioseq/biallelic.html#db0">DiploidBiallelic.db0</a></li>
+          </ul></dd>
+<dt><a name="db1" href="#db1"><span>db1:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="DiploidBiallelic.db1" href="bioseq/biallelic.html#db1">DiploidBiallelic.db1</a></li>
+          </ul></dd>
+<dt><a name="db2" href="#db2"><span>db2:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="DiploidBiallelic.db2" href="bioseq/biallelic.html#db2">DiploidBiallelic.db2</a></li>
+          </ul></dd>
+<dt><a name="dbGap" href="#dbGap"><span>dbGap:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="DiploidBiallelic.dbGap" href="bioseq/biallelic.html#dbGap">DiploidBiallelic.dbGap</a></li>
+          </ul></dd>
+<dt><a name="dbUnk" href="#dbUnk"><span>dbUnk:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="DiploidBiallelic.dbUnk" href="bioseq/biallelic.html#dbUnk">DiploidBiallelic.dbUnk</a></li>
+          </ul></dd>
 <dt><a name="definition" href="#definition"><span>definition:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="aminoAcid: definition(a: AminoAcid): string" href="bioseq/aminoAcid.html#definition%2CAminoAcid">aminoAcid: definition(a: AminoAcid): string</a></li>
@@ -280,6 +294,14 @@ window.addEventListener('DOMContentLoaded', main);
 <dt><a name="dim" href="#dim"><span>dim:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="matrix: dim[T](m: Matrix[T]): (int, int)" href="bioseq/matrix.html#dim%2CMatrix%5BT%5D">matrix: dim[T](m: Matrix[T]): (int, int)</a></li>
+          </ul></dd>
+<dt><a name="DiploidBiallelic" href="#DiploidBiallelic"><span>DiploidBiallelic:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="biallelic: DiploidBiallelic" href="bioseq/biallelic.html#DiploidBiallelic">biallelic: DiploidBiallelic</a></li>
+          </ul></dd>
+<dt><a name="diploidBiallelicChar" href="#diploidBiallelicChar"><span>diploidBiallelicChar:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="biallelic: diploidBiallelicChar" href="bioseq/biallelic.html#diploidBiallelicChar">biallelic: diploidBiallelicChar</a></li>
           </ul></dd>
 <dt><a name="DNA" href="#DNA"><span>DNA:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -476,6 +498,30 @@ window.addEventListener('DOMContentLoaded', main);
 <dt><a name="GeneticCode" href="#GeneticCode"><span>GeneticCode:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="aminoAcid: GeneticCode" href="bioseq/aminoAcid.html#GeneticCode">aminoAcid: GeneticCode</a></li>
+          </ul></dd>
+<dt><a name="HaploidBiallelic" href="#HaploidBiallelic"><span>HaploidBiallelic:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="biallelic: HaploidBiallelic" href="bioseq/biallelic.html#HaploidBiallelic">biallelic: HaploidBiallelic</a></li>
+          </ul></dd>
+<dt><a name="haploidBiallelicChar" href="#haploidBiallelicChar"><span>haploidBiallelicChar:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="biallelic: haploidBiallelicChar" href="bioseq/biallelic.html#haploidBiallelicChar">biallelic: haploidBiallelicChar</a></li>
+          </ul></dd>
+<dt><a name="hb0" href="#hb0"><span>hb0:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="HaploidBiallelic.hb0" href="bioseq/biallelic.html#hb0">HaploidBiallelic.hb0</a></li>
+          </ul></dd>
+<dt><a name="hb1" href="#hb1"><span>hb1:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="HaploidBiallelic.hb1" href="bioseq/biallelic.html#hb1">HaploidBiallelic.hb1</a></li>
+          </ul></dd>
+<dt><a name="hbGap" href="#hbGap"><span>hbGap:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="HaploidBiallelic.hbGap" href="bioseq/biallelic.html#hbGap">HaploidBiallelic.hbGap</a></li>
+          </ul></dd>
+<dt><a name="hbUnk" href="#hbUnk"><span>hbUnk:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="HaploidBiallelic.hbUnk" href="bioseq/biallelic.html#hbUnk">HaploidBiallelic.hbUnk</a></li>
           </ul></dd>
 <dt><a name="Interleaved" href="#Interleaved"><span>Interleaved:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -699,12 +745,6 @@ window.addEventListener('DOMContentLoaded', main);
 <li><a class="reference external"
           data-doc-search-tag="RNA.rnaY" href="bioseq/nucleotide.html#rnaY">RNA.rnaY</a></li>
           </ul></dd>
-<dt><a name="row" href="#row"><span>row:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="matrix: row[T](m: Matrix[T]; j: int): T" href="bioseq/matrix.html#row.i%2CMatrix%5BT%5D%2Cint">matrix: row[T](m: Matrix[T]; j: int): T</a></li>
-          <li><a class="reference external"
-          data-doc-search-tag="matrix: row[T](m: var Matrix[T]; j: int): var T" href="bioseq/matrix.html#row.i%2CMatrix%5BT%5D%2Cint_2">matrix: row[T](m: var Matrix[T]; j: int): var T</a></li>
-          </ul></dd>
 <dt><a name="rows" href="#rows"><span>rows:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="matrix: rows[T](m: Matrix[T]): int" href="bioseq/matrix.html#rows%2CMatrix%5BT%5D">matrix: rows[T](m: Matrix[T]): int</a></li>
@@ -797,6 +837,10 @@ window.addEventListener('DOMContentLoaded', main);
 <li><a class="reference external"
           data-doc-search-tag="aminoAcid: toChar(a: AminoAcid): char" href="bioseq/aminoAcid.html#toChar%2CAminoAcid">aminoAcid: toChar(a: AminoAcid): char</a></li>
           <li><a class="reference external"
+          data-doc-search-tag="biallelic: toChar(n: DiploidBiallelic): char" href="bioseq/biallelic.html#toChar%2CDiploidBiallelic">biallelic: toChar(n: DiploidBiallelic): char</a></li>
+          <li><a class="reference external"
+          data-doc-search-tag="biallelic: toChar(n: HaploidBiallelic): char" href="bioseq/biallelic.html#toChar%2CHaploidBiallelic">biallelic: toChar(n: HaploidBiallelic): char</a></li>
+          <li><a class="reference external"
           data-doc-search-tag="nucleotide: toChar(n: DNA): char" href="bioseq/nucleotide.html#toChar%2CDNA">nucleotide: toChar(n: DNA): char</a></li>
           <li><a class="reference external"
           data-doc-search-tag="nucleotide: toChar(n: RNA): char" href="bioseq/nucleotide.html#toChar%2CRNA">nucleotide: toChar(n: RNA): char</a></li>
@@ -886,7 +930,7 @@ window.addEventListener('DOMContentLoaded', main);
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2022-10-27 17:33:31 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2022-11-06 17:52:16 UTC</small>
       </div>
     </div>
   </div>

@@ -1,0 +1,15 @@
+db0	bioseq/biallelic.html#db0	DiploidBiallelic.db0	
+db1	bioseq/biallelic.html#db1	DiploidBiallelic.db1	
+db2	bioseq/biallelic.html#db2	DiploidBiallelic.db2	
+dbGap	bioseq/biallelic.html#dbGap	DiploidBiallelic.dbGap	
+dbUnk	bioseq/biallelic.html#dbUnk	DiploidBiallelic.dbUnk	
+DiploidBiallelic	bioseq/biallelic.html#DiploidBiallelic	biallelic: DiploidBiallelic	
+diploidBiallelicChar	bioseq/biallelic.html#diploidBiallelicChar	biallelic: diploidBiallelicChar	
+toChar	bioseq/biallelic.html#toChar,DiploidBiallelic	biallelic: toChar(n: DiploidBiallelic): char	
+hb0	bioseq/biallelic.html#hb0	HaploidBiallelic.hb0	
+hb1	bioseq/biallelic.html#hb1	HaploidBiallelic.hb1	
+hbGap	bioseq/biallelic.html#hbGap	HaploidBiallelic.hbGap	
+hbUnk	bioseq/biallelic.html#hbUnk	HaploidBiallelic.hbUnk	
+HaploidBiallelic	bioseq/biallelic.html#HaploidBiallelic	biallelic: HaploidBiallelic	
+haploidBiallelicChar	bioseq/biallelic.html#haploidBiallelicChar	biallelic: haploidBiallelicChar	
+toChar	bioseq/biallelic.html#toChar,HaploidBiallelic	biallelic: toChar(n: HaploidBiallelic): char	
