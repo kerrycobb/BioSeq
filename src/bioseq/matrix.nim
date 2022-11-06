@@ -46,23 +46,23 @@ template checkBounds(cond: untyped, msg = "") =
       if not cond:
         raise newException(IndexDefect, msg)
 
-proc `[]`*[T](m: Matrix[T], i, j: int): T =
+proc `[]`*[T](m: Matrix[T], row, col: int): T =
   ## Get a single element.
-  checkBounds(i >= 0 and i < m.rows)
-  checkBounds(j >= 0 and j < m.cols)
-  result = m.data[i * m.cols + j]
+  checkBounds(row >= 0 and row < m.rows)
+  checkBounds(col >= 0 and col < m.cols)
+  result = m.data[row * m.cols + col]
 
-proc `[]`*[T](m: var Matrix[T], i, j: int): var T =
+proc `[]`*[T](m: var Matrix[T], row, col: int): var T =
   ## Get a single element.
-  checkBounds(i >= 0 and i < m.rows)
-  checkBounds(j >= 0 and j < m.cols)
-  m.data[i * m.cols + j]
+  checkBounds(row >= 0 and row < m.rows)
+  checkBounds(col >= 0 and col < m.cols)
+  m.data[row * m.cols + col]
 
-proc `[]=`*[T](m: var Matrix[T], i, j: int, s: T) =
+proc `[]=`*[T](m: var Matrix[T], row, col: int, s: T) =
   ## Set a single element.
-  checkBounds(i >= 0 and i < m.rows)
-  checkBounds(j >= 0 and j < m.cols)
-  m.data[i * m.cols + j] = s
+  checkBounds(row >= 0 and row < m.rows)
+  checkBounds(col >= 0 and col < m.cols)
+  m.data[row * m.cols + col] = s
 
 proc toString*[T](m: Matrix[T]): string =
   mixin toChar
@@ -101,18 +101,18 @@ proc concat*[T](matrices: varargs[Matrix[T]]): Matrix[T] =
         result[i, offset + j] = m[i, j]
     offset += m.cols
 
-iterator column*[T](m: Matrix[T], j: int): T = 
-  for i in 0 .. m.rows:
-    yield m[i, j]
+# iterator column*[T](m: Matrix[T], j: int): T = 
+#   for i in 0 .. m.rows:
+#     yield m[i, j]
 
-iterator column*[T](m: var Matrix[T], j: int): var T = 
-  for i in 0 .. m.rows:
-    yield m[i, j]
+# iterator column*[T](m: var Matrix[T], j: int): var T = 
+#   for i in 0 .. m.rows:
+#     yield m[i, j]
 
-iterator row*[T](m: Matrix[T], j: int): T = 
-  for i in 0 .. m.rows:
-    yield m[i, j]
+# iterator row*[T](m: Matrix[T], j: int): T = 
+#   for i in 0 .. m.rows:
+#     yield m[i, j]
 
-iterator row*[T](m: var Matrix[T], j: int): var T = 
-  for i in 0 .. m.rows:
-    yield m[i, j]
+# iterator row*[T](m: var Matrix[T], j: int): var T = 
+#   for i in 0 .. m.rows:
+#     yield m[i, j]
