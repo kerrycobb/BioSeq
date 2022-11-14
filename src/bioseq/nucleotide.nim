@@ -1,5 +1,8 @@
 import ./parserMacro
-# import ./aminoAcid
+import ./alignment
+import ./biallelic
+import std/strformat
+import std/random
 
 ## 
 ## The `nucleotide` module provides several `enum` types which represent a single 
@@ -103,6 +106,16 @@ const
   rnaChar*: array[RNA, char] = ['A','G','C','U','R','M','W','S','K','Y','V','H', 'D','B','N','-','?']
   dnaComplement*: array[DNA, DNA] = [dnaT, dnaC, dnaG, dnaA, dnaY, dnaK, dnaW, dnaS, dnaM, dnaR, dnaB, dnaD, dnaH, dnaV, dnaN, dnaGap, dnaUnk]
   rnaComplement*: array[RNA, RNA] = [rnaU, rnaC, rnaG, rnaA, rnaY, rnaK, rnaW, rnaS, rnaM, rnaR, rnaB, rnaD, rnaH, rnaV, rnaN, rnaGap, rnaUnk]
+  dnaUnambiguousSet*: array[DNA, set[DNA]] = [{dnaA}, {dnaG}, {dnaC}, {dnaT}, 
+    {dnaA, dnaG}, {dnaA, dnaC}, {dnaA, dnaT}, {dnaG, dnaC}, {dnaG, dnaT}, 
+    {dnaC, dnaT}, {dnaA, dnaG, dnaC}, {dnaA, dnaC, dnaT}, {dnaA, dnaG, dnaT}, 
+    {dnaT, dnaG, dnaC}, {dnaA, dnaG, dnaC, dnaT}, {dnaGap}, 
+    {dnaA, dnaG, dnaC, dnaT, dnaGap}]
+  rnaUnambiguousSet*: array[RNA, set[RNA]] = [{rnaA}, {rnaG}, {rnaC}, {rnaU}, 
+    {rnaA, rnaG}, {rnaA, rnaC}, {rnaA, rnaU}, {rnaG, rnaC}, {rnaG, rnaU}, 
+    {rnaC, rnaU}, {rnaA, rnaG, rnaC}, {rnaA, rnaC, rnaU}, {rnaA, rnaG, rnaU}, 
+    {rnaU, rnaG, rnaC}, {rnaA, rnaG, rnaC, rnaU}, {rnaGap}, 
+      {rnaA, rnaG, rnaC, rnaU, rnaGap}]
 
 func parseChar*(c: char, typ: typedesc[DNA]): DNA = 
   ## Parse character to DNA enum type.
@@ -137,6 +150,15 @@ func toDNA*(n: RNA): DNA = cast[DNA](n)
 # func toRNA*(n: DNA): RNA = RNA(n.ord)
 func toRNA*(n: DNA): RNA = cast[RNA](n)
   ## Transcribe from DNA to RNA.
+
+proc toUnambiguousSet*(n: DNA): set[DNA] = 
+  ## Returns set of unambiguous DNA characters represented by a given character
+  dnaUnambiguousSet[n]
+
+proc toUnambiguousSet*(n: RNA): set[RNA] = 
+  ## Returns set of unambiguous RNA characters represented by a given character
+  rnaUnambiguousSet[n]
+
 
 type
   StrictDNA* = enum sdnaA, sdnaG, sdnaC, sdnaT
@@ -222,3 +244,71 @@ func sameBase*(a, b: AnyNucleotide): bool = knownBase(a) and (a == b)
 func diffBase*(a, b: AnyNucleotide): bool = (a.byte and b.byte) < 0b0001_0000'u8 
   ## Returns true if bases are unambiguously different. A base will be treated 
   ## as different if it is unknown '?' but not if it is any 'N' or gap '-'.
+
+proc toDiploidBiallelic*(a: Alignment[DNA], seed: int64 = 1): Alignment[DiploidBiallelic] = 
+  ## Convert DNA alignment to biallelic alignment. Filters out sites with more
+  ## than two character states.
+  randomize(seed)
+  # Get character states in each alignment column
+  var 
+    keepCols = newSeqOfCap[int](a.nchars)
+    charSets = newSeqOfCap[set[DNA]](a.nchars)
+  for col in 0 ..< a.nchars:    
+    var charSet: set[DNA]
+    for row in 0 ..< a.nseqs:
+      var c = a.data[row, col] 
+      if not (c in {dnaN, dnaGap, dnaUnk}):
+        charSet.incl(toUnambiguousSet(a.data[row, col]))
+    if charset.len <= 2:
+      keepCols.add(col)
+      charSets.add(charSet)
+
+  # Construct new alignment with biallelic columns
+  result = newAlignment[DiploidBiallelic](a.nseqs, keepCols.len)
+  result.ids = a.ids
+  for col in 0 ..< keepCols.len:
+    let charSet = charSets[col]
+    case charSet.len:
+    of 2: 
+      var refAllele = sample(charSet) 
+      for row in 0 ..< a.nseqs:
+        let c = a.data[row, keepCols[col]]  
+        case c  
+        of dnaA, dnaT, dnaG, dnaC:
+          if c == refAllele:
+            result.data[row, col] = db0
+          else:
+            result.data[row, col] = db2
+        of dnaR, dnaM, dnaW, dnaS, dnaK, dnaY:
+          result.data[row, col] = db1
+        of dnaN, dnaUnk:
+          result.data[row, col] = dbUnk
+        of dnaGap:
+          result.data[row, col] = dbGap
+        else:
+          raise newException(ValueError, fmt"Internal Error: Unexpected character {c}.")
+    of 0:
+      for row in 0 ..< a.nseqs:
+        let c = a.data[row, keepCols[col]]
+        case c
+        of dnaN, dnaUnk:
+          result.data[row, col] = dbUnk
+        of dnaGap:
+          result.data[row, col] = dbGap
+        else:
+          raise newException(ValueError, fmt"Internal Error: Unexpected character {c}.")
+    of 1:
+      let r = sample([db0, db2])
+      for row in 0 ..< a.nseqs:
+        let c = a.data[row, keepCols[col]]
+        case c
+        of dnaA, dnaG, dnaC, dnaT:
+          result.data[row, col] = r 
+        of dnaN, dnaUnk:
+          result.data[row, col] = dbUnk
+        of dnaGap:
+          result.data[row, col] = dbGap
+        else:
+          raise newException(ValueError, fmt"Internatl Error: Unexpected character {c}.")
+    else:
+      raise newException(ValueError, "Internal Error: Unexpected set length.")
