@@ -70,7 +70,7 @@ window.addEventListener('DOMContentLoaded', main);
 <div class="document" id="documentId">
   <div class="container">
     <h1 class="title">Index</h1>
-    Documents: <a href="bioseq.html">BioSeq</a>.<br/><p />Modules: <a href="bioseq/alignment.html">bioseq/alignment</a>, <a href="bioseq/aminoAcid.html">bioseq/aminoAcid</a>, <a href="bioseq/biallelic.html">bioseq/biallelic</a>, <a href="bioseq/fasta.html">bioseq/fasta</a>, <a href="bioseq/matrix.html">bioseq/matrix</a>, <a href="bioseq/nucleotide.html">bioseq/nucleotide</a>, <a href="bioseq/parserMacro.html">bioseq/parserMacro</a>, <a href="bioseq/phylip.html">bioseq/phylip</a>, <a href="bioseq/seqRecord.html">bioseq/seqRecord</a>, <a href="bioseq/sequence.html">bioseq/sequence</a>, <a href="bioseq/twoBitSequence.html">bioseq/twoBitSequence</a>.<br/><p /><h2>API symbols</h2>
+    Documents: <a href="bioseq.html">BioSeq</a>.<br/><p />Modules: <a href="bioseq/alignment.html">bioseq/alignment</a>, <a href="bioseq/aminoAcid.html">bioseq/aminoAcid</a>, <a href="bioseq/biallelic.html">bioseq/biallelic</a>, <a href="bioseq/fasta.html">bioseq/fasta</a>, <a href="bioseq/matrix.html">bioseq/matrix</a>, <a href="bioseq/nexus.html">bioseq/nexus</a>, <a href="bioseq/nucleotide.html">bioseq/nucleotide</a>, <a href="bioseq/parserMacro.html">bioseq/parserMacro</a>, <a href="bioseq/phylip.html">bioseq/phylip</a>, <a href="bioseq/seqRecord.html">bioseq/seqRecord</a>, <a href="bioseq/sequence.html">bioseq/sequence</a>, <a href="bioseq/twoBitSequence.html">bioseq/twoBitSequence</a>.<br/><p /><h2>API symbols</h2>
 <dl><dt><a name="%60%24%60" href="#%60%24%60"><span>`$`:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="alignment: `$`[T](a: Alignment[T]): string" href="bioseq/alignment.html#%24%2CAlignment%5BT%5D">alignment: `$`[T](a: Alignment[T]): string</a></li>
@@ -371,6 +371,10 @@ window.addEventListener('DOMContentLoaded', main);
 <li><a class="reference external"
           data-doc-search-tag="DNA.dnaT" href="bioseq/nucleotide.html#dnaT">DNA.dnaT</a></li>
           </ul></dd>
+<dt><a name="dnaUnambiguousSet" href="#dnaUnambiguousSet"><span>dnaUnambiguousSet:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="nucleotide: dnaUnambiguousSet" href="bioseq/nucleotide.html#dnaUnambiguousSet">nucleotide: dnaUnambiguousSet</a></li>
+          </ul></dd>
 <dt><a name="dnaUnk" href="#dnaUnk"><span>dnaUnk:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="DNA.dnaUnk" href="bioseq/nucleotide.html#dnaUnk">DNA.dnaUnk</a></li>
@@ -390,6 +394,10 @@ window.addEventListener('DOMContentLoaded', main);
 <dt><a name="FastaError" href="#FastaError"><span>FastaError:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="fasta: FastaError" href="bioseq/fasta.html#FastaError">fasta: FastaError</a></li>
+          </ul></dd>
+<dt><a name="filterColumns" href="#filterColumns"><span>filterColumns:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="alignment: filterColumns[T](a: Alignment[T]; filter: set[T]): Alignment[T]" href="bioseq/alignment.html#filterColumns%2CAlignment%5BT%5D%2Cset%5BT%5D">alignment: filterColumns[T](a: Alignment[T]; filter: set[T]): Alignment[T]</a></li>
           </ul></dd>
 <dt><a name="gCode1" href="#gCode1"><span>gCode1:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -625,6 +633,10 @@ window.addEventListener('DOMContentLoaded', main);
 <li><a class="reference external"
           data-doc-search-tag="aminoAcid: parseChar(c: char; T: typedesc[AminoAcid]): AminoAcid" href="bioseq/aminoAcid.html#parseChar%2Cchar%2Ctypedesc%5BAminoAcid%5D">aminoAcid: parseChar(c: char; T: typedesc[AminoAcid]): AminoAcid</a></li>
           <li><a class="reference external"
+          data-doc-search-tag="biallelic: parseChar(c: char; typ: typedesc[DiploidBiallelic]): DiploidBiallelic" href="bioseq/biallelic.html#parseChar%2Cchar%2Ctypedesc%5BDiploidBiallelic%5D">biallelic: parseChar(c: char; typ: typedesc[DiploidBiallelic]): DiploidBiallelic</a></li>
+          <li><a class="reference external"
+          data-doc-search-tag="biallelic: parseChar(c: char; typ: typedesc[HaploidBiallelic]): HaploidBiallelic" href="bioseq/biallelic.html#parseChar%2Cchar%2Ctypedesc%5BHaploidBiallelic%5D">biallelic: parseChar(c: char; typ: typedesc[HaploidBiallelic]): HaploidBiallelic</a></li>
+          <li><a class="reference external"
           data-doc-search-tag="nucleotide: parseChar(c: char; typ: typedesc[DNA]): DNA" href="bioseq/nucleotide.html#parseChar%2Cchar%2Ctypedesc%5BDNA%5D">nucleotide: parseChar(c: char; typ: typedesc[DNA]): DNA</a></li>
           <li><a class="reference external"
           data-doc-search-tag="nucleotide: parseChar(c: char; typ: typedesc[RNA]): RNA" href="bioseq/nucleotide.html#parseChar%2Cchar%2Ctypedesc%5BRNA%5D">nucleotide: parseChar(c: char; typ: typedesc[RNA]): RNA</a></li>
@@ -728,6 +740,10 @@ window.addEventListener('DOMContentLoaded', main);
 <dt><a name="rnaU" href="#rnaU"><span>rnaU:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="RNA.rnaU" href="bioseq/nucleotide.html#rnaU">RNA.rnaU</a></li>
+          </ul></dd>
+<dt><a name="rnaUnambiguousSet" href="#rnaUnambiguousSet"><span>rnaUnambiguousSet:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="nucleotide: rnaUnambiguousSet" href="bioseq/nucleotide.html#rnaUnambiguousSet">nucleotide: rnaUnambiguousSet</a></li>
           </ul></dd>
 <dt><a name="rnaUnk" href="#rnaUnk"><span>rnaUnk:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -853,6 +869,12 @@ window.addEventListener('DOMContentLoaded', main);
 <li><a class="reference external"
           data-doc-search-tag="sequence: toCharSeq[T](data: seq[T]): seq[char]" href="bioseq/sequence.html#toCharSeq%2Cseq%5BT%5D">sequence: toCharSeq[T](data: seq[T]): seq[char]</a></li>
           </ul></dd>
+<dt><a name="toDiploidBiallelic" href="#toDiploidBiallelic"><span>toDiploidBiallelic:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="nucleotide: toDiploidBiallelic(a: Alignment[DNA]; seed: int64 = 1): Alignment[
+    DiploidBiallelic]" href="bioseq/nucleotide.html#toDiploidBiallelic%2CAlignment%5BDNA%5D%2Cint64">nucleotide: toDiploidBiallelic(a: Alignment[DNA]; seed: int64 = 1): Alignment[
+    DiploidBiallelic]</a></li>
+          </ul></dd>
 <dt><a name="toDNA" href="#toDNA"><span>toDNA:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="nucleotide: toDNA(n: RNA): DNA" href="bioseq/nucleotide.html#toDNA%2CRNA">nucleotide: toDNA(n: RNA): DNA</a></li>
@@ -876,6 +898,18 @@ window.addEventListener('DOMContentLoaded', main);
           data-doc-search-tag="fasta: toFastaString[T](s: seq[SeqRecord[T]]; lineLength = 80): string" href="bioseq/fasta.html#toFastaString%2Cseq%5BSeqRecord%5BT%5D%5D%2Cint">fasta: toFastaString[T](s: seq[SeqRecord[T]]; lineLength = 80): string</a></li>
           <li><a class="reference external"
           data-doc-search-tag="fasta: toFastaString[T](s: SeqRecord[T]; lineLength = 80): string" href="bioseq/fasta.html#toFastaString%2CSeqRecord%5BT%5D%2Cint">fasta: toFastaString[T](s: SeqRecord[T]; lineLength = 80): string</a></li>
+          </ul></dd>
+<dt><a name="toNexus" href="#toNexus"><span>toNexus:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="nexus: toNexus[T](a: Alignment[T]): string" href="bioseq/nexus.html#toNexus.i%2CAlignment%5BT%5D">nexus: toNexus[T](a: Alignment[T]): string</a></li>
+          </ul></dd>
+<dt><a name="toNexusFile" href="#toNexusFile"><span>toNexusFile:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="nexus: toNexusFile[T](a: Alignment[T]; path: string; mode: FileMode = fmWrite)" href="bioseq/nexus.html#toNexusFile%2CAlignment%5BT%5D%2Cstring%2CFileMode">nexus: toNexusFile[T](a: Alignment[T]; path: string; mode: FileMode = fmWrite)</a></li>
+          </ul></dd>
+<dt><a name="toNexusString" href="#toNexusString"><span>toNexusString:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="nexus: toNexusString[T](a: Alignment[T]): string" href="bioseq/nexus.html#toNexusString%2CAlignment%5BT%5D">nexus: toNexusString[T](a: Alignment[T]): string</a></li>
           </ul></dd>
 <dt><a name="toPhylip" href="#toPhylip"><span>toPhylip:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -911,6 +945,12 @@ window.addEventListener('DOMContentLoaded', main);
           <li><a class="reference external"
           data-doc-search-tag="sequence: toString[T](data: seq[T]): string" href="bioseq/sequence.html#toString%2Cseq%5BT%5D">sequence: toString[T](data: seq[T]): string</a></li>
           </ul></dd>
+<dt><a name="toUnambiguousSet" href="#toUnambiguousSet"><span>toUnambiguousSet:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="nucleotide: toUnambiguousSet(n: DNA): set[DNA]" href="bioseq/nucleotide.html#toUnambiguousSet%2CDNA">nucleotide: toUnambiguousSet(n: DNA): set[DNA]</a></li>
+          <li><a class="reference external"
+          data-doc-search-tag="nucleotide: toUnambiguousSet(n: RNA): set[RNA]" href="bioseq/nucleotide.html#toUnambiguousSet%2CRNA">nucleotide: toUnambiguousSet(n: RNA): set[RNA]</a></li>
+          </ul></dd>
 <dt><a name="translate" href="#translate"><span>translate:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="sequence: translate[T: AnyNucleotide](s: seq[T]; code: GeneticCode = gCode1): seq[
@@ -930,7 +970,7 @@ window.addEventListener('DOMContentLoaded', main);
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2022-11-07 19:08:43 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2022-11-14 23:14:33 UTC</small>
       </div>
     </div>
   </div>

@@ -4,3 +4,4 @@ newAlignment	bioseq/alignment.html#newAlignment,int,int,seq[string],seq[T]	align
 nseqs	bioseq/alignment.html#nseqs,Alignment[T]	alignment: nseqs[T](a: Alignment[T]): int	
 nchars	bioseq/alignment.html#nchars,Alignment[T]	alignment: nchars[T](a: Alignment[T]): int	
 `$`	bioseq/alignment.html#$,Alignment[T]	alignment: `$`[T](a: Alignment[T]): string	
+filterColumns	bioseq/alignment.html#filterColumns,Alignment[T],set[T]	alignment: filterColumns[T](a: Alignment[T]; filter: set[T]): Alignment[T]	

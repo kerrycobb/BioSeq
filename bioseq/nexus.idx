@@ -1,0 +1,3 @@
+toNexus	bioseq/nexus.html#toNexus.i,Alignment[T]	nexus: toNexus[T](a: Alignment[T]): string	
+toNexusFile	bioseq/nexus.html#toNexusFile,Alignment[T],string,FileMode	nexus: toNexusFile[T](a: Alignment[T]; path: string; mode: FileMode = fmWrite)	
+toNexusString	bioseq/nexus.html#toNexusString,Alignment[T]	nexus: toNexusString[T](a: Alignment[T]): string	

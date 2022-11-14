@@ -41,6 +41,8 @@ dnaChar	bioseq/nucleotide.html#dnaChar	nucleotide: dnaChar
 rnaChar	bioseq/nucleotide.html#rnaChar	nucleotide: rnaChar	
 dnaComplement	bioseq/nucleotide.html#dnaComplement	nucleotide: dnaComplement	
 rnaComplement	bioseq/nucleotide.html#rnaComplement	nucleotide: rnaComplement	
+dnaUnambiguousSet	bioseq/nucleotide.html#dnaUnambiguousSet	nucleotide: dnaUnambiguousSet	
+rnaUnambiguousSet	bioseq/nucleotide.html#rnaUnambiguousSet	nucleotide: rnaUnambiguousSet	
 parseChar	bioseq/nucleotide.html#parseChar,char,typedesc[DNA]	nucleotide: parseChar(c: char; typ: typedesc[DNA]): DNA	
 parseChar	bioseq/nucleotide.html#parseChar,char,typedesc[RNA]	nucleotide: parseChar(c: char; typ: typedesc[RNA]): RNA	
 byte	bioseq/nucleotide.html#byte,DNA	nucleotide: byte(n: DNA): byte	
@@ -51,6 +53,8 @@ complement	bioseq/nucleotide.html#complement,DNA	nucleotide: complement(n: DNA):
 complement	bioseq/nucleotide.html#complement,RNA	nucleotide: complement(n: RNA): RNA	
 toDNA	bioseq/nucleotide.html#toDNA,RNA	nucleotide: toDNA(n: RNA): DNA	
 toRNA	bioseq/nucleotide.html#toRNA,DNA	nucleotide: toRNA(n: DNA): RNA	
+toUnambiguousSet	bioseq/nucleotide.html#toUnambiguousSet,DNA	nucleotide: toUnambiguousSet(n: DNA): set[DNA]	
+toUnambiguousSet	bioseq/nucleotide.html#toUnambiguousSet,RNA	nucleotide: toUnambiguousSet(n: RNA): set[RNA]	
 sdnaA	bioseq/nucleotide.html#sdnaA	StrictDNA.sdnaA	
 sdnaG	bioseq/nucleotide.html#sdnaG	StrictDNA.sdnaG	
 sdnaC	bioseq/nucleotide.html#sdnaC	StrictDNA.sdnaC	
@@ -89,5 +93,6 @@ isPurine	bioseq/nucleotide.html#isPurine,AnyNucleotide	nucleotide: isPurine(n: A
 isPyrimidine	bioseq/nucleotide.html#isPyrimidine,AnyNucleotide	nucleotide: isPyrimidine(n: AnyNucleotide): bool	
 sameBase	bioseq/nucleotide.html#sameBase,AnyNucleotide,AnyNucleotide	nucleotide: sameBase(a, b: AnyNucleotide): bool	
 diffBase	bioseq/nucleotide.html#diffBase,AnyNucleotide,AnyNucleotide	nucleotide: diffBase(a, b: AnyNucleotide): bool	
+toDiploidBiallelic	bioseq/nucleotide.html#toDiploidBiallelic,Alignment[DNA],int64	nucleotide: toDiploidBiallelic(a: Alignment[DNA]; seed: int64 = 1): Alignment[\n    DiploidBiallelic]	
 Nucleotide	bioseq/nucleotide.html#nucleotide	 Nucleotide	
 StrictNucleotide	bioseq/nucleotide.html#strictnucleotide	 StrictNucleotide	
