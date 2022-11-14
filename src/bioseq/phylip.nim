@@ -4,6 +4,7 @@ import std/strutils
 import std/strformat
 
 # TODO: Modify parsers to be able to read line containing only a sample ID
+# TODO: Catch problems when sequence length doesn't match nchars and raise interpretable error.
 
 ## Procs for reading and writing DNA alignments in Phylip format
 runnableExamples:
@@ -53,6 +54,7 @@ type
     state: PhylipState 
 
 proc parsePhylipAlignment[T](p: var PhylipParser[T], allowEmpty=false) = 
+  ## allowEmpty used for parsing a multiple alignment file
   mixin parseChar
   var 
     line = ""
@@ -248,6 +250,8 @@ iterator toPhylip*[T](a: Alignment[T], fmt: PhylipFormat, lineLength = 80): stri
   if maxIdLen > lineLength - 2: 
     echo "Warning: ID length exceeds line length. Full ID will be written ", 
          "\n but no data will be written to the first block"
+
+  yield &"{a.nseqs} {a.nchars}\n"
 
   case fmt
   of Interleaved:
