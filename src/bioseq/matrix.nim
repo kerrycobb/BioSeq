@@ -1,4 +1,3 @@
-import ./nucleotide
 
 ## Matrix for working with sequence alignments.
 ## There's not much here yet.
