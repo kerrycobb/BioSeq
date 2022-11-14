@@ -1,6 +1,7 @@
 import ./matrix
-export matrix
 import std/strutils
+
+export matrix
 
 type
   Alignment*[T] = object
@@ -43,3 +44,19 @@ proc `$`*[T](a: Alignment[T]): string =
     result.add(dataStr)
     if i != a.nseqs - 1:
       result.add("\n")
+
+proc filterColumns*[T](a: Alignment[T], filter: set[T]): Alignment[T] = 
+  ## Filter columns for which the set of character states is equal or a subset
+  ## of the given set.
+  var keepCols = newSeqOfCap[int](a.nchars)
+  for col in 0 ..< a.nchars:
+    var charSet: set[T]
+    for row in 0 ..< a.nseqs:
+      charSet.incl(a.data[row, col])
+    if not (charSet <= filter): 
+      keepCols.add(col)
+  result = newAlignment[T](a.nseqs, keepCols.len)
+  for row in 0 ..< a.nseqs:
+    result.ids[row] = a.ids[row] 
+    for col in 0 ..< keepCols.len:
+      result.data[row, col] = a.data[row, keepCols[col]]
