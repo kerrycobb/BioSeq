@@ -1,5 +1,6 @@
-import ../src/bioseq
+import bioseq
 import std/unittest 
+import std/strutils
 
 suite "Nucleotide":
   let 
@@ -237,3 +238,61 @@ suite "StrictNucleotide":
     check parseChar('G', StrictRNA).complement.toChar == 'C'
     check parseChar('C', StrictRNA).complement.toChar == 'G'
     check parseChar('U', StrictRNA).complement.toChar == 'A'
+  
+  test "toUnambiguousSet DNA":
+    check toUnambiguousSet(dnaA) == {dnaA}
+    check toUnambiguousSet(dnaG) == {dnaG}
+    check toUnambiguousSet(dnaC) == {dnaC}
+    check toUnambiguousSet(dnaT) == {dnaT}
+    check toUnambiguousSet(dnaR) == {dnaA, dnaG}
+    check toUnambiguousSet(dnaM) == {dnaA, dnaC}
+    check toUnambiguousSet(dnaW) == {dnaA, dnaT}
+    check toUnambiguousSet(dnaS) == {dnaG, dnaC}
+    check toUnambiguousSet(dnaK) == {dnaG, dnaT}
+    check toUnambiguousSet(dnaY) == {dnaC, dnaT}
+    check toUnambiguousSet(dnaV) == {dnaA, dnaG, dnaC}
+    check toUnambiguousSet(dnaH) == {dnaA, dnaC, dnaT}
+    check toUnambiguousSet(dnaD) == {dnaA, dnaG, dnaT}
+    check toUnambiguousSet(dnaB) == {dnaG, dnaC, dnaT}
+    check toUnambiguousSet(dnaN) == {dnaA, dnaG, dnaC, dnaT} 
+    check toUnambiguousSet(dnaGap) == {dnaGap}
+    check toUnambiguousSet(dnaUnk) == {dnaA, dnaG, dnaC, dnaT, dnaGap}
+
+  test "toUnambiguousSet RNA":
+    check toUnambiguousSet(rnaA) == {rnaA}
+    check toUnambiguousSet(rnaG) == {rnaG}
+    check toUnambiguousSet(rnaC) == {rnaC}
+    check toUnambiguousSet(rnaU) == {rnaU}
+    check toUnambiguousSet(rnaR) == {rnaA, rnaG}
+    check toUnambiguousSet(rnaM) == {rnaA, rnaC}
+    check toUnambiguousSet(rnaW) == {rnaA, rnaU}
+    check toUnambiguousSet(rnaS) == {rnaG, rnaC}
+    check toUnambiguousSet(rnaK) == {rnaG, rnaU}
+    check toUnambiguousSet(rnaY) == {rnaC, rnaU}
+    check toUnambiguousSet(rnaV) == {rnaA, rnaG, rnaC}
+    check toUnambiguousSet(rnaH) == {rnaA, rnaC, rnaU}
+    check toUnambiguousSet(rnaD) == {rnaA, rnaG, rnaU}
+    check toUnambiguousSet(rnaB) == {rnaG, rnaC, rnaU}
+    check toUnambiguousSet(rnaN) == {rnaA, rnaG, rnaC, rnaU} 
+    check toUnambiguousSet(rnaGap) == {rnaGap}
+    check toUnambiguousSet(rnaUnk) == {rnaA, rnaG, rnaC, rnaU, rnaGap}
+
+  # test "toDiploidBiallelic":
+  #   let 
+  #     phyString = """
+  #       4 31 
+  #       Sample1   ATGC ATGC AC RR MM WW SS KK YY RRR N-? AAA
+  #       Sample2   ATGC N?-N TG AG AC AT GC GT CT N?- N-? TTA
+  #       Sample3   ATGC N?-? NN AG AC AT GC GT CT N?- N-? GTA
+  #       Sample4   ATGC N?-- ?? AG AC AT GC GT CT N?- N-? GRV
+  #       """.dedent
+  #     expected = """
+  #       4 28
+  #       Sample1 2000202222111111111111111?-?
+  #       Sample2 2000??-?00220020200020??-?-?
+  #       Sample3 2000??-???220020200020??-?-?
+  #       Sample4 2000??--??220020200020??-?-?""".dedent
+  #     inAlign = parsePhylipString(phyString, DNA, Sequential)
+  #     biAlign = inAlign.toDiploidBiallelic
+  #     biPhyString = toPhylipString(biAlign, Interleaved)
+  #   check biPhyString == expected

@@ -1,9 +1,9 @@
 # TODO: 
-# - Implement some checks expected to fail.
+# - Implement some checks expected to fail. Particularly when sequence length doesn't match nchars
 # - Implement a file parsing and iterator checks.
-# - Phylip writing chekcs
+# - Phylip writing checks
 
-import ../src/bioseq
+import bioseq
 import std/unittest 
 import std/strutils
 import std/enumerate

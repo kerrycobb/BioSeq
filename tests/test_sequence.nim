@@ -1,4 +1,4 @@
-import ../src/bioseq
+import bioseq
 import std/unittest 
 
 suite "Nucleotide Sequence":
