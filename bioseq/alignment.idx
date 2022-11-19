@@ -5,3 +5,4 @@ nseqs	bioseq/alignment.html#nseqs,Alignment[T]	alignment: nseqs[T](a: Alignment[
 nchars	bioseq/alignment.html#nchars,Alignment[T]	alignment: nchars[T](a: Alignment[T]): int	
 `$`	bioseq/alignment.html#$,Alignment[T]	alignment: `$`[T](a: Alignment[T]): string	
 filterColumns	bioseq/alignment.html#filterColumns,Alignment[T],set[T]	alignment: filterColumns[T](a: Alignment[T]; filter: set[T]): Alignment[T]	
+alleleCount	bioseq/alignment.html#alleleCount,Alignment[DNA],int	alignment: alleleCount(align: Alignment[DNA]; col: int): int	

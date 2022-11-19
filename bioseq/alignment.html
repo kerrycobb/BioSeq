@@ -122,6 +122,11 @@ window.addEventListener('DOMContentLoaded', main);
     title="`$`[T](a: Alignment[T]): string">`$`[T](a: Alignment[T]): string</a></li>
 
   </ul>
+  <ul class="simple nested-toc-section">alleleCount
+      <li><a class="reference" href="#alleleCount%2CAlignment%5BDNA%5D%2Cint"
+    title="alleleCount(align: Alignment[DNA]; col: int): int">alleleCount(align: Alignment[DNA]; col: int): int</a></li>
+
+  </ul>
   <ul class="simple nested-toc-section">filterColumns
       <li><a class="reference" href="#filterColumns%2CAlignment%5BT%5D%2Cset%5BT%5D"
     title="filterColumns[T](a: Alignment[T]; filter: set[T]): Alignment[T]">filterColumns[T](a: Alignment[T]; filter: set[T]): Alignment[T]</a></li>
@@ -169,7 +174,7 @@ class="link-seesrc" target="_blank">Source</a>
   <div class="section" id="6">
 <h1><a class="toc-backref" href="#6">Imports</a></h1>
 <dl class="item">
-<a class="reference external" href="matrix.html">matrix</a>
+<a class="reference external" href="matrix.html">matrix</a>, <a class="reference external" href="nucleotide.html">nucleotide</a>
 </dl></div>
 <div class="section" id="7">
 <h1><a class="toc-backref" href="#7">Types</a></h1>
@@ -183,9 +188,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/alignment.nim#L7"
+href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/alignment.nim#L8"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/alignment.nim#L7" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/alignment.nim#L8" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -200,9 +205,21 @@ class="link-seesrc" target="_blank">Source</a>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/alignment.nim#L25"
+href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/alignment.nim#L26"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/alignment.nim#L25" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/alignment.nim#L26" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
+<div id="alleleCount,Alignment[DNA],int">
+<dt><pre><span class="Keyword">proc</span> <a href="#alleleCount%2CAlignment%5BDNA%5D%2Cint"><span class="Identifier">alleleCount</span></a><span class="Other">(</span><span class="Identifier">align</span><span class="Other">:</span> <a href="alignment.html#Alignment"><span class="Identifier">Alignment</span></a><span class="Other">[</span><a href="nucleotide.html#DNA"><span class="Identifier">DNA</span></a><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">col</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">int</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+<dd>
+
+N counted as missing data.
+&nbsp;&nbsp;<a
+href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/alignment.nim#L65"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/alignment.nim#L65" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -212,9 +229,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Filter columns for which the set of character states is equal or a subset of the given set.
 &nbsp;&nbsp;<a
-href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/alignment.nim#L48"
+href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/alignment.nim#L49"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/alignment.nim#L48" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/alignment.nim#L49" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -224,9 +241,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/alignment.nim#L22"
+href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/alignment.nim#L23"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/alignment.nim#L22" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/alignment.nim#L23" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -236,9 +253,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/alignment.nim#L11"
+href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/alignment.nim#L12"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/alignment.nim#L11" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/alignment.nim#L12" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -249,9 +266,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/alignment.nim#L14"
+href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/alignment.nim#L15"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/alignment.nim#L14" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/alignment.nim#L15" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -261,9 +278,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/alignment.nim#L19"
+href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/alignment.nim#L20"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/alignment.nim#L19" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/alignment.nim#L20" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -282,7 +299,7 @@ class="link-seesrc" target="_blank">Source</a>
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2022-11-14 23:37:58 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2022-11-19 06:27:04 UTC</small>
       </div>
     </div>
   </div>

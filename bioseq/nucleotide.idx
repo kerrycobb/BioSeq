@@ -93,6 +93,5 @@ isPurine	bioseq/nucleotide.html#isPurine,AnyNucleotide	nucleotide: isPurine(n: A
 isPyrimidine	bioseq/nucleotide.html#isPyrimidine,AnyNucleotide	nucleotide: isPyrimidine(n: AnyNucleotide): bool	
 sameBase	bioseq/nucleotide.html#sameBase,AnyNucleotide,AnyNucleotide	nucleotide: sameBase(a, b: AnyNucleotide): bool	
 diffBase	bioseq/nucleotide.html#diffBase,AnyNucleotide,AnyNucleotide	nucleotide: diffBase(a, b: AnyNucleotide): bool	
-toDiploidBiallelic	bioseq/nucleotide.html#toDiploidBiallelic,Alignment[DNA],int64	nucleotide: toDiploidBiallelic(a: Alignment[DNA]; seed: int64 = 1): Alignment[\n    DiploidBiallelic]	
 Nucleotide	bioseq/nucleotide.html#nucleotide	 Nucleotide	
 StrictNucleotide	bioseq/nucleotide.html#strictnucleotide	 StrictNucleotide	
