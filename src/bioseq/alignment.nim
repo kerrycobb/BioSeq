@@ -1,4 +1,5 @@
 import ./matrix
+import ./nucleotide
 import std/strutils
 
 export matrix
@@ -60,3 +61,14 @@ proc filterColumns*[T](a: Alignment[T], filter: set[T]): Alignment[T] =
     result.ids[row] = a.ids[row] 
     for col in 0 ..< keepCols.len:
       result.data[row, col] = a.data[row, keepCols[col]]
+
+proc alleleCount*(align: Alignment[DNA], col: int): int = 
+  ## N counted as missing data.
+  #TODO: Add option to consider N?
+  assert col >= 0 and col < align.nchars
+  var charSet: set[DNA]
+  for row in 0 ..< align.nseqs:
+    let c = align.data[row, col] 
+    if not (c in {dnaN, dnaGap, dnaUnk}):
+      charset.incl(toUnambiguousSet(c))
+  result = charSet.len
