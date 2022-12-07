@@ -10,6 +10,7 @@ import
     phylip,
     seqRecord,
     sequence,
+    structure,
     twoBitSequence]
 
 export 
@@ -23,6 +24,7 @@ export
   twoBitSequence,
   seqRecord,
   sequence,
+  structure,
   phylip
 
 ## #######
