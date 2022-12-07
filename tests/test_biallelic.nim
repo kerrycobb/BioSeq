@@ -25,7 +25,7 @@ suite "Biallelic":
         Sample2   ATGC N?-N TG AG AC AT GC GT CT N?- N-? TTA
         Sample3   ATGC N?-? NN AG AC AT GC GT CT N?- N-? GTA
         Sample4   ATGC N?-- ?? AG AC AT GC GT CT N?- N-? GRV
-        """.dedent
+        """
       expected = """
         4 28
         Sample1 2000202222111111111111111?-?
