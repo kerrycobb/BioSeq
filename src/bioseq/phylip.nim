@@ -248,9 +248,13 @@ iterator toPhylip*[T](a: Alignment[T], fmt: PhylipFormat, lineLength = 80): stri
     if i.len > maxIdLen: 
       maxIdLen = i.len
   if maxIdLen > lineLength - 2: 
-    echo "Warning: ID length exceeds line length. Full ID will be written ", 
-         "\n but no data will be written to the first block"
-
+    case fmt
+    of Interleaved:
+      echo "Warning: ID length exceeds line length. Full ID will be written ", 
+           "\n but no data will be written to the first block"
+    of Sequential:
+      echo "Warning: ID length exceeds line length. Full ID will be written ", 
+           "\n but no data will be written to the first line of each sequence"
   yield &"{a.nseqs} {a.nchars}\n"
 
   case fmt
