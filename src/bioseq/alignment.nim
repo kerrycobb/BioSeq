@@ -62,13 +62,78 @@ proc filterColumns*[T](a: Alignment[T], filter: set[T]): Alignment[T] =
     for col in 0 ..< keepCols.len:
       result.data[row, col] = a.data[row, keepCols[col]]
 
-proc alleleCount*(align: Alignment[DNA], col: int): int = 
+proc rowCharacterCount*[T](a: Alignment[T], row: int, chars: set[T]): int = 
+  ## Count number of characters in row belonging to chars set.
+  ## Doesn't account for ambiguous characters
+  # TODO: What to do about ambiguous characters?
+  for i in 0 ..< a.nchars: 
+    if a.data[row, i] in chars:
+      result += 1
+
+proc colCharacterCount*[T](a: Alignment[T], col: int, chars: set[T]): int = 
+  ## Count number of characters in row belonging to chars set.
+  ## Doesn't account for ambiguous characters
+  # TODO: What to do about ambiguous characters?
+  for i in 0 ..< a.nseqs: 
+    if a.data[i, col] in chars:
+      result += 1
+
+
+# TODO: Old implementation than needs to be integrated with the new code
+# proc nucleotideDiversity*(alignment: Alignment): float = 
+#   # TODO: Make sure this is right
+#   var pi = 0.0
+#   var nchar = float(alignment.nchars)
+#   for i in 0 ..< alignment.nseqs - 1:
+#     for j in i + 1 ..< alignment.nseqs: 
+#       var diff = 0 
+#       for k in 0 ..< alignment.nchars:
+#         if diffBase(alignment.seqs[i].data[k], alignment.seqs[j].data[k]):
+#           diff += 1 
+#       pi = ((float(diff) / nchar) + pi) / 2
+#   result = pi
+
+################################################################################
+# TODO: An approach similar to Dendropy might be better for these funtions. 
+# Each different character type will need a couple of different ignorable types
+# such as gap states and missing states. This would allow for more code reuse. 
+
+proc alleleCount*[T: Nucleotide](align: Alignment[T], col: int): int = 
   ## N counted as missing data.
-  #TODO: Add option to consider N?
+  mixin toUnambiguousSet
   assert col >= 0 and col < align.nchars
-  var charSet: set[DNA]
+  var charSet: set[T]
   for row in 0 ..< align.nseqs:
     let c = align.data[row, col] 
-    if not (c in {dnaN, dnaGap, dnaUnk}):
+    if not (c in {T(14), T(15), T(16)}): # {N, -, ?}
       charset.incl(toUnambiguousSet(c))
   result = charSet.len
+
+proc alleleCount*[T: StrictNucleotide](align: Alignment[T], col: int): int = 
+  mixin toUnambiguousSet
+  assert col >= 0 and col < align.nchars
+  var charSet: set[T]
+  for row in 0 ..< align.nseqs:
+    let c = align.data[row, col]
+    charset.incl(toUnambiguousSet(c))
+  result = charSet.len
+
+proc numPolymorphicSites*[T](align: Alignment[T]): int = 
+  ## Returns the number of polymorphic (segregating) sites in the alignment.
+  #TODO: Might be able to make this faster for Nucleotides doing something like
+  # I did in the old implementation
+  for i in 0 ..< align.nchars:
+    if align.alleleCount(i) > 1:
+      result += 1
+
+# Old implementation
+# proc countSegregatingSites*(alignment: Alignment): int =
+# Wouldn't work if first site was N?
+#   for i in 0 ..< alignment.nchars: # Iter over sites in alignment 
+#     while true:
+#       for j in 0 ..< alignment.nseqs: # Iter over seqs in alignmnent 
+#         if diffBase(alignment.seqs[0].data[i], alignment.seqs[j].data[i]):
+#           result += 1
+#           break
+#       break
+

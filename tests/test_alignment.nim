@@ -40,3 +40,23 @@ suite "Alignment":
     check a.alleleCount(7) == 2
     check a.alleleCount(8) == 3
     check a.alleleCount(9) == 3
+  
+  let 
+    phyString = """
+      4 31 
+      Sample1   ATGC ATGC AC RR MM WW SS KK YY RRR N-? AAA
+      Sample2   ATGC N?-N TG AG AC AT GC GT CT N?- N-? TTA
+      Sample3   ATGC N?-? NN AG AC AT GC GT CT N?- N-? GTA
+      Sample4   ATGC N?-- ?? AG AC AT GC GT CT N?- N-? GRV
+      """
+    align = parsePhylipString(phyString, DNA, Sequential)
+
+  test "Character count":
+    var 
+      aCounts: seq[int]
+      missCounts: seq[int]
+    for i in 0 ..< align.nseqs: 
+      aCounts.add(align.rowCharacterCount(i, {dnaA}))
+      missCounts.add(align.rowCharacterCount(i, {dnaGap, dnaUnk, dnaN}))
+    check aCounts == @[6, 5, 5, 4]
+    check missCounts == @[3, 10, 12, 12]
