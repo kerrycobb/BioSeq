@@ -93,7 +93,7 @@ proc colCharacterCount*[T](a: Alignment[T], col: int, chars: set[T]): int =
 #       pi = ((float(diff) / nchar) + pi) / 2
 #   result = pi
 
-################################################################################
+# ##############################################################################
 # TODO: An approach similar to Dendropy might be better for these funtions. 
 # Each different character type will need a couple of different ignorable types
 # such as gap states and missing states. This would allow for more code reuse. 
