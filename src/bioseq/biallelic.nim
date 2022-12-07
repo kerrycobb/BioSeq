@@ -18,10 +18,13 @@ func parseChar*(c: char, typ: typedesc[HaploidBiallelic]): HaploidBiallelic =
   ## Parse character to DiploidBiallelic enum type.
   generateParser(c, haploidBiallelicChar, HaploidBiallelic)
 
+type Biallelic* = DiploidBiallelic | HaploidBiallelic
 
 proc toDiploidBiallelic*(a: Alignment[DNA], seed: int64 = 1): Alignment[DiploidBiallelic] = 
   ## Convert DNA alignment to biallelic alignment. Filters out sites with more
   ## than two character states. N treated as missing data.
+  # TODO: Implement options for rataining multi allelic sites. 1) Randomly
+  # assign ancestral state. 2) Use reference sequence for assigning ancestral state.
   randomize(seed)
   # Get character states in each alignment column
   var 
