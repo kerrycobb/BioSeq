@@ -15,4 +15,5 @@ HaploidBiallelic	bioseq/biallelic.html#HaploidBiallelic	biallelic: HaploidBialle
 haploidBiallelicChar	bioseq/biallelic.html#haploidBiallelicChar	biallelic: haploidBiallelicChar	
 toChar	bioseq/biallelic.html#toChar,HaploidBiallelic	biallelic: toChar(n: HaploidBiallelic): char	
 parseChar	bioseq/biallelic.html#parseChar,char,typedesc[HaploidBiallelic]	biallelic: parseChar(c: char; typ: typedesc[HaploidBiallelic]): HaploidBiallelic	
+Biallelic	bioseq/biallelic.html#Biallelic	biallelic: Biallelic	
 toDiploidBiallelic	bioseq/biallelic.html#toDiploidBiallelic,Alignment[DNA],int64	biallelic: toDiploidBiallelic(a: Alignment[DNA]; seed: int64 = 1): Alignment[\n    DiploidBiallelic]	

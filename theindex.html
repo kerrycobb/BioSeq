@@ -70,7 +70,7 @@ window.addEventListener('DOMContentLoaded', main);
 <div class="document" id="documentId">
   <div class="container">
     <h1 class="title">Index</h1>
-    Documents: <a href="bioseq.html">BioSeq</a>.<br/><p />Modules: <a href="bioseq/alignment.html">bioseq/alignment</a>, <a href="bioseq/aminoAcid.html">bioseq/aminoAcid</a>, <a href="bioseq/biallelic.html">bioseq/biallelic</a>, <a href="bioseq/fasta.html">bioseq/fasta</a>, <a href="bioseq/matrix.html">bioseq/matrix</a>, <a href="bioseq/nexus.html">bioseq/nexus</a>, <a href="bioseq/nucleotide.html">bioseq/nucleotide</a>, <a href="bioseq/parserMacro.html">bioseq/parserMacro</a>, <a href="bioseq/phylip.html">bioseq/phylip</a>, <a href="bioseq/seqRecord.html">bioseq/seqRecord</a>, <a href="bioseq/sequence.html">bioseq/sequence</a>, <a href="bioseq/twoBitSequence.html">bioseq/twoBitSequence</a>.<br/><p /><h2>API symbols</h2>
+    Documents: <a href="bioseq.html">BioSeq</a>.<br/><p />Modules: <a href="bioseq/alignment.html">bioseq/alignment</a>, <a href="bioseq/aminoAcid.html">bioseq/aminoAcid</a>, <a href="bioseq/biallelic.html">bioseq/biallelic</a>, <a href="bioseq/fasta.html">bioseq/fasta</a>, <a href="bioseq/matrix.html">bioseq/matrix</a>, <a href="bioseq/nexus.html">bioseq/nexus</a>, <a href="bioseq/nucleotide.html">bioseq/nucleotide</a>, <a href="bioseq/parserMacro.html">bioseq/parserMacro</a>, <a href="bioseq/phylip.html">bioseq/phylip</a>, <a href="bioseq/seqRecord.html">bioseq/seqRecord</a>, <a href="bioseq/sequence.html">bioseq/sequence</a>, <a href="bioseq/structure.html">bioseq/structure</a>, <a href="bioseq/twoBitSequence.html">bioseq/twoBitSequence</a>.<br/><p /><h2>API symbols</h2>
 <dl><dt><a name="%60%24%60" href="#%60%24%60"><span>`$`:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="alignment: `$`[T](a: Alignment[T]): string" href="bioseq/alignment.html#%24%2CAlignment%5BT%5D">alignment: `$`[T](a: Alignment[T]): string</a></li>
@@ -209,7 +209,9 @@ window.addEventListener('DOMContentLoaded', main);
           </ul></dd>
 <dt><a name="alleleCount" href="#alleleCount"><span>alleleCount:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="alignment: alleleCount(align: Alignment[DNA]; col: int): int" href="bioseq/alignment.html#alleleCount%2CAlignment%5BDNA%5D%2Cint">alignment: alleleCount(align: Alignment[DNA]; col: int): int</a></li>
+          data-doc-search-tag="alignment: alleleCount[T: Nucleotide](align: Alignment[T]; col: int): int" href="bioseq/alignment.html#alleleCount%2CAlignment%5BT%3A%20Nucleotide%5D%2Cint">alignment: alleleCount[T: Nucleotide](align: Alignment[T]; col: int): int</a></li>
+          <li><a class="reference external"
+          data-doc-search-tag="alignment: alleleCount[T: StrictNucleotide](align: Alignment[T]; col: int): int" href="bioseq/alignment.html#alleleCount%2CAlignment%5BT%3A%20StrictNucleotide%5D%2Cint">alignment: alleleCount[T: StrictNucleotide](align: Alignment[T]; col: int): int</a></li>
           </ul></dd>
 <dt><a name="AminoAcid" href="#AminoAcid"><span>AminoAcid:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -231,6 +233,10 @@ window.addEventListener('DOMContentLoaded', main);
 <li><a class="reference external"
           data-doc-search-tag="nucleotide: AnyNucleotide" href="bioseq/nucleotide.html#AnyNucleotide">nucleotide: AnyNucleotide</a></li>
           </ul></dd>
+<dt><a name="Biallelic" href="#Biallelic"><span>Biallelic:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="biallelic: Biallelic" href="bioseq/biallelic.html#Biallelic">biallelic: Biallelic</a></li>
+          </ul></dd>
 <dt><a name="bitSeq" href="#bitSeq"><span>bitSeq:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="twoBitSequence: bitSeq[T](s: TwoBitSequence[T]): BitArray" href="bioseq/twoBitSequence.html#bitSeq%2CTwoBitSequence%5BT%5D">twoBitSequence: bitSeq[T](s: TwoBitSequence[T]): BitArray</a></li>
@@ -244,6 +250,10 @@ window.addEventListener('DOMContentLoaded', main);
           data-doc-search-tag="nucleotide: byte(n: StrictDNA): byte" href="bioseq/nucleotide.html#byte%2CStrictDNA">nucleotide: byte(n: StrictDNA): byte</a></li>
           <li><a class="reference external"
           data-doc-search-tag="nucleotide: byte(n: StrictRNA): byte" href="bioseq/nucleotide.html#byte%2CStrictRNA">nucleotide: byte(n: StrictRNA): byte</a></li>
+          </ul></dd>
+<dt><a name="colCharacterCount" href="#colCharacterCount"><span>colCharacterCount:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="alignment: colCharacterCount[T](a: Alignment[T]; col: int; chars: set[T]): int" href="bioseq/alignment.html#colCharacterCount%2CAlignment%5BT%5D%2Cint%2Cset%5BT%5D">alignment: colCharacterCount[T](a: Alignment[T]; col: int; chars: set[T]): int</a></li>
           </ul></dd>
 <dt><a name="cols" href="#cols"><span>cols:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -306,6 +316,10 @@ window.addEventListener('DOMContentLoaded', main);
 <dt><a name="diploidBiallelicChar" href="#diploidBiallelicChar"><span>diploidBiallelicChar:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="biallelic: diploidBiallelicChar" href="bioseq/biallelic.html#diploidBiallelicChar">biallelic: diploidBiallelicChar</a></li>
+          </ul></dd>
+<dt><a name="diploidStructureChar" href="#diploidStructureChar"><span>diploidStructureChar:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="structure: diploidStructureChar" href="bioseq/structure.html#diploidStructureChar">structure: diploidStructureChar</a></li>
           </ul></dd>
 <dt><a name="DNA" href="#DNA"><span>DNA:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -519,6 +533,10 @@ window.addEventListener('DOMContentLoaded', main);
 <li><a class="reference external"
           data-doc-search-tag="biallelic: haploidBiallelicChar" href="bioseq/biallelic.html#haploidBiallelicChar">biallelic: haploidBiallelicChar</a></li>
           </ul></dd>
+<dt><a name="haploidStructureChar" href="#haploidStructureChar"><span>haploidStructureChar:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="structure: haploidStructureChar" href="bioseq/structure.html#haploidStructureChar">structure: haploidStructureChar</a></li>
+          </ul></dd>
 <dt><a name="hb0" href="#hb0"><span>hb0:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="HaploidBiallelic.hb0" href="bioseq/biallelic.html#hb0">HaploidBiallelic.hb0</a></li>
@@ -632,6 +650,10 @@ window.addEventListener('DOMContentLoaded', main);
 <dt><a name="Nucleotide" href="#Nucleotide"><span>Nucleotide:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="nucleotide: Nucleotide" href="bioseq/nucleotide.html#Nucleotide">nucleotide: Nucleotide</a></li>
+          </ul></dd>
+<dt><a name="numPolymorphicSites" href="#numPolymorphicSites"><span>numPolymorphicSites:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="alignment: numPolymorphicSites[T](align: Alignment[T]): int" href="bioseq/alignment.html#numPolymorphicSites%2CAlignment%5BT%5D">alignment: numPolymorphicSites[T](align: Alignment[T]): int</a></li>
           </ul></dd>
 <dt><a name="parseChar" href="#parseChar"><span>parseChar:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -764,6 +786,10 @@ window.addEventListener('DOMContentLoaded', main);
 <dt><a name="rnaY" href="#rnaY"><span>rnaY:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="RNA.rnaY" href="bioseq/nucleotide.html#rnaY">RNA.rnaY</a></li>
+          </ul></dd>
+<dt><a name="rowCharacterCount" href="#rowCharacterCount"><span>rowCharacterCount:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="alignment: rowCharacterCount[T](a: Alignment[T]; row: int; chars: set[T]): int" href="bioseq/alignment.html#rowCharacterCount%2CAlignment%5BT%5D%2Cint%2Cset%5BT%5D">alignment: rowCharacterCount[T](a: Alignment[T]; row: int; chars: set[T]): int</a></li>
           </ul></dd>
 <dt><a name="rows" href="#rows"><span>rows:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -949,6 +975,24 @@ window.addEventListener('DOMContentLoaded', main);
           <li><a class="reference external"
           data-doc-search-tag="sequence: toString[T](data: seq[T]): string" href="bioseq/sequence.html#toString%2Cseq%5BT%5D">sequence: toString[T](data: seq[T]): string</a></li>
           </ul></dd>
+<dt><a name="toStructure" href="#toStructure"><span>toStructure:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="structure: toStructure[T: Biallelic](a: Alignment[T]): string" href="bioseq/structure.html#toStructure.i%2CAlignment%5BT%3A%20Biallelic%5D">structure: toStructure[T: Biallelic](a: Alignment[T]): string</a></li>
+          </ul></dd>
+<dt><a name="toStructureCharStr" href="#toStructureCharStr"><span>toStructureCharStr:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="structure: toStructureCharStr(n: DiploidBiallelic): string" href="bioseq/structure.html#toStructureCharStr%2CDiploidBiallelic">structure: toStructureCharStr(n: DiploidBiallelic): string</a></li>
+          <li><a class="reference external"
+          data-doc-search-tag="structure: toStructureCharStr(n: HaploidBiallelic): string" href="bioseq/structure.html#toStructureCharStr%2CHaploidBiallelic">structure: toStructureCharStr(n: HaploidBiallelic): string</a></li>
+          </ul></dd>
+<dt><a name="toStructureFile" href="#toStructureFile"><span>toStructureFile:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="structure: toStructureFile(a: Alignment[Biallelic]; path: string)" href="bioseq/structure.html#toStructureFile%2CAlignment%5BBiallelic%5D%2Cstring">structure: toStructureFile(a: Alignment[Biallelic]; path: string)</a></li>
+          </ul></dd>
+<dt><a name="toStructureString" href="#toStructureString"><span>toStructureString:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="structure: toStructureString[T: Biallelic](a: Alignment[T]): string" href="bioseq/structure.html#toStructureString%2CAlignment%5BT%3A%20Biallelic%5D">structure: toStructureString[T: Biallelic](a: Alignment[T]): string</a></li>
+          </ul></dd>
 <dt><a name="toUnambiguousSet" href="#toUnambiguousSet"><span>toUnambiguousSet:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="nucleotide: toUnambiguousSet(n: DNA): set[DNA]" href="bioseq/nucleotide.html#toUnambiguousSet%2CDNA">nucleotide: toUnambiguousSet(n: DNA): set[DNA]</a></li>
@@ -974,7 +1018,7 @@ window.addEventListener('DOMContentLoaded', main);
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2022-11-19 06:27:08 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2022-12-07 00:50:56 UTC</small>
       </div>
     </div>
   </div>

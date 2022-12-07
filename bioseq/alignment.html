@@ -123,8 +123,15 @@ window.addEventListener('DOMContentLoaded', main);
 
   </ul>
   <ul class="simple nested-toc-section">alleleCount
-      <li><a class="reference" href="#alleleCount%2CAlignment%5BDNA%5D%2Cint"
-    title="alleleCount(align: Alignment[DNA]; col: int): int">alleleCount(align: Alignment[DNA]; col: int): int</a></li>
+      <li><a class="reference" href="#alleleCount%2CAlignment%5BT%3A%20Nucleotide%5D%2Cint"
+    title="alleleCount[T: Nucleotide](align: Alignment[T]; col: int): int">alleleCount[T: Nucleotide](align: Alignment[T]; col: int): int</a></li>
+  <li><a class="reference" href="#alleleCount%2CAlignment%5BT%3A%20StrictNucleotide%5D%2Cint"
+    title="alleleCount[T: StrictNucleotide](align: Alignment[T]; col: int): int">alleleCount[T: StrictNucleotide](align: Alignment[T]; col: int): int</a></li>
+
+  </ul>
+  <ul class="simple nested-toc-section">colCharacterCount
+      <li><a class="reference" href="#colCharacterCount%2CAlignment%5BT%5D%2Cint%2Cset%5BT%5D"
+    title="colCharacterCount[T](a: Alignment[T]; col: int; chars: set[T]): int">colCharacterCount[T](a: Alignment[T]; col: int; chars: set[T]): int</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">filterColumns
@@ -147,6 +154,16 @@ window.addEventListener('DOMContentLoaded', main);
   <ul class="simple nested-toc-section">nseqs
       <li><a class="reference" href="#nseqs%2CAlignment%5BT%5D"
     title="nseqs[T](a: Alignment[T]): int">nseqs[T](a: Alignment[T]): int</a></li>
+
+  </ul>
+  <ul class="simple nested-toc-section">numPolymorphicSites
+      <li><a class="reference" href="#numPolymorphicSites%2CAlignment%5BT%5D"
+    title="numPolymorphicSites[T](align: Alignment[T]): int">numPolymorphicSites[T](align: Alignment[T]): int</a></li>
+
+  </ul>
+  <ul class="simple nested-toc-section">rowCharacterCount
+      <li><a class="reference" href="#rowCharacterCount%2CAlignment%5BT%5D%2Cint%2Cset%5BT%5D"
+    title="rowCharacterCount[T](a: Alignment[T]; row: int; chars: set[T]): int">rowCharacterCount[T](a: Alignment[T]; row: int; chars: set[T]): int</a></li>
 
   </ul>
 
@@ -211,15 +228,39 @@ class="link-seesrc" target="_blank">Source</a>
 
 </dd>
 </div>
-<div id="alleleCount,Alignment[DNA],int">
-<dt><pre><span class="Keyword">proc</span> <a href="#alleleCount%2CAlignment%5BDNA%5D%2Cint"><span class="Identifier">alleleCount</span></a><span class="Other">(</span><span class="Identifier">align</span><span class="Other">:</span> <a href="alignment.html#Alignment"><span class="Identifier">Alignment</span></a><span class="Other">[</span><a href="nucleotide.html#DNA"><span class="Identifier">DNA</span></a><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">col</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">int</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+<div id="alleleCount,Alignment[T: Nucleotide],int">
+<dt><pre><span class="Keyword">proc</span> <a href="#alleleCount%2CAlignment%5BT%3A%20Nucleotide%5D%2Cint"><span class="Identifier">alleleCount</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">:</span> <a href="nucleotide.html#Nucleotide"><span class="Identifier">Nucleotide</span></a><span class="Other">]</span><span class="Other">(</span><span class="Identifier">align</span><span class="Other">:</span> <a href="alignment.html#Alignment"><span class="Identifier">Alignment</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">col</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">int</span></pre></dt>
 <dd>
 
 N counted as missing data.
 &nbsp;&nbsp;<a
-href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/alignment.nim#L65"
+href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/alignment.nim#L101"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/alignment.nim#L65" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/alignment.nim#L101" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
+<div id="alleleCount,Alignment[T: StrictNucleotide],int">
+<dt><pre><span class="Keyword">proc</span> <a href="#alleleCount%2CAlignment%5BT%3A%20StrictNucleotide%5D%2Cint"><span class="Identifier">alleleCount</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">:</span> <a href="nucleotide.html#StrictNucleotide"><span class="Identifier">StrictNucleotide</span></a><span class="Other">]</span><span class="Other">(</span><span class="Identifier">align</span><span class="Other">:</span> <a href="alignment.html#Alignment"><span class="Identifier">Alignment</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">col</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">int</span></pre></dt>
+<dd>
+
+
+&nbsp;&nbsp;<a
+href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/alignment.nim#L112"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/alignment.nim#L112" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
+<div id="colCharacterCount,Alignment[T],int,set[T]">
+<dt><pre><span class="Keyword">proc</span> <a href="#colCharacterCount%2CAlignment%5BT%5D%2Cint%2Cset%5BT%5D"><span class="Identifier">colCharacterCount</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">a</span><span class="Other">:</span> <a href="alignment.html#Alignment"><span class="Identifier">Alignment</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">col</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span> <span class="Identifier">chars</span><span class="Other">:</span> <span class="Identifier">set</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">int</span></pre></dt>
+<dd>
+
+Count number of characters in row belonging to chars set. Doesn't account for ambiguous characters
+&nbsp;&nbsp;<a
+href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/alignment.nim#L73"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/alignment.nim#L73" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -284,6 +325,30 @@ class="link-seesrc" target="_blank">Source</a>
 
 </dd>
 </div>
+<div id="numPolymorphicSites,Alignment[T]">
+<dt><pre><span class="Keyword">proc</span> <a href="#numPolymorphicSites%2CAlignment%5BT%5D"><span class="Identifier">numPolymorphicSites</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">align</span><span class="Other">:</span> <a href="alignment.html#Alignment"><span class="Identifier">Alignment</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">int</span></pre></dt>
+<dd>
+
+Returns the number of polymorphic (segregating) sites in the alignment.
+&nbsp;&nbsp;<a
+href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/alignment.nim#L121"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/alignment.nim#L121" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
+<div id="rowCharacterCount,Alignment[T],int,set[T]">
+<dt><pre><span class="Keyword">proc</span> <a href="#rowCharacterCount%2CAlignment%5BT%5D%2Cint%2Cset%5BT%5D"><span class="Identifier">rowCharacterCount</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">a</span><span class="Other">:</span> <a href="alignment.html#Alignment"><span class="Identifier">Alignment</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">row</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span> <span class="Identifier">chars</span><span class="Other">:</span> <span class="Identifier">set</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">int</span></pre></dt>
+<dd>
+
+Count number of characters in row belonging to chars set. Doesn't account for ambiguous characters
+&nbsp;&nbsp;<a
+href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/alignment.nim#L65"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/alignment.nim#L65" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
 
 </dl></div>
 <div class="section" id="19">
@@ -299,7 +364,7 @@ class="link-seesrc" target="_blank">Source</a>
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2022-11-19 06:27:04 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2022-12-07 00:50:51 UTC</small>
       </div>
     </div>
   </div>

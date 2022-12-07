@@ -1,0 +1,7 @@
+diploidStructureChar	bioseq/structure.html#diploidStructureChar	structure: diploidStructureChar	
+haploidStructureChar	bioseq/structure.html#haploidStructureChar	structure: haploidStructureChar	
+toStructureCharStr	bioseq/structure.html#toStructureCharStr,DiploidBiallelic	structure: toStructureCharStr(n: DiploidBiallelic): string	
+toStructureCharStr	bioseq/structure.html#toStructureCharStr,HaploidBiallelic	structure: toStructureCharStr(n: HaploidBiallelic): string	
+toStructure	bioseq/structure.html#toStructure.i,Alignment[T: Biallelic]	structure: toStructure[T: Biallelic](a: Alignment[T]): string	
+toStructureFile	bioseq/structure.html#toStructureFile,Alignment[Biallelic],string	structure: toStructureFile(a: Alignment[Biallelic]; path: string)	
+toStructureString	bioseq/structure.html#toStructureString,Alignment[T: Biallelic]	structure: toStructureString[T: Biallelic](a: Alignment[T]): string	

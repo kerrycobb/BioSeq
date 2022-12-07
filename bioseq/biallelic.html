@@ -107,7 +107,9 @@ window.addEventListener('DOMContentLoaded', main);
 <li>
   <a class="reference reference-toplevel" href="#7" id="57">Types</a>
   <ul class="simple simple-toc-section">
-      <li><a class="reference" href="#DiploidBiallelic"
+      <li><a class="reference" href="#Biallelic"
+    title="Biallelic = DiploidBiallelic | HaploidBiallelic">Biallelic</a></li>
+  <li><a class="reference" href="#DiploidBiallelic"
     title="DiploidBiallelic = enum
   db0, db1, db2, dbGap, dbUnk">DiploidBiallelic</a></li>
   <li><a class="reference" href="#HaploidBiallelic"
@@ -174,6 +176,18 @@ class="link-seesrc" target="_blank">Source</a>
 <div class="section" id="7">
 <h1><a class="toc-backref" href="#7">Types</a></h1>
 <dl class="item">
+<div id="Biallelic">
+<dt><pre><a href="biallelic.html#Biallelic"><span class="Identifier">Biallelic</span></a> <span class="Other">=</span> <a href="biallelic.html#DiploidBiallelic"><span class="Identifier">DiploidBiallelic</span></a> <span class="Operator">|</span> <a href="biallelic.html#HaploidBiallelic"><span class="Identifier">HaploidBiallelic</span></a></pre></dt>
+<dd>
+
+
+&nbsp;&nbsp;<a
+href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/biallelic.nim#L21"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/biallelic.nim#L21" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
 <div id="DiploidBiallelic">
 <dt><pre><a href="biallelic.html#DiploidBiallelic"><span class="Identifier">DiploidBiallelic</span></a> <span class="Other">=</span> <span class="Keyword">enum</span>
   <span class="Identifier">db0</span><span class="Other">,</span> <span class="Identifier">db1</span><span class="Other">,</span> <span class="Identifier">db2</span><span class="Other">,</span> <span class="Identifier">dbGap</span><span class="Other">,</span> <span class="Identifier">dbUnk</span></pre></dt>
@@ -289,9 +303,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Convert DNA alignment to biallelic alignment. Filters out sites with more than two character states. N treated as missing data.
 &nbsp;&nbsp;<a
-href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/biallelic.nim#L22"
+href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/biallelic.nim#L23"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/biallelic.nim#L22" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/biallelic.nim#L23" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -305,7 +319,7 @@ class="link-seesrc" target="_blank">Source</a>
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2022-11-19 06:27:05 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2022-12-07 00:50:52 UTC</small>
       </div>
     </div>
   </div>
