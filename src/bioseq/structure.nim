@@ -27,8 +27,9 @@ iterator toStructure*[T: Biallelic](a: Alignment[T]): string =
       line.add(' ')
       line.add(a.data[i,j].toStructureCharStr)
     if i < a.nseqs - 1:
-      line.add('\n')
-    yield line & line
+      yield line & '\n' & line & '\n'
+    else:
+      yield line & '\n' & line
 
 proc toStructureFile*(a: Alignment[Biallelic], path: string) = 
   ## Write data to file in Structure format.

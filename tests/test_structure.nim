@@ -14,10 +14,15 @@ suite "Structure":
         """
       expected = """
         Sample1  2  0  0  0  2  0  2  2  2  2  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1 -9 -9 -9
+        Sample1  2  0  0  0  2  0  2  2  2  2  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1 -9 -9 -9
+        Sample2  2  0  0  0 -9 -9 -9 -9  0  0  2  2  0  0  2  0  2  0  0  0  2  0 -9 -9 -9 -9 -9 -9
         Sample2  2  0  0  0 -9 -9 -9 -9  0  0  2  2  0  0  2  0  2  0  0  0  2  0 -9 -9 -9 -9 -9 -9
         Sample3  2  0  0  0 -9 -9 -9 -9 -9 -9  2  2  0  0  2  0  2  0  0  0  2  0 -9 -9 -9 -9 -9 -9
+        Sample3  2  0  0  0 -9 -9 -9 -9 -9 -9  2  2  0  0  2  0  2  0  0  0  2  0 -9 -9 -9 -9 -9 -9
+        Sample4  2  0  0  0 -9 -9 -9 -9 -9 -9  2  2  0  0  2  0  2  0  0  0  2  0 -9 -9 -9 -9 -9 -9
         Sample4  2  0  0  0 -9 -9 -9 -9 -9 -9  2  2  0  0  2  0  2  0  0  0  2  0 -9 -9 -9 -9 -9 -9""".dedent
       inAlign = parsePhylipString(phyString, DNA, Sequential)
       biAlign = inAlign.toDiploidBiallelic
       structStr = biAlign.toStructureString
+    
     check structStr == expected 
