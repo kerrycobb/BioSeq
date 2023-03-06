@@ -62,6 +62,18 @@ proc filterColumns*[T](a: Alignment[T], filter: set[T]): Alignment[T] =
     for col in 0 ..< keepCols.len:
       result.data[row, col] = a.data[row, keepCols[col]]
 
+proc filterSamples*[T](a: Alignment[T], samples: seq[string]): Alignment[T] = 
+  ## Filter samples matching sample ids contained in `samples`
+  var keepRows = newSeqOfCap[int](a.nseqs)
+  for row in 0 ..< a.nseqs: 
+    if not samples.contains(a.ids[row]):
+      keepRows.add(row) 
+  result = newAlignment[T](keepRows.len, a.nchars)
+  for row in 0 ..< keepRows.len: 
+    result.ids[row] = a.ids[keepRows[row]]
+    for col in 0 ..< a.nchars:
+      result.data[row, col] = a.data[keepRows[row], col]
+
 proc rowCharacterCount*[T](a: Alignment[T], row: int, chars: set[T]): int = 
   ## Count number of characters in row belonging to chars set.
   ## Doesn't account for ambiguous characters
@@ -136,4 +148,3 @@ proc numPolymorphicSites*[T](align: Alignment[T]): int =
 #           result += 1
 #           break
 #       break
-

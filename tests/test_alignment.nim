@@ -12,12 +12,32 @@ suite "Alignment":
         Sample3 AN-??V
         """
       expected = """
-      3 1
-      Sample1 A
-      Sample2 A
-      Sample3 A""".dedent
+        3 1
+        Sample1 A
+        Sample2 A
+        Sample3 A""".dedent
       inAlign = parsePhylipString(phyString, DNA, Sequential)
       filtered = inAlign.filterColumns({dnaN, dnaUnk, dnaGap, dnaV})
+      filteredStr = filtered.toPhylipString(Sequential)
+    check filteredStr == expected
+  
+  test "filterSamples":
+    let 
+      phyString = """
+        5 6
+        Sample1 ATGC-?
+        Sample2 ATGC-?
+        Sample3 ATGC-?
+        Sample4 ATGC-?
+        Sample5 ATGC-?
+        """
+      expected = """
+        3 6
+        Sample3 ATGC-?
+        Sample4 ATGC-?
+        Sample5 ATGC-?""".dedent
+      inAlign = parsePhylipString(phyString, DNA, Sequential)
+      filtered = inAlign.filterSamples(@["Sample1", "Sample2"])
       filteredStr = filtered.toPhylipString(Sequential)
     check filteredStr == expected
 
