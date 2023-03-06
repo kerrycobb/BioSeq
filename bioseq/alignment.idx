@@ -5,6 +5,7 @@ nseqs	bioseq/alignment.html#nseqs,Alignment[T]	alignment: nseqs[T](a: Alignment[
 nchars	bioseq/alignment.html#nchars,Alignment[T]	alignment: nchars[T](a: Alignment[T]): int	
 `$`	bioseq/alignment.html#$,Alignment[T]	alignment: `$`[T](a: Alignment[T]): string	
 filterColumns	bioseq/alignment.html#filterColumns,Alignment[T],set[T]	alignment: filterColumns[T](a: Alignment[T]; filter: set[T]): Alignment[T]	
+filterSamples	bioseq/alignment.html#filterSamples,Alignment[T],seq[string]	alignment: filterSamples[T](a: Alignment[T]; samples: seq[string]): Alignment[T]	
 rowCharacterCount	bioseq/alignment.html#rowCharacterCount,Alignment[T],int,set[T]	alignment: rowCharacterCount[T](a: Alignment[T]; row: int; chars: set[T]): int	
 colCharacterCount	bioseq/alignment.html#colCharacterCount,Alignment[T],int,set[T]	alignment: colCharacterCount[T](a: Alignment[T]; col: int; chars: set[T]): int	
 alleleCount	bioseq/alignment.html#alleleCount,Alignment[T: Nucleotide],int	alignment: alleleCount[T: Nucleotide](align: Alignment[T]; col: int): int	

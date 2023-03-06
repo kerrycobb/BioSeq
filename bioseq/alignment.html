@@ -139,6 +139,11 @@ window.addEventListener('DOMContentLoaded', main);
     title="filterColumns[T](a: Alignment[T]; filter: set[T]): Alignment[T]">filterColumns[T](a: Alignment[T]; filter: set[T]): Alignment[T]</a></li>
 
   </ul>
+  <ul class="simple nested-toc-section">filterSamples
+      <li><a class="reference" href="#filterSamples%2CAlignment%5BT%5D%2Cseq%5Bstring%5D"
+    title="filterSamples[T](a: Alignment[T]; samples: seq[string]): Alignment[T]">filterSamples[T](a: Alignment[T]; samples: seq[string]): Alignment[T]</a></li>
+
+  </ul>
   <ul class="simple nested-toc-section">nchars
       <li><a class="reference" href="#nchars%2CAlignment%5BT%5D"
     title="nchars[T](a: Alignment[T]): int">nchars[T](a: Alignment[T]): int</a></li>
@@ -234,9 +239,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 N counted as missing data.
 &nbsp;&nbsp;<a
-href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/alignment.nim#L101"
+href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/alignment.nim#L113"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/alignment.nim#L101" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/alignment.nim#L113" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -246,9 +251,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/alignment.nim#L112"
+href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/alignment.nim#L124"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/alignment.nim#L112" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/alignment.nim#L124" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -258,9 +263,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Count number of characters in row belonging to chars set. Doesn't account for ambiguous characters
 &nbsp;&nbsp;<a
-href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/alignment.nim#L73"
+href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/alignment.nim#L85"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/alignment.nim#L73" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/alignment.nim#L85" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -273,6 +278,18 @@ Filter columns for which the set of character states is equal or a subset of the
 href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/alignment.nim#L49"
 class="link-seesrc" target="_blank">Source</a>
 &nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/alignment.nim#L49" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
+<div id="filterSamples,Alignment[T],seq[string]">
+<dt><pre><span class="Keyword">proc</span> <a href="#filterSamples%2CAlignment%5BT%5D%2Cseq%5Bstring%5D"><span class="Identifier">filterSamples</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">a</span><span class="Other">:</span> <a href="alignment.html#Alignment"><span class="Identifier">Alignment</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">samples</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><span class="Identifier">string</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <a href="alignment.html#Alignment"><span class="Identifier">Alignment</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span></pre></dt>
+<dd>
+
+Filter samples matching sample ids contained in <tt class="docutils literal"><span class="pre"><span class="Identifier">samples</span></span></tt>
+&nbsp;&nbsp;<a
+href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/alignment.nim#L65"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/alignment.nim#L65" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -331,9 +348,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Returns the number of polymorphic (segregating) sites in the alignment.
 &nbsp;&nbsp;<a
-href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/alignment.nim#L121"
+href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/alignment.nim#L133"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/alignment.nim#L121" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/alignment.nim#L133" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -343,9 +360,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Count number of characters in row belonging to chars set. Doesn't account for ambiguous characters
 &nbsp;&nbsp;<a
-href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/alignment.nim#L65"
+href="https://github.com/kerrycobb/BioSeq/tree/main/src/bioseq/alignment.nim#L77"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/alignment.nim#L65" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/kerrycobb/BioSeq/edit/devel/src/bioseq/alignment.nim#L77" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -364,7 +381,7 @@ class="link-seesrc" target="_blank">Source</a>
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2023-02-01 22:26:02 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2023-03-06 18:20:09 UTC</small>
       </div>
     </div>
   </div>
